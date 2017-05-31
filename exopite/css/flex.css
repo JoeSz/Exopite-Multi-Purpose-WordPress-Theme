@@ -1,0 +1,7 @@
+.flex {
+    display: flex;
+    flex: 1;
+    -webkit-flex-wrap: wrap;
+         ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+}

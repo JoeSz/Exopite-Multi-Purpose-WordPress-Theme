@@ -1,0 +1,87 @@
+/*----------------*/
+/***** Apollo *****/
+/*----------------*/
+/* https://tympanus.net/Development/HoverEffectIdeas/index2.html */
+
+.effect-thumbnail {
+    overflow: hidden;
+    position: relative;
+    float: left;
+}
+.effect-thumbnail img {
+    -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+    transition: opacity 0.35s, transform 0.35s;
+    -webkit-transform: scale3d(1.05,1.05,1);
+    transform: scale3d(1.05,1.05,1);
+}
+.effect-thumbnail:hover img {
+    -webkit-transform: scale3d(1,1,1);
+    transform: scale3d(1,1,1);
+}
+.effect-thumbnail figcaption {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /*background-color: rgba(52, 152, 219, 0);*/
+    background-color: rgba([#exopite-font-content-alternative-rgb], 0);
+    padding: 0;
+    color: #fff;
+    text-transform: uppercase;
+    padding: 2em;
+    text-align: center;
+    -webkit-transition: background 0.2s ease-in-out;
+    -moz-transition: background 0.2s ease-in-out;
+    -o-transition: background 0.2s ease-in-out;
+    transition: background 0.2s ease-in-out;
+    -webkit-transition-delay: 0.1s;
+    transition-delay: 0.1s;
+}
+.effect-thumbnail figcaption:hover {
+    background-color: rgba([#exopite-font-content-alternative-rgb], 0.5);
+}
+.effect-thumbnail figcaption::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255,255,255,0.5);
+    content: '';
+    -webkit-transition: -webkit-transform 0.6s;
+    transition: transform 0.6s;
+    -webkit-transform: scale3d(1.9,1.4,1) rotate3d(0,0,1,45deg) translate3d(0,-130%,0);
+    transform: scale3d(1.9,1.4,1) rotate3d(0,0,1,45deg) translate3d(0,-130%,0);
+}
+.effect-thumbnail:hover figcaption::before {
+    -webkit-transform: scale3d(1.9,1.4,1) rotate3d(0,0,1,45deg) translate3d(0,130%,0);
+    transform: scale3d(1.9,1.4,1) rotate3d(0,0,1,45deg) translate3d(0,130%,0);
+}
+.effect-thumbnail .figure-caption {
+    font-size: 1.25rem;
+    color: #fff;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0;
+}
+.effect-thumbnail:hover .figure-caption {
+    opacity: 1;
+    -webkit-transition-delay: 0.1s;
+    transition-delay: 0.1s;
+}
+.effect-thumbnail .figure-caption::after {
+    font-family: FontAwesome;
+    content: '\f0c1';
+    color: rgba(255,255,255,0.2);
+    font-size: 5rem;
+    position: absolute;
+    width: 0;
+    height: 0;
+    top: 50%;
+    left: 50%;
+    margin-left: -2.4rem;
+    margin-top: -2.3rem;
+    line-height: 5rem;
+}

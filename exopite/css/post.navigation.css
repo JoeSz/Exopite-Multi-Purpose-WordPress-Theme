@@ -1,0 +1,91 @@
+/* Post navigation */
+.related-posts {
+    height: 100%;
+    text-align: center;
+}
+#prev > a > i, #prev > a > img, #prev > a > div {
+    float: left;
+}
+#next > a > i, #next > a > img, #next > a > div {
+    float: right;
+}
+#prev > a > div, #next > a > div {
+    width: calc(100% - 100px);
+}
+#prev > a > i, #next > a > i {
+    width: 30px;
+}
+#prev > a > i::before, #next > a > i::before {
+    font-size: 60px;
+    line-height: 80px;
+    position: absolute;
+    color: #fff;
+    text-shadow: 0px 0px 6px rgba(0, 0, 0, 1) !important;
+    z-index: 1;
+}
+#prev > a > i::before {
+    left: 30px;
+}
+#next > a > i::before {
+    right: 30px;
+}
+#prev > a > img, #prev > a > div {
+    margin-right: 10px;
+}
+#next > a > img, #next > a > div {
+    margin-left: 10px;
+}
+#next a {
+    text-align: right;
+}
+.single-post-navigation {
+    color: #aaa;
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    padding: 5px 0;
+    line-height: 0.7rem;
+}
+.exopite-single-post-navigation {
+    margin-bottom: 20px;
+}
+.margin-bottom-15 {
+    margin-bottom: 15px;
+}
+
+.nav-links .prev, .nav-links .next {
+    position: absolute;
+}
+.nav-links .prev {
+    left: 15px;
+}
+.nav-links .next {
+    right: 15px;
+}
+.navigation.pagination {
+    width: 100%;
+    text-align: center;
+}
+span.page-numbers,
+a.page-numbers {
+    width: 40px;
+    display: inline-block;
+    font-size: 1.2em;
+    line-height: 50px;
+    border-radius: 0.12rem;
+    margin-right: 3px;
+}
+.next.page-numbers {
+    margin-right: 0;
+}
+a.page-numbers:hover {
+    text-decoration: none;
+    color: #fff;
+}
+.single-post-navigation-title {
+    font-size: 1rem;
+    line-height: 1.3rem;
+    padding-top: 8px;
+}
+.exopite-single-post-navigation h3 {
+    padding-top: 15px;
+}

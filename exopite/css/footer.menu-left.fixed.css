@@ -1,0 +1,8 @@
+@media(min-width:[#exopite-desktop-width]px) {
+    #colophon {
+        left: 250px;
+    }
+    #page.toggled #colophon {
+        left: 0;
+    }
+}

@@ -1,0 +1,15 @@
+.related-title {
+    padding-bottom: 0.2em;
+    padding-top: 0.5em;
+}
+.releated-excerpt {
+    font-size: 0.9em;
+    padding-bottom: 0.9em;
+}
+.releated-excerpt, .related-title {
+    padding-left: 0.75em;
+    padding-right: 0.75em;
+}
+.exopite-releated-posts-by-categories {
+    padding-bottom: 20px;
+}

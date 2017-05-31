@@ -1,0 +1,27 @@
+#footer-menu {
+    list-style-type: none;
+    text-align: right;
+}
+#footer-menu li {
+    display: inline-block;
+}
+#footer-menu li:not(:last-child)::after {
+    content: '|';
+    padding-left: 4px;
+    color: #555;
+}
+#footer-menu li a {
+    color: #888; /* SETTINGS */
+}
+.site-footer {
+    position: relative;
+    z-index: 0;
+    width: 100%;
+    bottom: 0;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+.footer-background {
+    overflow: auto;
+}

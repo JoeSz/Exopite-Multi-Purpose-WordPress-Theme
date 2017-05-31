@@ -1,0 +1,9 @@
+.footer-background {
+    background: [#exopite-footer-background.css];
+    color: [#exopite-footer-font-color];
+}
+.copyright-background {
+    background-color: [#exopite-copyright-background];
+    color: [#exopite-copyright-font-color];
+    font-size: 0.8rem;
+}

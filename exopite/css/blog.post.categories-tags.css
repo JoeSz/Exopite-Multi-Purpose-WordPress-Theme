@@ -1,0 +1,20 @@
+.meta-tags a::before {
+    content: '#';
+    opacity: .75;
+}
+.meta-tags {
+    font-size: 0.75rem;
+}
+.meta-tags a {
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+        padding: 0 0.8rem 0.1rem 0.4rem;
+}
+.meta-tags a:hover {
+    background-color: #555;
+    border: 1px solid #333;
+    text-decoration: none;
+    color: #fff;
+}

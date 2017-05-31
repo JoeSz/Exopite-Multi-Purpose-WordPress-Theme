@@ -1,0 +1,21 @@
+.entry-meta li,
+.exopite-breadcrumbs,
+#breadcrumbs {
+    display: inline-block;
+    padding-right: 3px;
+    text-transform: uppercase;
+    color: #888;
+}
+.entry-meta a {
+    color: #aaa;
+}
+.entry-meta li,
+.entry-meta a,
+.exopite-breadcrumbs,
+#breadcrumbs {
+    font-size: 0.7rem;
+}
+.entry-meta li:not(:last-child)::after {
+    content: '/';
+    padding-left: 3px;
+}

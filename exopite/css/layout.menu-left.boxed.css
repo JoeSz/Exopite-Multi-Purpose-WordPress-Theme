@@ -1,0 +1,5 @@
+#boxed-content {
+    background: [#exopite-body-backgorund.css];
+    z-index: 1;
+    position: relative;
+}

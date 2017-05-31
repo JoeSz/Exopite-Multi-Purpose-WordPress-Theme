@@ -1,0 +1,42 @@
+@media screen and (min-width: [#exopite-desktop-width]px) {
+    #masthead > .container {
+        background: [#exopite-desktop-menu-backgorund.css];
+    }
+    #site-navigation .container {
+        background: [#exopite-desktop-menu-nav-background];
+        box-shadow: [#exopite-desktop-menu-shadow.horizontal-length.value]px [#exopite-desktop-menu-shadow.vertical-length.value]px [#exopite-desktop-menu-shadow.blur-radius.value]px [#exopite-desktop-menu-shadow.spread-radius.value]px [#exopite-desktop-menu-shadow.color.value];
+        border-bottom: [#exopite-desktop-menu-border.width.value]px [#exopite-desktop-menu-border.style.value] [#exopite-desktop-menu-border.color.value];
+    }
+    /* Fixed menu top */
+    #site-navigation.fixed-top:not(.scrolled) .desktop-menu > li.current-menu-item > a,
+    #site-navigation.fixed-top:not(.scrolled) .desktop-menu > li.current-page-ancestor > a,
+    #site-navigation.fixed-top:not(.scrolled) .desktop-menu > li.current-menu-ancestor > a,
+    #site-navigation.fixed-top:not(.scrolled) .desktop-menu > li:hover > a {
+        background: [#exopite-fixed-menu-color.background-active-hover.value];
+        color: [#exopite-fixed-menu-color.link-active-hover.value];
+    }
+    #site-navigation.fixed-top:not(.scrolled) .desktop-menu > li > a {
+        background: [#exopite-fixed-menu-color.background.value];
+        color: [#exopite-fixed-menu-color.link.value];
+    }
+}
+/* Fixed menu top */
+.fixed-top {
+    position: fixed !important;
+    top: 0;
+}
+#site-navigation.fixed-top:not(.scrolled) .container {
+    background: [#exopite-fixed-nav-background];
+}
+.fixed-top img {
+    width: 100%;
+}
+.fixed-top .desktop-menu > li > a,
+.fixed-top,
+.fixed-top img {
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}

@@ -1,0 +1,7 @@
+.preheader-background {
+    background: [#exopite-sidebar-preheader-backgorund.css];
+    color: [#exopite-sidebar-preheader-font-color];
+}
+#content-with-footer .content {
+    background: [#exopite-content-backgorund.css];
+}

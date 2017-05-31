@@ -1,0 +1,8 @@
+#primary a[href^="http://"]:not([href*="[#erliama-site-url]"]):after,
+#primary a[href^="https://"]:not([href*="[#erliama-site-url]"]):after {
+    content: "\f08e";
+    font-family: FontAwesome;
+    padding-left: 2px;
+    font-size: .55em;
+    color: #999;
+}

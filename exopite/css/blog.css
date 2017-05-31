@@ -1,0 +1,52 @@
+.entry-footer {
+    clear: both;
+    width: 100%;
+}
+.page-title {
+    text-align: center;
+    margin-bottom: 30px;
+}
+.exopite-user-skill, .meta-tags a  {
+    border: 1px solid #e8e8e8;
+    background-color: #eee;
+    border-radius: 0.12rem;
+    font-size: 0.8rem;
+    color: #777;
+    display: inline-block;
+    margin-right: 0.2rem;
+    margin-bottom: 0.2rem;
+    line-height: 1.4;
+}
+.exopite-user-skill {
+    padding: 0.12rem 0.8rem;
+}
+.exopite-user-skills,
+.exopite-author-links {
+    margin-bottom: 0.7rem;
+}
+.exopite-author-links {
+    text-transform: uppercase;
+    font-size: 0.7rem;
+}
+.exopite-author-title.h4 {
+    margin-bottom: 1rem;
+}
+.exopite-author-avatar .avatar {
+    margin-top: .5rem;
+    margin-bottom: 2rem;
+}
+.exopite-author-description {
+    padding-bottom: 1rem;
+}
+.nav-links {
+    margin: 0 auto;
+}
+.single-column .entry-thumbnail-container a {
+    display: inline-block;
+}
+.blog-container .pagination {
+    padding: 20px 0;
+}
+nav.navigation {
+    display: block;
+}

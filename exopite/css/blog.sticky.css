@@ -1,0 +1,28 @@
+.single-column.sticky .article-container,
+.single-column.tag-sticky-2 .article-container,
+.multi-column.sticky .article-container,
+.category .category-sticky .article-container {
+    background: rgba(2, 117, 216, 0.025); /* SETTINGS 0.07 from link color */
+}
+.single-column.sticky .article-container,
+.single-column.tag-sticky-2 .article-container,
+.category .single-column.category-sticky .article-container {
+    overflow: hidden;
+    border-radius: 0.12rem;
+    box-shadow: rgba(0,0,0,.1) 0 2px 5px;
+}
+.single-column.sticky .article-container .entry-content-container,
+.single-column.tag-sticky-2 .article-container .entry-content-container,
+.single-column.category-sticky .article-container .entry-content-container {
+    padding: 1.25rem;
+}
+.blog-divider {
+     border: 0; height: 1px;
+     background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgb(203, 203, 203), rgba(0, 0, 0, 0));
+}
+.single-column.sticky .article-container .blog-divider,
+.category .single-column.category-sticky .article-container .blog-divider {
+    position: absolute;
+    left: 15px;
+    right: 15px;
+}

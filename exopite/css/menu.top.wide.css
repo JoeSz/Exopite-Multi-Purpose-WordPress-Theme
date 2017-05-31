@@ -1,0 +1,10 @@
+@media screen and (min-width: [#exopite-desktop-width]px) {
+    #masthead {
+        background: [#exopite-desktop-menu-backgorund.css];
+    }
+    #site-navigation {
+        background: [#exopite-desktop-menu-nav-background];
+        box-shadow: [#exopite-desktop-menu-shadow.horizontal-length.value]px [#exopite-desktop-menu-shadow.vertical-length.value]px [#exopite-desktop-menu-shadow.blur-radius.value]px [#exopite-desktop-menu-shadow.spread-radius.value]px [#exopite-desktop-menu-shadow.color.value];
+        border-bottom: [#exopite-desktop-menu-border.width.value]px [#exopite-desktop-menu-border.style.value] [#exopite-desktop-menu-border.color.value];
+    }
+}

@@ -1,0 +1,10 @@
+.comment-pagination {
+    text-align: center;
+}
+input[aria-required=true], textarea[aria-required=true] {
+    background: url("img/star_required.gif") no-repeat scroll 98% 6px #FFFFFF;
+}
+.error {
+    border-color: red;
+    background-color: rgba(255, 0, 0, .1) !important;
+}

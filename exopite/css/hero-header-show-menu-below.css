@@ -1,0 +1,23 @@
+@media screen and (min-width: [#exopite-desktop-width]px) {
+    .hero-header-show-menu-below {
+        -webkit-transition: background .3s ease-in-out;
+        -moz-transition: background .3s ease-in-out;
+        -o-transition: background .3s ease-in-out;
+        transition: background .3s ease-in-out;
+    }
+    nav.hero-header-show-menu-below:not(.floating-menu) {
+        background: [#exopite-hero-header-show-menu-below-backgorund.css];
+    }
+    .hero-header-show-menu-below:not(.floating-menu) .desktop-menu > li > div,
+    .hero-header-show-menu-below:not(.floating-menu) .desktop-menu > li > a {
+        background: [#exopite-hero-header-show-menu-below-color.background.value];
+        color: [#exopite-hero-header-show-menu-below-color.link.value];
+    }
+    .hero-header-show-menu-below:not(.floating-menu) .desktop-menu > li.current-menu-item > a,
+    .hero-header-show-menu-below:not(.floating-menu) .desktop-menu > li.current-page-ancestor > a,
+    .hero-header-show-menu-below:not(.floating-menu) .desktop-menu > li.current-menu-ancestor > a,
+    .hero-header-show-menu-below:not(.floating-menu) .desktop-menu > li:hover > a {
+        background: [#exopite-hero-header-show-menu-below-color.background-active-hover.value];
+        color: [#exopite-hero-header-show-menu-below-color.link-active-hover.value];
+    }
+}

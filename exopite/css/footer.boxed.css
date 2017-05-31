@@ -1,0 +1,15 @@
+.footer-background .container {
+    background: [#exopite-footer-background.css];
+    color: [#exopite-footer-font-color];
+}
+.copyright-background .container {
+    background-color: [#exopite-copyright-background];
+    color: [#exopite-copyright-font-color];
+    font-size: 0.8rem;
+}
+.site-footer {
+    z-index: 1;
+}
+.footer-background > .container {
+    overflow: auto;
+}

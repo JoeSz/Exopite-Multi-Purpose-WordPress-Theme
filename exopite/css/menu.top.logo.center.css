@@ -1,0 +1,19 @@
+@media all and (min-width: [#exopite-desktop-width]px) {
+    .desktop-menu .exopite-center-nav-menu-item a {
+        padding: 0;
+    }
+    .menu-alignment-top .desktop-menu > li {
+        float: none;
+        display: inline-block;
+        margin-left: -4px;
+    }
+    .menu-bottom li {
+        vertical-align: bottom;
+    }
+    .menu-top li {
+        vertical-align: top;
+    }
+    .menu-middle li {
+        vertical-align: middle;
+    }
+}

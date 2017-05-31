@@ -1,0 +1,91 @@
+HOOKS:
+Actions:
+- all Theme Hook Alliance Hooks
+    tha_html_before
+    tha_body_top
+    tha_body_bottom
+    tha_head_top
+    tha_head_bottom
+    tha_header_before
+    tha_header_after
+    tha_header_top
+    tha_header_bottom
+    tha_content_before
+    tha_content_after
+    tha_content_top
+    tha_content_bottom
+    tha_content_while_before
+    tha_content_while_after
+    tha_entry_before
+    tha_entry_after
+    tha_entry_content_before
+    tha_entry_content_after
+    tha_entry_top
+    tha_entry_bottom
+    tha_comments_before
+    tha_comments_after
+    tha_sidebars_before
+    tha_sidebars_after
+    tha_sidebar_top
+    tha_sidebar_bottom
+    tha_footer_before
+    tha_footer_after
+    tha_footer_top
+    tha_footer_bottom
+- exopite
+    exopite_hooks_menu_top
+    exopite_hooks_before_menu
+    exopite_hooks_after_menu
+    exopite_hooks_content_container_top
+    exopite_hooks_content_container_bottom
+    exopite_hooks_post_header
+    exopite_hooks_post_footer
+    exopite_hooks_page_footer
+    exopite_hooks_posts_header
+    exopite_hooks_posts_footer
+    exopite_hooks_posts_before_nth_excerpt_item
+    exopite_hooks_posts_display_divider
+    exopite_hooks_preheader_sidebars
+    exopite_hooks_footer_sidebars
+    exopite_hooks_404_content
+    exopite_hooks_404_search_recommendations
+    exopite-right-side-logo-widget-area
+    exopite-left-side-logo-widget-area
+
+Filters:
+exopite-html-classes
+exopite-body-classes
+exopite-preheader-from-page (page id from section post type)
+exopite-footer-from-page (page id from section post type)
+exopite-sidebar
+exopite-main-menu-top-level-before-item
+exopite-main-menu-top-level-after-item'
+- WooCommerce
+    exopite-woocommerce-sidebar (Woocommerce sidebar)
+    exopite-woocommerce-cart-menu-overview
+    exopite-woocommerce-cart-menu-content
+- Possibility to override menu with filters:
+    exopite-menu-alignment (top/left)
+    exopite-desktop-logo-position (left/center/right/top/top-in-menu)
+    exopite-desktop-logo-alignment (text-left flex-left/text-center flex-center/text-right flex-right)
+    exopite-desktop-menu-horizontal-alignment (menu-left/menu-center/menu-right)
+    exopite-desktop-menu-vertical-alignment (menu-top/menu-middle/menu-bottom)
+    exopite-mobile-menu-position (left/right)
+    exopite-mobile-menu-search (true/false)
+    exopite-display-hero-header (true/false)
+    exopite-enable-header (true/false)
+    exopite-enable-menu (true/false)
+    exopite-desktop-logo (logo url)
+    exopite-mobile-logo (logo url)
+    exopite-mobile-menu (mobile menu slug)
+    exopite-primary-menu (primary menu slug)
+    exopite-mobile-menu-wrap (wapper around mobile menu)
+    exopite-desktop-menu-wrap (wapper around desktop menu)
+    exopite-desktop-mobile-menu-wrap (if no mobile menu set, wapper around desktop and mobile menu)
+    exopite-enable-footer (true/false)
+    exopite-desktop-menu-search (true/false)
+    exopite-preheader-content
+
+
+
+

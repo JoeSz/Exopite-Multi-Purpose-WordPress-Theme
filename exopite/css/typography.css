@@ -1,0 +1,50 @@
+body.tag,
+body {
+    word-wrap: break-word;
+    font-family: Georgia, serif;
+    font-size: [#exopite-font-content.size]px;
+    font-weight: [#exopite-font-content.weight];
+    line-height: [#exopite-font-content.height]px;
+    font-style: [#exopite-font-content.style];
+    color: [#exopite-font-content.color];
+}
+h1, .h1 {
+    font-family: Georgia, serif;
+    font-size: [#exopite-font-h1.size]px;
+    font-weight: [#exopite-font-h1.weight];
+    line-height: [#exopite-font-h1.height]px;
+    font-style: [#exopite-font-h1.style];
+    color: [#exopite-font-h1.color];
+}
+h2, .h2 {
+    color: [#exopite-font-h2.color];
+    font-size: [#exopite-font-h2.size]px;
+    line-height: [#exopite-font-h2.height]px;
+}
+h3, .h3 {
+    color: [#exopite-font-h3.color];
+    font-size: [#exopite-font-h3.size]px;
+    line-height: [#exopite-font-h3.height]px;
+}
+h4, .h4 {
+    color: [#exopite-font-h4.color];
+    font-size: [#exopite-font-h4.size]px;
+    line-height: [#exopite-font-h4.height]px;
+}
+h5, .h5 {
+    color: [#exopite-font-h5.color];
+    font-size: [#exopite-font-h5.size]px;
+    line-height: [#exopite-font-h5.height]px;
+}
+h6, .h6 {
+    color: [#exopite-font-h6.color];
+    font-size: [#exopite-font-h6.size]px;
+    line-height: [#exopite-font-h6.height]px;
+}
+/* For Google Fonts async load */
+html.wf-active body  {
+    font-family: "[#exopite-font-content.family]";
+}
+.wf-active h1 {
+    font-family: "[#exopite-font-content.family]";
+}

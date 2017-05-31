@@ -1,0 +1,15 @@
+.preheader-background {
+    background: [#exopite-sidebar-preheader-backgorund.css];
+    color: [#exopite-sidebar-preheader-font-color];
+}
+#content .container {
+    background: [#exopite-content-backgorund.css];
+    position: relative;
+    z-index: 1;
+}
+#masthead {
+    padding-top: [#exopite-boxed-padding-top]px;
+}
+#content-with-footer {
+    padding-bottom: [#exopite-boxed-padding-bottom]px;
+}

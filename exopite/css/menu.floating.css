@@ -1,0 +1,26 @@
+@media screen and (min-width: [#exopite-desktop-width]px) {
+    #site-navigation.floating-menu {
+        opacity: [#exopite-floating-menu-opacity];
+        -webkit-transition: all .3s ease-in-out;
+        -moz-transition: all .3s ease-in-out;
+        -ms-transition: all .3s ease-in-out;
+        -o-transition: all .3s ease-in-out;
+        transition: all .3s ease-in-out;
+    }
+    #site-navigation.floating-menu:hover {
+        opacity: 1;
+    }
+    .floating-menu #desktop-menu > li > a {
+        background: [#exopite-floating-menu-color.background.value];
+        color: [#exopite-floating-menu-color.link.value];
+        border-bottom: [#exopite-desktop-menu-link-border-effect.width.value]px solid transparent;
+        padding-top: [#exopite-floating-menu-padding-top]px;
+        padding-bottom: [#exopite-floating-menu-padding-bottom]px;
+    }
+    .floating-menu #desktop-menu > li:hover > a {
+        background: [#exopite-floating-menu-color.background-active-hover.value];
+        color: [#exopite-floating-menu-color.link-active-hover.value];
+        border-bottom: [#exopite-desktop-menu-link-border-effect.width.value]px [#exopite-desktop-menu-link-border-effect.style.value] [#exopite-desktop-menu-link-border-effect.color.value];
+    }
+
+}

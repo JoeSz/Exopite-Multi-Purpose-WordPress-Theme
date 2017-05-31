@@ -1,0 +1,5 @@
+@media screen and (min-width: [#exopite-desktop-width]px) {
+    .floating-menu .desktop-menu-logo img {
+        display: none;
+    }
+}

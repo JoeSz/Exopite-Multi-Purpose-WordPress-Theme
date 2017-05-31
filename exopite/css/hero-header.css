@@ -1,0 +1,107 @@
+.hero-header-wrapper {
+    display: table;
+    height: 300px;
+    height: [#exopite-hero-header-height]vh;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+}
+.hero-header,
+.hero-header-overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+.hero-header {
+    overflow: hidden;
+}
+.hero-header > img,
+.hero-header video {
+    position: [#exopite-enable-hero-header-fixed-css];
+    /*position: fixed;*/
+    height: auto;
+    left: 50%;
+    max-width: 1000%;
+    min-height: 100%;
+    min-width: 100%;
+    min-width: 100vw; /* vw prevents 1px gap on left that 100% has */
+    width: auto;
+    top: 50%;
+    /*padding-bottom: 1px;*/ /* Prevent header from extending beyond the footer */
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+}
+/* http://stackoverflow.com/questions/33451481/scale-and-reposition-iframe-like-background-size-cover/33617910#33617910 */
+.hero-header iframe#hero-header-youtube {
+    box-sizing: border-box;
+    height: 56.25vw;
+    left: 50%;
+    min-height: 100%;
+    min-width: 100%;
+    transform: translate(-50%, -50%);
+    position: fixed;
+    top: 50%;
+    width: 177.77777778vh;
+}
+
+/* For browsers that support 'object-fit' */
+@supports ( object-fit: cover ) {
+    .hero-header > img,
+    .hero-header video {
+        height: 100%;
+        height: 75vh;
+        min-height: 75vh;
+        height: [#exopite-hero-header-height]vh;
+        min-height: [#exopite-hero-header-height]vh;
+        left: 0;
+        -o-object-fit: cover;
+        object-fit: cover;
+        top: 0;
+        top: auto;
+        -ms-transform: none;
+        -moz-transform: none;
+        -webkit-transform: none;
+        transform: none;
+        width: 100%;
+    }
+
+}
+
+/* Site branding */
+.site-branding {
+    position: absolute;
+}
+.site-branding.top {
+    top: 0;
+}
+.site-branding.bottom {
+    bottom: 0;
+}
+.site-branding.left {
+    left: 0;
+}
+.site-branding.right {
+    right: 0;
+}
+.site-branding.center {
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+.site-branding.middle {
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+.site-branding.middle.center {
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+

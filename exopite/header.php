@@ -1,0 +1,201 @@
+<?php
+/**
+ * The header for our theme.
+ *
+ * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
+ *
+ * @package Exopite
+ *
+ */
+// Exit if accessed directly
+defined('ABSPATH') or die( 'You cannot access this page directly.' );
+
+/*
+ * Settings from admin option codestar framework
+ */
+$exopite_settings = get_option( 'exopite_options' );
+
+// Possibility to override menu with filter
+$exopite_menu_alignment = apply_filters( 'exopite-menu-alignment', $exopite_settings['exopite-menu-alignment'] );
+$exopite_desktop_logo_position = apply_filters( 'exopite-desktop-logo-position', $exopite_settings['exopite-desktop-logo-position'] );
+$exopite_desktop_logo_alignment = apply_filters( 'exopite-desktop-logo-alignment', $exopite_settings['exopite-desktop-logo-alignment'] );
+$exopite_desktop_menu_horizontal_alignment = apply_filters( 'exopite-desktop-menu-horizontal-alignment', $exopite_settings['exopite-desktop-menu-horizontal-alignment'] );
+$exopite_desktop_menu_vertical_alignment = apply_filters( 'exopite-desktop-menu-vertical-alignment', $exopite_settings['exopite-desktop-menu-vertical-alignment'] );
+$exopite_mobile_menu_search = apply_filters( 'exopite-mobile-menu-search', $exopite_settings['exopite-mobile-menu-search'] );
+$exopite_mobile_menu_position = apply_filters( 'exopite-mobile-menu-position', $exopite_settings['exopite-mobile-menu-position'] );
+
+/*
+ * Individual page/post settings
+ */
+$exopite_meta_data = get_post_meta( get_queried_object_ID(), 'exopite_custom_page_options', true );
+$show_menu = isset( $exopite_meta_data['exopite-meta-enable-menu'] ) ? $exopite_meta_data['exopite-meta-enable-menu'] : true;
+$show_header = isset( $exopite_meta_data['exopite-meta-enable-header'] ) ? $exopite_meta_data['exopite-meta-enable-header'] : true;
+$body_classes = isset( $exopite_meta_data['exopite-meta-enable-menu'] ) ? esc_attr( $exopite_meta_data['exopite-meta-extra-body-classes'] ) : '';
+$display_breadcrumbs = isset( $exopite_meta_data['exopite-meta-enable-breadcrumbs'] ) ? $exopite_meta_data['exopite-meta-enable-breadcrumbs'] : true;
+$display_preheader_sidebar = isset( $exopite_meta_data['exopite-meta-enable-preheader-sidebar'] ) ? $exopite_meta_data['exopite-meta-enable-preheader-sidebar'] : true;
+ExopiteSettings::setValue( 'exopite-meta-enable-breadcrumbs', $display_breadcrumbs );
+
+// Check if diplay hero header
+$exopite_meta_data_enable_hero_header = isset( $exopite_meta_data['exopite-enable-hero-header'] ) ? $exopite_meta_data['exopite-enable-hero-header'] : false;
+$exopite_settings_enable_hero_header = $exopite_settings['exopite-enable-hero-header-front-page'];
+$display_hero_header = false;
+
+/*
+ * Hero header
+ * In settings control the front page,
+ * in meta control other than front page.
+ *
+ * Dusplay hero header if:
+ * - hero header enabled in settings and this is the font apge
+ * - hero header enabled in settings and page settings (meta) and not front page
+ */
+if( $exopite_settings['exopite-enable-hero-header'] ) {
+    if ( ( is_front_page() && $exopite_settings_enable_hero_header ) || (  ! is_front_page() && $exopite_meta_data_enable_hero_header ) ) {
+        $display_hero_header = true;
+    }
+}
+
+// Hero header extra inline style to override height dinamically from page meta
+$override_height = false;
+if ( $display_hero_header && isset( $exopite_meta_data['exopite-hero-header-height'] ) && $exopite_meta_data['exopite-hero-header-height'] > 0 && $exopite_settings['exopite-hero-header-height'] != $exopite_meta_data['exopite-hero-header-height'] ) {
+    $override_height = true;
+
+    add_action('wp_print_scripts', function() use( $exopite_meta_data ) {
+        ?><style type="text/css">@supports(object-fit: cover){.meta-height{height:<?php echo $exopite_meta_data['exopite-hero-header-height']; ?>vh !important;min-height:<?php echo $exopite_meta_data['exopite-hero-header-height']; ?>vh !important;}}</style><?php
+    });
+
+}
+
+// Determinate if Load Google fonts async or enqueue in the normal way.
+// Google font async is loading by javascript
+$html_class = ( ! $exopite_settings['exopite-load-google-fonts-async'] ) ? 'class="wf-active" ' : '';
+
+// Theme Hook Alliance (include/plugins/tha-theme-hooks.php)
+tha_html_before();
+/*
+ * Minifying HTML output
+ * Start output buffering
+ */
+if ( $exopite_settings['exopite-minify-html'] && class_exists( 'Exopite_Minifier' ) ) ob_start();
+
+?>
+<!DOCTYPE html>
+<html <?php echo apply_filters( 'exopite-html-classes', $html_class ); ?><?php language_attributes(); ?>>
+<head>
+<?php
+
+// Theme Hook Alliance (include/plugins/tha-theme-hooks.php)
+tha_head_top();
+
+?>
+<meta charset="<?php bloginfo( 'charset' ); ?>">
+<meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, shrink-to-fit=no">
+<link rel="profile" href="http://gmpg.org/xfn/11">
+<?php
+
+// https://codex.wordpress.org/Plugin_API/Action_Reference/wp_head
+wp_head();
+
+// If load Google fonts async
+if ( $exopite_settings['exopite-load-google-fonts-async'] ) {
+    get_template_part( 'template-parts/font-async' );
+}
+
+// Theme Hook Alliance (include/plugins/tha-theme-hooks.php)
+tha_head_bottom();
+
+?>
+</head>
+<body <?php body_class( explode( ' ', apply_filters( 'exopite-body-classes', $body_classes ) ) ); ?> itemscope="itemscope" itemtype="https://schema.org/WebPage">
+<?php
+
+/**
+ * Hook display:
+ *  - Skip to content, 10 (include/template-functions.php)
+ */
+tha_body_top();
+
+// Full page search
+if ( ! isset( $exopite_settings['exopite-desktop-menu-search'] ) || ( $exopite_settings['exopite-desktop-menu-search'] && apply_filters( 'exopite-desktop-menu-search', true ) ) ) {
+    get_template_part( 'template-parts/full-search' );
+}
+
+// Diplay hero header on top menu
+if ( $exopite_menu_alignment == 'top' && apply_filters( 'exopite-display-hero-header', $display_hero_header ) ) :
+
+    include( locate_template( 'template-parts/hero-header.php' ) );
+
+endif;
+
+?>
+<div id="page" class="site">
+    <?php
+
+    // If show header
+    if ( apply_filters( 'exopite-enable-header', $show_header ) ) :
+
+        // Remove preheader hooks, if preheader isn't displayed
+        if ( ! $display_preheader_sidebar ) :
+            remove_action( 'tha_header_before', 'display_preheader_sidebar', 10 );
+            remove_action( 'tha_content_before', 'display_preheader_sidebar', 10 );
+        endif;
+
+        /*
+         * Theme Hook Alliance (include/plugins/tha-theme-hooks.php)
+         *
+         * Hook display:
+         *  - pre header widgets, 10 (include/sidebars.php)
+         *    'exopite-preheader-content' filter, widget or page
+         */
+        tha_header_before();
+
+        // Show/Hide menu
+        if ( apply_filters( 'exopite-enable-menu', $show_menu ) ) :
+
+            include( locate_template( 'template-parts/menu.php' ) );
+
+        endif; // Hide menu
+
+        /*
+         * Theme Hook Alliance (include/plugins/tha-theme-hooks.php)
+         *
+         * Hook display:
+         *  - if header on top: after header widgets, 10 (include/sidebars.php)
+         */
+        tha_header_after();
+
+    endif;
+    ?>
+    <div id="content-with-footer">
+        <?php
+
+        // Menu toggle for side menu
+        if ( isset( $exopite_menu_alignment ) && $exopite_menu_alignment != 'top' ) : ?>
+        <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a>
+        <?php
+        endif;
+
+        // Diplay hero header on side menu
+        if( $exopite_menu_alignment != 'top' && apply_filters( 'exopite-display-hero-header', $display_hero_header ) ) :
+
+            include( locate_template( 'template-parts/hero-header.php' ) );
+
+        endif;
+
+        // Add boxed marker to side menu on layout boxed,
+        // to add color or image background to preheader, content and footer.
+        if ( $exopite_menu_alignment != 'top' && $exopite_settings['exopite-content-layout'] == 'boxed' ) : ?>
+        <div id="boxed-content">
+        <?php
+        endif;
+
+        /*
+         * Theme Hook Alliance (include/plugins/tha-theme-hooks.php)
+         *
+         * Hook display:
+         *  - if header on left: after header widgets, 10 (include/sidebars.php)
+         */
+        tha_content_before();
+
+        ?>
+        <div id="content" class="site-content content primary">

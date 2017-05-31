@@ -1,0 +1,8 @@
+footer.fixed {
+    position: relative;
+}
+@media all and (min-width: [#exopite-desktop-width]px) {
+    footer.fixed {
+        position: fixed;
+    }
+}

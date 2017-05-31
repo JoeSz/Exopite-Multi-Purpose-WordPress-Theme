@@ -1,0 +1,6 @@
+@media screen and (min-width: [#exopite-desktop-width]px) {
+    #site-navigation.floating-menu {
+        box-shadow: [#exopite-floating-menu-shadow.horizontal-length.value]px [#exopite-floating-menu-shadow.vertical-length.value]px [#exopite-floating-menu-shadow.blur-radius.value]px [#exopite-floating-menu-shadow.spread-radius.value]px [#exopite-floating-menu-shadow.color.value];
+        border-bottom: [#exopite-floating-menu-border.width.value]px [#exopite-floating-menu-border.style.value] [#exopite-floating-menu-border.color.value];
+    }
+}

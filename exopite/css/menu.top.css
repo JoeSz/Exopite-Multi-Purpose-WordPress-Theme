@@ -1,0 +1,252 @@
+#masthead {
+    z-index: 4;
+    position: relative;
+}
+.main-navigation {
+    clear: both;
+    width: 100%;
+    position: relative;
+}
+.desktop-menu,
+.menu-collapser {
+    display: none;
+}
+.row-menu ul {
+    text-align: left !important;
+}
+.menu-collapser.row-flex {
+    display: none;
+}
+#site-navigation div,
+#site-navigation a {
+    position: relative;
+}
+.desktop-menu a {
+    font-family: "[#menu-font.family]";
+    font-size: [#menu-font.size]px;
+    font-weight: [#menu-font.weight];
+    line-height: [#menu-font.height]px;
+    font-style: [#menu-font.style];
+}
+@media screen and (min-width: [#exopite-desktop-width]px) {
+    /* No separate mobile menu */
+    .desktop-menu .sub-toggle {
+        display: none;
+    }
+    .menu-row {
+        display: flex;
+    }
+    .desktop-menu-logo {
+        padding-top: [#exopite-logo-padding-top]px;
+        padding-bottom: [#exopite-logo-padding-bottom]px;
+    }
+    .desktop-menu > li > div,
+    .desktop-menu > li > a {
+        padding: 0 16px;
+        padding-top: [#exopite-desktop-menu-padding-top]px;
+        padding-bottom: [#exopite-desktop-menu-padding-bottom]px;
+        background: [#exopite-desktop-menu-color.background.value];
+        color: [#exopite-desktop-menu-color.link.value];
+        border-bottom: [#exopite-desktop-menu-link-border-effect.width.value]px solid transparent;
+        [#exopite-desktop-menu-font-uppercase-css]
+    }
+    .desktop-menu > li.current-menu-item > a,
+    .desktop-menu > li.current-page-ancestor > a,
+    .desktop-menu > li.current-menu-ancestor > a,
+    .desktop-menu > li:hover > a {
+        background: [#exopite-desktop-menu-color.background-active-hover.value];
+        color: [#exopite-desktop-menu-color.link-active-hover.value];
+        border-bottom: [#exopite-desktop-menu-link-border-effect.width.value]px [#exopite-desktop-menu-link-border-effect.style.value] [#exopite-desktop-menu-link-border-effect.color.value];
+    }
+    .sub-menu li a {
+        font-size: [#exopite-desktop-submenu-font-size]px;
+        padding: [#exopite-submenu-padding-top]px 16px [#exopite-submenu-padding-bottom]px 16px;
+        background: [#exopite-desktop-submenu-color.background.value];
+        color: [#exopite-desktop-submenu-color.link.value];
+    }
+    .sub-menu > li.current-menu-item > a,
+    .sub-menu > li:hover > a {
+        background: [#exopite-desktop-submenu-color.background-active-hover.value];
+        color: [#exopite-desktop-submenu-color.link-active-hover.value];
+    }
+    .menu-toggle {
+        display: none;
+    }
+    .desktop-menu {
+        display: inline-block;
+    }
+    #mobile-menu.slimmenu {
+        display: none !important;
+    }
+    /* Menu positioning */
+    .menu-left .desktop-menu {
+        float: left;
+    }
+    .menu-left {
+        justify-content: flex-start;
+    }
+    .menu-center {
+        text-align: center;
+        justify-content: center;
+    }
+    .menu-right {
+        justify-content: flex-end;
+    }
+    .menu-right .desktop-menu {
+        float: right;
+    }
+    .menu-top {
+        align-items: flex-start;
+    }
+    .menu-middle {
+        align-items: center;
+    }
+    .menu-bottom {
+        align-items: flex-end;
+    }
+    /* Desktop menu functions */
+    .desktop-menu,
+    .sub-menu {
+        margin: 0;
+        list-style: none;
+    }
+    .desktop-menu,
+    .sub-menu {
+        display: inline-table;
+    }
+    .desktop-menu li {
+        position: relative;
+    }
+    ul.desktop-menu,
+    .sub-menu {
+        padding: 0;
+    }
+    .sub-menu {
+        position: absolute;
+        white-space: nowrap;
+        /* Hide submenus by default */
+        display: none;
+        /* Animation */
+        transition: all 0.2s linear 0.1s;
+        /* Submenu position */
+        top: 0;
+        left: 100%;
+        z-index: 1;
+    }
+    .sub-menu .sub-menu {
+        border-left: 1px solid #fff;
+    }
+    .desktop-menu a {
+        display: block;
+    }
+    .desktop-menu-logo a {
+        display: inline-block;
+    }
+    .desktop-menu > li:hover > .sub-menu,
+    .sub-menu > li:hover > .sub-menu {
+        /* Activate submenus on hover
+        display: block; not working with aminations */
+        display: block;
+    }
+    /* Horizontal menu  - for vertical leave this out */
+    .menu-alignment-top .desktop-menu > li {
+        float: left;
+    }
+    .menu-alignment-top .desktop-menu > li > .sub-menu {
+        /* Submenu position for top level */
+        top: 100%;
+        left: 0;
+    }
+    /* Desktop menu arrows */
+    .desktop-menu > li.menu-item-has-children > div,
+    .desktop-menu > li.menu-item-has-children > a {
+        padding-right: 25px;
+    }
+    .desktop-menu > li.menu-item-has-children > div:after,
+    .desktop-menu > li.menu-item-has-children > a:after,
+    .sub-menu .menu-item-has-children > a:after {
+        font-family: 'FontAwesome';
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 12px;
+    }
+    .desktop-menu > li.menu-item-has-children > div:after,
+    .desktop-menu > li.menu-item-has-children > a:after {
+        content: '\f107';
+    }
+    .desktop-menu .sub-menu .menu-item-has-children > a {
+        padding-right: 25px;
+    }
+    .desktop-menu .sub-menu .menu-item-has-children > a:after {
+        content: '\f105';
+    }
+    /* Deskop menu submenus open in left for horizontal menu */
+    .menu-alignment-top .desktop-menu > li > .sub-menu.sub-menu-left {
+        top: 100%;
+        right: 0px;
+        left: auto;
+    }
+    .menu-alignment-top .sub-menu.sub-menu-left .sub-menu {
+        right: 100%;
+        left: auto;
+    }
+    .menu-alignment-top .desktop-menu .sub-menu.sub-menu-left a {
+        padding-left: 25px;
+    }
+    .menu-alignment-top .desktop-menu .sub-menu.sub-menu-left .menu-item-has-children > a:after {
+        content: '\f104';
+        left: 12px;
+    }
+    /* Destop menu style */
+    .desktop-menu a {
+        text-decoration: none;
+    }
+    #menu > li > ul {
+        border-top: 1px solid #fff;
+    }
+    .sub-menu li {
+        border-bottom: 1px solid #fff;
+    }
+    .sub-menu li:last-child > a {
+        border-bottom: none;
+    }
+    /* Fixed menu top */
+    #site-navigation.fixed-top:not(.scrolled) .desktop-menu > li.current-menu-item > a,
+    #site-navigation.fixed-top:not(.scrolled) .desktop-menu > li.current-page-ancestor > a,
+    #site-navigation.fixed-top:not(.scrolled) .desktop-menu > li.current-menu-ancestor > a,
+    #site-navigation.fixed-top:not(.scrolled) .desktop-menu > li:hover > a {
+        background: [#exopite-fixed-menu-color.background-active-hover.value];
+        color: [#exopite-fixed-menu-color.link-active-hover.value];
+    }
+    #site-navigation.fixed-top:not(.scrolled) .desktop-menu > li > a {
+        background: [#exopite-fixed-menu-color.background.value];
+        color: [#exopite-fixed-menu-color.link.value];
+    }
+    .sub-menu {
+        -webkit-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.2);
+        -moz-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.2);
+        box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.2);
+    }
+}
+/* Fixed menu top */
+.fixed-top {
+    position: fixed !important;
+    top: 0;
+}
+#site-navigation.fixed-top:not(.scrolled) {
+    background: [#exopite-fixed-nav-background];
+}
+.fixed-top img {
+    width: 100%;
+}
+.fixed-top .desktop-menu > li > a,
+.fixed-top,
+.fixed-top img {
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
