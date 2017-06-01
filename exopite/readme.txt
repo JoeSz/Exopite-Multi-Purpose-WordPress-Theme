@@ -172,6 +172,9 @@ Req:
 
 == Changelog ==
 
+= 20170601 - Jun 1 2017
+* ENHANCEMENT: load framework styles and scripts only on required pages. (options page, post, page and for metabox: custom post type pages)
+
 = 20170531 - May 31 2017
 * ENHANCEMENT: add "slug" to menu item class
 
