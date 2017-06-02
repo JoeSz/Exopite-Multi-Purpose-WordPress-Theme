@@ -20,7 +20,7 @@ High performance multi-purpose WordPress theme called Exopite.
 
 == Description ==
 
-Exopite is a powerful multi-purpose WordPress theme with clean and elegant design to create an awesome user-experience. Full Responsive and SEO friendly. It can be to used for any type of website on any type of device. No coding required, easy to use. Can be used with any (recommended: SiteOrigin) page builder plugin. It has been designed to suit beginners as well as developers. Premium-grade theme for free!
+Exopite is a advanced multi-purpose WordPress theme with clean and elegant design to create an awesome user-experience. Full Responsive and SEO friendly. It can be to used for any type of website on any type of device. No coding required, easy to use. Can be used with any (recommended: SiteOrigin) page builder plugin. It has been designed to suit beginners as well as developers. Premium-grade theme for free!
 
 Compatible with:
 - WoCommerce
