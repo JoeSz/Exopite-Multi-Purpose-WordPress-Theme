@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-24 20:26+0200\n"
+"POT-Creation-Date: 2017-06-04 19:13+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -66,12 +66,12 @@ msgstr ""
 msgid "Newer Comments"
 msgstr ""
 
-#: comments.php:81 template-parts/loop.php:325
+#: comments.php:81 template-parts/loop.php:326
 #: woocommerce/loop/pagination.php:38
 msgid "<i class=\"fa fa-chevron-left\" aria-hidden=\"true\"></i>"
 msgstr ""
 
-#: comments.php:82 template-parts/loop.php:326
+#: comments.php:82 template-parts/loop.php:327
 #: woocommerce/loop/pagination.php:39
 msgid "<i class=\"fa fa-chevron-right\" aria-hidden=\"true\"></i>"
 msgstr ""
@@ -96,23 +96,23 @@ msgstr ""
 msgid "Your message (min 10 charachter)"
 msgstr ""
 
-#: functions.php:258
+#: functions.php:260
 msgid "Primary Menu"
 msgstr ""
 
-#: functions.php:259
+#: functions.php:261
 msgid "Mobile Menu"
 msgstr ""
 
-#: functions.php:260
+#: functions.php:262
 msgid "Footer Menu"
 msgstr ""
 
-#: functions.php:261
+#: functions.php:263
 msgid "Shortcode Menu"
 msgstr ""
 
-#: functions.php:262
+#: functions.php:264
 msgid "Social Menu"
 msgstr ""
 
@@ -209,7 +209,7 @@ msgid "Add your JavaScript here"
 msgstr ""
 
 #: cs-framework-override/config/framework.config.php:210
-#: cs-framework-override/config/framework.config.php:2547
+#: cs-framework-override/config/framework.config.php:2516
 msgid "without the &lt;srcipt&gt; tag"
 msgstr ""
 
@@ -261,7 +261,7 @@ msgstr ""
 #: cs-framework-override/config/framework.config.php:724
 #: cs-framework-override/config/framework.config.php:1403
 #: cs-framework-override/config/framework.config.php:1472
-#: cs-framework-override/config/framework.config.php:2408
+#: cs-framework-override/config/framework.config.php:2377
 #, php-format
 msgid "Go to Appearance -> %1$sWidgets%2$s to add widgets to sidebar."
 msgstr ""
@@ -804,13 +804,13 @@ msgstr ""
 
 #: cs-framework-override/config/framework.config.php:1790
 #: cs-framework-override/config/framework.config.php:1935
-#: cs-framework-override/config/framework.config.php:2445
+#: cs-framework-override/config/framework.config.php:2414
 msgid "Note:"
 msgstr ""
 
 #: cs-framework-override/config/framework.config.php:1790
 #: cs-framework-override/config/framework.config.php:1935
-#: cs-framework-override/config/framework.config.php:2445
+#: cs-framework-override/config/framework.config.php:2414
 #, php-format
 msgid "You can display the breadcrumbs everywhere via %1$s shortcode."
 msgstr ""
@@ -1062,183 +1062,183 @@ msgstr ""
 msgid "Crop"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2400
-#: cs-framework-override/config/framework.config.php:2407
+#: cs-framework-override/config/framework.config.php:2369
+#: cs-framework-override/config/framework.config.php:2376
 msgid "Sidebars"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2409
+#: cs-framework-override/config/framework.config.php:2378
 msgid "Add new sidebar"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2410
+#: cs-framework-override/config/framework.config.php:2379
 msgid "Adding new sidebar"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2416
+#: cs-framework-override/config/framework.config.php:2385
 msgid "Sidebar name"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2422
+#: cs-framework-override/config/framework.config.php:2391
 msgid "Description"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2436
+#: cs-framework-override/config/framework.config.php:2405
 msgid "Extensions"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2443
+#: cs-framework-override/config/framework.config.php:2412
 msgid "Display breadcrumbs on pages"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2451
+#: cs-framework-override/config/framework.config.php:2420
 msgid "Sticky post by category"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2453
+#: cs-framework-override/config/framework.config.php:2422
 msgid "Display options on posts to mark it as sticky by category."
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2476
+#: cs-framework-override/config/framework.config.php:2445
 msgid "Display shortcode list"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2484
+#: cs-framework-override/config/framework.config.php:2453
 msgid "Available shortcodes"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2486
+#: cs-framework-override/config/framework.config.php:2455
 msgid ""
 "All of the available shortcodes that you can use on your WordPress blog."
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2498
+#: cs-framework-override/config/framework.config.php:2467
 msgid "SEO"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2505
+#: cs-framework-override/config/framework.config.php:2474
 msgid "We recommend to use "
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2511
+#: cs-framework-override/config/framework.config.php:2480
 msgid "Enable GZip compression"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2519
+#: cs-framework-override/config/framework.config.php:2488
 msgid "No index archive and search pages"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2527
+#: cs-framework-override/config/framework.config.php:2496
 msgid "Minify HTML"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2535
+#: cs-framework-override/config/framework.config.php:2504
 msgid "Mark external links"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2546
+#: cs-framework-override/config/framework.config.php:2515
 msgid "Add your Google Analytics code here"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2558
+#: cs-framework-override/config/framework.config.php:2527
 msgid "Security"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2573
+#: cs-framework-override/config/framework.config.php:2542
 msgid ""
 "You can turn on/off build in security features here. We recommend to turn "
 "off and use "
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2580
+#: cs-framework-override/config/framework.config.php:2549
 msgid "Enable security featuers."
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2582
+#: cs-framework-override/config/framework.config.php:2551
 msgid "Check out Offensive Security's Exploit Database Archive. "
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2582
-#: cs-framework-override/config/framework.config.php:2606
-#: cs-framework-override/config/framework.config.php:2633
-#: cs-framework-override/config/framework.config.php:2642
-#: cs-framework-override/config/framework.config.php:2651
-#: cs-framework-override/config/framework.config.php:2660
-#: cs-framework-override/config/framework.config.php:2670
-#: cs-framework-override/config/framework.config.php:2679
-#: cs-framework-override/config/framework.config.php:2688
+#: cs-framework-override/config/framework.config.php:2551
+#: cs-framework-override/config/framework.config.php:2575
+#: cs-framework-override/config/framework.config.php:2602
+#: cs-framework-override/config/framework.config.php:2611
+#: cs-framework-override/config/framework.config.php:2620
+#: cs-framework-override/config/framework.config.php:2629
+#: cs-framework-override/config/framework.config.php:2639
+#: cs-framework-override/config/framework.config.php:2648
+#: cs-framework-override/config/framework.config.php:2657
 msgid "More..."
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2588
+#: cs-framework-override/config/framework.config.php:2557
 msgid "Enable quick security check"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2597
+#: cs-framework-override/config/framework.config.php:2566
 msgid "Quick security check"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2604
+#: cs-framework-override/config/framework.config.php:2573
 msgid "Limit login attempts"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2606
+#: cs-framework-override/config/framework.config.php:2575
 msgid "Limit login attempts for protect site from brute force attacks."
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2613
+#: cs-framework-override/config/framework.config.php:2582
 msgid "Lockout threshold"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2615
+#: cs-framework-override/config/framework.config.php:2584
 msgid "After a number of failed sign-in attempts, user ip will be blocked."
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2622
+#: cs-framework-override/config/framework.config.php:2591
 msgid "Lockout duration"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2624
+#: cs-framework-override/config/framework.config.php:2593
 msgid "Number of seconds that account remains locked out."
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2631
+#: cs-framework-override/config/framework.config.php:2600
 msgid "Do not display login error details"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2633
+#: cs-framework-override/config/framework.config.php:2602
 msgid "Login error messages can be used to guess a username and/or password"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2640
+#: cs-framework-override/config/framework.config.php:2609
 msgid "Disable the plugin and theme file editors"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2642
+#: cs-framework-override/config/framework.config.php:2611
 msgid "Protect the site from tinkering"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2649
+#: cs-framework-override/config/framework.config.php:2618
 msgid "Stop user enumeration"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2651
+#: cs-framework-override/config/framework.config.php:2620
 msgid "User Enumeration is a hacking method to get your username"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2658
+#: cs-framework-override/config/framework.config.php:2627
 msgid "Disable xmlrpc"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2660
+#: cs-framework-override/config/framework.config.php:2629
 msgid "Prevent XML-RPC brute force, guessing authentication and DDoS attacks."
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2668
+#: cs-framework-override/config/framework.config.php:2637
 msgid "Disable JSON Rest API"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2670
+#: cs-framework-override/config/framework.config.php:2639
 msgid ""
 "For WordPress versions 4.4 - 4.6, makes use of the rest_enabled filter "
 "provided by the API to disable the API functionality. For WordPress 4.7+, "
@@ -1246,111 +1246,123 @@ msgid ""
 "the website."
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2677
+#: cs-framework-override/config/framework.config.php:2646
 msgid "Prevent malicious URL requests"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2679
+#: cs-framework-override/config/framework.config.php:2648
 msgid "Prevent attackers to use malicious queries to find and attack."
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2686
+#: cs-framework-override/config/framework.config.php:2655
 msgid "Check comment referer"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2688
+#: cs-framework-override/config/framework.config.php:2657
 msgid "Prevent spam comments by checking the page referer."
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2695
+#: cs-framework-override/config/framework.config.php:2664
 msgid "Email alert for failed login attempts."
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2703
+#: cs-framework-override/config/framework.config.php:2672
 msgid ""
 "Make sure email sending service has been set properly and working on your "
 "computer."
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2710
+#: cs-framework-override/config/framework.config.php:2679
 msgid "Email"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2712
+#: cs-framework-override/config/framework.config.php:2681
 msgid "If empty, admin email will be used."
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2723
+#: cs-framework-override/config/framework.config.php:2692
 #: template-parts/maintenance.php:6
 msgid "Maintenance"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2730
+#: cs-framework-override/config/framework.config.php:2699
 msgid "Activate maintenance mode"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2744
+#: cs-framework-override/config/framework.config.php:2713
 msgid "Background image and/or color"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2758
+#: cs-framework-override/config/framework.config.php:2727
 msgid "Font color"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2787
+#: cs-framework-override/config/framework.config.php:2742
 msgid "WooCommerce"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2794
+#: cs-framework-override/config/framework.config.php:2749
+msgid "Show cart in menu"
+msgstr ""
+
+#: cs-framework-override/config/framework.config.php:2756
 msgid "Add categories to products in shop"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2801
+#: cs-framework-override/config/framework.config.php:2763
 msgid "Remove add to cart button from grid"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2808
+#: cs-framework-override/config/framework.config.php:2770
 msgid "Remove product image"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2815
+#: cs-framework-override/config/framework.config.php:2777
 msgid "Remove ratings"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2822
+#: cs-framework-override/config/framework.config.php:2784
 msgid "Product per row in shop"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2836
+#: cs-framework-override/config/framework.config.php:2798
 msgid "Product per page in shop"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2850
+#: cs-framework-override/config/framework.config.php:2812
 msgid "Releated columns"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2864
+#: cs-framework-override/config/framework.config.php:2826
 msgid "Related products per page"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2879
+#: cs-framework-override/config/framework.config.php:2840
+msgid "Display new badge for:"
+msgstr ""
+
+#: cs-framework-override/config/framework.config.php:2849
+msgid "Display the new badge for the amount of days. Disable: 0"
+msgstr ""
+
+#: cs-framework-override/config/framework.config.php:2856
 msgid "Shop sidebar"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2891
+#: cs-framework-override/config/framework.config.php:2868
 msgid "Product sidebar"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2902
+#: cs-framework-override/config/framework.config.php:2879
 msgid "Shop title"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2916
-#: cs-framework-override/config/framework.config.php:2927
+#: cs-framework-override/config/framework.config.php:2893
+#: cs-framework-override/config/framework.config.php:2904
 msgid "Backup & Restore"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2923
+#: cs-framework-override/config/framework.config.php:2900
 msgid "You can save your current options. Download a Backup and Import."
 msgstr ""
 
@@ -1618,7 +1630,7 @@ msgstr ""
 msgid "Please create menu and add pages to \"Shortcode Menu\" first!"
 msgstr ""
 
-#: include/shortcodes.php:477 include/woocommerce.php:33
+#: include/shortcodes.php:477 include/woocommerce.php:36
 msgid "View your shopping cart"
 msgstr ""
 
@@ -1881,14 +1893,38 @@ msgstr ""
 msgid "Most Used Categories"
 msgstr ""
 
-#: include/woocommerce.php:19
+#: include/woocommerce.php:21
 msgid "WooCommerce Sidebar"
 msgstr ""
 
-#: include/woocommerce.php:21
+#: include/woocommerce.php:23
 msgid ""
 "WooCommerce sidebar. Displayed on the side of the WooCommerce sites. Add "
 "widgets here."
+msgstr ""
+
+#: include/woocommerce.php:64
+msgid "Cart"
+msgstr ""
+
+#: include/woocommerce.php:68
+msgid "Checkout"
+msgstr ""
+
+#: include/woocommerce.php:87
+msgid "Remove this item"
+msgstr ""
+
+#: include/woocommerce.php:93
+msgid "No products in the cart."
+msgstr ""
+
+#: include/woocommerce.php:102
+msgid "Subtotal"
+msgstr ""
+
+#: include/woocommerce.php:307
+msgid "NEW"
 msgstr ""
 
 #: include/plugins/class-category-sticky-post.php:112
