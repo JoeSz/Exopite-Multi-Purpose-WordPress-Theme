@@ -1,6 +1,6 @@
 <?php
 /**
- * Erliama search form
+ * Exopite search form
  *
  * Source: http://buildwpyourself.com/wordpress-search-form-template/
  */
