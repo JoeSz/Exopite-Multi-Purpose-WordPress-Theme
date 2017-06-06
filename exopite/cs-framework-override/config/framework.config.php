@@ -622,6 +622,20 @@ $options[]   = array(
         ),
 
         array(
+            'id'        => 'exopite-logo-width',
+            'type'      => 'slider',
+            'title'     => esc_attr__( 'Logo width', 'exopite' ),
+            'validate'  => 'numeric',
+            'default'   => 80,
+            'options'   => array(
+                'step'    => 1,
+                'min'     => 20,
+                'max'     => 300,
+                'unit'    => ''
+            )
+        ),
+
+        array(
             'id'        => 'exopite-logo-padding-top',
             'type'      => 'slider',
             'title'     => esc_attr__( 'Logo padding top', 'exopite' ),
@@ -1228,6 +1242,48 @@ $options[]   = array(
           'title'     => esc_attr__( 'Logo', 'exopite' ),
           'add_title' => esc_attr__( 'Add Logo', 'exopite' ),
           'dependency'  => array( 'exopite-menu-alignment_top', '==', 'true' ),
+        ),
+
+        array(
+            'id'        => 'exopite-mobile-logo-width',
+            'type'      => 'slider',
+            'title'     => esc_attr__( 'Logo width', 'exopite' ),
+            'validate'  => 'numeric',
+            'default'   => 42,
+            'options'   => array(
+                'step'    => 1,
+                'min'     => 20,
+                'max'     => 300,
+                'unit'    => ''
+            )
+        ),
+
+        array(
+            'id'        => 'exopite-mobile-logo-padding-top',
+            'type'      => 'slider',
+            'title'     => esc_attr__( 'Logo padding top', 'exopite' ),
+            'validate'  => 'numeric',
+            'default'   => 0,
+            'options'   => array(
+                'step'    => 1,
+                'min'     => 0,
+                'max'     => 100,
+                'unit'    => ''
+            )
+        ),
+
+        array(
+            'id'        => 'exopite-mobile-logo-padding-bottom',
+            'type'      => 'slider',
+            'title'     => esc_attr__( 'Logo padding bottom', 'exopite' ),
+            'validate'  => 'numeric',
+            'default'   => 0,
+            'options'   => array(
+                'step'    => 1,
+                'min'     => 0,
+                'max'     => 100,
+                'unit'    => ''
+            )
         ),
 
         array(
