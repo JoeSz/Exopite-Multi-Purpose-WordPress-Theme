@@ -28,6 +28,11 @@
     line-height: [#menu-font.height]px;
     font-style: [#menu-font.style];
 }
+#site-navigation img {
+    width: [#exopite-mobile-logo-width]px;
+    padding-top: [#exopite-mobile-logo-padding-top]px;
+    padding-bottom: [#exopite-mobile-logo-padding-bottom]px;
+}
 @media screen and (min-width: [#exopite-desktop-width]px) {
     /* No separate mobile menu */
     .desktop-menu .sub-toggle {
@@ -39,6 +44,9 @@
     .desktop-menu-logo {
         padding-top: [#exopite-logo-padding-top]px;
         padding-bottom: [#exopite-logo-padding-bottom]px;
+    }
+    .desktop-menu-logo img {
+        width: [#exopite-logo-width]px;
     }
     .desktop-menu > li > div,
     .desktop-menu > li > a {
