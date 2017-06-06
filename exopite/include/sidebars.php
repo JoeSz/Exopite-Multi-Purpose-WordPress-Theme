@@ -474,3 +474,23 @@ if ( ( isset( $exopite_settings['exopite-sidebar-copyright-count'] ) && $exopite
         <?php endif;
     }
 }
+
+/**
+ * Display the Widget ID
+ *
+ * @link http://spicemailer.com/wordpress/get-widget-id-wordpress/
+ */
+add_action('in_widget_form', 'spice_get_widget_id');
+function spice_get_widget_id($widget_instance) {
+
+    // Check if the widget is already saved or not.
+    if ($widget_instance->number=="__i__"){
+
+        echo '<p class="exopite-widget-id"><strong>Widget ID</strong>: <span>' . esc_html__( 'save the widget first!', 'exopite' ) . '</span></p>';
+
+    }  else {
+
+        echo '<p class="exopite-widget-id"><strong>Widget ID:</strong> <span>' .$widget_instance->id . '</span></p>';
+
+    }
+}
