@@ -14,6 +14,8 @@ defined('ABSPATH') or die( 'You cannot access this page directly.' );
  * - https://wordpress.org/plugins/heartbeat-control/ HEARTBEAT?
  * - set default desgin
  * - style for down arrow
+ * - if header logo top and separate -> add bg color
+ * - for demo, should change css or css path!?
  *
  *
  * TYPOGRAPHY
@@ -167,7 +169,7 @@ ExopiteSettings::setValue( 'allowed-htmls', array(
  * 1.0 - Define constants.
  * ----------------------------------------------------------------------------------------
  */
-define( 'EXOPITE_VERSION',  '20170529' );
+define( 'EXOPITE_VERSION',  '20170606' );
 defined( 'TEMPLATEPATH' ) or define( 'TEMPLATEPATH', get_template_directory() );
 define( 'TEMPLATEURI', get_template_directory_uri() );
 defined( 'STYLESHEETPATH' ) or define( 'STYLESHEETPATH', get_stylesheet_directory() );
