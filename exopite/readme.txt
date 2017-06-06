@@ -172,6 +172,10 @@ Req:
 
 == Changelog ==
 
+= 20170606 - Jun 6 2017
+* ADDED: Desktop logo with
+* ADDED: Mobile logo width and padding top/bottom
+
 = 20170601 - Jun 1 2017
 * ENHANCEMENT: load framework styles and scripts only on required pages. (options page, post, page and for metabox: custom post type pages)
 
