@@ -193,3 +193,7 @@ body.wp-admin select {
 #searchbox {
     border-radius: 3px;
 }
+.exopite-widget-id {
+    font-size: 80%;
+    color: #bbb;
+}
