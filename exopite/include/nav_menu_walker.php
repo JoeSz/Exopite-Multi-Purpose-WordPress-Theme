@@ -48,7 +48,7 @@ if( ! class_exists( 'Exopite_Menu_Walker' ) ){
             $classes[] = 'menu-item-' . $item->ID;
             $classes[] = 'menu-item-' . sanitize_title( $item->title );
 
-            $ids = apply_filters( 'nav_menu_item_id', 'menu-item-' . $item->ID );
+            $ids = apply_filters( 'nav_menu_css_id', 'menu-item-' . $item->ID );
 
             $output .= $indent . '<li id="' . $ids . '" class="' . esc_attr( join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item ) ) ) .'">';
 
