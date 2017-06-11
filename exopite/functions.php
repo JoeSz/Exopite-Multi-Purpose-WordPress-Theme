@@ -135,6 +135,7 @@ if ( ! function_exists( 'exopite_setup' ) ) :
  * as indicating support for post thumbnails.
  */
 function exopite_setup() {
+
 	/*
 	 * Make theme available for translation.
 	 * Translations can be filed in the /languages/ directory.
@@ -445,7 +446,9 @@ function this_screen() {
 
     $current_screen = get_current_screen();
 
-    if( $current_screen->id === "plugins" ) {
+    $screens = array( 'plugins' , 'appearance_page_tgmpa-install-plugins' );
+
+    if( in_array( $current_screen->id, $screens ) ) {
 
         // Only on plugins is admin area and if user can de/activate plugins
         if ( current_user_can( 'activate_plugins' ) ) {
