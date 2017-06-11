@@ -23,13 +23,19 @@ class Exopite_Plugin_Management {
 
     public static function activated_actions( $changed ) {
 
+        do_action( 'exopite-plugin-management-activated-actions' );
+
     }
 
     public static function deactivated_actions( $changed ) {
 
+        do_action( 'exopite-plugin-management-deactivated-actions' );
+
     }
 
     public static function on_chanche_actions( $activated, $deactivated ) {
+
+        do_action( 'exopite-plugin-management-on-chanche-actions' );
 
         if ( in_array( 'woocommerce/woocommerce.php', array_merge( $activated, $deactivated ) ) ) {
 
