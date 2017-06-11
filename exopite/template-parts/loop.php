@@ -130,20 +130,40 @@ if ( ! function_exists( 'the_loop' ) ) {
         /**
          * Default variables
          */
+        $exopite_blog_first_full = ( isset( $exopite_settings['exopite-blog-first-full'] ) ) ?
+            $exopite_settings['exopite-blog-first-full'] :
+            true;
+        $exopite_blog_layout = ( isset( $exopite_settings['exopite-blog-layout'] ) ) ?
+            $exopite_settings['exopite-blog-layout'] :
+            'image-left';
+        $exopite_blog_post_per_row = ( isset( $exopite_settings['exopite-blog-post-per-row'] ) ) ?
+            $exopite_settings['exopite-blog-post-per-row'] :
+            1;
+        $exopite_blog_no_gap = ( isset( $exopite_settings['exopite-blog-no-gap'] ) ) ?
+            $exopite_settings['exopite-blog-no-gap'] :
+            false;
+        $exopite_blog_list_layout = ( isset( $exopite_settings['exopite-blog-list-layout'] ) ) ?
+            $exopite_settings['exopite-blog-list-layout'] :
+            'blog-list-right-sidebar';
+        $exopite_blog_multi_column_layout_type = ( isset( $exopite_settings['exopite-blog-multi-column-layout-type'] ) ) ?
+            $exopite_settings['exopite-blog-multi-column-layout-type'] :
+            'normal';
+
         // If we want the first post as full width or want to display something after
         // Xnt post (on each page), then need to count the posts on the page.
         $post_count = 1;
-        $blog_first_full = isset( $args['blog_first_full']) ? $args['blog_first_full'] : $exopite_settings['exopite-blog-first-full'];
+        $blog_first_full = isset( $args['blog_first_full'] ) ? $args['blog_first_full'] : $exopite_blog_first_full;
 
         // Only true, if we want the first post as full width and this is the first page
         $is_blog_first_full = ( $blog_first_full && $paged == 1 );
-
-        $blog_layout = isset( $args['blog-layout'] ) ? $args['blog-layout'] : $exopite_settings['exopite-blog-layout'];
-        $posts_per_row = isset( $args['blog-post-per-row'] ) ? $args['blog-post-per-row'] : $exopite_settings['exopite-blog-post-per-row'];
+        $blog_layout = isset( $args['blog-layout'] ) ? $args['blog-layout'] : $exopite_blog_layout;
+        $posts_per_row = isset( $args['blog-post-per-row'] ) ? $args['blog-post-per-row'] : $exopite_blog_post_per_row;
         $multi_row = ( $posts_per_row > 1 );
-        $blog_no_gap = isset( $args['blog-no-gap'] ) ? $args['blog-no-gap'] : $exopite_settings['exopite-blog-no-gap'];
-        $blog_list_layout = isset( $args['blog-list-layout'] ) ? $args['blog-list-layout'] : $exopite_settings['exopite-blog-list-layout'];
-        $blog_multi_column_layout_type = isset( $args['blog-multi-column-layout-type'] ) ? $args['blog-multi-column-layout-type'] : $exopite_settings['exopite-blog-multi-column-layout-type'];
+        $blog_no_gap = isset( $args['blog-no-gap'] ) ? $args['blog-no-gap'] : $exopite_blog_no_gap;
+        $blog_list_layout = isset( $args['blog-list-layout'] ) ? $args['blog-list-layout'] : $exopite_blog_list_layout;
+        $blog_multi_column_layout_type = isset( $args['blog-multi-column-layout-type'] ) ?
+            $args['blog-multi-column-layout-type'] :
+            $exopite_blog_multi_column_layout_type;
         $colum_layout = ( $blog_multi_column_layout_type == 'column' );
         $show_filter_before_nth_item = apply_filters( 'exopite_filter_before_nth_item', 1 );
         $show_not_found = isset( $args['show_not_found'] ) ? $args['show_not_found'] : true;
@@ -287,7 +307,9 @@ if ( ! function_exists( 'the_loop' ) ) {
                     $row_class = ( $colum_layout  ) ? ' card-columns' : '';
 
                     if ( $blog_no_gap ) $row_class .= ' no-gap-container';
-                    if ( $exopite_settings['exopite-blog-multi-column-layout-type'] == 'masonry' ) $row_class .= ' masonry-container';
+                    if ( isset( $exopite_settings['exopite-blog-multi-column-layout-type'] ) &&
+                         $exopite_settings['exopite-blog-multi-column-layout-type'] == 'masonry' )
+                        $row_class .= ' masonry-container';
 
                     ?>
                         </div>
