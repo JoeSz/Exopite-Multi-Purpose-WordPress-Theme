@@ -73,7 +73,9 @@ get_header();
 					/**
 					 * If comments are open or we have at least one comment, load up the comment template.
 					 */
-					if ( ( comments_open() || get_comments_number() ) && $exopite_settings['exopite-show-comments'] == true ) :
+					if ( ( comments_open() ||
+                         get_comments_number() ) &&
+                        ( ! isset( $exopite_settings['exopite-show-comments'] ) || $exopite_settings['exopite-show-comments'] == true ) ) :
 						comments_template();
 					endif;
 

@@ -15,14 +15,47 @@ defined('ABSPATH') or die( 'You cannot access this page directly.' );
  */
 $exopite_settings = get_option( 'exopite_options' );
 
-// Possibility to override menu with filter
-$exopite_menu_alignment = apply_filters( 'exopite-menu-alignment', $exopite_settings['exopite-menu-alignment'] );
-$exopite_desktop_logo_position = apply_filters( 'exopite-desktop-logo-position', $exopite_settings['exopite-desktop-logo-position'] );
-$exopite_desktop_logo_alignment = apply_filters( 'exopite-desktop-logo-alignment', $exopite_settings['exopite-desktop-logo-alignment'] );
-$exopite_desktop_menu_horizontal_alignment = apply_filters( 'exopite-desktop-menu-horizontal-alignment', $exopite_settings['exopite-desktop-menu-horizontal-alignment'] );
-$exopite_desktop_menu_vertical_alignment = apply_filters( 'exopite-desktop-menu-vertical-alignment', $exopite_settings['exopite-desktop-menu-vertical-alignment'] );
-$exopite_mobile_menu_search = apply_filters( 'exopite-mobile-menu-search', $exopite_settings['exopite-mobile-menu-search'] );
-$exopite_mobile_menu_position = apply_filters( 'exopite-mobile-menu-position', $exopite_settings['exopite-mobile-menu-position'] );
+/*
+ * Set defaults
+ * It is no default values from option framework, until exopite-core plugin is installed and activated.
+ */
+$exopite_menu_alignment = ( isset( $exopite_settings['exopite-menu-alignment'] ) ) ?
+    $exopite_settings['exopite-menu-alignment'] :
+    'top';
+$exopite_desktop_logo_position = ( isset( $exopite_settings['exopite-desktop-logo-position'] ) ) ?
+    $exopite_settings['exopite-desktop-logo-position'] :
+    'top';
+$exopite_desktop_logo_alignment = ( isset( $exopite_settings['exopite-desktop-logo-alignment'] ) ) ?
+    $exopite_settings['exopite-desktop-logo-alignment'] :
+    'text-center flex-center';
+$exopite_desktop_menu_horizontal_alignment = ( isset( $exopite_settings['exopite-desktop-menu-horizontal-alignment'] ) ) ?
+    $exopite_settings['exopite-desktop-menu-horizontal-alignment'] :
+    'menu-center';
+$exopite_desktop_menu_vertical_alignment = ( isset( $exopite_settings['exopite-desktop-menu-vertical-alignment'] ) ) ?
+    $exopite_settings['exopite-desktop-menu-vertical-alignment'] :
+    'menu-middle';
+$exopite_mobile_menu_search = ( isset( $exopite_settings['exopite-mobile-menu-search'] ) ) ?
+    $exopite_settings['exopite-mobile-menu-search'] :
+    true;
+$exopite_mobile_menu_position = ( isset( $exopite_settings['exopite-mobile-menu-position'] ) ) ?
+    $exopite_settings['exopite-mobile-menu-position'] :
+    'left';
+$exopite_settings_enable_hero_header = ( isset( $exopite_settings['exopite-enable-hero-header-front-page'] ) ) ?
+    $exopite_settings['exopite-enable-hero-header-front-page'] :
+    true;
+
+
+/*
+ * Possibility to override menu with filter
+ */
+$exopite_menu_alignment = apply_filters( 'exopite-menu-alignment', $exopite_menu_alignment );
+$exopite_desktop_logo_position = apply_filters( 'exopite-desktop-logo-position', $exopite_desktop_logo_position );
+$exopite_desktop_logo_alignment = apply_filters( 'exopite-desktop-logo-alignment', $exopite_desktop_logo_alignment );
+$exopite_desktop_menu_horizontal_alignment = apply_filters( 'exopite-desktop-menu-horizontal-alignment', $exopite_desktop_menu_horizontal_alignment );
+$exopite_desktop_menu_vertical_alignment = apply_filters( 'exopite-desktop-menu-vertical-alignment', $exopite_desktop_menu_vertical_alignment );
+$exopite_mobile_menu_search = apply_filters( 'exopite-mobile-menu-search', $exopite_mobile_menu_search );
+$exopite_mobile_menu_position = apply_filters( 'exopite-mobile-menu-position', $exopite_mobile_menu_position );
+$exopite_settings_enable_hero_header  = apply_filters( 'exopite-enable-hero-header-front-page', $exopite_settings_enable_hero_header  );
 
 /*
  * Individual page/post settings
@@ -37,7 +70,6 @@ ExopiteSettings::setValue( 'exopite-meta-enable-breadcrumbs', $display_breadcrum
 
 // Check if diplay hero header
 $exopite_meta_data_enable_hero_header = isset( $exopite_meta_data['exopite-enable-hero-header'] ) ? $exopite_meta_data['exopite-enable-hero-header'] : false;
-$exopite_settings_enable_hero_header = $exopite_settings['exopite-enable-hero-header-front-page'];
 $display_hero_header = false;
 
 /*
@@ -49,7 +81,7 @@ $display_hero_header = false;
  * - hero header enabled in settings and this is the font apge
  * - hero header enabled in settings and page settings (meta) and not front page
  */
-if( $exopite_settings['exopite-enable-hero-header'] ) {
+if( isset( $exopite_settings['exopite-enable-hero-header'] ) && $exopite_settings['exopite-enable-hero-header'] ) {
     if ( ( is_front_page() && $exopite_settings_enable_hero_header ) || (  ! is_front_page() && $exopite_meta_data_enable_hero_header ) ) {
         $display_hero_header = true;
     }
@@ -68,7 +100,7 @@ if ( $display_hero_header && isset( $exopite_meta_data['exopite-hero-header-heig
 
 // Determinate if Load Google fonts async or enqueue in the normal way.
 // Google font async is loading by javascript
-$html_class = ( ! $exopite_settings['exopite-load-google-fonts-async'] ) ? 'class="wf-active" ' : '';
+$html_class = ( isset( $exopite_settings['exopite-load-google-fonts-async'] ) && ! $exopite_settings['exopite-load-google-fonts-async'] ) ? 'class="wf-active" ' : '';
 
 // Theme Hook Alliance (include/plugins/tha-theme-hooks.php)
 tha_html_before();
@@ -76,7 +108,12 @@ tha_html_before();
  * Minifying HTML output
  * Start output buffering
  */
-if ( $exopite_settings['exopite-minify-html'] && class_exists( 'Exopite_Minifier' ) ) ob_start();
+if ( isset( $exopite_settings['exopite-minify-html'] ) &&
+     $exopite_settings['exopite-minify-html'] &&
+     class_exists( 'Exopite_Minifier' ) ) {
+
+    ob_start();
+}
 
 ?>
 <!DOCTYPE html>
@@ -97,7 +134,7 @@ tha_head_top();
 wp_head();
 
 // If load Google fonts async
-if ( $exopite_settings['exopite-load-google-fonts-async'] ) {
+if ( isset( $exopite_settings['exopite-load-google-fonts-async'] ) && $exopite_settings['exopite-load-google-fonts-async'] ) {
     get_template_part( 'template-parts/font-async' );
 }
 

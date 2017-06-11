@@ -64,10 +64,15 @@ if ( ! class_exists( 'Exopite_Minify_Combine' ) ) {
             // Get user js at the end
             $data .= $this->user_js;
 
-            $data = $data_no_minification . Exopite_Minifier::minify_js( $data );
+            $output = $data_no_minification;
+            if ( class_exists( 'Exopite_Minifier' ) ) {
+                $output .= Exopite_Minifier::minify_js( $data );
+            } else {
+                $output .= $data;
+            }
 
             // Write it down
-            file_put_contents( $core_file, $data );
+            file_put_contents( $core_file, $output );
 
         }
 
@@ -99,13 +104,18 @@ if ( ! class_exists( 'Exopite_Minify_Combine' ) ) {
 
                 $template = Exopite_Template::get_template();
 
-                $data .= Exopite_Minifier::minify_css( $template );
+                $data .= ( class_exists( 'Exopite_Minifier' ) ) ? Exopite_Minifier::minify_css( $template ) : $template;
 
             }
 
             // Include "_last.css" and user css at end of the css files
-            $data .= Exopite_Minifier::minify_css( file_get_contents( $path . '/_last.css' ) );
-            $data .= Exopite_Minifier::minify_css( $this->user_css );
+            if ( class_exists( 'Exopite_Minifier' ) ) {
+                $data .= Exopite_Minifier::minify_css( file_get_contents( $path . '/_last.css' ) );
+                $data .= Exopite_Minifier::minify_css( $this->user_css );
+            } else {
+                $data .= file_get_contents( $path . '/_last.css' );
+                $data .= $this->user_css;
+            }
 
             file_put_contents( $core_file, $data );
 

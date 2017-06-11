@@ -40,7 +40,7 @@ $show_footer = isset( $exopite_meta_data['exopite-meta-enable-footer'] ) ? esc_a
             /**
              * Use page for footer
              */
-            if ( $exopite_settings['exopite-footer-content'] == 'page' ) :
+            if ( isset( $exopite_settings['exopite-footer-content'] ) && $exopite_settings['exopite-footer-content'] == 'page' ) :
 
                 include( locate_template( 'template-parts/footer-from-page.php' ) );
 
@@ -69,10 +69,12 @@ $show_footer = isset( $exopite_meta_data['exopite-meta-enable-footer'] ) ? esc_a
 
         // Close (#boxed-content boxed) marker to side menu on layout boxed,
         // to add color or image background to preheader, content and footer.
-        if ( $exopite_settings['exopite-menu-alignment'] == 'left' && $exopite_settings['exopite-content-layout'] == 'boxed' ) :
-        ?>
-        </div><!-- #boxed-content -->
-        <?php
+        if ( isset( $exopite_settings['exopite-menu-alignment'] ) &&
+             $exopite_settings['exopite-menu-alignment'] == 'left' &&
+             $exopite_settings['exopite-content-layout'] == 'boxed' ) :
+            ?>
+            </div><!-- #boxed-content -->
+            <?php
         endif;
 
         ?>
@@ -88,7 +90,10 @@ tha_body_bottom();
  * Display page before wp_footer, so let JavaScript-block rerendering after content is shown.
  * (do not block content rerendering)
  */
-if ( $exopite_settings['exopite-minify-html'] && class_exists( 'Exopite_Minifier' ) ) {
+if ( isset( $exopite_settings['exopite-minify-html'] ) &&
+     $exopite_settings['exopite-minify-html'] &&
+     class_exists( 'Exopite_Minifier' ) ) {
+
     $content = ob_get_clean();
     echo Exopite_Minifier::minify_html( $content );
 }

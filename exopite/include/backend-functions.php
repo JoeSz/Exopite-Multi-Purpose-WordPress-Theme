@@ -18,8 +18,11 @@ defined('ABSPATH') or die( 'You cannot access this page directly.' );
  *  - exopite_pre_user_query
  *
  */
+$exopite_enable_category_sticky = ( isset( $exopite_settings['exopite-enable-category-sticky'] ) ) ?
+    $exopite_settings['exopite-enable-category-sticky'] :
+    true;
 
-ExopiteSettings::setValue( 'exopite-enable-category-sticky', $exopite_settings['exopite-enable-category-sticky'] );
+ExopiteSettings::setValue( 'exopite-enable-category-sticky', $exopite_enable_category_sticky );
 add_action( 'admin_enqueue_scripts', 'enqueue_admin_styles_scripts' );
 if ( ! function_exists( 'enqueue_admin_styles_scripts' ) ) {
     function enqueue_admin_styles_scripts(){

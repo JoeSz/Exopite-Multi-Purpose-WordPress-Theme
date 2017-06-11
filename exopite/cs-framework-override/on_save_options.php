@@ -318,8 +318,8 @@ if ( ! function_exists( 'on_save_options' ) ) {
         $generate->js_files = $js_files;
         $generate->js_files_no_minification = $js_files_no_minification;
         $generate->options = $options;
-        $generate->user_css = $options['exopite-css'];
-        $generate->user_js = $options['exopite-js'] . $options['exopite-js-analytics'];
+        $generate->user_css = ( isset( $options['exopite-css'] ) ) ? $options['exopite-css'] : '';
+        $generate->user_js = ( isset( $options['exopite-js'] ) ) ? $options['exopite-js'] . $options['exopite-js-analytics'] : '';
         $generate->generate_css();
         $generate->combine_js();
 

@@ -10,14 +10,21 @@ defined('ABSPATH') or die( 'You cannot access this page directly.' );
  * - branding (widget, text or image)
  */
 
+if ( ! isset( $exopite_settings['exopite-hero-header-image'] ) ||
+     ! isset( $exopite_settings['exopite-hero-header-youtube-id'] ) ||
+     ! isset( $exopite_settings['exopite-hero-header-video'] ) ||
+     ! isset( $exopite_settings['exopite-hero-header-google-video-id'] ) ) {
+    return;
+}
+
 // Hero header media type
 $type = ( is_front_page() ) ? $exopite_settings['exopite-hero-header-type'] : $exopite_meta_data['exopite-hero-header-type'];
 
 switch ( $type ) {
     case 'image':
         $hero_header_image = ( is_front_page() ) ?
-                    wp_get_attachment_image_src( $exopite_settings['exopite-hero-header-image'], 'full' )[0] :
-                    wp_get_attachment_image_src( $exopite_meta_data['exopite-hero-header-image'], 'full' )[0];
+            wp_get_attachment_image_src( $exopite_settings['exopite-hero-header-image'], 'full' )[0] :
+            wp_get_attachment_image_src( $exopite_meta_data['exopite-hero-header-image'], 'full' )[0];
         if ( empty( $hero_header_image ) ) return;
         break;
     case 'youtube':

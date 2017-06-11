@@ -11,44 +11,58 @@
 defined('ABSPATH') or die( 'You cannot access this page directly.' );
 
 // Display only if title and/or meta and/or content lenght is not none
-if ( $exopite_settings['exopite-blog-display-post-title'] || $exopite_settings['exopite-blog-display-post-meta'] || $exopite_settings['exopite-blog-post-content-lenght'] != 'none' ) :
+if ( ! isset( $exopite_settings['exopite-blog-display-post-title'] ) ||
+     ( $exopite_settings['exopite-blog-display-post-title'] ||
+       $exopite_settings['exopite-blog-display-post-meta'] ||
+       $exopite_settings['exopite-blog-post-content-lenght'] != 'none' ) ) :
 
 ?>
 <div class="entry-content-container">
     <?php
 
     // Display header only if title and/or meta is enabled
-    if ( $exopite_settings['exopite-blog-display-post-title'] || $exopite_settings['exopite-blog-display-post-meta'] ) : ?>
-    <header class="entry-header">
-        <?php
-
-        /*
-         * Display the title?
-         */
-        if ( $exopite_settings['exopite-blog-display-post-title'] ) {
-            the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
-        }
-
-        /*
-         * Display the meta information like user/created date/category/tags/comment(s)/edit if logged in
-         */
-        if ( 'post' === get_post_type() && $exopite_settings['exopite-blog-display-post-meta'] && ! $post_password_required ) : ?>
-        <div class="entry-meta">
-            <?php exopite_post_meta(); // (include/template-function.php) ?>
-        </div><!-- .entry-meta -->
-        <?php endif;
-
-        // Exopite hooks (include/exopite-hooks.php)
-        exopite_hooks_posts_header();
+    if ( ! isset( $exopite_settings['exopite-blog-display-post-title'] ) ||
+         ( $exopite_settings['exopite-blog-display-post-title'] ||
+           $exopite_settings['exopite-blog-display-post-meta'] ) ) :
 
         ?>
-    </header><!-- .entry-header -->
-    <?php
+        <header class="entry-header">
+            <?php
+
+            /*
+             * Display the title?
+             */
+            if ( ! isset( $exopite_settings['exopite-blog-display-post-title'] ) || $exopite_settings['exopite-blog-display-post-title'] ) {
+                the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
+            }
+
+            /*
+             * Display the meta information like user/created date/category/tags/comment(s)/edit if logged in
+             */
+            if ( 'post' === get_post_type() &&
+                 ( ! isset( $exopite_settings['exopite-blog-display-post-meta'] ) ||
+                   $exopite_settings['exopite-blog-display-post-meta'] ) &&
+                 ! $post_password_required ) :
+
+                ?>
+                <div class="entry-meta">
+                    <?php exopite_post_meta(); // (include/template-function.php) ?>
+                </div><!-- .entry-meta -->
+                <?php
+            endif;
+
+            // Exopite hooks (include/exopite-hooks.php)
+            exopite_hooks_posts_header();
+
+            ?>
+        </header><!-- .entry-header -->
+        <?php
 
     endif; // Display entry-header
 
     // Display content only if lenght is not none
-    if ( $exopite_settings['exopite-blog-post-content-lenght'] != 'none' ) :
+    if ( ! isset( $exopite_settings['exopite-blog-post-content-lenght'] ) ||
+         $exopite_settings['exopite-blog-post-content-lenght'] != 'none' ) :
 
         // Theme Hook Alliance (include/plugins/tha-theme-hooks.php)
         tha_entry_content_before();
@@ -77,7 +91,11 @@ if ( $exopite_settings['exopite-blog-display-post-title'] || $exopite_settings['
             /*
              * Display content, excerpt or none
              */
-            switch ( $exopite_settings['exopite-blog-post-content-lenght'] ) {
+            $exopite_blog_post_content_lenght = ( isset ( $exopite_settings['exopite-blog-post-content-lenght'] ) ) ?
+                $exopite_settings['exopite-blog-post-content-lenght'] :
+                'full';
+
+            switch ( $exopite_blog_post_content_lenght ) {
                 case 'full':
 
                     echo apply_filters('the_content', get_the_content( sprintf(
@@ -110,7 +128,7 @@ if ( $exopite_settings['exopite-blog-display-post-title'] || $exopite_settings['
             endif;
         ?>
         </div><!-- .entry-content -->
-    <?php
+        <?php
     endif; // Display entry-content
 
     // Theme Hook Alliance (include/plugins/tha-theme-hooks.php)

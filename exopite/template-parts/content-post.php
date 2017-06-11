@@ -62,7 +62,11 @@ tha_entry_before();
 		/**
 		 * Display the meta information like user/created date/category/tags/comment(s)/edit if logged in
 		 */
-		if ( $show_meta && $exopite_settings['exopite-single-display-post-meta'] == true && ! $post_password_required ) : ?>
+        $exopite_single_display_post_meta = ( isset ( $exopite_settings['exopite-single-display-post-meta'] ) ) ?
+            $exopite_settings['exopite-single-display-post-meta'] :
+            true;
+
+		if ( $show_meta && $exopite_single_display_post_meta && ! $post_password_required ) : ?>
 		<div class="entry-meta">
 			<?php
 

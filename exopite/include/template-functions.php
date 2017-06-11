@@ -13,7 +13,7 @@ defined('ABSPATH') or die( 'You cannot access this page directly.' );
  *  - exopite_categorized_blog (pluggable)
  *  - exopite_category_transient_flusher (pluggable)
  *  - exopite_post_meta (pluggable)
- *  - exopite_display_post_tags_categories
+ *  - exopite_display_post_tags_categories (pluggable)
  *  - exopite_post_tags_and_categories (pluggable)
  *  - exopite_post_meta_date_badge (pluggable)
  *  - exopite_display_skip_to_content (pluggable)
@@ -96,7 +96,8 @@ if ( ! function_exists( 'exopite_post_meta' ) ) {
 				echo '<li class="meta-featured-post"><i class="fa fa-thumb-tack"></i> ' . esc_attr__( 'Sticky', 'exopite' ) . ' </li>';
 			}
 
-			if( array_key_exists( 'author', $exopite_settings['exopite-single-meta-tags-to-display']['enabled'] ) ) :
+			if( ! isset( $exopite_settings['exopite-single-meta-tags-to-display'] ) ||
+                array_key_exists( 'author', $exopite_settings['exopite-single-meta-tags-to-display']['enabled'] ) ) :
 			// Get the post author.
 			$author = sprintf(
 				'<li class="meta-author">By <a href="%1$s" rel="author" itemprop="author" itemscope itemtype="https://schema.org/Person">%2$s</a></li>',
@@ -105,12 +106,14 @@ if ( ! function_exists( 'exopite_post_meta' ) ) {
 			);
 			endif;
 
-			if( array_key_exists( 'date', $exopite_settings['exopite-single-meta-tags-to-display']['enabled'] ) ) :
+			if( ! isset( $exopite_settings['exopite-single-meta-tags-to-display'] ) ||
+                array_key_exists( 'date', $exopite_settings['exopite-single-meta-tags-to-display']['enabled'] ) ) :
 			// Get the date.
 			$date = '<li class="meta-date"> <a href="' . esc_url( get_site_url() ) . '/' . get_the_date( 'Y' ) . '/' . get_the_date( 'm' ) . '/' . get_the_date( 'd' ) . '" rel="date">' . get_the_date() . '</a> </li>';
 			endif;
 
-            if( array_key_exists( 'lastmodified', $exopite_settings['exopite-single-meta-tags-to-display']['enabled'] ) ) :
+            if( ! isset( $exopite_settings['exopite-single-meta-tags-to-display'] ) ||
+                array_key_exists( 'lastmodified', $exopite_settings['exopite-single-meta-tags-to-display']['enabled'] ) ) :
             // Get last modification date.
             // https://andorwp.com/how-to-display-last-update-date-for-posts-and-pages-in-wordpress/
             $u_time = get_the_time('U');
@@ -124,7 +127,9 @@ if ( ! function_exists( 'exopite_post_meta' ) ) {
             }
             endif;
 
-			if( array_key_exists( 'commentcount', $exopite_settings['exopite-single-meta-tags-to-display']['enabled'] ) && $exopite_settings['exopite-show-comments'] ) :
+			if( ! isset( $exopite_settings['exopite-single-meta-tags-to-display']['enabled'] ) ||
+                ( array_key_exists( 'commentcount', $exopite_settings['exopite-single-meta-tags-to-display']['enabled'] ) &&
+                  $exopite_settings['exopite-show-comments'] ) ) :
 				// Comments link.
 				if ( comments_open() ) :
 				//if ( comments_open() && ( is_single() || have_comments() ) ) :
@@ -148,7 +153,11 @@ if ( ! function_exists( 'exopite_post_meta' ) ) {
 				endif;
 			endif;
 
-            foreach ( $exopite_settings['exopite-single-meta-tags-to-display']['enabled'] as $key => $value) {
+            $exopite_single_meta_tags_to_display = ( isset( $exopite_settings['exopite-single-meta-tags-to-display']['enabled'] ) ) ?
+                $exopite_settings['exopite-single-meta-tags-to-display']['enabled'] :
+                array( 'author' => 'enabled', 'date' => 'enabled', 'lastmodified' => 'enabled', 'commentcount' => 'enabled' );
+
+            foreach ( $exopite_single_meta_tags_to_display as $key => $value) {
 
                 switch ( $key ) {
                     case 'author':
@@ -183,16 +192,21 @@ if ( ! function_exists( 'exopite_post_meta' ) ) {
  */
 add_action( 'exopite_hooks_post_footer', 'exopite_display_post_tags_categories', 10 );
 add_action( 'exopite_hooks_posts_footer', 'exopite_display_post_tags_categories', 10 );
-function exopite_display_post_tags_categories() {
+if ( ! function_exists( 'exopite_display_post_tags_categories' ) ) {
+    function exopite_display_post_tags_categories() {
 
-	$exopite_settings = get_option( 'exopite_options' );
+    	$exopite_settings = get_option( 'exopite_options' );
 
-	/*
-	 * Display tags and categories on post, posts
-	 */
-	if ( 'post' === get_post_type() && $exopite_settings['exopite-single-display-post-tags_categories'] == true ) {
-		exopite_post_tags_and_categories();
-	}
+    	/*
+    	 * Display tags and categories on post, posts
+    	 */
+    	if ( 'post' === get_post_type() &&
+             ( ! isset( $exopite_settings['exopite-single-display-post-tags_categories'] ) ||
+               $exopite_settings['exopite-single-display-post-tags_categories'] == true ) ) {
+
+    		exopite_post_tags_and_categories();
+    	}
+    }
 }
 
 if ( ! function_exists( 'exopite_post_tags_and_categories' ) ) {
@@ -200,15 +214,18 @@ if ( ! function_exists( 'exopite_post_tags_and_categories' ) ) {
 
 		$exopite_settings = get_option( 'exopite_options' );
 
-		if ( ! $exopite_settings['exopite-blog-display-tags_categories'] && ! is_single() ) {
+		if ( ( ! isset( $exopite_settings['exopite-blog-display-tags_categories'] ) ||
+               ! $exopite_settings['exopite-blog-display-tags_categories'] ) &&
+             ! is_single() ) {
 			return;
 		}
 
-		//global $exopite_mods;
-		if ( empty( $exopite_settings['exopite-single-meta-tags-to-display']['enabled'] ) ) return;
+		if ( isset( $exopite_settings['exopite-single-meta-tags-to-display']['enabled'] ) &&
+             empty( $exopite_settings['exopite-single-meta-tags-to-display']['enabled'] ) ) return;
 
 		// Tags
-		if( array_key_exists( 'categories', $exopite_settings['exopite-single-meta-tags-to-display']['enabled'] ) ) :
+		if( ! isset( $exopite_settings['exopite-single-meta-tags-to-display']['enabled'] ) ||
+            array_key_exists( 'categories', $exopite_settings['exopite-single-meta-tags-to-display']['enabled'] ) ) :
 
     		// The categories. ?>
     		<ul class="tags-and-categories list-plain">
@@ -221,7 +238,8 @@ if ( ! function_exists( 'exopite_post_tags_and_categories' ) ) {
         endif;
 
 		// Categories
-		if( array_key_exists( 'tags', $exopite_settings['exopite-single-meta-tags-to-display']['enabled'] ) ) :
+		if( ! isset( $exopite_settings['exopite-single-meta-tags-to-display']['enabled'] ) ||
+            array_key_exists( 'tags', $exopite_settings['exopite-single-meta-tags-to-display']['enabled'] ) ) :
 
     		// The tags.
     		$tag_list = get_the_tag_list( '', ' ' );

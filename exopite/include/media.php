@@ -25,7 +25,7 @@ defined('ABSPATH') or die( 'You cannot access this page directly.' );
  *
  * @link https://code.tutsplus.com/tutorials/using-custom-image-sizes-in-your-theme-and-resizing-existing-images--wp-24815
  */
-if ( is_array( $exopite_settings['exopite-thumbnail-sizes'] ) ) {
+if ( isset( $exopite_settings['exopite-thumbnail-sizes'] ) && is_array( $exopite_settings['exopite-thumbnail-sizes'] ) ) {
 
     foreach ( $exopite_settings['exopite-thumbnail-sizes'] as $key => $sizes ) {
         $crop = ( $sizes['exopite-thumbnail-size-crop'] ) ? true : false;
@@ -165,14 +165,16 @@ if ( ! function_exists( 'exopite_display_post_thumbnail' ) ) {
          *
          * Check if user definied image size is exist, if not, use dafault
          */
-        if ( array_key_exists ( $exopite_settings['exopite-blog-list-thumbnail-size-medium'] , $thumbnails ) ) {
+        if ( isset( $exopite_settings['exopite-blog-list-thumbnail-size-medium'] ) &&
+             array_key_exists( $exopite_settings['exopite-blog-list-thumbnail-size-medium'] , $thumbnails ) ) {
             $thumbnail_slug_medium = get_intermediate_image_sizes()[$exopite_settings['exopite-blog-list-thumbnail-size-medium']];
         } else {
             $thumbnail_slug_medium = 'blog-list-multiple';
         }
 
         // Get full image size
-        if ( array_key_exists ( $exopite_settings['exopite-blog-list-thumbnail-size-large'] , $thumbnails ) ) {
+        if ( isset( $exopite_settings['exopite-blog-list-thumbnail-size-large'] ) &&
+             array_key_exists( $exopite_settings['exopite-blog-list-thumbnail-size-large'] , $thumbnails ) ) {
             $thumbnail_slug_large = get_intermediate_image_sizes()[$exopite_settings['exopite-blog-list-thumbnail-size-large']];
         } else {
             $thumbnail_slug_large = 'blog-list-full';
@@ -186,7 +188,10 @@ if ( ! function_exists( 'exopite_display_post_thumbnail' ) ) {
         /*
          * Display featured image (post thumbnail)
          */
-        if ( ! is_singular() && $exopite_settings['exopite-blog-display-thumbnail'] == true && has_post_thumbnail() ) :
+        if ( ! is_singular() &&
+             ( ! isset( $exopite_settings['exopite-blog-display-thumbnail'] ) ||
+               $exopite_settings['exopite-blog-display-thumbnail'] == true ) &&
+             has_post_thumbnail() ) :
 
             if ( $multiple_thumbnail && ! post_password_required() ) {
 
@@ -200,19 +205,19 @@ if ( ! function_exists( 'exopite_display_post_thumbnail' ) ) {
                 $thumbnail_size_class .= ' image-protected';
 
             }
-        ?>
-        <div class="clearfix entry-thumbnail-container<?php echo $class; ?>">
-            <a href="<?php echo esc_url( get_permalink() ); ?>">
-                <?php
+            ?>
+            <div class="clearfix entry-thumbnail-container<?php echo $class; ?>">
+                <a href="<?php echo esc_url( get_permalink() ); ?>">
+                    <?php
 
-                $image = ( ! $multiple_thumbnail && ! post_password_required() ) ? get_the_post_thumbnail( null, $thumbnail_size ) : '';
+                    $image = ( ! $multiple_thumbnail && ! post_password_required() ) ? get_the_post_thumbnail( null, $thumbnail_size ) : '';
 
-                echo exopite_create_effect_image_frame( $image, $caption, ' entry-thumbnail' . $thumbnail_size_class, $thumbnail_container_style );
+                    echo exopite_create_effect_image_frame( $image, $caption, ' entry-thumbnail' . $thumbnail_size_class, $thumbnail_container_style );
 
-                ?>
-            </a>
-        </div><!-- .entry-thumbnail-container -->
-    <?php
+                    ?>
+                </a>
+            </div><!-- .entry-thumbnail-container -->
+            <?php
         endif;
     }
 }

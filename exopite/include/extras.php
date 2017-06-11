@@ -162,8 +162,8 @@ if ( ! function_exists( 'exopite_post_nav' ) ) {
 
 		$exopite_settings = get_option( 'exopite_options' );
 
-		$in_same_term = $exopite_settings['exopite-single-navigation-same-term'];
-		$is_infinite = $exopite_settings['exopite-single-navigation-inifnite'];
+		$in_same_term = ( isset( $exopite_settings['exopite-single-navigation-same-term'] ) ) ? $exopite_settings['exopite-single-navigation-same-term'] : true;
+		$is_infinite = ( isset( $exopite_settings['exopite-single-navigation-inifnite'] ) ) ? $exopite_settings['exopite-single-navigation-inifnite'] : true;
 
 		if ( $in_same_term ) {
 
@@ -328,6 +328,8 @@ if ( ! function_exists( 'exopite_display_releated_posts' ) ) {
 	function exopite_display_releated_posts() {
 
 		$exopite_settings = get_option( 'exopite_options' );
+
+        if ( ! isset( $exopite_settings['exopite-single-releated-posts-categories-amount'] ) ) return;
 
 		exopite_releated_posts(
 			array(

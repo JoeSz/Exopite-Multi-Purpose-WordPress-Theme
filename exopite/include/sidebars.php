@@ -24,12 +24,19 @@ register_sidebar( array(
 ) );
 
 $exopite_settings = get_option( 'exopite_options' );
-ExopiteSettings::setValue( 'exopite-sidebar-preheader-full-width', $exopite_settings['exopite-sidebar-preheader-full-width'] );
+
+$exopite_sidebar_preheader_full_width = ( isset( $exopite_settings['exopite-sidebar-preheader-full-width'] ) ) ?
+    $exopite_settings['exopite-sidebar-preheader-full-width'] :
+    true;
+$exopite_preheader_content = ( isset( $exopite_settings['exopite-preheader-content'] ) ) ? $exopite_settings['exopite-preheader-content'] : 'widget';
+
+ExopiteSettings::setValue( 'exopite-sidebar-preheader-full-width', $exopite_sidebar_preheader_full_width );
+ExopiteSettings::setValue( 'exopite-preheader-content', $exopite_preheader_content );
 
 /*
  * Register user definied sidebars
  */
-if ( is_array( $exopite_settings['exopite-sidebars'] ) ) {
+if ( isset( $exopite_settings['exopite-sidebars'] ) && is_array( $exopite_settings['exopite-sidebars'] ) ) {
     foreach ( $exopite_settings['exopite-sidebars'] as $key => $sidebar ) {
 
         if ( $sidebar['exopite-sidebar-name'] == "" ) continue;
@@ -150,14 +157,13 @@ if ( isset( $exopite_settings['exopite-sidebar-preheader-count'] ) && $exopite_s
 
 }
 
-
-if ( $exopite_settings['exopite-menu-alignment'] == 'top' ) {
-    add_action( 'tha_header_before', 'display_preheader_sidebar', 10 );
-} else {
-    add_action( 'tha_content_before', 'display_preheader_sidebar', 10 );
+if ( isset( $exopite_settings['exopite-menu-alignment'] ) ) {
+    if ( $exopite_settings['exopite-menu-alignment'] == 'top' ) {
+        add_action( 'tha_header_before', 'display_preheader_sidebar', 10 );
+    } else {
+        add_action( 'tha_content_before', 'display_preheader_sidebar', 10 );
+    }
 }
-
-ExopiteSettings::setValue( 'exopite-preheader-content', $exopite_settings['exopite-preheader-content'] );
 
 function display_preheader_sidebar() {
 
@@ -174,7 +180,9 @@ function display_preheader_sidebar() {
 /*
  * Side of the logo sidebar, Only show up if it is not empty, logo in top of the menu and not centriert.
  */
-if ( $exopite_settings['exopite-desktop-logo-position'] == 'top' || $exopite_settings['exopite-desktop-logo-position'] == 'top-in-menu' ) {
+if ( isset( $exopite_settings['exopite-desktop-logo-position'] ) && (
+     $exopite_settings['exopite-desktop-logo-position'] == 'top' ||
+     $exopite_settings['exopite-desktop-logo-position'] == 'top-in-menu' ) ) {
 
     if ( $exopite_settings['exopite-desktop-logo-alignment'] == 'text-right flex-right' || $exopite_settings['exopite-desktop-logo-alignment'] == 'text-center flex-center' ) {
 
@@ -207,7 +215,10 @@ if ( $exopite_settings['exopite-desktop-logo-position'] == 'top' || $exopite_set
 /*
  * Hero header site branding sidebar
  */
-if ( $exopite_settings['exopite-enable-hero-header'] && $exopite_settings['exopite-hero-header-site-branding-type'] == 'widget' ) {
+if ( isset( $exopite_settings['exopite-enable-hero-header'] ) &&
+     $exopite_settings['exopite-enable-hero-header'] &&
+     $exopite_settings['exopite-hero-header-site-branding-type'] == 'widget' ) {
+
     $sidebar_settings_below_menu =  array(
         array( 'title'    => esc_attr__( 'Hero header site branding Widget Area', 'exopite' ),
             'id'          => 'sidebar-site-branding',
@@ -254,7 +265,7 @@ if ( isset( $exopite_settings['exopite-sidebar-menu-top-count'] ) && $exopite_se
 /*
  * Below menu sidebar on left menu
  */
-if ( $exopite_settings['exopite-menu-alignment'] != 'top' ) {
+if ( isset( $exopite_settings['exopite-menu-alignment'] ) && $exopite_settings['exopite-menu-alignment'] != 'top' ) {
     $sidebar_settings_below_menu =  array(
         array( 'title' => esc_attr__( 'Below the menu Widget Area', 'exopite' ),
             'id' => 'below_menu-widget-area',
@@ -306,7 +317,9 @@ if ( isset( $exopite_settings['exopite-sidebar-after-header-count'] ) && $exopit
 /*
  * Register user definied footer sidebars
  */
-if ( is_array( $exopite_settings['exopite-footer-sidebar-areas'] ) && $exopite_settings['exopite-footer-content'] == 'widget' ) {
+if ( isset( $exopite_settings['exopite-menu-alignment'] ) &&
+     is_array( $exopite_settings['exopite-footer-sidebar-areas'] ) &&
+     $exopite_settings['exopite-footer-content'] == 'widget' ) {
 
     function footer_column_count( $preset, $count ) {
         // Footer widget areas
