@@ -144,7 +144,7 @@ add_action( 'exopite-tgm-complete', 'exopite_tgm_complete' );
 function exopite_tgm_complete() {
     echo esc_html( 'Redirect to theme options...', 'exopite' );
     echo '<script type="text/javascript">
-            window.location.href="' . get_admin_url() . '/themes.php?page=cs-framework' . '";
+            window.location.href="' . get_admin_url() . 'themes.php?page=cs-framework' . '";
             </script>';
 }
 
@@ -152,7 +152,7 @@ add_action( 'exopite-tgm-after-user-action', 'exopite_tgm_after_user_action' );
 function exopite_tgm_after_user_action() {
     echo esc_html( 'Refresh...', 'exopite' );
     echo '<script type="text/javascript">
-            window.location.href="' . get_admin_url() . '/themes.php?page=tgmpa-install-plugins' . '";
+            window.location.href="' . get_admin_url() . 'themes.php?page=tgmpa-install-plugins' . '";
             </script>';
 }
 
