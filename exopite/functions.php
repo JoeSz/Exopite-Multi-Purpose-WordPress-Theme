@@ -243,6 +243,17 @@ function exopite_setup() {
     add_image_size( 'releated', 320, 200, array( 'center', 'center' ) );
     add_image_size( 'avatar', 145, 145, array( 'center', 'center' ) );
 
+    /*
+     * Redirect to "Install Required Plugins" after theme activation.
+     * Maybe for some user, it is not clear, theme required exopite-core plugin.
+     */
+    global $pagenow;
+    if ( is_admin() && 'themes.php' == $pagenow && isset( $_GET['activated'] ) ) {
+
+        wp_redirect( admin_url( 'themes.php?page=tgmpa-install-plugins' ) );
+
+    }
+
 }
 endif;
 
