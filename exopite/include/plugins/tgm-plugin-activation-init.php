@@ -78,8 +78,8 @@ function exopite_register_required_plugins() {
         array(
             'name'              => 'Exopite Core',
             'slug'              => 'exopite-core',
-            //'source'            => TEMPLATEPATH . 'include/plugins/exopite-core.zip', // The plugin source.
-            'source'            => 'http://update.szalai.org/packages/exopite-core.zip', // The plugin source.
+            'source'            => get_template_directory() . '/include/plugins/exopite-core.zip', // The plugin source.
+            //'source'            => 'http://update.szalai.org/packages/exopite-core.zip', // The plugin source.
             'required'          => true,
             'force_activation'  => true,
         ),
