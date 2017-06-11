@@ -180,7 +180,11 @@ remove_action( 'woocommerce_before_main_content','woocommerce_breadcrumb', 20, 0
 * @param int Original value
 * @return int New number of columns
 */
-ExopiteSettings::setValue( 'exopite-woocommerce-shop-product-per-row', $exopite_settings['exopite-woocommerce-shop-product-per-row'] );
+
+$exopite_woocommerce_shop_product_per_row = ( isset( $exopite_settings['exopite-woocommerce-shop-product-per-row'] ) ) ?
+    $exopite_settings['exopite-woocommerce-shop-product-per-row'] :
+    3;
+ExopiteSettings::setValue( 'exopite-woocommerce-shop-product-per-row', $exopite_woocommerce_shop_product_per_row );
 add_filter( 'loop_shop_columns', 'exopite_woocommerce_shop_product_per_row', 1, 10 );
 if ( ! function_exists( 'exopite_woocommerce_shop_product_per_row' ) ) {
     function exopite_woocommerce_shop_product_per_row( $number_columns ) {
@@ -193,7 +197,10 @@ if ( ! function_exists( 'exopite_woocommerce_shop_product_per_row' ) ) {
  * Change number of products displayed per page
  * @link https://docs.woocommerce.com/document/change-number-of-products-displayed-per-page/
  */
-ExopiteSettings::setValue( 'exopite-woocommerce-shop-product-per-page', $exopite_settings['exopite-woocommerce-shop-product-per-page'] );
+$exopite_woocommerce_shop_product_per_page = ( isset( $exopite_settings['exopite-woocommerce-shop-product-per-page'] ) ) ?
+    $exopite_settings['exopite-woocommerce-shop-product-per-page'] :
+    9;
+ExopiteSettings::setValue( 'exopite-woocommerce-shop-product-per-page', $exopite_woocommerce_shop_product_per_page );
 add_filter( 'loop_shop_per_page', 'exopite_woocommerce_shop_product_per_page', 20 );
 if ( ! function_exists( 'exopite_woocommerce_shop_product_per_page' ) ) {
     function exopite_woocommerce_shop_product_per_page( $cols ) {
@@ -206,7 +213,7 @@ if ( ! function_exists( 'exopite_woocommerce_shop_product_per_page' ) ) {
 /*
  * Add categories to product items on shop page
  */
-if ( $exopite_settings['exopite-woocommerce-categories-product-shop'] ) {
+if ( ! isset( $exopite_settings['exopite-woocommerce-categories-product-shop'] ) || $exopite_settings['exopite-woocommerce-categories-product-shop'] ) {
     add_action('woocommerce_shop_loop_item_title','exopite_woocommerce_categories_product_shop', 0);
 }
 if ( ! function_exists( 'exopite_woocommerce_categories_product_shop' ) ) {
@@ -227,21 +234,21 @@ if ( ! function_exists( 'exopite_woocommerce_categories_product_shop' ) ) {
 /*
  * Remove Default Add To cart button from Grid
  */
-if ( $exopite_settings['exopite-woocommerce-remove-add-to-cart-shop'] ) {
+if ( ! isset( $exopite_settings['exopite-woocommerce-remove-add-to-cart-shop'] ) || $exopite_settings['exopite-woocommerce-remove-add-to-cart-shop'] ) {
     remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart', 10 );
 }
 
 /*
  * Remove and add Product image
  */
-if ( $exopite_settings['exopite-woocommerce-remove-product-image'] ) {
+if ( ! isset( $exopite_settings['exopite-woocommerce-remove-product-image'] ) || $exopite_settings['exopite-woocommerce-remove-product-image'] ) {
     remove_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_template_loop_product_thumbnail', 10 );
 }
 
 /*
  * Remove Ratings
  */
-if ( $exopite_settings['exopite-woocommerce-remove-ratings'] ) {
+if ( ! isset( $exopite_settings['exopite-woocommerce-remove-ratings'] ) || $exopite_settings['exopite-woocommerce-remove-ratings'] ) {
     add_action('woocommerce_shop_loop_item_title','exopite_woocommerce_remove_ratings', 0);
 }
 if ( ! function_exists( 'exopite_woocommerce_remove_ratings' ) ) {
@@ -250,11 +257,19 @@ if ( ! function_exists( 'exopite_woocommerce_remove_ratings' ) ) {
     }
 }
 
-if ( $exopite_settings['exopite-woocommerce-releated-per-page'] == 0 ) {
+$exopite_woocommerce_releated_per_page = ( isset ( $exopite_settings['exopite-woocommerce-releated-per-page'] ) ) ?
+    $exopite_settings['exopite-woocommerce-releated-per-page'] :
+    4;
+
+$exopite_woocommerce_releated_columns = ( isset( $exopite_settings['exopite-woocommerce-releated-columns'] ) ) ?
+    $exopite_settings['exopite-woocommerce-releated-columns'] :
+    4;
+
+if ( $exopite_woocommerce_releated_per_page == 0 ) {
     remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20 );
 } else {
-    ExopiteSettings::setValue( 'exopite-woocommerce-releated-columns', $exopite_settings['exopite-woocommerce-releated-columns'] );
-    ExopiteSettings::setValue( 'exopite-woocommerce-releated-per-page', $exopite_settings['exopite-woocommerce-releated-per-page'] );
+    ExopiteSettings::setValue( 'exopite-woocommerce-releated-columns', $exopite_woocommerce_releated_columns );
+    ExopiteSettings::setValue( 'exopite-woocommerce-releated-per-page', $exopite_woocommerce_releated_per_page );
     function woocommerce_output_related_products() {
         woocommerce_related_products(
             array(
