@@ -1,7 +1,7 @@
 body.tag,
 body {
     word-wrap: break-word;
-    font-family: Georgia, serif;
+    font-family: 'Roboto';
     font-size: [#exopite-font-content.size]px;
     font-weight: [#exopite-font-content.weight];
     line-height: [#exopite-font-content.height]px;
@@ -9,7 +9,7 @@ body {
     color: [#exopite-font-content.color];
 }
 h1, .h1 {
-    font-family: Georgia, serif;
+    font-family: 'Roboto';
     font-size: [#exopite-font-h1.size]px;
     font-weight: [#exopite-font-h1.weight];
     line-height: [#exopite-font-h1.height]px;
