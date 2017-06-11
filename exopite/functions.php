@@ -57,7 +57,9 @@ if ( ! class_exists( 'ExopiteSettings' ) ) {
 
 $exopite_settings = get_option( 'exopite_options' );
 
-ExopiteSettings::setValue( 'exopite-content-width', $exopite_settings['exopite-content-width'] );
+$exopite_content_width = ( isset( $exopite_settings['exopite-content-width'] ) ) ? $exopite_settings['exopite-content-width'] : 1050;
+ExopiteSettings::setValue( 'exopite-content-width', $exopite_content_width );
+
 ExopiteSettings::setValue( 'woocommerce-activated', in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) );
 ExopiteSettings::setValue( 'allowed-htmls', array(
     'a' => array(
@@ -412,7 +414,7 @@ require_once INC . '/shortcodes.php';
  */
 require_once 'template-parts/the_excerpt.php';
 
-if ( $exopite_settings['exopite-custom-excerpt-more-enabled'] ) {
+if ( isset( $exopite_settings['exopite-custom-excerpt-more-enabled'] ) && $exopite_settings['exopite-custom-excerpt-more-enabled'] ) {
     ExopiteSettings::setValue( 'exopite-custom-excerpt-more', $exopite_settings['exopite-custom-excerpt-more'] );
     if ( ! function_exists( 'exopite_excerpt_more' ) ) {
         function exopite_excerpt_more( $more ) {
@@ -427,6 +429,8 @@ if ( $exopite_settings['exopite-custom-excerpt-more-enabled'] ) {
 
 add_action( 'current_screen', 'this_screen' );
 function this_screen() {
+
+    if ( ! defined( 'EXOPITE_CORE_URL' ) ) return;
 
     $current_screen = get_current_screen();
 
@@ -491,7 +495,7 @@ if ( ! function_exists( 'exopite_wcs_cf7_scripts_conditional_load' ) ) {
  * Link:      http://tommcfarlin.com/category-sticky-post/
  * Copyright: 2013 - 2015 Tom McFarlin
  */
-if ( is_array( $exopite_settings ) && $exopite_settings['exopite-enable-category-sticky'] ) {
+if ( isset( $exopite_settings['exopite-enable-category-sticky'] ) && $exopite_settings['exopite-enable-category-sticky'] ) {
     require_once PLUGINS . '/class-category-sticky-post.php';
     add_action( 'after_setup_theme', array( 'Category_Sticky_Post', 'get_instance' ) );
 }
@@ -499,7 +503,7 @@ if ( is_array( $exopite_settings ) && $exopite_settings['exopite-enable-category
 /**
  * GZip compression for less data and more speed.
  */
-if ( is_array( $exopite_settings ) && $exopite_settings['exopite-seo-gzip-enabled'] ) {
+if ( isset( $exopite_settings['exopite-seo-gzip-enabled'] ) && $exopite_settings['exopite-seo-gzip-enabled'] ) {
     require_once PLUGINS . '/filosofo-gzip-compression.php';
 }
 
