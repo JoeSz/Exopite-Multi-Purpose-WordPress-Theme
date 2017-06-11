@@ -446,7 +446,12 @@ function this_screen() {
 
     $current_screen = get_current_screen();
 
-    $screens = array( 'plugins' , 'appearance_page_tgmpa-install-plugins' );
+    /*
+     * 'plugins'                               -> check if any changes general
+     * 'appearance_page_tgmpa-install-plugins' -> on required or recommended plugin activation
+     * 'appearance_page_cs-framework'          -> if all plugin installed
+     */
+    $screens = array( 'plugins' , 'appearance_page_tgmpa-install-plugins', 'appearance_page_cs-framework' );
 
     if( in_array( $current_screen->id, $screens ) ) {
 
