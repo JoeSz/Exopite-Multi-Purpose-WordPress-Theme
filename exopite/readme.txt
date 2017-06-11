@@ -172,6 +172,12 @@ Req:
 
 == Changelog ==
 
+= 20170611 - Jun 11 2017
+* ENHANCEMENT: redirect to "Install Required Plugins" after theme activated.
+* ENHANCEMENT: refresh "Install Required Plugins" page after plugin installed (to show up theme options menu),
+               and redirect to theme options after all plugins are installed.
+* FIXED: Definie some option variable, to prevent error on theme actiovation before the exopite-core plugin is activated.
+
 = 20170606 - Jun 6 2017
 * ADDED: Desktop logo with
 * ADDED: Mobile logo width and padding top/bottom
