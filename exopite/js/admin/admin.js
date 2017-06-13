@@ -7,7 +7,10 @@
 
         /* WP Media Uploader */
         var _exopite_media = true;
-        var _orig_send_attachment = wp.media.editor.send.attachment;
+        var _orig_send_attachment;
+        if ( typeof wp.media === "function" ) {
+            _orig_send_attachment = wp.media.editor.send.attachment;
+        }
 
         $( '.delete-avatar-image' ).on('click', function( event ) {
             var $wrapper = $( this ).parents( '.exopite-profile-upload-options' );
