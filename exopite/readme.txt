@@ -5,7 +5,7 @@ Tags: translation-ready, custom-background, theme-options, custom-menu, post-for
 
 Requires at least: 4.5.3
 Tested up to: 4.5.3 - 4.7.4
-Stable tag: 20170514
+Stable tag: 20170613
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -171,6 +171,12 @@ Req:
 == Frequently Asked Questions ==
 
 == Changelog ==
+
+= 20170613 - Jun 13 2017
+* FIXED: Remove editor and admin JavaScript and style for category sticky plugin.
+* FIXED: Sidebar checking for blog and archives.
+* FIXED: Check wp.media in JavaScript and only load when need it.
+* FIXED: Category_name and tags in archive query by slug not by name.
 
 = 20170611 - Jun 11 2017
 * ENHANCEMENT: redirect to "Install Required Plugins" after theme activated.
