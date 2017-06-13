@@ -24,8 +24,9 @@ $exopite_settings = get_option( 'exopite_options' );
 $exopite_blog_list_layout = ( isset( $exopite_settings['exopite-blog-list-layout'] ) ) ? $exopite_settings['exopite-blog-list-layout'] : 'blog-list-right-sidebar';
 
 // Calculate width (sidebar or no sidebar) to match content width
-$active_sidebar_1 = is_active_sidebar( 'sidebar-1' );
-$content_class = ( $active_sidebar_1 && ( $exopite_blog_list_layout == 'blog-list-left-sidebar' || $exopite_blog_list_layout == 'blog-list-right-sidebar' ) ) ? 'col-md-9' : 'col-md-12';
+$sidebar_id = exopite_get_sidebar_id();
+$active_sidebar = is_active_sidebar( $sidebar_id );
+$content_class = ( $active_sidebar && ( $exopite_blog_list_layout == 'blog-list-left-sidebar' || $exopite_blog_list_layout == 'blog-list-right-sidebar' ) ) ? 'col-md-9' : 'col-md-12';
 
 // Theme Hook Alliance (include/plugins/tha-theme-hooks.php)
 get_header();
@@ -58,7 +59,7 @@ get_header();
 			 * Check left, right or no sidebar and set bootstrap col settings accordingly
 			 */
             // Display sidebar if sidebar is on the left side
-			if ( $active_sidebar_1 && $exopite_blog_list_layout == 'blog-list-left-sidebar' ) get_sidebar();
+			if ( $active_sidebar && $exopite_blog_list_layout == 'blog-list-left-sidebar' ) get_sidebar();
 
             ?>
 			<div id="primary" class="<?php echo $content_class; ?> content-area">
@@ -92,7 +93,7 @@ get_header();
 			<?php
 
             // Display sidebar if sidebar is on the right side
-            if ( $active_sidebar_1 && $exopite_blog_list_layout == 'blog-list-right-sidebar' ) get_sidebar();
+            if ( $active_sidebar && $exopite_blog_list_layout == 'blog-list-right-sidebar' ) get_sidebar();
 
             ?>
 		</div><!-- .row -->
