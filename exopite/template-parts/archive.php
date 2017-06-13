@@ -9,9 +9,10 @@
 // Exit if accessed directly
 defined('ABSPATH') or die( __( 'You cannot access this page directly.', 'exopite' ) );
 
-$active_sidebar_1 = is_active_sidebar( 'sidebar-1' );
+$sidebar_id = exopite_get_sidebar_id();
+$active_sidebar = is_active_sidebar( $sidebar_id );
 
-$content_class = ( $active_sidebar_1 && ( $exopite_settings['exopite-blog-list-layout'] == 'blog-list-left-sidebar' || $exopite_settings['exopite-blog-list-layout'] == 'blog-list-right-sidebar' ) ) ? 'col-md-9' : 'col-md-12';
+$content_class = ( $active_sidebar && ( $exopite_settings['exopite-blog-list-layout'] == 'blog-list-left-sidebar' || $exopite_settings['exopite-blog-list-layout'] == 'blog-list-right-sidebar' ) ) ? 'col-md-9' : 'col-md-12';
 
 $exopite_settings = get_option( 'exopite_options' );
 ?>
@@ -36,12 +37,12 @@ $exopite_settings = get_option( 'exopite_options' );
                             echo '<span>' . single_cat_title( '', false ) . '</span>';
 
                             // Set WP_Query args
-                            $args['query_args']['category_name'] = single_cat_title( '', false );
+                            $args['query_args']['category_name'] = $wp_query->queried_object->slug;
 
                         } elseif ( is_tag() ) {
 
                             printf( esc_html__( 'Tagged in', 'exopite' ) . ' %s', '<span>' . single_tag_title( '', false ) . '</span>' );
-                            $args['query_args']['tag'] = single_tag_title( '', false );
+                            $args['query_args']['tag'] = $wp_query->queried_object->slug;
 
                         } elseif ( is_author() ) {
 
@@ -132,7 +133,7 @@ $exopite_settings = get_option( 'exopite_options' );
             <?php
 
             // Display sidebar on the right side.
-            if ( $active_sidebar_1 && $exopite_settings['exopite-blog-list-layout'] == 'blog-list-left-sidebar' ) get_sidebar();
+            if ( $active_sidebar && $exopite_settings['exopite-blog-list-layout'] == 'blog-list-left-sidebar' ) get_sidebar();
 
             ?>
             <div id="primary" class="<?php echo $content_class; ?> content-area">
@@ -170,7 +171,7 @@ $exopite_settings = get_option( 'exopite_options' );
             <?php
 
             // Display sidebar on the right side.
-            if ( $active_sidebar_1 && $exopite_settings['exopite-blog-list-layout'] == 'blog-list-right-sidebar' ) get_sidebar();
+            if ( $active_sidebar && $exopite_settings['exopite-blog-list-layout'] == 'blog-list-right-sidebar' ) get_sidebar();
 
             ?>
         </div><!-- .row -->
