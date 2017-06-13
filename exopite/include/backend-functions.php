@@ -41,14 +41,6 @@ if ( ! function_exists( 'enqueue_admin_styles_scripts' ) ) {
         wp_register_script( 'exopite-admin-script', TEMPLATEURI . '/js/admin/admin.js', array( 'jquery' ), false, true);
         wp_enqueue_script( 'exopite-admin-script' );
 
-        if ( ExopiteSettings::getValue('exopite-enable-category-sticky') ) {
-            wp_register_script( 'exopite-category-sticky-admin-script', TEMPLATEURI . '/js/admin/category-sticky-admin.js', array( 'jquery' ), false, true);
-            wp_enqueue_script( 'exopite-category-sticky-admin-script' );
-
-            wp_register_script( 'exopite-category-sticky-editor-script', TEMPLATEURI . '/js/admin/category-sticky-editor.js', array( 'jquery' ), false, true);
-            wp_enqueue_script( 'exopite-category-sticky-editor-script' );
-        }
-
         if ( $pagenow == 'themes.php' || $pagenow == 'post.php' ) {
 
             wp_register_script( 'sticky-anything', TEMPLATEURI . '/js/jquery.sticky-anything.js', array( 'jquery' ), false, true);

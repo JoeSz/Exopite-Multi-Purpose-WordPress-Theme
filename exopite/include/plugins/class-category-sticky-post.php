@@ -81,8 +81,8 @@ class Category_Sticky_Post {
 		add_filter( 'post_class', array( $this, 'set_category_sticky_class' ) );
 
 		// Stylesheets
-		add_action( 'admin_enqueue_scripts', array( $this, 'add_admin_styles_and_scripts' ) );
-		add_action( 'wp_enqueue_scripts', array( $this, 'add_styles' ) );
+		// add_action( 'admin_enqueue_scripts', array( $this, 'add_admin_styles_and_scripts' ) );
+		// add_action( 'wp_enqueue_scripts', array( $this, 'add_styles' ) );
 
 	}
 
@@ -181,9 +181,9 @@ class Category_Sticky_Post {
 	 */
 	public function add_admin_styles_and_scripts() {
 
-		wp_enqueue_style( 'category-sticky-post', plugins_url( '/category-sticky-post/css/admin.css' ) );
-		wp_enqueue_script( 'category-sticky-post-editor', plugins_url( '/category-sticky-post/js/editor.min.js' ), array( 'jquery' ) );
-		wp_enqueue_script( 'category-sticky-post', plugins_url( '/category-sticky-post/js/admin.min.js' ), array( 'jquery' ) );
+		// wp_enqueue_style( 'category-sticky-post', plugins_url( '/category-sticky-post/css/admin.css' ) );
+		// wp_enqueue_script( 'category-sticky-post-editor', plugins_url( '/category-sticky-post/js/editor.min.js' ), array( 'jquery' ) );
+		// wp_enqueue_script( 'category-sticky-post', plugins_url( '/category-sticky-post/js/admin.min.js' ), array( 'jquery' ) );
 
 	}
 
