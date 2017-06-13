@@ -29,6 +29,10 @@ if ( ! function_exists( 'enqueue_admin_styles_scripts' ) ) {
 
         global $pagenow;
 
+        if ( $pagenow == 'profile.php' ) {
+            wp_enqueue_media();
+        }
+
         // Load only in specific admin page(s)
         // http://wordpress.stackexchange.com/questions/1058/loading-external-scripts-in-admin-but-only-for-a-specific-post-type
         wp_register_style('admin_style', TEMPLATEURI . '/css/admin.css' , true, "all");
