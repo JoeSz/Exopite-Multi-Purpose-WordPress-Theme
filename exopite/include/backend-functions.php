@@ -64,8 +64,8 @@ if ( ! function_exists( 'exopite_admin_thumbnails' ) ) {
 
 		add_filter( 'manage_posts_columns', 'exopite_thumbnail_column_title' );
 		add_action( 'manage_posts_custom_column', 'exopite_thumbnail_columns_content', 10, 2 );
-		add_filter( 'manage_pages_columns', 'exopite_thumbnail_column_title' );
-		add_action( 'manage_pages_custom_column', 'exopite_thumbnail_columns_content', 10, 2 );
+		// add_filter( 'manage_pages_columns', 'exopite_thumbnail_column_title' );
+		// add_action( 'manage_pages_custom_column', 'exopite_thumbnail_columns_content', 10, 2 );
 
 	}
 
