@@ -254,9 +254,22 @@ function exopite_setup() {
      * Maybe for some user, it is not clear, theme required exopite-core plugin.
      */
     global $pagenow;
-    if ( is_admin() && 'themes.php' == $pagenow && isset( $_GET['activated'] ) ) {
+    if ( is_admin() &&
+         'themes.php' == $pagenow && isset( $_GET['activated'] ) ) {
 
-        wp_redirect( admin_url( 'themes.php?page=tgmpa-install-plugins' ) );
+        // Check if get_plugins() function exists. This is required on the front end of the
+        // site, since it is in a file that is normally only loaded in the admin.
+        if ( ! function_exists( 'get_plugins' ) ) {
+            require_once ABSPATH . 'wp-admin/includes/plugin.php';
+        }
+
+        $installed_plugins = get_plugins();
+
+        if ( ! isset( $installed_plugins['exopite-core/exopite-core.php'] ) ) {
+
+            wp_redirect( admin_url( 'themes.php?page=tgmpa-install-plugins' ) );
+
+        }
 
     }
 
