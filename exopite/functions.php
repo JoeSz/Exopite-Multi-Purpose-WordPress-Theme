@@ -245,8 +245,8 @@ function exopite_setup() {
      */
     // Default sizes
     add_image_size( 'blog-list-full', 1020, 400, true );
-    add_image_size( 'blog-list-multiple', 400, 267, true );
-    add_image_size( 'releated', 320, 200, array( 'center', 'center' ) );
+    add_image_size( 'blog-list-multiple', 480, 320, true );
+    add_image_size( 'releated', 330, 220, array( 'center', 'center' ) );
     add_image_size( 'avatar', 145, 145, array( 'center', 'center' ) );
 
     /*
