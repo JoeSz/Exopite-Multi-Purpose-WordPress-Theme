@@ -82,7 +82,11 @@ body {
             <?php
         else :
 
-            // Apply WordPress content filters to maintenance content
+            /**
+             * Apply WordPress content filters to maintenance content
+             *
+             * @link https://themehybrid.com/weblog/how-to-apply-content-filters
+             */
             add_filter( 'exopite_maintenance_content', 'wptexturize'       );
             add_filter( 'exopite_maintenance_content', 'convert_smilies'   );
             add_filter( 'exopite_maintenance_content', 'convert_chars'     );
