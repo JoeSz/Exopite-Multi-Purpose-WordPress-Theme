@@ -81,7 +81,17 @@ body {
             </div>
             <?php
         else :
-            echo $exopite_settings['exopite-maintenance-text'];
+
+            // Apply WordPress content filters to maintenance content
+            add_filter( 'exopite_maintenance_content', 'wptexturize'       );
+            add_filter( 'exopite_maintenance_content', 'convert_smilies'   );
+            add_filter( 'exopite_maintenance_content', 'convert_chars'     );
+            add_filter( 'exopite_maintenance_content', 'wpautop'           );
+            add_filter( 'exopite_maintenance_content', 'shortcode_unautop' );
+            add_filter( 'exopite_maintenance_content', 'do_shortcode'      );
+            $content = apply_filters( 'exopite_maintenance_content', $exopite_settings['exopite-maintenance-text'] );
+            echo $content;
+
         endif;
         ?>
         </div>
