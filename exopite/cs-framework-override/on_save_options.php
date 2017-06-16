@@ -98,6 +98,7 @@ if ( ! function_exists( 'on_save_options' ) ) {
         $options = css_generate_background( 'exopite-hero-header-show-menu-below-backgorund', $options );
 
         $options = css_generate_rgb( 'exopite-font-content-alternative', $options );
+        $options = css_generate_rgb( 'exopite-font-content-link', $options );
 
         // Menu font
         $options['google_fonts'] = array();
