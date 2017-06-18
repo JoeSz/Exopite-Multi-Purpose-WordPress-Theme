@@ -172,6 +172,10 @@ Req:
 
 == Changelog ==
 
+= 20170618 - Jun 18 2017
+* ADDED: Color for link hover
+* ADDED: Underline for link and link hover in content
+
 = 20170613 - Jun 13 2017
 * FIXED: Remove editor and admin JavaScript and style for category sticky plugin.
 * FIXED: Sidebar checking for blog and archives.

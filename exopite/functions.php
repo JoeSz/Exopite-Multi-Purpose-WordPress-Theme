@@ -87,7 +87,7 @@ ExopiteSettings::setValue( 'allowed-htmls', array(
  * 1.0 - Define constants.
  * ----------------------------------------------------------------------------------------
  */
-define( 'EXOPITE_VERSION',  '20170613' );
+define( 'EXOPITE_VERSION',  '20170618' );
 defined( 'TEMPLATEPATH' ) or define( 'TEMPLATEPATH', get_template_directory() );
 define( 'TEMPLATEURI', get_template_directory_uri() );
 defined( 'STYLESHEETPATH' ) or define( 'STYLESHEETPATH', get_stylesheet_directory() );
@@ -419,6 +419,9 @@ require_once INC . '/google-fonts.php';
  * Enqueue scripts and styles.
  */
 require_once INC . '/enqueue.php';
+
+require_once PLUGINS . '/dt-demo-importer/init.php';
+require_once PLUGINS . '/dt-demo-importer/execute.php';
 
 /**
  * Modifies tag cloud widget min and max font sizes.
