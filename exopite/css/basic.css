@@ -127,6 +127,15 @@ img {
 a {
     color: [#exopite-font-content-link];
 }
+#content a {
+    [#exopite-font-content-link-underline-css]
+}
+a:hover {
+    color: [#exopite-font-content-link-hover];
+}
+#content a:hover {
+    [#exopite-font-content-link-hover-underline-css]
+}
 .animation {
     -webkit-transition: all 0.3s ease-in-out;
     -moz-transition: all 0.3s ease-in-out;

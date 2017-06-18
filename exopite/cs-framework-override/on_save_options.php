@@ -153,6 +153,12 @@ if ( ! function_exists( 'on_save_options' ) ) {
 
         $css_files[] = 'effect.' . $options['exopite-image-hover-effect'] . '.css';
 
+        $options['exopite-font-content-link-underline-css'] = 'text-decoration: ';
+        $options['exopite-font-content-link-underline-css'] .= ( $options['exopite-font-content-link-underline'] ) ? 'underline;' : 'none;';
+        $options['exopite-font-content-link-hover-underline-css'] = 'text-decoration: ';
+        $options['exopite-font-content-link-hover-underline-css'] .= ( $options['exopite-font-content-link-hover-underline'] ) ? 'underline;' : 'none;';
+
+
         if ( $menu_top ) {
             $css_files[] = 'menu.top.css';
             $css_files[] = 'menu.mobile.css';

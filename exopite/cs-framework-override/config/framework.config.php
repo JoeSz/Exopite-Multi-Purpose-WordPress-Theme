@@ -1684,11 +1684,33 @@ $options[]   = array(
         ),
 
         array(
+          'id'      => 'exopite-font-content-link-hover',
+          'type'    => 'color_picker',
+          'title'   => esc_attr__('Link hover', 'exopite'),
+          'rgba'    => false,
+          'default' => '#5379BA',
+        ),
+
+        array(
           'id'      => 'exopite-font-content-alternative',
           'type'    => 'color_picker',
           'title'   => esc_attr__('Secondary', 'exopite'),
           'rgba'    => false,
           'default' => '#5379BA',
+        ),
+
+        array(
+          'id'          => 'exopite-font-content-link-underline',
+          'type'        => 'switcher',
+          'title'       => esc_attr__( 'Link underline', 'exopite' ),
+          'default'     => false,
+        ),
+
+        array(
+          'id'          => 'exopite-font-content-link-hover-underline',
+          'type'        => 'switcher',
+          'title'       => esc_attr__( 'Link hover underline', 'exopite' ),
+          'default'     => false,
         ),
 
       ),
