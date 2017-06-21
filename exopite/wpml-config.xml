@@ -1,0 +1,14 @@
+<wpml-config>
+  <custom-types>
+    <custom-type translate="1">exopite-sections</custom-type>
+  </custom-types>
+  <custom-fields>
+    <custom-field action="translate">exopite_custom_page_options</custom-field>
+  </custom-fields>
+  <admin-texts>
+    <key name="exopite_options">
+      <key name="exopite-blog-title"/>
+      <key name="exopite-maintenance-text"/>
+    </key>
+  </admin-texts>
+</wpml-config>
