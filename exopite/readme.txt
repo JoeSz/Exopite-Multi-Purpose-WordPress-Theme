@@ -139,6 +139,11 @@ WOOCOMMERCE
 
 Well organized, commented & clean code
 
+COMPATIBILITY:
+- WPML (https://wpml.org/theme/exopite/)
+- WooCommerce
+- SiteOrigin Page Builder
+
 Req:
 - WP 4.5
 - PHP 5.3+/7
@@ -159,6 +164,7 @@ Req:
 - 93digital for Widget Clone
 - _s for starter theme
 - Pixabay for images
+- WPML Team
 - GitHub/Stack Overflow/WordPress/PHP/CSS/jQuery/HTML/Bootstrap/etc...
 
 == Installation ==
