@@ -420,8 +420,11 @@ require_once INC . '/google-fonts.php';
  */
 require_once INC . '/enqueue.php';
 
-require_once PLUGINS . '/dt-demo-importer/init.php';
-require_once PLUGINS . '/dt-demo-importer/execute.php';
+/**
+ * One click demo importer.
+ */
+// require_once PLUGINS . '/dt-demo-importer/init.php';
+// require_once PLUGINS . '/dt-demo-importer/execute.php';
 
 /**
  * Modifies tag cloud widget min and max font sizes.
