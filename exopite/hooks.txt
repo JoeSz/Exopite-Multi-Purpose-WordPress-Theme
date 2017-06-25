@@ -59,7 +59,8 @@ exopite-preheader-from-page (page id from section post type)
 exopite-footer-from-page (page id from section post type)
 exopite-sidebar
 exopite-main-menu-top-level-before-item
-exopite-main-menu-top-level-after-item'
+exopite-main-menu-top-level-after-item
+exopite-logo
 - WooCommerce
     exopite-woocommerce-sidebar (Woocommerce sidebar)
     exopite-woocommerce-cart-menu-overview
@@ -75,9 +76,12 @@ exopite-main-menu-top-level-after-item'
     exopite-display-hero-header (true/false)
     exopite-enable-header (true/false)
     exopite-enable-menu (true/false)
-    exopite-desktop-logo (logo url)
-    exopite-mobile-logo (logo url)
+    exopite-desktop-logo (logo image url)
+    exopite-mobile-logo (logo image url)
+    exopite-desktop-logo-url (logo anchore link url)
+    exopite-mobile-hamburger-icon (hambuerger icon)
     exopite-mobile-menu (mobile menu slug)
+    exopite-menu-search-icon (menu search icon)
     exopite-primary-menu (primary menu slug)
     exopite-mobile-menu-wrap (wapper around mobile menu)
     exopite-desktop-menu-wrap (wapper around desktop menu)
