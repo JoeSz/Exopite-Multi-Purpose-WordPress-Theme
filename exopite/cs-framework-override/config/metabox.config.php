@@ -191,7 +191,20 @@ $options[]    = array(
   ),
 );
 
-$enable_fixed_top_menu_settings = array(
+$meta_enable_desktop_logo = array(
+  'id'      => 'exopite-meta-desktop-logo',
+  'type'    => 'switcher',
+  'title'   => esc_attr__( 'Enable desktop logo', 'exopite' ),
+  'default' => true,
+  'dependency'  => array( 'exopite-meta-enable-header', '==', 'true' ),
+);
+
+if ( ! isset( $exopite_settings['exopite-desktop-logo-position'] ) || $exopite_settings['exopite-desktop-logo-position'] == 'top' ) {
+
+    $options[0]['sections'][0]['fields'][] = $meta_enable_desktop_logo;
+}
+
+$meta_enable_fixed_top_menu_settings = array(
   'id'      => 'exopite-enable-fixed-header',
   'type'    => 'switcher',
   'title'   => esc_attr__( 'Enable fixed menu', 'exopite' ),
@@ -201,10 +214,10 @@ $enable_fixed_top_menu_settings = array(
 
 if ( ! isset( $exopite_settings['exopite-menu-alignment'] ) || $exopite_settings['exopite-menu-alignment'] == 'top' ) {
 
-    $options[0]['sections'][0]['fields'][] = $enable_fixed_top_menu_settings;
+    $options[0]['sections'][0]['fields'][] = $meta_enable_fixed_top_menu_settings;
 }
 
-$enable_blog_content = array(
+$meta_enable_blog_content = array(
   'id'      => 'exopite-enable-blog-content',
   'type'    => 'switcher',
   'title'   => esc_attr__( 'Display blog content', 'exopite' ),
@@ -212,10 +225,10 @@ $enable_blog_content = array(
 );
 
 if ( isset( $_GET['post'] ) && $_GET['post'] == get_option('page_for_posts') ) {
-    $options[0]['sections'][1]['fields'][] = $enable_blog_content;
+    $options[0]['sections'][1]['fields'][] = $meta_enable_blog_content;
 }
 
-$hero_header_settings =     // begin: a section
+$meta_hero_header_settings =     // begin: a section
 array(
   'name'  => 'exopite_section_hero_header',
   'title' => esc_attr__( 'Hero header', 'exopite' ),
@@ -390,7 +403,7 @@ array(
 // Add hero header section only, if hero header is enabled in settings.
 if ( ! isset( $exopite_settings['exopite-enable-hero-header'] ) || $exopite_settings['exopite-enable-hero-header'] ) {
 
-    $options[0]['sections'][] = $hero_header_settings;
+    $options[0]['sections'][] = $meta_hero_header_settings;
 }
 
 CSFramework_Metabox::instance( $options );
