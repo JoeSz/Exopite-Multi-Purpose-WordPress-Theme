@@ -9,6 +9,10 @@
  */
 defined('ABSPATH') or die( 'You cannot access this page directly.' );
 
+if ( ! $show_desktop_logo ) $logo = '';
+$top_sidebar_width_small = ( empty( $logo ) ) ? 'col-md-6' : 'col-md-4';
+$top_sidebar_width_long  = ( empty( $logo ) ) ? 'col-md-12' : 'col-md-8';
+
 ?>
 <!-- Logo top -->
 <div class="container">
@@ -20,7 +24,7 @@ defined('ABSPATH') or die( 'You cannot access this page directly.' );
 
             // Set col width according to the displayed sidebars
             ?>
-            <div class="col-12 <?php echo ( $both || $logo_center ) ? 'col-md-4' : 'col-md-8'; ?> left-logo-widget">
+            <div class="col-12 <?php echo ( $both || $logo_center ) ? $top_sidebar_width_small : $top_sidebar_width_long; ?> left-logo-widget">
             <?php
 
             if ( $left_side_logo_widget_area && ( $logo_center || $logo_right ) ) {
@@ -45,7 +49,7 @@ defined('ABSPATH') or die( 'You cannot access this page directly.' );
         if ( ( ( $left_or_right ) && $logo_center ) || ( $logo_left ) && $right_side_logo_widget_area ):
 
             ?>
-            <div class="col-12 <?php echo ( $both || $logo_center ) ? 'col-md-4' : 'col-md-8'; ?> right-logo-widget">
+            <div class="col-12 <?php echo ( $both || $logo_center ) ? $top_sidebar_width_small : $top_sidebar_width_long; ?> right-logo-widget">
             <?php
 
             if ( $right_side_logo_widget_area && ( $logo_center || $logo_left ) ) {

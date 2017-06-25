@@ -78,9 +78,11 @@ $enable_fixed_header = isset( $exopite_meta_data['exopite-enable-fixed-header'] 
 
 ExopiteSettings::setValue( 'logo_url', $desktop_logo );
 
-function create_logo() {
-    if ( ExopiteSettings::getValue( 'logo_url' ) == "") return;
-    return '<a href="' . SITEURL . '"><img src="' . ExopiteSettings::getValue( 'logo_url' ) . '" class="logo" alt="Desktop Logo"></a>';
+if ( ! function_exists( 'exopite_create_logo' ) ) {
+    function exopite_create_logo() {
+        if ( ExopiteSettings::getValue( 'logo_url' ) == "") return;
+        return '<a href="' . apply_filters( 'exopite-desktop-logo-url', SITEURL ) . '"><img src="' . ExopiteSettings::getValue( 'logo_url' ) . '" class="logo" alt="Desktop Logo"></a>';
+    }
 }
 
 /*
@@ -89,7 +91,7 @@ function create_logo() {
  * Assemble logo image, I put it in a variable, because I may have to display
  * before, after or top of the menu, depends on the logo left or right settings.
  */
-$logo = '<div class="desktop-menu desktop-menu-logo col-12' . $logo_alignment_classes . ' ' . $exopite_desktop_logo_alignment . '">' . create_logo() . '</div>';
+$logo = apply_filters( 'exopite-logo', '<div class="desktop-menu desktop-menu-logo col-12' . $logo_alignment_classes . ' ' . $exopite_desktop_logo_alignment . '">' . exopite_create_logo() . '</div>' );
 
 /*
  * MOBILE MENU
@@ -98,20 +100,21 @@ $logo = '<div class="desktop-menu desktop-menu-logo col-12' . $logo_alignment_cl
  */
 $mobile_logo_img = ( $mobile_logo != '' ) ? $mobile_logo : $desktop_logo;
 
+
 $mobile_logo = ( $mobile_logo_img == '' ) ? '' : '<a href="' . SITEURL . '">
         <img src="' . $mobile_logo_img . '" class="logo" alt="Mobile Logo">
     </a>';
 
-$mobile_hamburger_icon = '<div id="mobile-trigger" class="mobile-button mobile-button-hamburger">
+$mobile_hamburger_icon = apply_filters( 'exopite-mobile-hamburger-icon', '<div id="mobile-trigger" class="mobile-button mobile-button-hamburger">
         <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
         <span class="icon-text">MENU</span>
-    </div>';
+    </div>' );
 
 if ( $exopite_mobile_menu_search ) {
     add_action( 'expote-extend-mobile-menu', 'add_mobile_menu_search' );
     if ( ! function_exists( 'add_mobile_menu_search' ) ) {
         function add_mobile_menu_search() {
-            echo '<div class="full-search-menu mobile-button mobile-button-search"><i class="fa fa-search" aria-hidden="true"></i></div>';
+            echo apply_filters( 'exopite-menu-search-icon', '<div class="full-search-menu mobile-button mobile-button-search"><i class="fa fa-search" aria-hidden="true"></i></div>' );
         }
     }
 }
