@@ -185,6 +185,13 @@ if ( ! function_exists( 'exopite_breadcrumbs' ) ) {
                 } else {
 
                     // e.g. Page
+                    $post_parents_id = array_reverse( get_post_ancestors( get_the_ID() ) );
+
+                    foreach ( $post_parents_id as $post_parent_id ) {
+
+                        $breadcrumb .= '<a href="' . get_permalink( $post_parent_id ) . '">' . get_the_title( $post_parent_id ) . '</a>' . $divider;
+
+                    }
 
                     if ( ExopiteSettings::getValue( 'woocommerce-activated' ) && is_cart() ) {
 
