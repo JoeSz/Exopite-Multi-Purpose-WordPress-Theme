@@ -41,8 +41,6 @@ if ( ! function_exists( 'exopite_display_breadcrumbs' ) ) {
 if ( ! function_exists( 'exopite_breadcrumbs' ) ) {
     function exopite_breadcrumbs() {
 
-        $breadcrumb = '';
-
         if ( function_exists( 'yoast_breadcrumb' ) ) {
 
             // If Yoast SEO exist and breadcrumbs is activated, use they breadcrumbs function for more flexibility
@@ -69,18 +67,39 @@ if ( ! function_exists( 'exopite_breadcrumbs' ) ) {
                     $last_category = key( array_slice( $categories, -1, 1, TRUE ) );
                     $category_divider = '& ';
 
-                    foreach( ( $categories ) as $category ) {
+                    // Category parents
+                    if( is_category() ) {
+                        $category_id = get_query_var('cat');
+                    } else {
+                        $category_id = $categories[0]->cat_ID;
+                    }
 
-                        if ( is_single() ) {
+                    $category_parents = explode( ';', rtrim( get_category_parents( $category_id, true, ';' ),';' ) );
 
-                            if ( $category->cat_name == $categories[$last_category]->name ) $category_divider = '';
-                            $breadcrumb .= '<a href="' . get_category_link( $category->cat_ID ) . '">' . $category->cat_name . '</a> ' . $category_divider;
+                    $i = 0;
+                    $len = count( $category_parents );
+
+                    foreach( $category_parents as $category_parent ) {
+
+                        if ( $i == $len - 1 ) {
+
+                            if ( is_category() ) {
+
+                                $breadcrumb .= strip_tags( $category_parent );
+
+                            } else {
+
+                                $breadcrumb .= $category_parent;
+
+                            }
 
                         } else {
 
-                            $breadcrumb .= $category->cat_name . ' ';
+                            $breadcrumb .= $category_parent . $divider;
 
                         }
+
+                        $i++;
 
                     }
 
