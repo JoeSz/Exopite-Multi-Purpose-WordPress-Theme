@@ -70,7 +70,26 @@
     }
 
 }
-
+/* Hearo Header skip to content */
+.hero-header-skip-to-content {
+    color: #fff;
+    z-index: 99999999999;
+    position: absolute;
+    bottom: 50px;
+    font-size: 1.2em;
+    left: calc(50% - 20px);
+}
+.hero-header-skip-to-content i {
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    padding-left: 8px;
+    padding-top: 8px;
+}
+.hero-header-skip-to-content:hover {
+    color: #fff;
+}
 /* Site branding */
 .site-branding {
     position: absolute;
