@@ -279,6 +279,7 @@ if ( ! function_exists( 'exopite_post_meta_date_badge' ) ) {
 /**
  * Display "skip to content" link
  */
+/*
 add_action( 'tha_body_top', 'exopite_display_skip_to_content', 10 );
 if ( ! function_exists( 'exopite_display_skip_to_content' ) ) {
 	function exopite_display_skip_to_content() { ?>
@@ -287,6 +288,7 @@ if ( ! function_exists( 'exopite_display_skip_to_content' ) ) {
 
 	<?php }
 }
+*/
 
 /**
  * Display "scroll to top" arrow
