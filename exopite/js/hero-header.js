@@ -10,6 +10,16 @@ $( '.video-control' ).on( 'click', function(event) {
     this[this.paused ? 'play' : 'pause']();
 });
 
+$( '.hero-header-skip-to-content' ).on( 'click', function(event) {
+    event.preventDefault();
+    //var navigationHeight = $( '#site-navigation' ).height();
+    var top = $( '#content' ).offset().top - $( '#site-navigation' ).height();
+
+    $("html, body").animate({
+        scrollTop: top
+    }, 500);
+});
+
 $( '.hero-header-overlay' ).on( 'click', function() {
     if ( ! $videoTag.length ) return;
     if ( $videoTag.get(0).paused ) {
