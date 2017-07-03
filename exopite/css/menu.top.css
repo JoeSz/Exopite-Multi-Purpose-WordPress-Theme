@@ -45,7 +45,7 @@
         padding-top: [#exopite-logo-padding-top]px;
         padding-bottom: [#exopite-logo-padding-bottom]px;
     }
-    .desktop-menu-logo img {
+    #site-navigation img {
         width: [#exopite-logo-width]px;
     }
     .desktop-menu > li > div,
