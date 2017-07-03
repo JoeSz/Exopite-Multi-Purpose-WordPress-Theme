@@ -178,6 +178,12 @@ Req:
 
 == Changelog ==
 
+= 20170703 - Jul 03 2017
+* ADDED: "logo-in-menu" class to logo conteiner div, if logo in menu
+* FIXED: wrong seelctor in css for logo width
+* FIXED: create logo function name if logo is in menu middle
+
+
 = 20170702 - Jul 02 2017
 * ADDED: Skip/scroll to content in Hero Header with animation
 * ENHANCEMENT: Breadcrumbs display all parent page and all parent categories for posts/post_types
