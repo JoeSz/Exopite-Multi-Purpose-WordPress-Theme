@@ -28,7 +28,7 @@
     line-height: [#menu-font.height]px;
     font-style: [#menu-font.style];
 }
-#site-navigation img {
+#site-navigation .logo {
     width: [#exopite-mobile-logo-width]px;
     padding-top: [#exopite-mobile-logo-padding-top]px;
     padding-bottom: [#exopite-mobile-logo-padding-bottom]px;
@@ -45,7 +45,8 @@
         padding-top: [#exopite-logo-padding-top]px;
         padding-bottom: [#exopite-logo-padding-bottom]px;
     }
-    #site-navigation img {
+    header .logo,
+    #site-navigation .logo {
         width: [#exopite-logo-width]px;
     }
     .desktop-menu > li > div,
