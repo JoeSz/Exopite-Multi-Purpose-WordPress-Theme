@@ -178,6 +178,10 @@ Req:
 
 == Changelog ==
 
+= 20170702 - Jul 02 2017
+* ADDED: Skip/scroll to content in Hero Header with animation
+* ENHANCEMENT: Breadcrumbs display all parent page and all parent categories for posts/post_types
+
 = 20170625 - Jun 25 2017
 * ADDED: option to disable desktop logo if logo is in top
          This is useful if user has a hero header and fixed menu on top, but the logo is displayed in hero header
