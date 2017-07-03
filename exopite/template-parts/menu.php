@@ -48,17 +48,19 @@ $left_side_logo_widget_area = is_active_sidebar( 'left-side-logo-widget-area' );
 $right_side_logo_widget_area = is_active_sidebar( 'right-side-logo-widget-area' );
 
 $logo_top = $logo_top_pos || $logo_top_in_menu_pos;
+$logo_menu_center = ( $exopite_desktop_logo_position == 'center' );
 $both = $left_side_logo_widget_area && $right_side_logo_widget_area && $logo_center;
 $left_or_right = $left_side_logo_widget_area || $right_side_logo_widget_area;
 
 // Alignment classes
 $logo_alignment_classes = ( $logo_top || $menu_left ) ? '' : ' col-md-4 col-lg-3';
+$logo_in_menu = ( $logo_top || $menu_left ) ? '' : ' logo-in-menu';
 $logo_alignment_classes .= ( ( $logo_top && $logo_center && ( $left_or_right ) ) ||
                              ( $logo_left && $right_side_logo_widget_area ) ||
                              ( $logo_right && $left_side_logo_widget_area ) ) ?
                              ' col-md-4' : '';
 
-$menu_alignment_classes = ( $logo_top || $menu_left ) ? '' : ' col-md-8 col-lg-9';
+$menu_alignment_classes = ( $logo_top || $menu_left || $logo_menu_center ) ? '' : ' col-md-8 col-lg-9';
 
 // Logos
 $desktop_logo = ( isset( $exopite_settings['exopite-desktop-logo'] ) ) ?
@@ -91,7 +93,7 @@ if ( ! function_exists( 'exopite_create_logo' ) ) {
  * Assemble logo image, I put it in a variable, because I may have to display
  * before, after or top of the menu, depends on the logo left or right settings.
  */
-$logo = apply_filters( 'exopite-logo', '<div class="desktop-menu desktop-menu-logo col-12' . $logo_alignment_classes . ' ' . $exopite_desktop_logo_alignment . '">' . exopite_create_logo() . '</div>' );
+$logo = apply_filters( 'exopite-logo', '<div class="desktop-menu desktop-menu-logo col-12' . $logo_alignment_classes . ' ' . $exopite_desktop_logo_alignment . $logo_in_menu . '">' . exopite_create_logo() . '</div>' );
 
 /*
  * MOBILE MENU
@@ -134,7 +136,7 @@ if ( ! function_exists( 'exopite_child_add_top_search_menu' ) ) {
     }
 }
 
-if ( $logo_center_pos ) add_filter( 'exopite_center_nav_menu_item', 'create_logo' );
+if ( $logo_center_pos ) add_filter( 'exopite_center_nav_menu_item', 'exopite_create_logo' );
 
 ?><header id="masthead" class="site-header menu-alignment-<?php echo $exopite_menu_alignment; ?>" itemscope="itemscope" itemtype="https://schema.org/WPHeader">
     <?php tha_header_top();
