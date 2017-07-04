@@ -60,6 +60,7 @@ exopite-footer-from-page (page id from section post type)
 exopite-sidebar
 exopite-main-menu-top-level-before-item
 exopite-main-menu-top-level-after-item
+exopite-post-types-to-display-metabox
 exopite-logo
 - WooCommerce
     exopite-woocommerce-sidebar (Woocommerce sidebar)
