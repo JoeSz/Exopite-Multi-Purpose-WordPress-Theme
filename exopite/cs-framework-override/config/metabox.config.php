@@ -17,7 +17,7 @@ $exopite_settings = get_option( 'exopite_options' );
 $options[]    = array(
   'id'        => 'exopite_custom_page_options',
   'title'     => 'Exopite One - Page & Post Options',
-  'post_type' => array ( 'page', 'post' ),
+  'post_type' => apply_filters( 'exopite-post-types-to-display-metabox', array( 'page', 'post' ) ),
   'context'   => 'normal',
   'priority'  => 'default',
   'sections'  => array(
@@ -199,7 +199,7 @@ $meta_enable_desktop_logo = array(
   'dependency'  => array( 'exopite-meta-enable-header', '==', 'true' ),
 );
 
-if ( ! isset( $exopite_settings['exopite-desktop-logo-position'] ) || $exopite_settings['exopite-desktop-logo-position'] == 'top' ) {
+if ( ! isset( $exopite_settings['exopite-desktop-logo-position'] ) || $exopite_settings['exopite-desktop-logo-position'] == 'top' || $exopite_settings['exopite-desktop-logo-position'] == 'top-in-menu' ) {
 
     $options[0]['sections'][0]['fields'][] = $meta_enable_desktop_logo;
 }
