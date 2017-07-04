@@ -62,7 +62,7 @@ tha_comments_before();
 			<?php
 				wp_list_comments( array(
 					'style'      => 'ol',
-					'type' => 'all',
+					'type'       => 'all',
 					'short_ping' => true,
 				) );
 			?>
@@ -73,20 +73,21 @@ tha_comments_before();
         // Are there comments to navigate through?
         if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) :
 
-        ?>
-        <div class="comment-pagination nav-links">
-        <?php
+            ?>
+            <div class="comment-pagination nav-links">
+            <?php
 
-        $args = array(
-            'prev_text'    => wp_kses( __('<i class="fa fa-chevron-left" aria-hidden="true"></i>'), array( 'i' => array( 'class' => array(), 'aria-hidden' => array() ) ) ),
-            'next_text'    => wp_kses( __('<i class="fa fa-chevron-right" aria-hidden="true"></i>'), array( 'i' => array( 'class' => array(), 'aria-hidden' => array() ) ) ),
-        );
+            $args = array(
+                'prev_text'    => wp_kses( __('<i class="fa fa-chevron-left" aria-hidden="true"></i>'), array( 'i' => array( 'class' => array(), 'aria-hidden' => array() ) ) ),
+                'next_text'    => wp_kses( __('<i class="fa fa-chevron-right" aria-hidden="true"></i>'), array( 'i' => array( 'class' => array(), 'aria-hidden' => array() ) ) ),
+            );
 
-        paginate_comments_links( $args );
+            paginate_comments_links( $args );
 
-        ?>
-        </div>
-		<?php
+            ?>
+            </div>
+    		<?php
+
 		endif; // Check for comment navigation.
 
     endif; // Check for have_comments().
