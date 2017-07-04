@@ -10,7 +10,9 @@
 defined('ABSPATH') or die( 'You cannot access this page directly.' );
 /*
  * ToDo:
- * - custom sidebar for archive (only blog)
+ * - add no index (metabox) + filter
+ * - add display author info (metabox) + filter
+ * - add metabox to all custom post type? + filter
  */
 
 /*
