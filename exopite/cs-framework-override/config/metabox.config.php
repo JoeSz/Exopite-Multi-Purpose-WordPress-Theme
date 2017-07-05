@@ -113,7 +113,7 @@ $options[]    = array(
           'id'      => 'exopite-meta-enable-breadcrumbs',
           'type'    => 'switcher',
           'title'   => esc_attr__( 'Enable Breadcrumbs', 'exopite' ),
-          'label'   => esc_attr__( 'Note: You can display the breadcrumbs everywhere via [exopite-breadcrumbs] shortcode.', 'exopite' ),
+          'label'   => esc_attr__( 'Note: You can display the breadcrumbs everywhere via [exopite-breadcrumbs] shortcode. If Yoast SEO is installed, please enable breadcrumbs in Yoast SEO options.', 'exopite' ),
           'default' => true,
         ),
 
@@ -165,7 +165,7 @@ $options[]    = array(
           'title'        => esc_attr__( 'Sidebar position', 'exopite' ),
           'options'      => array(
             'exopite-meta-sidebar-left'    => CS_URI . '/assets/images/blog-left.jpg',
-            'exopite-meta-sidebar-none' => CS_URI . '/assets/images/blog-none.jpg',
+            'exopite-meta-sidebar-none'    => CS_URI . '/assets/images/blog-none.jpg',
             'exopite-meta-sidebar-right'   => CS_URI . '/assets/images/blog-right.jpg',
           ),
           'radio'        => true,
