@@ -24,6 +24,51 @@ $options[]    = array(
 
     // begin: a section
     array(
+      'name'  => 'exopite_section_general',
+      'title' => esc_attr__( 'General', 'exopite' ),
+      'icon'  => 'fa fa-cog',
+
+      // begin: fields
+      'fields' => array(
+
+        // begin: a field
+        array(
+          'id'    => 'exopite-meta-extra-body-classes',
+          'type'  => 'text',
+          'title' => esc_attr__( 'Extra Body Class(es)', 'exopite' ),
+          'label' => 'label',
+          'attributes' => array(
+             'placeholder' => 'class1 class2',
+           )
+        ),
+        // end: a field
+
+        array(
+          'id'      => 'exopite-meta-enable-title',
+          'type'    => 'switcher',
+          'title'   => esc_attr__( 'Enable Title', 'exopite' ),
+          'default' => true,
+        ),
+
+        array(
+          'id'      => 'exopite-meta-enable-thumbnail',
+          'type'    => 'switcher',
+          'title'   => esc_attr__( 'Enable Thumbnail', 'exopite' ),
+          'default' => true,
+        ),
+
+        array(
+          'id'      => 'exopite-meta-enable-footer',
+          'type'    => 'switcher',
+          'title'   => esc_attr__( 'Enable footer', 'exopite' ),
+          'default' => true,
+        ),
+
+      ), // end: fields
+    ), // end: a section
+
+    // begin: a section
+    array(
       'name'  => 'exopite_section_header',
       'title' => esc_attr__( 'Header', 'exopite' ),
       'icon'  => 'fa fa-window-maximize',
@@ -76,66 +121,6 @@ $options[]    = array(
 
     // begin: a section
     array(
-      'name'  => 'exopite_section_general',
-      'title' => esc_attr__( 'General', 'exopite' ),
-      'icon'  => 'fa fa-cog',
-
-      // begin: fields
-      'fields' => array(
-
-        // begin: a field
-        array(
-          'id'    => 'exopite-meta-extra-body-classes',
-          'type'  => 'text',
-          'title' => esc_attr__( 'Extra Body Class(es)', 'exopite' ),
-          'label' => 'label',
-          'attributes' => array(
-             'placeholder' => 'class1 class2',
-           )
-        ),
-        // end: a field
-
-        array(
-          'id'      => 'exopite-meta-enable-title',
-          'type'    => 'switcher',
-          'title'   => esc_attr__( 'Enable Title', 'exopite' ),
-          'default' => true,
-        ),
-
-        array(
-          'id'      => 'exopite-meta-enable-thumbnail',
-          'type'    => 'switcher',
-          'title'   => esc_attr__( 'Enable Thumbnail', 'exopite' ),
-          'default' => true,
-        ),
-
-        array(
-          'id'      => 'exopite-meta-enable-breadcrumbs',
-          'type'    => 'switcher',
-          'title'   => esc_attr__( 'Enable Breadcrumbs', 'exopite' ),
-          'label'   => esc_attr__( 'Note: You can display the breadcrumbs everywhere via [exopite-breadcrumbs] shortcode. If Yoast SEO is installed, please enable breadcrumbs in Yoast SEO options.', 'exopite' ),
-          'default' => true,
-        ),
-
-        array(
-          'id'      => 'exopite-meta-enable-meta',
-          'type'    => 'switcher',
-          'title'   => esc_attr__( 'Enable meta', 'exopite' ),
-          'default' => true,
-        ),
-
-        array(
-          'id'      => 'exopite-meta-enable-footer',
-          'type'    => 'switcher',
-          'title'   => esc_attr__( 'Enable footer', 'exopite' ),
-          'default' => true,
-        ),
-
-      ), // end: fields
-    ), // end: a section
-
-    // begin: a section
-    array(
       'name'  => 'exopite_section_sidebar',
       'title' => esc_attr__( 'Sidebar', 'exopite' ),
       'icon'  => 'fa fa-th-list',
@@ -165,7 +150,7 @@ $options[]    = array(
           'title'        => esc_attr__( 'Sidebar position', 'exopite' ),
           'options'      => array(
             'exopite-meta-sidebar-left'    => CS_URI . '/assets/images/blog-left.jpg',
-            'exopite-meta-sidebar-none'    => CS_URI . '/assets/images/blog-none.jpg',
+            'exopite-meta-sidebar-none' => CS_URI . '/assets/images/blog-none.jpg',
             'exopite-meta-sidebar-right'   => CS_URI . '/assets/images/blog-right.jpg',
           ),
           'radio'        => true,
@@ -188,8 +173,82 @@ $options[]    = array(
     ),
     // end: a section
 
+// begin: a section
+array(
+  'name'  => 'exopite_section_seo',
+  'title' => esc_attr__( 'SEO', 'exopite' ),
+  'icon'  => 'fa fa-search',
+
+  // begin: fields
+  'fields' => array(
+
+    array(
+      'id'      => 'exopite-meta-seo-allow-index',
+      'type'    => 'switcher',
+      'title'   => esc_attr__( 'Allow search engines robots to index the page.', 'exopite' ),
+      'default' => true,
+      'after'   => '&nbsp;&nbsp;<a href="https://en.wikipedia.org/wiki/Noindex" target="_blank">' . esc_attr__( 'What is this?', 'exopite' ) . '</a>',
+    ),
+
+    array(
+      'id'      => 'exopite-meta-seo-allow-follow',
+      'type'    => 'switcher',
+      'title'   => esc_attr__( 'Allow search engines robots to follow the links on the page.', 'exopite' ),
+      'default' => true,
+    ),
+
+    array(
+      'id'      => 'exopite-meta-enable-breadcrumbs',
+      'type'    => 'switcher',
+      'title'   => esc_attr__( 'Enable Breadcrumbs', 'exopite' ),
+      'label'   => esc_attr__( 'Note: You can display the breadcrumbs everywhere via [exopite-breadcrumbs] shortcode. If Yoast SEO is installed, please enable breadcrumbs in Yoast SEO options.', 'exopite' ),
+      'default' => true,
+    ),
+
+   ), // end: fields
+), // end: a section
+
   ),
 );
+
+$meta_enable_meta = array(
+  'id'      => 'exopite-meta-enable-meta',
+  'type'    => 'switcher',
+  'title'   => esc_attr__( 'Enable meta', 'exopite' ),
+  'default' => true,
+);
+
+$meta_enable_author = array(
+  'id'      => 'exopite-meta-enable-author',
+  'type'    => 'switcher',
+  'title'   => esc_attr__( 'Enable author', 'exopite' ),
+  'default' => true,
+);
+
+$meta_enable_post_nav = array(
+  'id'      => 'exopite-meta-enable-post-nav',
+  'type'    => 'switcher',
+  'title'   => esc_attr__( 'Enable post navigation', 'exopite' ),
+  'default' => true,
+);
+
+$meta_enable_releated_posts = array(
+  'id'      => 'exopite-meta-enable-releated-posts',
+  'type'    => 'switcher',
+  'title'   => esc_attr__( 'Enable releated posts', 'exopite' ),
+  'default' => true,
+);
+
+$exopite_meta_meta_author_allowed_posty_types = apply_filters( 'exopite-meta-meta-author-allowed-post-types', array( 'post' ) );
+$exopite_current_post_type = get_post_type( $_GET['post'] );
+
+if ( in_array( $exopite_current_post_type, $exopite_meta_meta_author_allowed_posty_types ) ) {
+
+    $options[0]['sections'][0]['fields'][] = $meta_enable_meta;
+    $options[0]['sections'][0]['fields'][] = $meta_enable_author;
+    $options[0]['sections'][0]['fields'][] = $meta_enable_post_nav;
+    $options[0]['sections'][0]['fields'][] = $meta_enable_releated_posts;
+}
 
 $meta_enable_desktop_logo = array(
   'id'      => 'exopite-meta-desktop-logo',
@@ -201,7 +260,7 @@ $meta_enable_desktop_logo = array(
 
 if ( ! isset( $exopite_settings['exopite-desktop-logo-position'] ) || $exopite_settings['exopite-desktop-logo-position'] == 'top' || $exopite_settings['exopite-desktop-logo-position'] == 'top-in-menu' ) {
 
-    $options[0]['sections'][0]['fields'][] = $meta_enable_desktop_logo;
+    $options[0]['sections'][1]['fields'][] = $meta_enable_desktop_logo;
 }
 
 $meta_enable_fixed_top_menu_settings = array(
@@ -214,7 +273,7 @@ $meta_enable_fixed_top_menu_settings = array(
 
 if ( ! isset( $exopite_settings['exopite-menu-alignment'] ) || $exopite_settings['exopite-menu-alignment'] == 'top' ) {
 
-    $options[0]['sections'][0]['fields'][] = $meta_enable_fixed_top_menu_settings;
+    $options[0]['sections'][1]['fields'][] = $meta_enable_fixed_top_menu_settings;
 }
 
 $meta_enable_blog_content = array(
