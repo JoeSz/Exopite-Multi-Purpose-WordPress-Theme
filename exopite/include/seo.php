@@ -50,7 +50,7 @@ if ( ! function_exists( 'exopite_breadcrumbs' ) ) {
 
             $divider = ' <span class="divider">&#187;</span> ';
             $home =  esc_attr__( 'Home', 'exopite' );
-            $breadcrumb .= '<div class="exopite-breadcrumbs">';
+            $breadcrumb = '<div class="exopite-breadcrumbs">';
 
             if ( ExopiteSettings::getValue( 'woocommerce-activated' ) ) {
                 $shop_page_id = wc_get_page_id( 'shop' );
@@ -224,7 +224,7 @@ if ( ! function_exists( 'exopite_breadcrumbs' ) ) {
  */
 if ( ! defined('WPSEO_VERSION') ) {
 
-    add_action('wp_head', 'exopite_generate_meta', 1);
+    if ( ! function_exists( 'yoast_breadcrumb' ) ) add_action( 'wp_head', 'exopite_generate_meta', 1 );
     if ( ! function_exists( 'exopite_generate_meta' ) ) {
 
         function exopite_generate_meta() {
@@ -232,13 +232,22 @@ if ( ! defined('WPSEO_VERSION') ) {
 
             if ( ! isset( $post ) ) return;
 
-            // Get user defined excerpt if exist or the post content.
-            $meta = ( empty( $post->post_excerpt ) ) ? $post->post_content : $meta = $post->post_excerpt;
+            $exopite_no_follow = isset( $exopite_meta_data['exopite-meta-no-follow'] ) ? $exopite_meta_data['exopite-meta-no-follow'] : false;
+            $exopite_no_index = isset( $exopite_meta_data['exopite-meta-no-index'] ) ? $exopite_meta_data['exopite-meta-no-index'] : false;
+            $exopite_description = isset( $exopite_meta_data['exopite-meta-description'] ) ? $exopite_meta_data['exopite-meta-description'] : '';
 
-            //$meta = strip_shortcodes( $meta );
+            $exopite_no_follow = apply_filters( 'exopite-meta-no-follow', $exopite_no_follow );
+            $exopite_no_index = apply_filters( 'exopite-meta-no-index', $exopite_no_index );
+            $exopite_description = apply_filters( 'exopite-meta-description', $exopite_description );
+
+            if ( empty( $exopite_description ) ) {
+                // Get user defined excerpt if exist or the post content.
+                $exopite_description = ( empty( $post->post_excerpt ) ) ? $post->post_content : $post->post_excerpt;
+            }
 
             // Trim on end of the sentence or comma after the limit.
-            $meta = get_custom_excerpt( $meta, 20, false, false, '', true );
+            $exopite_description = get_custom_excerpt( $exopite_description, 20, false, false, '', true );
+            $exopite_description = strip_shortcodes( $exopite_description );
 
             // Get post thumbnail if exist or site logo.
             $img_src = get_featured_image( $post->ID );
@@ -255,23 +264,56 @@ if ( ! defined('WPSEO_VERSION') ) {
 
             $img_src = esc_attr( $img_src );
 
-            ?>
-<meta name="description" content="<?php echo $meta; ?>" />
+            if ( $exopite_no_follow || $exopite_no_index ) {
+
+                $exopite_robots_rules = array();
+                $exopite_robots_rules[] = ( $exopite_no_follow ) ? 'nofollow' : '';
+                $exopite_robots_rules[] = ( $exopite_no_index ) ? 'noindex' : '';
+
+                $exopite_robots_rules = implode( ',', $exopite_robots_rules );
+                $exopite_robots_rules = trim( $exopite_robots_rules,',' );
+
+                if ( ! empty( $exopite_robots_rules ) ) {
+                    echo '<meta name="robots" content="' . $exopite_robots_rules . '">';
+                }
+
+            }
+
+            $user_meta = get_user_meta( get_the_author_meta( 'ID' , $post->post_author ) );
+
+            ?><!-- Exopite SEO - This site is optimized with Exopite Theme - https://joe.szalai.org/exopite/ -->
+<meta name="description" content="<?php echo $exopite_description; ?>" />
 <!-- Facebook (and some others) use the Open Graph protocol: see http://ogp.me/ for details -->
-<meta property="og:title" content="<?php the_title(); ?>"/>
-<meta property="og:description" content="<?php echo esc_html( $meta ); ?>"/>
+<meta property="og:title" content="<?php echo get_the_title() . ' - ' .get_bloginfo( 'name' ); ?>"/>
+<meta property="og:description" content="<?php echo esc_html( $exopite_description ); ?>"/>
 <meta property="og:type" content="website" />
 <meta property="og:url" content="<?php esc_url( the_permalink() ); ?>"/>
 <meta property="og:site_name" content="<?php echo esc_html( get_bloginfo() ); ?>"/>
 <meta property="og:image" content="<?php echo esc_url( $img_src ); ?>"/>
 <meta property="og:locale" content="<?php echo get_locale() ?>" />
+<meta property="og:updated_time" content="<?php echo get_the_modified_time( 'c' ); ?>" />
+<?php if( ! empty( esc_url( $user_meta['facebook'][0] ) ) ) : ?>
+<meta property="article:author" content="<?php echo esc_url( $user_meta['facebook'][0] ); ?>" />
+<?php endif; ?>
+<meta property="article:section" content="<?php echo strip_tags( get_the_category_list(',') ); ?>" />
+<meta property="article:published_time" content="<?php echo get_the_time( 'c' ); ?>" />
+<meta property="article:modified_time" content="<?php echo get_the_modified_time( 'c' ); ?>" />
 <!-- Twitter: see https://dev.twitter.com/docs/cards/types/summary-card for details -->
 <meta name="twitter:card" content="summary" />
-<meta name="twitter:description" content="<?php echo $meta; ?>" />
-<meta name="twitter:title" content="<?php the_title(); ?>" />
+<meta name="twitter:description" content="<?php echo $exopite_description; ?>" />
+<meta name="twitter:title" content="<?php echo get_the_title() . ' - ' .get_bloginfo( 'name' ); ?>" />
 <meta name="twitter:image" content="<?php echo esc_url( $img_src ); ?>" />
 <meta name="twitter:site" content="<?php echo esc_html( get_bloginfo() ); ?>">
-<meta name="twitter:url" content="<?php esc_url( the_permalink() ); ?>"><?php
+<meta name="twitter:url" content="<?php esc_url( the_permalink() ); ?>">
+<?php if( ! empty( esc_url( $user_meta['twitter'][0] ) ) ) : ?>
+<meta name="twitter:creator" content="@<?php
+    $twitter = explode('/', esc_url( $user_meta['twitter'][0] ) );
+    $id = array_pop( $twitter ); // 123
+    echo $id;
+?>" />
+<?php endif; ?>
+<!-- /Exopite SEO. -->
+<?php
 
         }
     }
@@ -280,7 +322,7 @@ if ( ! defined('WPSEO_VERSION') ) {
 /**
  * Add noidex on archives and search
  */
-add_action( 'wp_head', 'exopite_add_noindex' );
+if ( ! function_exists( 'yoast_breadcrumb' ) ) add_action( 'wp_head', 'exopite_add_noindex' );
 if ( ! function_exists( 'exopite_add_noindex' ) ) {
     function exopite_add_noindex() {
 
@@ -294,5 +336,3 @@ if ( ! function_exists( 'exopite_add_noindex' ) ) {
 
     }
 }
-
-
