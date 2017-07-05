@@ -183,8 +183,8 @@ Req:
 * ADDED: Meta options of noindex, nofollow and description
 
 = 20170703 - Jul 03 2017
-* ADDED: "logo-in-menu" class to logo conteiner div, if logo in menu
-* FIXED: wrong seelctor in css for logo width
+* ADDED: "logo-in-menu" class to logo container div, if logo in menu
+* FIXED: wrong selector in css for logo width
 * FIXED: create logo function name if logo is in menu middle
 
 = 20170702 - Jul 02 2017
@@ -195,8 +195,8 @@ Req:
 * ADDED: option to disable desktop logo if logo is in top
          This is useful if user has a hero header and fixed menu on top, but the logo is displayed in hero header
 * ADDED: Hooks to:
-         - change logo anchore link url
-         - chenge hambuerger icon
+         - change logo anchor link url
+         - chenge hamburger icon
          - change mobile menu slug
          - change menu search icon
 
