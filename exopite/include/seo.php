@@ -266,6 +266,7 @@ if ( ! defined('WPSEO_VERSION') ) {
 
             $img_src = esc_attr( $img_src );
 
+            if ( ! $exopite_allow_follow || ! $exopite_allow_index ) {
 
                 $exopite_robots_rules = array();
                 $exopite_robots_rules[] = ( ! $exopite_allow_follow ) ? 'nofollow' : '';
