@@ -178,11 +178,14 @@ Req:
 
 == Changelog ==
 
+= 20170705 - Jul 05 2017
+* ENHANCEMENT: add site title to SEO meta in header
+* ADDED: Meta options of noindex, nofollow and description
+
 = 20170703 - Jul 03 2017
 * ADDED: "logo-in-menu" class to logo conteiner div, if logo in menu
 * FIXED: wrong seelctor in css for logo width
 * FIXED: create logo function name if logo is in menu middle
-
 
 = 20170702 - Jul 02 2017
 * ADDED: Skip/scroll to content in Hero Header with animation
