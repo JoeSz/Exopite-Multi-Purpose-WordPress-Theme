@@ -234,22 +234,22 @@ if ( ! defined('WPSEO_VERSION') ) {
 
             $exopite_meta_data = get_post_meta( get_queried_object_ID(), 'exopite_custom_page_options', true );
 
-            $exopite_allow_follow = isset( $exopite_meta_data['exopite-meta-seo-allow-follow'] ) ? $exopite_meta_data['exopite-meta-seo-allow-follow'] : true;
-            $exopite_allow_index = isset( $exopite_meta_data['exopite-meta-seo-allow-index'] ) ? $exopite_meta_data['exopite-meta-seo-allow-index'] : true;
-            $exopite_description = isset( $exopite_meta_data['exopite-meta-description'] ) ? $exopite_meta_data['exopite-meta-description'] : '';
+            $exopite_meta_allow_follow = isset( $exopite_meta_data['exopite-meta-seo-allow-follow'] ) ? $exopite_meta_data['exopite-meta-seo-allow-follow'] : true;
+            $exopite_meta_allow_index = isset( $exopite_meta_data['exopite-meta-seo-allow-index'] ) ? $exopite_meta_data['exopite-meta-seo-allow-index'] : true;
+            $exopite_meta_description = isset( $exopite_meta_data['exopite-meta-description'] ) ? $exopite_meta_data['exopite-meta-description'] : '';
 
-            $exopite_allow_follow = apply_filters( 'exopite-meta-no-follow', esc_attr( $exopite_allow_follow ) );
-            $exopite_allow_index = apply_filters( 'exopite-meta-no-index', esc_attr( $exopite_allow_index ) );
-            $exopite_description = apply_filters( 'exopite-meta-description', esc_attr( $exopite_description ) );
+            $exopite_meta_allow_follow = apply_filters( 'exopite-meta-no-follow', esc_attr( $exopite_meta_allow_follow ) );
+            $exopite_meta_allow_index = apply_filters( 'exopite-meta-no-index', esc_attr( $exopite_meta_allow_index ) );
+            $exopite_meta_description = apply_filters( 'exopite-meta-description', esc_attr( $exopite_meta_description ) );
 
-            if ( empty( $exopite_description ) ) {
+            if ( empty( $exopite_meta_description ) ) {
                 // Get user defined excerpt if exist or the post content.
-                $exopite_description = ( empty( $post->post_excerpt ) ) ? $post->post_content : $post->post_excerpt;
+                $exopite_meta_description = ( empty( $post->post_excerpt ) ) ? $post->post_content : $post->post_excerpt;
             }
 
             // Trim on end of the sentence or comma after the limit.
-            $exopite_description = get_custom_excerpt( $exopite_description, 20, false, false, '', true );
-            $exopite_description = strip_shortcodes( $exopite_description );
+            $exopite_meta_description = get_custom_excerpt( $exopite_meta_description, 20, false, false, '', true );
+            $exopite_meta_description = strip_shortcodes( $exopite_meta_description );
 
             // Get post thumbnail if exist or site logo.
             $img_src = get_featured_image( $post->ID );
@@ -266,11 +266,11 @@ if ( ! defined('WPSEO_VERSION') ) {
 
             $img_src = esc_attr( $img_src );
 
-            if ( ! $exopite_allow_follow || ! $exopite_allow_index ) {
+            if ( ! $exopite_meta_allow_follow || ! $exopite_meta_allow_index ) {
 
                 $exopite_robots_rules = array();
-                $exopite_robots_rules[] = ( ! $exopite_allow_follow ) ? 'nofollow' : '';
-                $exopite_robots_rules[] = ( ! $exopite_allow_index ) ? 'noindex' : '';
+                $exopite_robots_rules[] = ( ! $exopite_meta_allow_follow ) ? 'nofollow' : '';
+                $exopite_robots_rules[] = ( ! $exopite_meta_allow_index ) ? 'noindex' : '';
 
                 $exopite_robots_rules = implode( ',', $exopite_robots_rules );
                 $exopite_robots_rules = trim( $exopite_robots_rules,',' );
@@ -284,10 +284,10 @@ if ( ! defined('WPSEO_VERSION') ) {
             $user_meta = get_user_meta( get_the_author_meta( 'ID' , $post->post_author ) );
 
             ?><!-- Exopite SEO - This site is optimized with Exopite Theme - https://joe.szalai.org/exopite/ -->
-<meta name="description" content="<?php echo $exopite_description; ?>" />
+<meta name="description" content="<?php echo $exopite_meta_description; ?>" />
 <!-- Facebook (and some others) use the Open Graph protocol: see http://ogp.me/ for details -->
 <meta property="og:title" content="<?php echo get_the_title() . ' - ' .get_bloginfo( 'name' ); ?>"/>
-<meta property="og:description" content="<?php echo esc_html( $exopite_description ); ?>"/>
+<meta property="og:description" content="<?php echo esc_html( $exopite_meta_description ); ?>"/>
 <meta property="og:type" content="website" />
 <meta property="og:url" content="<?php esc_url( the_permalink() ); ?>"/>
 <meta property="og:site_name" content="<?php echo esc_html( get_bloginfo() ); ?>"/>
@@ -302,7 +302,7 @@ if ( ! defined('WPSEO_VERSION') ) {
 <meta property="article:modified_time" content="<?php echo get_the_modified_time( 'c' ); ?>" />
 <!-- Twitter: see https://dev.twitter.com/docs/cards/types/summary-card for details -->
 <meta name="twitter:card" content="summary" />
-<meta name="twitter:description" content="<?php echo $exopite_description; ?>" />
+<meta name="twitter:description" content="<?php echo $exopite_meta_description; ?>" />
 <meta name="twitter:title" content="<?php echo get_the_title() . ' - ' .get_bloginfo( 'name' ); ?>" />
 <meta name="twitter:image" content="<?php echo esc_url( $img_src ); ?>" />
 <meta name="twitter:site" content="<?php echo esc_html( get_bloginfo() ); ?>">
