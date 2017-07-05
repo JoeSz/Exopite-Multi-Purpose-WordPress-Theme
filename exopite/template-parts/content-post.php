@@ -128,7 +128,7 @@ tha_entry_before();
         endif;
 
         // Remove post navigation based on meta settings
-        if ( ! apply_filters( 'exopite-hooks-post-footer', $exopite_display_post_nav ) ) :
+        if ( ! apply_filters( 'exopite-display-post-nav', $exopite_display_post_nav ) ) :
             remove_action( 'exopite_hooks_post_footer', 'exopite_post_nav', 25 );
         endif;
 
