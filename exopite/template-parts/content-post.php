@@ -18,6 +18,9 @@ $exopite_meta_data = get_post_meta( get_the_ID(), 'exopite_custom_page_options',
 $show_title =  isset( $exopite_meta_data['exopite-meta-enable-title'] ) ? esc_attr( $exopite_meta_data['exopite-meta-enable-title'] ) : true;
 $show_thumbnail = isset( $exopite_meta_data['exopite-meta-enable-thumbnail'] ) ? esc_attr( $exopite_meta_data['exopite-meta-enable-thumbnail'] ) : true;
 $show_meta = isset( $exopite_meta_data['exopite-meta-enable-meta'] ) ? esc_attr( $exopite_meta_data['exopite-meta-enable-meta'] ) : true;
+$exopite_display_author = isset( $exopite_meta_data['exopite-meta-display-author'] ) ? esc_attr( $exopite_meta_data['exopite-meta-display-author'] ) : false;
+$exopite_display_post_nav = isset( $exopite_meta_data['exopite-meta-display-post-nav'] ) ? esc_attr( $exopite_meta_data['exopite-meta-display-post-nav'] ) : false;
+$exopite_display_releated_posts = isset( $exopite_meta_data['exopite-meta-display-releated-posts'] ) ? esc_attr( $exopite_meta_data['exopite-meta-display-releated-posts'] ) : false;
 
 // Theme Hook Alliance (include/plugins/tha-theme-hooks.php)
 tha_entry_before();
@@ -118,6 +121,21 @@ tha_entry_before();
     ?>
 	<footer class="entry-footer">
 		<?php
+
+        // Remove author bio based on meta settings
+        if ( ! apply_filters( 'exopite-display-author-bio', $exopite_display_author ) ) :
+            remove_action( 'exopite_hooks_post_footer', 'exopite_display_author_bio', 20 );
+        endif;
+
+        // Remove post navigation based on meta settings
+        if ( ! apply_filters( 'exopite-hooks-post-footer', $exopite_display_post_nav ) ) :
+            remove_action( 'exopite_hooks_post_footer', 'exopite_post_nav', 25 );
+        endif;
+
+        // Remove releated posts based on meta settings
+        if ( ! apply_filters( 'exopite-display-releated-posts', $exopite_display_releated_posts ) ) :
+            remove_action( 'exopite_hooks_post_footer', 'exopite_display_releated_posts', 30 );
+        endif;
 
 		/**
 		 * Hook to display:
