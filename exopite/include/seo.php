@@ -232,13 +232,15 @@ if ( ! defined('WPSEO_VERSION') ) {
 
             if ( ! isset( $post ) ) return;
 
-            $exopite_no_follow = isset( $exopite_meta_data['exopite-meta-no-follow'] ) ? $exopite_meta_data['exopite-meta-no-follow'] : false;
-            $exopite_no_index = isset( $exopite_meta_data['exopite-meta-no-index'] ) ? $exopite_meta_data['exopite-meta-no-index'] : false;
+            $exopite_meta_data = get_post_meta( get_queried_object_ID(), 'exopite_custom_page_options', true );
+
+            $exopite_allow_follow = isset( $exopite_meta_data['exopite-meta-seo-allow-follow'] ) ? $exopite_meta_data['exopite-meta-seo-allow-follow'] : true;
+            $exopite_allow_index = isset( $exopite_meta_data['exopite-meta-seo-allow-index'] ) ? $exopite_meta_data['exopite-meta-seo-allow-index'] : true;
             $exopite_description = isset( $exopite_meta_data['exopite-meta-description'] ) ? $exopite_meta_data['exopite-meta-description'] : '';
 
-            $exopite_no_follow = apply_filters( 'exopite-meta-no-follow', $exopite_no_follow );
-            $exopite_no_index = apply_filters( 'exopite-meta-no-index', $exopite_no_index );
-            $exopite_description = apply_filters( 'exopite-meta-description', $exopite_description );
+            $exopite_allow_follow = apply_filters( 'exopite-meta-no-follow', esc_attr( $exopite_allow_follow ) );
+            $exopite_allow_index = apply_filters( 'exopite-meta-no-index', esc_attr( $exopite_allow_index ) );
+            $exopite_description = apply_filters( 'exopite-meta-description', esc_attr( $exopite_description ) );
 
             if ( empty( $exopite_description ) ) {
                 // Get user defined excerpt if exist or the post content.
@@ -264,11 +266,10 @@ if ( ! defined('WPSEO_VERSION') ) {
 
             $img_src = esc_attr( $img_src );
 
-            if ( $exopite_no_follow || $exopite_no_index ) {
 
                 $exopite_robots_rules = array();
-                $exopite_robots_rules[] = ( $exopite_no_follow ) ? 'nofollow' : '';
-                $exopite_robots_rules[] = ( $exopite_no_index ) ? 'noindex' : '';
+                $exopite_robots_rules[] = ( ! $exopite_allow_follow ) ? 'nofollow' : '';
+                $exopite_robots_rules[] = ( ! $exopite_allow_index ) ? 'noindex' : '';
 
                 $exopite_robots_rules = implode( ',', $exopite_robots_rules );
                 $exopite_robots_rules = trim( $exopite_robots_rules,',' );
