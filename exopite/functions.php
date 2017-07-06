@@ -10,6 +10,10 @@
 defined('ABSPATH') or die( 'You cannot access this page directly.' );
 /*
  * ToDo:
+ * - author bio settings off but page on if meta (unhook in content-post, not in extra.php)
+ * - releated post -> custom post type?
+ * - releated posts/pages -> shortcode
+ * - meta box post color
  */
 
 /*
