@@ -14,13 +14,14 @@ $exopite_settings = get_option( 'exopite_options' );
  * Get individual page/post settings
  */
 $post_password_required = post_password_required();
-$exopite_meta_data = get_post_meta( get_the_ID(), 'exopite_custom_page_options', true );
+$exopite_meta_data = get_post_meta( get_the_ID(), 'exopite_custom_post_options', true );
 $show_title =  isset( $exopite_meta_data['exopite-meta-enable-title'] ) ? esc_attr( $exopite_meta_data['exopite-meta-enable-title'] ) : true;
 $show_thumbnail = isset( $exopite_meta_data['exopite-meta-enable-thumbnail'] ) ? esc_attr( $exopite_meta_data['exopite-meta-enable-thumbnail'] ) : true;
 $show_meta = isset( $exopite_meta_data['exopite-meta-enable-meta'] ) ? esc_attr( $exopite_meta_data['exopite-meta-enable-meta'] ) : true;
-$exopite_meta_display_author = isset( $exopite_meta_data['exopite-meta-enable-author'] ) ? esc_attr( $exopite_meta_data['exopite-meta-enable-author'] ) : false;
-$exopite_meta_display_post_nav = isset( $exopite_meta_data['exopite-meta-enable-post-nav'] ) ? esc_attr( $exopite_meta_data['exopite-meta-enable-post-nav'] ) : false;
-$exopite_meta_display_releated_posts = isset( $exopite_meta_data['exopite-meta-enable-releated-posts'] ) ? esc_attr( $exopite_meta_data['exopite-meta-enable-releated-posts'] ) : false;
+
+$exopite_meta_display_author = isset( $exopite_meta_data['exopite-meta-enable-author'] ) ? esc_attr( $exopite_meta_data['exopite-meta-enable-author'] ) : true;
+$exopite_meta_display_post_nav = isset( $exopite_meta_data['exopite-meta-enable-post-nav'] ) ? esc_attr( $exopite_meta_data['exopite-meta-enable-post-nav'] ) : true;
+$exopite_meta_display_releated_posts = isset( $exopite_meta_data['exopite-meta-enable-releated-posts'] ) ? esc_attr( $exopite_meta_data['exopite-meta-enable-releated-posts'] ) : true;
 
 // Theme Hook Alliance (include/plugins/tha-theme-hooks.php)
 tha_entry_before();
@@ -136,6 +137,7 @@ tha_entry_before();
         if ( ! apply_filters( 'exopite-display-releated-posts', $exopite_meta_display_releated_posts ) ) :
             remove_action( 'exopite_hooks_post_footer', 'exopite_display_releated_posts', 30 );
         endif;
+
 
 		/**
 		 * Hook to display:
