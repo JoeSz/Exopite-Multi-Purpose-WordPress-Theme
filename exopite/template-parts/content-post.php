@@ -142,8 +142,7 @@ tha_entry_before();
 		/**
 		 * Hook to display:
 		 * 	  - tags and categories, 10 (include/template-functions.php)
-		 * 	  - social share 		 15 (include/social-share.php)
-		 * 	  - author bio,			 20 (include/template-functions.php)
+		 * 	  - author bio,			 20 (include/author-functions.php)
 		 * 	  - post navigation 	 25 (include/extra.php)
 		 * 	  - releated posts 		 30 (include/extra.php)
 		 */

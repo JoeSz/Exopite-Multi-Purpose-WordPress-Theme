@@ -90,10 +90,6 @@ tha_entry_before();
 	<footer class="entry-footer">
 		<?php
 
-			/**
-			 * Hook to display:
-			 * 	  - social share 		 10 (include/social-share.php)
-			 */
 			if ( ! $post_password_required ) exopite_hooks_page_footer();
 
             // If user can edit post
