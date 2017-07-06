@@ -449,8 +449,8 @@ array(
 // -----------------------------------------
 $options[]    = array(
   'id'        => 'exopite_custom_page_options',
-  'title'     => 'Exopite One - Page & Post Options',
-  'post_type' => array ( 'page' ),
+  'title'     => 'Exopite One - Page Options',
+  'post_type' => apply_filters( 'exopite-post-types-pages-to-display-metabox', array( 'page' ) ),
   'context'   => 'normal',
   'priority'  => 'default',
   'sections'  => array(
@@ -459,8 +459,8 @@ $options[]    = array(
 
 $options[]    = array(
   'id'        => 'exopite_custom_post_options',
-  'title'     => 'Exopite One - Page & Post Options',
-  'post_type' => array ( 'post' ),
+  'title'     => 'Exopite One - Post Options',
+  'post_type' => apply_filters( 'exopite-post-types-posts-to-display-metabox', array( 'post' ) ),
   'context'   => 'normal',
   'priority'  => 'default',
   'sections'  => array(
