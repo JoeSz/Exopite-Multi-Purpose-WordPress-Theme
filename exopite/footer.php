@@ -18,7 +18,13 @@ defined('ABSPATH') or die( 'You cannot access this page directly.' );
  * because WordPress will cache options.
  */
 $exopite_settings = get_option( 'exopite_options' );
-$exopite_meta_data = get_post_meta( get_the_ID(), 'exopite_custom_page_options', true );
+
+$exopite_meta_data_type = 'exopite_custom_post_options';
+if ( is_page() ) {
+    $exopite_meta_data_type = 'exopite_custom_page_options';
+}
+$exopite_meta_data = get_post_meta( get_queried_object_ID(), $exopite_meta_data_type, true );
+
 $show_footer = isset( $exopite_meta_data['exopite-meta-enable-footer'] ) ? esc_attr( $exopite_meta_data['exopite-meta-enable-footer'] ) : true;
 ?>
         </div><!-- #content -->

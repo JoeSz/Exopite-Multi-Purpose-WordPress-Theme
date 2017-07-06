@@ -60,7 +60,12 @@ $exopite_settings_enable_hero_header  = apply_filters( 'exopite-enable-hero-head
 /*
  * Individual page/post settings
  */
-$exopite_meta_data = get_post_meta( get_queried_object_ID(), 'exopite_custom_page_options', true );
+$exopite_meta_data_type = 'exopite_custom_post_options';
+if ( is_page() ) {
+    $exopite_meta_data_type = 'exopite_custom_page_options';
+}
+$exopite_meta_data = get_post_meta( get_queried_object_ID(), $exopite_meta_data_type, true );
+
 $show_desktop_logo = isset( $exopite_meta_data['exopite-meta-desktop-logo'] ) ? $exopite_meta_data['exopite-meta-desktop-logo'] : true;
 $show_menu = isset( $exopite_meta_data['exopite-meta-enable-menu'] ) ? $exopite_meta_data['exopite-meta-enable-menu'] : true;
 $show_header = isset( $exopite_meta_data['exopite-meta-enable-header'] ) ? $exopite_meta_data['exopite-meta-enable-header'] : true;

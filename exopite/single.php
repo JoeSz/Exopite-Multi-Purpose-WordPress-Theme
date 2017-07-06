@@ -14,7 +14,7 @@ defined('ABSPATH') or die( 'You cannot access this page directly.' );
  * Get individual post settings
  */
 $exopite_settings = get_option( 'exopite_options' );
-$exopite_meta_data = get_post_meta( get_the_ID(), 'exopite_custom_page_options', true );
+$exopite_meta_data = get_post_meta( get_the_ID(), 'exopite_custom_post_options', true );
 
 /*
  * Display "before content sidebar" sidebar from page/post meta

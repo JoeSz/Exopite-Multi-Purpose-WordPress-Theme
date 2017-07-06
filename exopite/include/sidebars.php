@@ -516,7 +516,12 @@ function exopite_get_sidebar_id() {
         /*
          * Individual page/post settings
          */
-        $exopite_meta_data = get_post_meta( get_the_ID(), 'exopite_custom_page_options', true );
+        $exopite_meta_data_type = 'exopite_custom_post_options';
+        if ( is_page() ) {
+            $exopite_meta_data_type = 'exopite_custom_page_options';
+        }
+        $exopite_meta_data = get_post_meta( get_queried_object_ID(), $exopite_meta_data_type, true );
+
         $sidebar_id = ( isset( $exopite_meta_data['exopite-meta-sidebar-id'] ) ) ? $exopite_meta_data['exopite-meta-sidebar-id'] : 'sidebar-1' ;
 
     } else {
