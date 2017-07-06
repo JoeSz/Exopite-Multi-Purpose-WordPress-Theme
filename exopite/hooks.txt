@@ -68,6 +68,8 @@ exopite-meta-keywords (meta keywords for SEO)
 exopite-display-author-bio (true/false)
 exopite-display-post-nav (true/false)
 exopite-display-releated-posts (true/false)
+exopite-post-types-pages-to-display-metabox (array post type pages slugs)
+exopite-post-types-posts-to-display-metabox (array post type posts slugs)
 exopite-logo
 - WooCommerce
     exopite-woocommerce-sidebar (Woocommerce sidebar)
