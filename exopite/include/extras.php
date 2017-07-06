@@ -463,7 +463,7 @@ if ( ! function_exists( 'exopite_releated_posts' ) ) {
 
                                     ?>
 									<a href="<?php the_permalink(); ?>"><?php
-										$dummy_img = '<img src="http://dummyimage.com/300x200/616161/ffffff.jpg&text=' . get_the_title() . '" alt="title">';
+										$dummy_img = '<img src="http://dummyimage.com/330x220/616161/ffffff.jpg&text=' . get_the_title() . '" alt="title">';
 										echo exopite_create_effect_image_frame( $dummy_img, get_the_title() );
 										?></a>
 								    <?php
@@ -577,7 +577,7 @@ if ( ! function_exists( 'exopite_releated_posts' ) ) {
 
                                     ?>
 									<a href="<?php the_permalink(); ?>"><?php
-										$dummy_img = '<img src="http://dummyimage.com/300x200/616161/ffffff.jpg&text=' . get_the_title() . '" alt="title">';
+										$dummy_img = '<img src="http://dummyimage.com/330x220/616161/ffffff.jpg&text=' . get_the_title() . '" alt="title">';
 										echo exopite_create_effect_image_frame( $dummy_img, get_the_title() );
 										?></a>
 								    <?php
