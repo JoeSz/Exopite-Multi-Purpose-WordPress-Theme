@@ -63,7 +63,8 @@ exopite-main-menu-top-level-after-item
 exopite-post-types-to-display-metabox
 exopite-meta-no-follow (true/false)
 exopite-meta-no-index (true/false)
-exopite-meta-description (meta-description)
+exopite-meta-description (meta description for SEO)
+exopite-meta-keywords (meta keywords for SEO)
 exopite-display-author-bio (true/false)
 exopite-display-post-nav (true/false)
 exopite-display-releated-posts (true/false)
