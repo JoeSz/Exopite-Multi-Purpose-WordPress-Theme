@@ -232,15 +232,21 @@ if ( ! defined('WPSEO_VERSION') ) {
 
             if ( ! isset( $post ) ) return;
 
-            $exopite_meta_data = get_post_meta( get_queried_object_ID(), 'exopite_custom_page_options', true );
+            $exopite_meta_data_type = 'exopite_custom_post_options';
+            if ( is_page() ) {
+                $exopite_meta_data_type = 'exopite_custom_page_options';
+            }
+            $exopite_meta_data = get_post_meta( get_queried_object_ID(), $exopite_meta_data_type, true );
 
             $exopite_meta_allow_follow = isset( $exopite_meta_data['exopite-meta-seo-allow-follow'] ) ? $exopite_meta_data['exopite-meta-seo-allow-follow'] : true;
             $exopite_meta_allow_index = isset( $exopite_meta_data['exopite-meta-seo-allow-index'] ) ? $exopite_meta_data['exopite-meta-seo-allow-index'] : true;
             $exopite_meta_description = isset( $exopite_meta_data['exopite-meta-description'] ) ? $exopite_meta_data['exopite-meta-description'] : '';
+            $exopite_meta_keywords = isset( $exopite_meta_data['exopite-meta-keywords'] ) ? $exopite_meta_data['exopite-meta-keywords'] : '';
 
             $exopite_meta_allow_follow = apply_filters( 'exopite-meta-no-follow', esc_attr( $exopite_meta_allow_follow ) );
             $exopite_meta_allow_index = apply_filters( 'exopite-meta-no-index', esc_attr( $exopite_meta_allow_index ) );
             $exopite_meta_description = apply_filters( 'exopite-meta-description', esc_attr( $exopite_meta_description ) );
+            $exopite_meta_keywords = apply_filters( 'exopite-meta-keywords', esc_attr( $exopite_meta_keywords ) );
 
             if ( empty( $exopite_meta_description ) ) {
                 // Get user defined excerpt if exist or the post content.
@@ -248,7 +254,7 @@ if ( ! defined('WPSEO_VERSION') ) {
             }
 
             // Trim on end of the sentence or comma after the limit.
-            $exopite_meta_description = get_custom_excerpt( $exopite_meta_description, 20, false, false, '', true );
+            $exopite_meta_description = get_custom_excerpt( $exopite_meta_description, 20, false, false, '...', true );
             $exopite_meta_description = strip_shortcodes( $exopite_meta_description );
 
             // Get post thumbnail if exist or site logo.
@@ -284,9 +290,12 @@ if ( ! defined('WPSEO_VERSION') ) {
             $user_meta = get_user_meta( get_the_author_meta( 'ID' , $post->post_author ) );
 
             ?><!-- Exopite SEO - This site is optimized with Exopite Theme - https://joe.szalai.org/exopite/ -->
-<meta name="description" content="<?php echo $exopite_meta_description; ?>" />
+<meta name="description" content="<?php echo esc_html( $exopite_meta_description ); ?>" />
+<?php if ( ! empty( $exopite_meta_keywords ) ) : ?>
+<meta name="keywords" content="<?php echo esc_html( $exopite_meta_keywords ); ?>">
+<?php endif; ?>
 <!-- Facebook (and some others) use the Open Graph protocol: see http://ogp.me/ for details -->
-<meta property="og:title" content="<?php echo get_the_title() . ' - ' .get_bloginfo( 'name' ); ?>"/>
+<meta property="og:title" content="<?php echo esc_html( get_the_title() . ' - ' .get_bloginfo( 'name' ) ); ?>"/>
 <meta property="og:description" content="<?php echo esc_html( $exopite_meta_description ); ?>"/>
 <meta property="og:type" content="website" />
 <meta property="og:url" content="<?php esc_url( the_permalink() ); ?>"/>
@@ -302,8 +311,8 @@ if ( ! defined('WPSEO_VERSION') ) {
 <meta property="article:modified_time" content="<?php echo get_the_modified_time( 'c' ); ?>" />
 <!-- Twitter: see https://dev.twitter.com/docs/cards/types/summary-card for details -->
 <meta name="twitter:card" content="summary" />
-<meta name="twitter:description" content="<?php echo $exopite_meta_description; ?>" />
-<meta name="twitter:title" content="<?php echo get_the_title() . ' - ' .get_bloginfo( 'name' ); ?>" />
+<meta name="twitter:description" content="<?php echo esc_html( $exopite_meta_description ); ?>" />
+<meta name="twitter:title" content="<?php echo esc_html( get_the_title() . ' - ' .get_bloginfo( 'name' ) ); ?>" />
 <meta name="twitter:image" content="<?php echo esc_url( $img_src ); ?>" />
 <meta name="twitter:site" content="<?php echo esc_html( get_bloginfo() ); ?>">
 <meta name="twitter:url" content="<?php esc_url( the_permalink() ); ?>">
@@ -311,7 +320,7 @@ if ( ! defined('WPSEO_VERSION') ) {
 <meta name="twitter:creator" content="@<?php
     $twitter = explode('/', esc_url( $user_meta['twitter'][0] ) );
     $id = array_pop( $twitter ); // 123
-    echo $id;
+    echo esc_html( $id );
 ?>" />
 <?php endif; ?>
 <!-- /Exopite SEO. -->
