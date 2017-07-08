@@ -156,7 +156,10 @@ if ( ! function_exists( 'exopite_body_classes' ) ) {
 /**
  * Diplay post navigation on a single post
  */
-add_action( 'exopite_hooks_post_footer', 'exopite_post_nav', 25 );
+
+if ( ! isset( $exopite_settings['exopite-single-display-post-navigation'] ) || esc_attr( $exopite_settings['exopite-single-display-post-navigation'] ) ) {
+    add_action( 'exopite_hooks_post_footer', 'exopite_post_nav', 25 );
+}
 if ( ! function_exists( 'exopite_post_nav' ) ) {
 	function exopite_post_nav() {
 
@@ -321,170 +324,181 @@ if ( ! function_exists( 'exopite_post_nav' ) ) {
 }
 
 /**
- * Diplay releated posts by categories and tags on a single post
+ * Diplay releated posts by taxonomy slug (like: categories and tags) on single posts
  */
 add_action( 'exopite_hooks_post_footer', 'exopite_display_releated_posts', 30 );
 if ( ! function_exists( 'exopite_display_releated_posts' ) ) {
-	function exopite_display_releated_posts() {
+    function exopite_display_releated_posts() {
 
-		$exopite_settings = get_option( 'exopite_options' );
+        $exopite_settings = get_option( 'exopite_options' );
 
         if ( ! isset( $exopite_settings['exopite-single-releated-posts-categories-amount'] ) ) return;
 
-		exopite_releated_posts(
-			array(
-				'categories_amount'         => $exopite_settings['exopite-single-releated-posts-categories-amount'],
-				'categories_per_row'        => $exopite_settings['exopite-single-releated-posts-categories-per-row'],
-				'categories_title'          => esc_attr__( 'You might also like:', 'exopite' ),
-				),
-			array(
-				'tags_amount'         => $exopite_settings['exopite-single-releated-posts-tags-amount'],
-				'tags_per_row'        => $exopite_settings['exopite-single-releated-posts-tags-per-row'],
-				'tags_title'          => esc_attr__( 'You might also like:', 'exopite' ),
-				)
-			);
-	}
+        // If posts (or custom post type not hierarchical) and post in not enabled
+        // here maybe add all post types to options?
+        if ( ! is_post_type_hierarchical( get_post_type() ) && ! isset( $exopite_settings['exopite-single-display-releated']['enabled']['post'] ) ) return;
+
+        exopite_releated_posts(
+            array(
+                'taxonomies_amount'         => $exopite_settings['exopite-single-releated-posts-categories-amount'],
+                'taxonomies_per_row'        => $exopite_settings['exopite-single-releated-posts-categories-per-row'],
+                'taxonomies_title'          => esc_attr__( 'You might also like:', 'exopite' ),
+            )
+        );
+
+        // Only if tag
+        if ( 'post' == get_post_type() ) {
+            exopite_releated_posts(
+                array(
+                    'taxonomies_amount'         => $exopite_settings['exopite-single-releated-posts-tags-amount'],
+                    'taxonomies_per_row'        => $exopite_settings['exopite-single-releated-posts-tags-per-row'],
+                    'taxonomies_title'          => esc_attr__( 'You might also like:', 'exopite' ),
+                    'taxonomies_taxonomy_slug'  => 'post_tag',
+                )
+            );
+        }
+
+    }
 }
 
 if ( ! function_exists( 'exopite_releated_posts' ) ) {
-	function exopite_releated_posts( $categories, $tags ) {
+    function exopite_releated_posts( $taxonomies ) {
 
-		global $post;
+        global $post;
 
-		// Exit if nothing to show
-		if ( ( empty( $tags ) ) || ( empty( $categories ) ) ) return;
-		if ( ( ! is_array( $tags ) ) || ( ! is_array( $categories ) ) ) return;
+        // Exit if nothing to show
+        if ( empty( $taxonomies ) ) return;
 
-		// Defaults
-		$tags_amount = 0;
-		$tags_per_row = 0;  //(1-4)
-		$tags_title = '';
-        $tags_show_title = true;
-        $tags_show_exceprt = true;
-        $tags_excerpt_length = 10;
-        $tags_excerpt_end = '...';
-        $tags_thumbnail_size = 'releated';
+        $taxonomies_amount = 0;
+        $taxonomies_per_row = 0; //(1-4)
+        $taxonomies_title = '';
+        $taxonomies_show_title = true;
+        $taxonomies_show_exceprt = true;
+        $taxonomies_excerpt_length = 10;
+        $taxonomies_excerpt_end = '...';
+        $taxonomies_thumbnail_size = 'releated';
+        $taxonomies_taxonomy_slug = 'category';
+        $taxonomies_post_type = 'post';
 
-		$categories_amount = 0;
-		$categories_per_row = 0; //(1-4)
-		$categories_title = '';
-        $categories_show_title = true;
-        $categories_show_exceprt = true;
-        $categories_excerpt_length = 10;
-        $categories_excerpt_end = '...';
-        $categories_thumbnail_size = 'releated';
+        // Convert user input
+        if( isset( $taxonomies['taxonomies_amount'] ) ) $taxonomies_amount = intval( esc_attr( $taxonomies['taxonomies_amount'] ) );
+        if( isset( $taxonomies['taxonomies_per_row'] ) ) $taxonomies_per_row = intval( esc_attr( $taxonomies['taxonomies_per_row'] ) );
+        if( isset( $taxonomies['taxonomies_title'] ) ) $taxonomies_title = esc_attr( $taxonomies['taxonomies_title'] );
+        if( isset( $taxonomies['taxonomies_show_title'] ) ) $taxonomies_show_title = esc_attr( $taxonomies['taxonomies_show_title'] );
+        if( isset( $taxonomies['taxonomies_show_exceprt'] ) ) $taxonomies_show_exceprt = esc_attr( $taxonomies['taxonomies_show_exceprt'] );
+        if( isset( $taxonomies['taxonomies_excerpt_length'] ) ) $taxonomies_excerpt_length = intval( esc_attr( $taxonomies['taxonomies_excerpt_length'] ) );
+        if( isset( $taxonomies['taxonomies_excerpt_end'] ) ) $taxonomies_excerpt_end = esc_attr( $taxonomies['taxonomies_excerpt_end'] );
+        if( isset( $taxonomies['taxonomies_thumbnail_size'] ) ) $taxonomies_thumbnail_size = esc_attr( $taxonomies['taxonomies_thumbnail_size'] );
+        if( isset( $taxonomies['taxonomies_taxonomy_slug'] ) ) $taxonomies_taxonomy_slug = esc_attr( $taxonomies['taxonomies_taxonomy_slug'] );
+        if( isset( $taxonomies['taxonomies_post_type'] ) ) $taxonomies_post_type = esc_attr( $taxonomies['taxonomies_post_type'] );
 
-		// Convert user input
-		if( isset( $tags['tags_amount'] ) ) $tags_amount = intval( esc_attr( $tags['tags_amount'] ) );
-		if( isset( $tags['tags_per_row'] ) ) $tags_per_row = intval( esc_attr( $tags['tags_per_row'] ) );
-		if( isset( $tags['tags_title'] ) ) $tags_title = esc_attr( $tags['tags_title'] );
-        if( isset( $tags['tags_show_title'] ) ) $tags_show_title = esc_attr( $tags['tags_show_title'] );
-        if( isset( $tags['tags_show_exceprt'] ) ) $tags_show_exceprt = esc_attr( $tags['tags_show_exceprt'] );
-        if( isset( $tags['tags_excerpt_length'] ) ) $tags_excerpt_length = intval( esc_attr( $tags['tags_excerpt_length'] ) );
-        if( isset( $tags['tags_excerpt_end'] ) ) $tags_excerpt_end = esc_attr( $tags['tags_excerpt_end'] );
-        if( isset( $tags['tags_thumbnail_size'] ) ) $tags_thumbnail_size = esc_attr( $tags['tags_thumbnail_size'] );
+        $taxonomies_taxonomy_slug = apply_filters( 'exopite-releated-hierarchical-taxonomy-slug', $taxonomies_taxonomy_slug );
+        $taxonomies_post_type = apply_filters( 'exopite-releated-post-type-slug', $taxonomies_post_type );
 
-		if( isset( $categories['categories_amount'] ) ) $categories_amount = intval( esc_attr( $categories['categories_amount'] ) );
-		if( isset( $categories['categories_per_row'] ) ) $categories_per_row = intval( esc_attr( $categories['categories_per_row'] ) );
-		if( isset( $categories['categories_title'] ) ) $categories_title = esc_attr( $categories['categories_title'] );
-        if( isset( $categories['categories_show_title'] ) ) $categories_show_title = esc_attr( $categories['categories_show_title'] );
-        if( isset( $categories['categories_show_exceprt'] ) ) $categories_show_exceprt = esc_attr( $categories['categories_show_exceprt'] );
-        if( isset( $categories['categories_excerpt_length'] ) ) $categories_excerpt_length = intval( esc_attr( $categories['categories_excerpt_length'] ) );
-        if( isset( $categories['categories_excerpt_end'] ) ) $categories_excerpt_end = esc_attr( $categories['categories_excerpt_end'] );
-        if( isset( $categories['categories_thumbnail_size'] ) ) $categories_thumbnail_size = esc_attr( $categories['categories_thumbnail_size'] );
-
-		// Make sure, column is not bigger then 4
-		if ( $tags_per_row > 4 ) $tags_per_row = 4;
-		if ( $categories_per_row > 4 ) $categories_per_row = 4;
+        // Make sure, column is not bigger then 4
+        if ( $taxonomies_per_row > 4 ) $taxonomies_per_row = 4;
 
         // Add Bootstrap cols
-		if ( $tags_per_row > 0 && $tags_amount > 0 ) :
+        if ( ( $taxonomies_per_row > 0 ) && ( $taxonomies_amount > 0 ) ):
 
-			switch ($tags_per_row) {
-				case 2:
-					$tags_bootstrap_column = 'col-12 col-sm-6 col-md-6 col-lg-6';
-					break;
-				case 3:
-					$tags_bootstrap_column = 'col-12 col-sm-6 col-md-4 col-lg-4';
-					break;
-				case 4:
-					$tags_bootstrap_column = 'col-6 col-sm-6 col-md-4 col-lg-3';
-					break;
-				default:
-					$tags_bootstrap_column = 'col-12 col-sm-12 col-md-12 col-lg-12';
-					break;
-			}
+            switch ($taxonomies_per_row) {
+                case 2:
+                    $category_bootstrap_column = 'col-12 col-sm-6 col-md-6 col-lg-6 margin-bottom-15';
+                    break;
+                case 3:
+                    $category_bootstrap_column = 'col-12 col-sm-6 col-md-4-sidebar col-lg-4 margin-bottom-15';
+                    break;
+                case 4:
+                    $category_bootstrap_column = 'col-6 col-sm-6 col-md-4-sidebar col-lg-3 margin-bottom-15';
+                    break;
+                default:
+                    $category_bootstrap_column = 'col-12 col-sm-12 col-md-12 col-lg-12 margin-bottom-15';
+                    break;
+            }
 
-			// Get post tags
-		    $tags = wp_get_post_tags($post->ID);
+            //$taxonomies_to_display = get_the_category($post->ID);
+            $taxonomies_to_display = get_the_terms( $post->ID, apply_filters( 'exopite-releated-hierarchical-taxonomy-slug', $taxonomies_taxonomy_slug ) );
 
-		    if ($tags) {
+            if ($taxonomies_to_display) {
 
-		    	// Get IDs from tag objects
-			    $tag_ids = array();
-			    foreach($tags as $individual_tag) $tag_ids[] = $individual_tag->term_id;
+                $taxonomies_ids = array();
+                foreach($taxonomies_to_display as $individual_category) $taxonomies_ids[] = $individual_category->term_id;
 
-			    // Set query args and run query
-			    $args=array(
-				    'tag__in'               => $tag_ids,
-				    'post__not_in'          => array( $post->ID ),
-				    'posts_per_page'        => $tags_amount, // Number of related posts to display.
-				    'ignore_sticky_posts'   => 1
-			    );
-			    $my_query = new wp_query( $args );
+                // $args=array(
+                //     'category__in' => $category_ids,
+                //     'post__not_in' => array($post->ID),
+                //     'posts_per_page'=> $categories_amount, // Number of related posts to display.
+                //     'ignore_sticky_posts'=>1,
+                // );
 
-			    // If any posts, then loop then trough
-			    if ( $my_query->have_posts() ):
+                // Refactor to work with any post type
+                $args = array(
+                    'post_type'             => $taxonomies_post_type,
+                    'posts_per_page'        => $taxonomies_amount,      // Number of related posts to display.
+                    'ignore_sticky_posts'   => 1,                       // Do not diplay sticy posts first
+                    'post__not_in'          => array( $post->ID ),      // Ignore current post
+                    'tax_query'             =>
+                        array(
+                            array(
+                                'taxonomy'          => $taxonomies_taxonomy_slug,
+                                'field'             => 'term_id',
+                                'terms'             => $taxonomies_ids,
+                            ),
+                        ),
+                );
+
+                $my_query = new wp_query( $args );
+
+                if ( $my_query->have_posts() ):
 
                     ?>
-					<div class="row exopite-releated-posts-by-tags">
-						<div class="col-12">
-				    		<h3><?php echo $tags_title; ?></h3>
-				    	</div>
-				    <?php
+                    <div class="row exopite-releated-posts-by-categories">
+                        <div class="col-12">
+                            <h3><?php echo $taxonomies_title; ?></h3>
+                        </div>
+                    <?php
 
                     while( $my_query->have_posts() ) :
 
-					    $my_query->the_post();
-					    ?>
-						<div class="<?php echo $tags_bootstrap_column; ?>">
-							<div class="related-posts secondary-box">
-								<div class="related-thumb clearfix">
-								<?php
+                        $my_query->the_post();
+                        ?>
+                        <div class="<?php echo $category_bootstrap_column; ?>">
+                            <div class="related-posts secondary-box">
+                                <div class="related-thumb clearfix">
+                                <?php
 
-                                // If has thumbnail, display it, if not, display dummy image
                                 if ( has_post_thumbnail() ) :
 
                                     ?>
-									<a href="<?php the_permalink(); ?>"><?php echo exopite_create_effect_image_frame( get_the_post_thumbnail( get_the_ID(), $tags_thumbnail_size ), get_the_title() ); ?></a>
-								    <?php
+                                    <a href="<?php the_permalink(); ?>"><?php echo exopite_create_effect_image_frame( get_the_post_thumbnail( get_the_ID(), $taxonomies_thumbnail_size ), get_the_title() ); ?></a>
+                                    <?php
 
                                 else:
 
                                     ?>
-									<a href="<?php the_permalink(); ?>"><?php
-										$dummy_img = '<img src="http://dummyimage.com/330x220/616161/ffffff.jpg&text=' . get_the_title() . '" alt="title">';
-										echo exopite_create_effect_image_frame( $dummy_img, get_the_title() );
-										?></a>
-								    <?php
+                                    <a href="<?php the_permalink(); ?>"><?php
+                                        $dummy_img = '<img src="http://dummyimage.com/330x220/616161/ffffff.jpg&text=' . get_the_title() . '" alt="title">';
+                                        echo exopite_create_effect_image_frame( $dummy_img, get_the_title() );
+                                        ?></a>
+                                    <?php
 
                                 endif;
 
                                 ?>
-								</div>
+                                </div>
                                 <?php
 
                                 // Show title
-                                if ( $tags_show_title ) :
+                                if ( $taxonomies_show_title ) :
 
                                     ?>
-    								<div class="related-title"><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></div>
+                                    <div class="related-title"><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></div>
                                     <?php
 
                                 endif;
 
                                 // Show excerpt
-                                if ( $tags_show_exceprt ) :
+                                if ( $taxonomies_show_exceprt ) :
 
                                     ?>
                                     <div class="releated-excerpt"><?php
@@ -493,143 +507,29 @@ if ( ! function_exists( 'exopite_releated_posts' ) ) {
                                          * template-parts/the_excerpt.php
                                          * get_custom_excerpt( $input, $lenght = 20, $allow_tags = true, $allow_line_breaks = true, $excerpt_end = '', $force = false )
                                          */
-                                        echo get_custom_excerpt( get_the_content(), $tags_excerpt_length, true, false, $tags_excerpt_end, true );
+                                        echo get_custom_excerpt( get_the_content(), $taxonomies_excerpt_length, true, true, $taxonomies_excerpt_end, true );
                                     ?></a></div>
                                     <?php
 
                                 endif;
 
                                 ?>
-							</div>
-						</div>
-			    	    <?php
-
-				    endwhile;
-
-				    ?>
-				    </div>
-				    <?php
-
-			    endif;
-		    }
-
-	        wp_reset_query();
-
-		endif;
-
-		if ( ( $categories_per_row > 0 ) && ( $categories_amount > 0 ) ):
-
-			switch ($categories_per_row) {
-				case 2:
-					$category_bootstrap_column = 'col-12 col-sm-6 col-md-6 col-lg-6 margin-bottom-15';
-					break;
-				case 3:
-					$category_bootstrap_column = 'col-12 col-sm-6 col-md-4-sidebar col-lg-4 margin-bottom-15';
-					break;
-				case 4:
-					$category_bootstrap_column = 'col-6 col-sm-6 col-md-4-sidebar col-lg-3 margin-bottom-15';
-					break;
-				default:
-					$category_bootstrap_column = 'col-12 col-sm-12 col-md-12 col-lg-12 margin-bottom-15';
-					break;
-			}
-
-		    $categories_to_display = get_the_category($post->ID);
-
-		    if ($categories_to_display) {
-
-			    $categories_ids = array();
-			    foreach($categories_to_display as $individual_category) $category_ids[] = $individual_category->term_id;
-
-			    $args=array(
-    			    'category__in' => $category_ids,
-    			    'post__not_in' => array($post->ID),
-    			    'posts_per_page'=> $categories_amount, // Number of related posts to display.
-    			    'ignore_sticky_posts'=>1,
-			    );
-			    $my_query = new wp_query( $args );
-
-			    if ( $my_query->have_posts() ):
-
-                    ?>
-				    <div class="row exopite-releated-posts-by-categories">
-				    	<div class="col-12">
-				    		<h3><?php echo $categories_title; ?></h3>
-				    	</div>
-				    <?php
-
-                    while( $my_query->have_posts() ) :
-
-					    $my_query->the_post();
-				    	?>
-						<div class="<?php echo $category_bootstrap_column; ?>">
-							<div class="related-posts secondary-box">
-								<div class="related-thumb clearfix">
-								<?php
-
-                                if ( has_post_thumbnail() ) :
-
-                                    ?>
-									<a href="<?php the_permalink(); ?>"><?php echo exopite_create_effect_image_frame( get_the_post_thumbnail( get_the_ID(), $categories_thumbnail_size ), get_the_title() ); ?></a>
-								    <?php
-
-                                else:
-
-                                    ?>
-									<a href="<?php the_permalink(); ?>"><?php
-										$dummy_img = '<img src="http://dummyimage.com/330x220/616161/ffffff.jpg&text=' . get_the_title() . '" alt="title">';
-										echo exopite_create_effect_image_frame( $dummy_img, get_the_title() );
-										?></a>
-								    <?php
-
-                                endif;
-
-                                ?>
-								</div>
-                                <?php
-
-                                // Show title
-                                if ( $categories_show_title ) :
-
-                                    ?>
-    								<div class="related-title"><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></div>
-                                    <?php
-
-                                endif;
-
-                                // Show excerpt
-                                if ( $categories_show_exceprt ) :
-
-                                    ?>
-    								<div class="releated-excerpt"><?php
-
-                                        /*
-                                         * template-parts/the_excerpt.php
-                                         * get_custom_excerpt( $input, $lenght = 20, $allow_tags = true, $allow_line_breaks = true, $excerpt_end = '', $force = false )
-                                         */
-                                        echo get_custom_excerpt( get_the_content(), $categories_excerpt_length, true, true, $categories_excerpt_end, true );
-                                    ?></a></div>
-                                    <?php
-
-                                endif;
-
-                                ?>
-							</div>
-						</div>
-				    	<?php
+                            </div>
+                        </div>
+                        <?php
 
                     endwhile;
 
                     ?>
-				    </div>
-				    <?php
+                    </div>
+                    <?php
 
-			    endif;
+                endif;
 
-		    }
+            }
 
-		    wp_reset_query();
+            wp_reset_query();
 
-		endif;
-	}
+        endif;
+    }
 }
