@@ -178,6 +178,11 @@ Req:
 
 == Changelog ==
 
+= 20170708 - Jul 08 2017
+* ENHANCEMENT: releated posts can be added on custom post types too (via filters)
+* ENHANCEMENT: author can be controlled in posts options meta box
+* FIXED: meta box color in posts
+
 = 20170705 - Jul 05 2017
 * ENHANCEMENT: add site title to SEO meta in header
 * ADDED: Meta options of noindex, nofollow and description

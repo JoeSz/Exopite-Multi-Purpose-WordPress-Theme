@@ -70,6 +70,8 @@ exopite-display-post-nav (true/false)
 exopite-display-releated-posts (true/false)
 exopite-post-types-pages-to-display-metabox (array post type pages slugs)
 exopite-post-types-posts-to-display-metabox (array post type posts slugs)
+exopite-releated-hierarchical-taxonomy-slug (taxonomy slug, like: category or post_tag)
+exopite-meta-meta-author-allowed-post-types (post type slug, like: post or pages,...)
 exopite-logo
 - WooCommerce
     exopite-woocommerce-sidebar (Woocommerce sidebar)
