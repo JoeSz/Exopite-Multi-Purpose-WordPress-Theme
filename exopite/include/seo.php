@@ -48,9 +48,9 @@ if ( ! function_exists( 'exopite_breadcrumbs' ) ) {
 
         } else {
 
-            $divider = ' <span class="divider">&#187;</span> ';
+            $divider = ' '. apply_filters( 'exopite-breadcrumbs-divider', '<span class="divider">&#187;</span>' ) . ' ';
             $home =  esc_attr__( 'Home', 'exopite' );
-            $breadcrumb = '<div class="exopite-breadcrumbs">';
+            $breadcrumb = '<div class="exopite-breadcrumbs">' . apply_filters( 'exopite-breadcrumbs-before', '' );
 
             if ( ExopiteSettings::getValue( 'woocommerce-activated' ) ) {
                 $shop_page_id = wc_get_page_id( 'shop' );
@@ -59,13 +59,13 @@ if ( ! function_exists( 'exopite_breadcrumbs' ) ) {
 
             if ( ! is_front_page() ) {
 
-                $breadcrumb .= '<a href="' . get_option('home') .'">' . $home . '</a>' . $divider;
+                $breadcrumb .= '<a href="' . get_option('home') .'">' . apply_filters( 'exopite-breadcrumbs-home-name', $home ) . '</a>' . $divider;
 
                 if ( is_category() || is_single() ) {
 
                     $categories = get_the_category();
                     $last_category = key( array_slice( $categories, -1, 1, TRUE ) );
-                    $category_divider = '& ';
+                    $category_divider = apply_filters( 'exopite-breadcrumbs-category-divider', '&' ) . ' ';
 
                     // Category parents
                     if( is_category() ) {
@@ -208,7 +208,7 @@ if ( ! function_exists( 'exopite_breadcrumbs' ) ) {
                 $breadcrumb .= $home;
             }
 
-            $breadcrumb .= '</div>';
+            $breadcrumb .=  apply_filters( 'exopite-breadcrumbs-after', '' ) . '</div>';
 
         }
 
