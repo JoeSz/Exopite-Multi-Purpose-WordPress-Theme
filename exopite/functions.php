@@ -10,8 +10,17 @@
 defined('ABSPATH') or die( 'You cannot access this page directly.' );
 /*
  * ToDo:
- * - author bio settings off but page on if meta (unhook in content-post, not in extra.php)
- * - releated posts/pages -> shortcode
+ * - single navigation on custom post type (first, last)
+ * - desc for
+ *  - Menu alignment (Top, Left)
+ *  - Footer content (Widget or Page)
+ *  - Preheader content ( -"- )
+ *  - author and releated
+ *  - Site branding type (Image or Widget)
+ *  - Hero header type (Image, self hosting , Youtube or Google video)
+ *  - Content layout (Wide or Boxed)
+ *  - Blog item content length (full, exceprt, image)
+ *
  */
 
 /*
@@ -179,7 +188,7 @@ function exopite_setup() {
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
 		'primary' => esc_attr__( 'Primary Menu', 'exopite' ),
-		'mobile' => esc_html__( 'Mobile Menu', 'exopite' ),
+		'mobile' => esc_html__( 'Mobile Menu (optional)', 'exopite' ),
 		'footer' => esc_html__( 'Footer Menu', 'exopite' ),
 		'shortcode' => esc_html__( 'Shortcode Menu', 'exopite' ),
 		'social' => esc_html__( 'Social Menu', 'exopite' ),
