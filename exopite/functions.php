@@ -20,7 +20,8 @@ defined('ABSPATH') or die( 'You cannot access this page directly.' );
  *  - Hero header type (Image, self hosting , Youtube or Google video)
  *  - Content layout (Wide or Boxed)
  *  - Blog item content length (full, exceprt, image)
- *
+ * - sidebar design: sidebar bg, widget bg, border-right, border-between
+ * - footer top: border or shadow
  */
 
 /*
