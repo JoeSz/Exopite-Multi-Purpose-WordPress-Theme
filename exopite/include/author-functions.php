@@ -127,8 +127,8 @@ if ( ! function_exists( 'exopite_display_author_bio' ) ) {
         /*
          * Diplay author bio on a single post
          */
-        if ( get_the_author_meta( 'description' ) && $exopite_settings['exopite-single-display-author-bio'] == true ) {
-            exopite_the_author_meta();
+        if ( get_the_author_meta( 'description' ) && ( ! isset( $exopite_settings['exopite-single-display-author-bio'] ) || $exopite_settings['exopite-single-display-author-bio'] == true ) ){
+            echo exopite_author_meta();
         }
     }
 }
@@ -154,11 +154,8 @@ if ( ! function_exists( 'exopite_get_author_avatar' ) ) {
     }
 }
 
-/**
- * Display author meta
- */
-if ( ! function_exists( 'exopite_the_author_meta' ) ) {
-    function exopite_the_author_meta() {
+if ( ! function_exists( 'exopite_author_meta' ) ) {
+    function exopite_author_meta() {
 
         global $post;
 
@@ -223,6 +220,7 @@ if ( ! function_exists( 'exopite_the_author_meta' ) ) {
 
             $author_details .= '</div></div><!-- .exopite-author -->';
         }
-        echo $author_details;
+
+        return $author_details;
     }
 }
