@@ -68,7 +68,10 @@ get_header();
 
 				while ( have_posts() ) : the_post();
 
-					get_template_part( 'template-parts/content', 'post' );
+                    // Possibility to use content-custom-post-type.php, if not exist post will be loaded
+                    $page_template_type = ( locate_template( 'template-parts/content-' . get_post_type() . '.php') != '') ? get_post_type() : 'post';
+
+                    get_template_part( 'template-parts/content', apply_filters( 'exopite-post-content-template-part-slug', $page_template_type ) );
 
 					/**
 					 * If comments are open or we have at least one comment, load up the comment template.
