@@ -338,7 +338,7 @@ if ( ! function_exists( 'exopite_display_releated_posts' ) ) {
         // here maybe add all post types to options?
         if ( ! is_post_type_hierarchical( get_post_type() ) && ! isset( $exopite_settings['exopite-single-display-releated']['enabled']['post'] ) ) return;
 
-        exopite_releated_posts(
+        echo exopite_releated_posts(
             array(
                 'taxonomies_amount'         => $exopite_settings['exopite-single-releated-posts-categories-amount'],
                 'taxonomies_per_row'        => $exopite_settings['exopite-single-releated-posts-categories-per-row'],
@@ -348,7 +348,7 @@ if ( ! function_exists( 'exopite_display_releated_posts' ) ) {
 
         // Only if tag
         if ( 'post' == get_post_type() ) {
-            exopite_releated_posts(
+            echo exopite_releated_posts(
                 array(
                     'taxonomies_amount'         => $exopite_settings['exopite-single-releated-posts-tags-amount'],
                     'taxonomies_per_row'        => $exopite_settings['exopite-single-releated-posts-tags-per-row'],
@@ -365,6 +365,7 @@ if ( ! function_exists( 'exopite_releated_posts' ) ) {
     function exopite_releated_posts( $taxonomies ) {
 
         global $post;
+        $ret = '';
 
         // Exit if nothing to show
         if ( empty( $taxonomies ) ) return;
@@ -451,78 +452,56 @@ if ( ! function_exists( 'exopite_releated_posts' ) ) {
 
                 if ( $my_query->have_posts() ):
 
-                    ?>
-                    <div class="row exopite-releated-posts-by-categories">
-                        <div class="col-12">
-                            <h3><?php echo $taxonomies_title; ?></h3>
-                        </div>
-                    <?php
+                    $ret .= '<div class="row exopite-releated-posts-by-categories"><div class="col-12"><h3>' . $taxonomies_title . '</h3></div>';
 
                     while( $my_query->have_posts() ) :
 
                         $my_query->the_post();
-                        ?>
-                        <div class="<?php echo $category_bootstrap_column; ?>">
-                            <div class="related-posts secondary-box">
-                                <div class="related-thumb clearfix">
-                                <?php
 
-                                if ( has_post_thumbnail() ) :
+                        $ret .= '<div class="' . $category_bootstrap_column . '"><div class="related-posts secondary-box"><div class="related-thumb clearfix">';
 
-                                    ?>
-                                    <a href="<?php the_permalink(); ?>"><?php echo exopite_create_effect_image_frame( get_the_post_thumbnail( get_the_ID(), $taxonomies_thumbnail_size ), get_the_title() ); ?></a>
-                                    <?php
+                            if ( has_post_thumbnail() ) :
 
-                                else:
+                                $ret .= '<a href="' . get_the_permalink(). '">'. exopite_create_effect_image_frame( get_the_post_thumbnail( get_the_ID(), $taxonomies_thumbnail_size ), get_the_title() ) . '</a>';
 
-                                    ?>
-                                    <a href="<?php the_permalink(); ?>"><?php
-                                        $dummy_img = '<img src="http://dummyimage.com/330x220/616161/ffffff.jpg&text=' . get_the_title() . '" alt="title">';
-                                        echo exopite_create_effect_image_frame( $dummy_img, get_the_title() );
-                                        ?></a>
-                                    <?php
+                            else:
 
-                                endif;
+                                $ret .= '<a href="' . get_the_permalink() .'">';
+                                $dummy_img = '<img src="http://dummyimage.com/330x220/616161/ffffff.jpg&text=' . get_the_title() . '" alt="title">';
+                                $ret .= exopite_create_effect_image_frame( $dummy_img, get_the_title() );
+                                $ret .= '</a>';
 
-                                ?>
-                                </div>
-                                <?php
+                            endif;
 
-                                // Show title
-                                if ( $taxonomies_show_title ) :
+                            $ret .= '</div>';
 
-                                    ?>
-                                    <div class="related-title"><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></div>
-                                    <?php
+                            // Show title
+                            if ( $taxonomies_show_title ) :
 
-                                endif;
+                                $ret .= '<div class="related-title"><a href="' . get_the_permalink() .'" rel="bookmark">' . get_the_title() . '</a></div>';
 
-                                // Show excerpt
-                                if ( $taxonomies_show_exceprt ) :
+                            endif;
 
-                                    ?>
-                                    <div class="releated-excerpt"><?php
+                            // Show excerpt
+                            if ( $taxonomies_show_exceprt ) :
 
-                                        /*
-                                         * template-parts/the_excerpt.php
-                                         * get_custom_excerpt( $input, $lenght = 20, $allow_tags = true, $allow_line_breaks = true, $excerpt_end = '', $force = false )
-                                         */
-                                        echo get_custom_excerpt( get_the_content(), $taxonomies_excerpt_length, true, true, $taxonomies_excerpt_end, true );
-                                    ?></a></div>
-                                    <?php
+                                $ret .= '<div class="releated-excerpt">';
 
-                                endif;
+                                /*
+                                 * template-parts/the_excerpt.php
+                                 * get_custom_excerpt( $input, $lenght = 20, $allow_tags = true, $allow_line_breaks = true, $excerpt_end = '', $force = false )
+                                 */
+                                $ret .= get_custom_excerpt( get_the_content(), $taxonomies_excerpt_length, true, true, $taxonomies_excerpt_end, true );
 
-                                ?>
-                            </div>
-                        </div>
-                        <?php
+                                $ret .= '</a></div>';
+
+                            endif;
+
+                        $ret .= '</div></div>';
 
                     endwhile;
 
-                    ?>
-                    </div>
-                    <?php
+                    $ret .= '</div>';
 
                 endif;
 
@@ -531,5 +510,7 @@ if ( ! function_exists( 'exopite_releated_posts' ) ) {
             wp_reset_query();
 
         endif;
+
+        return $ret;
     }
 }
