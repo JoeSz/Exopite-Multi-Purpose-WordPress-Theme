@@ -143,8 +143,8 @@ Based on the activated elements ad activated plugins. (This may take a few secon
 
 #### Compatibility:
 - WPML - https://wpml.org/theme/exopite/
-- WooCommerce
-- SiteOrigin Page Builder
+- WooCommerce https://github.com/woocommerce/woocommerce
+- SiteOrigin Page Builder https://github.com/siteorigin/siteorigin-panels
 
 #### Take andvantage of Exopite plugins
 - :soon: paging, AJAX load more or infinite navigation
