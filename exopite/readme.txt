@@ -1,61 +1,38 @@
-=== Exopite ===
+=== Exopite - High Performance Multi-purpose WordPress Theme ===
 
-Contributors: automattic
-Tags: translation-ready, custom-background, theme-options, custom-menu, post-formats, threaded-comments
+- Author: Joe Szalai
+- Version: 20170709
+- Theme URL: http://joe.szalai.org/exopite/
+- Theme GitHub URL: https://github.com/JoeSz/Exopite-Multi-Purpose-WordPress-Theme
+- Author URL: http://joe.szalai.org/
+- License: GNU General Public License v3 or later
+- License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
-Requires at least: 4.5.3
-Tested up to: 4.5.3 - 4.7.4
-Stable tag: 20170613
-License: GPLv3 or later
-License URI: http://www.gnu.org/licenses/gpl-3.0.html
-
-******************************************* WARNING *******************************************
+**********************************************************************************************
+NOTE:
 This theme is a work in progress, active develpoment. I tested many times, but may containts
 some error. Please send me an email if you find any issue (and maybe the solution as well ;) )
 I will fix any issues as soon as I can. But because I'm working on this one alone, may take
-some time.                            READ DISCLAMER.TXT!
-******************************************* WARNING *******************************************
-
-High performance multi-purpose WordPress theme called Exopite.
+some time.
+READ DISCLAMER.TXT!
+**********************************************************************************************
 
 == Description ==
 
 Exopite is a advanced multi-purpose WordPress theme with clean and elegant design to create an awesome user-experience. Full Responsive and SEO friendly. It can be to used for any type of website on any type of device. No coding required, easy to use. Can be used with any (recommended: SiteOrigin) page builder plugin. It has been designed to suit beginners as well as developers. Premium-grade theme for free!
-
-Compatible with:
-- WoCommerce
-- SiteOrigin Page Builder
 
 Multipurpose WordPress Theme
 - Responsive, looking awesome on any devices (based on Bootstrap 4 flex grid system)
 - Optimized for speed with low memory and cpu consumption
 - Can be use for any websites, like: shops, blog, personal or company site, etc...
 
-BLOG
-- Advanced blog options
-    image top, image left/right, image zigzag, no image
-    full, exceprt or no content
-    single column, multi -up to 4- column
-    masonry, column mode, normal, normal width same height
-    first post displayed as full width
-- Take a full control over your archive pages! Assign any page to archives,
-- and use the blog shortcode [exopite-loop]. You can use this shortcode anywhere!
-- Sticky post by category
-- Page & Post Meta Options:
-  - Exopite has a lots of page/post meta options to easily customize each induviduell page or post
-      like page layout: left sidebar, right sidebar, no sidebar ro others like
-      header, footer, sidebar, menu, title, meta, breadcumbs can be turn on or off
-- Post navigation. Also in same term and/or infinite
-- Releated post by categories or tags, 1-4 columns
-- Unlimited thumbnail sizes
-
 UNLIMITED
 - Unlimited Colors
 - Unlimited Thumbnail Sizes
 - Unlimited Footer Widget Areas
+- Widget areas everywhere: side left or right, preheader, pre menu, after nav, footer, copyright
 - Unlimited sidebars, you even can create and assign different sidebar for each page!
   * You are able to create unlimited number of sidebars from our framework. Sidebars assign to any number of widgets to each sidebar.
-- Widget areas everywhere: side left or right, preheader, pre menu, after nav, footer, copyright
 
 TONS OF CUSTOMIZATIONS
 - Layout: wide, boxed
@@ -66,20 +43,21 @@ TONS OF CUSTOMIZATIONS
 - Hooks for further customization, JavaScript hook system, full support for theme hook alliance and more!
 - Translation ready with included .pot file. You can use Exopite with any language or with WMPL, multiple languages.
 
-SEO
-- Better SEO out of the box
-  - GZip compression
-  - No index archive and search pages
-  - Add canonial url
-  - Use of schema.org directives
-  - Auto-generate meta tags (with Yoast SEO not installed)
-  - Use only the nessesearly Javascript and CSS files and automatically combined and minified them for better performance.
-    Based on the activated elements ad activated plugins. (This may take a few second)
-  - CDN for even more speed (bootstrap)
-  - Possobolity to load Google Fonts async
-  - Breadcrumbs
+Better SEO out of the box
+- GZip compression
+- No index archive and search pages
+- Add canonial url
+- Use of schema.org directives
+- Auto-generate meta tags (with Yoast SEO not installed)
+- CDN for even more speed (bootstrap)
+- Possobolity to load Google Fonts async
+- Breadcrumbs
+- Use only the nessesearly Javascript and CSS files and automatically combined and minified them for better performance.
+Based on the activated elements ad activated plugins. (This may take a few second)
 
 SECURITY
+- Backup and Restore
+- Automatic updates, can be updated with a single click
 - Better security out of the box
   - Quick security check
   - Limit login attempts, threshold and duration customizable
@@ -89,8 +67,6 @@ SECURITY
   - Disable xmlrpc
   - Prevent malicious URL requests
   - Check comment referer
-- Backup and Restore
-- Automatic updates, can be updated with a single click
 
 HEADER
 - Multiple Header options, you can choose from five different header design,
@@ -100,20 +76,38 @@ HEADER
 - Hero header with image or video (self hosted, youtube or google), normal, fixed and parallax,
 - Preheader, above and below menu widget areas, and
 - if logo on the top, use have left and right side widget area in the menu row
+- Header: top, left.
 - You can assign a page (via section post type) to the preheader area.
   With hooks, you can use a section on any preheader, even every page can have a different preheader.
-- Header: top, left.
+
+FOOTER
+- Fixed or static footer
+- Unlimited widget areas for the sidebar,
+- and if it is not enough, you can assign a page (via section post type) to display content in the footer!
+With hooks, you can use a section on any footer, even every page can have a different footer.
 
 ADMIN AREA
 - Amazing admin panel by CodeStar
 - Better admin area with post thumbnails, duplicate posts and pages
 - Display shortcode list
 
-FOOTER
-- Unlimited widget areas for the sidebar,
-- and if it is not enough, you can assign a page (via section post type) to display content in the footer!
-  With hooks, you can use a section on any footer, even every page can have a different footer.
-- Fixed or static footer
+BLOG
+- Post navigation. Also in same term and/or infinite
+- Releated post by categories or tags, 1-4 columns
+- Unlimited thumbnail sizes
+- Take a full control over your archive pages! Assign any page to archives,
+- and use the blog shortcode [exopite-loop]. You can use this shortcode anywhere!
+- Sticky post by category
+- Advanced blog options
+    image top, image left/right, image zigzag, no image
+    full, exceprt or no content
+    single column, multi -up to 4- column
+    masonry, column mode, normal, normal width same height
+    first post displayed as full width
+- Page & Post Meta Options:
+  - Exopite has a lots of page/post meta options to easily customize each induviduell page or post
+      like page layout: left sidebar, right sidebar, no sidebar ro others like
+      header, footer, sidebar, menu, title, meta, breadcumbs can be turn on or off
 
 PLUGINS
 Take andvantage of Exopite plugins
@@ -150,6 +144,7 @@ SHORTCODES
 - Display WooCommerce cart                                  [exopite-woocommerce-cart]
 - Display Exopite or Yoast SEO Breadcrumbs if activated     [exopite-breadcrumbs]
 - Display releated posts                                    [exopite-releated-posts]
+- Display author meta                                       [exopite-author-meta]
 
 Well organized, commented & clean code
 
@@ -192,9 +187,12 @@ Req:
 
 == Changelog ==
 
+= 20170709 - Jul 09 2017
+* ADDED: Display releated post and author shortcode
+
 = 20170708 - Jul 08 2017
 * ENHANCEMENT: releated posts can be added on custom post types too (via filters)
-* ENHANCEMENT: author can be controlled in posts options meta box
+* ENHANCEMENT: display the author can be controlled in posts options meta box
 * FIXED: meta box color in posts
 
 = 20170705 - Jul 05 2017
