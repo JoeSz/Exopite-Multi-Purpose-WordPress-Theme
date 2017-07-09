@@ -137,6 +137,20 @@ WOOCOMMERCE
 - Choose a shop and product sidebar (any sidebar)
 - Change shop title
 
+SHORTCODES
+- Insert an image with hover effect                         [exopite-image-effect]
+- Display file                                              [exopite-display-file]
+- Display loop                                              [exopite-loop]
+- Display page content by slug                              [exopite-display-page-content slug="slug"]
+- Display sidebar                                           [exopite-display-sidebar]
+- Display any widget                                        [exopite-display-widget]
+- Include any PHP file                                      [exopite-include]
+- Shortcode menu                                            [exopite-shortcode-menu]
+- Social menu                                               [exopite-social-menu]
+- Display WooCommerce cart                                  [exopite-woocommerce-cart]
+- Display Exopite or Yoast SEO Breadcrumbs if activated     [exopite-breadcrumbs]
+- Display releated posts                                    [exopite-releated-posts]
+
 Well organized, commented & clean code
 
 COMPATIBILITY:
