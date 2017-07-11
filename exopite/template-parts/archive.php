@@ -149,7 +149,7 @@ $exopite_settings = get_option( 'exopite_options' );
                      * Diplay author bio on a author page (archive)
                      */
                     if ( is_author() && get_the_author_meta( 'description' ) ) {
-                        exopite_the_author_meta();
+                        exopite_author_meta();
                     }
 
                     // Display theme loop
