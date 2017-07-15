@@ -1,5 +1,8 @@
 # Changelog
 
+= 20170715 - Jul 15 2017
+* **ADDED**: Option in theme options and in meta options to limit revisions
+
 = 20170709 - Jul 09 2017
 * **ADDED**: Display releated post and author shortcode
 
