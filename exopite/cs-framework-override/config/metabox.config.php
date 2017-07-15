@@ -502,6 +502,12 @@ if ( ! isset( $exopite_settings['exopite-desktop-logo-position'] ) || $exopite_s
 /*
  * Show fixed top menu esettings only if menu in top (not for side menu)
  */
+$exopite_meta_revisions_warning = array(
+  'type'    => 'notice',
+  'class'   => 'danger',
+  'content' => '<b>' . esc_attr__( 'Caution:', 'exopite' ) . '</b> ' . esc_attr__( 'If amount is smaller then the revision count of this post or page, extra revisions will be removed on next edit and save!', 'exopite' ),
+);
+
 $exopite_meta_revisions_limit_to_keep = array(
   'id'        => 'exopite-meta-revisions-limit-to-keep',
   'type'      => 'slider',
@@ -517,6 +523,9 @@ $exopite_meta_revisions_limit_to_keep = array(
 );
 
 if ( isset( $exopite_settings['exopite-enable-revisions-limit'] ) && $exopite_settings['exopite-enable-revisions-limit'] ) {
+
+    $exopite_options[0]['sections'][0]['fields'][] = $exopite_meta_revisions_warning;
+    $exopite_options[1]['sections'][0]['fields'][] = $exopite_meta_revisions_warning;
 
     $exopite_options[0]['sections'][0]['fields'][] = $exopite_meta_revisions_limit_to_keep;
     $exopite_options[1]['sections'][0]['fields'][] = $exopite_meta_revisions_limit_to_keep;

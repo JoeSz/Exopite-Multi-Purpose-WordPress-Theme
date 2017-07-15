@@ -114,18 +114,25 @@ $exopite_options[]      = array(
     ),
 
     array(
-        'id'        => 'exopite-revisions-limit-to-keep',
-        'type'      => 'slider',
-        'title'     => esc_attr__( 'Number of revisions to keep', 'exopite' ),
-        'validate'  => 'numeric',
-        'default'   => 9,
-        'options'   => array(
-            'step'    => 1,
-            'min'     => 0,
-            'max'     => 100,
-            'unit'    => ''
+      'type'    => 'notice',
+      'class'   => 'danger',
+      'dependency' => array( 'exopite-enable-revisions-limit', '==', 'true' ),
+      'content' => '<b>' . esc_attr__( 'Caution:', 'exopite' ) . '</b> ' . esc_attr__( 'If revisions amount is smaller then the revision count on the post or page, extra revisions will be removed on next modification and save!', 'exopite' ),
+    ),
+
+    array(
+        'id'         => 'exopite-revisions-limit-to-keep',
+        'type'       => 'slider',
+        'title'      => esc_attr__( 'Number of revisions to keep', 'exopite' ),
+        'validate'   => 'numeric',
+        'default'    => 9,
+        'options'    => array(
+            'step'     => 1,
+            'min'      => 0,
+            'max'      => 100,
+            'unit'     => ''
         ),
-        'dependency'  => array( 'exopite-enable-revisions-limit', '==', 'true' ),
+        'dependency' => array( 'exopite-enable-revisions-limit', '==', 'true' ),
     ),
 
     array(
