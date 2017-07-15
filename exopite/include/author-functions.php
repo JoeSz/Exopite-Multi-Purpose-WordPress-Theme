@@ -12,7 +12,7 @@
  *  - exopite_save_extra_profile_fields (pluggable)
  *  - exopite_display_author_bio (pluggable)
  *  - exopite_get_author_avatar (pluggable)
- *  - exopite_the_author_meta (pluggable)
+ *  - exopite_author_meta (pluggable)
  */
 // Exit if accessed directly
 defined('ABSPATH') or die( 'You cannot access this page directly.' );
