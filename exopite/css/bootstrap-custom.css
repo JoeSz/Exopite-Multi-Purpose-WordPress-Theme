@@ -53,4 +53,26 @@ figure {
 .entry-content {
     width: 100%;
 }
-
+.bd-callout {
+    padding: 1.25rem;
+    margin-top: 1.25rem;
+    margin-bottom: 1.25rem;
+    border: 1px solid #eee;
+        border-left-width: 1px;
+        border-left-color: rgb(238, 238, 238);
+    border-left-width: .35rem;
+    border-radius: .25rem;
+    font-size: 1.12em;
+}
+.bg-primary {
+    background-color: [#exopite-font-content-link] !important;
+}
+.bd-callout-primary {
+    border-left-color: [#exopite-font-content-link];
+}
+.bd-callout-danger {
+    border-left-color: #d9534f;
+}
+.bd-callout-border {
+    border: 2px solid rgba(0, 0, 0, .1);
+}

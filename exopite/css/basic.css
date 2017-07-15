@@ -194,7 +194,7 @@ q {
 }
 blockquote {
     background: #f6f6f6;
-    margin: 0 3rem 20px 3rem;
+    margin: 1.2rem 3rem 0.5rem 3rem;
     padding: 16px 16px 16px 50px;
     border-radius: 5px;
     box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.14);
@@ -332,11 +332,11 @@ input[type=button] {
 }
 textarea.wpcf7-not-valid,
 input.wpcf7-not-valid {
-    border: 1px solid #a00;
+    border: 1px solid #bd4147;
     border-left-width: 3px;
 }
 span.wpcf7-not-valid-tip {
-    color: #a00;
+    color: #bd4147;
 }
 div.wpcf7-response-output {
     padding: 1em;
@@ -348,11 +348,14 @@ div.wpcf7-response-output {
 }
 .wpcf7-response-output.wpcf7-mail-sent-ng,
 .wpcf7-response-output.wpcf7-validation-errors {
-    border-top: 3px solid #b81c23;
+    border-top: 3px solid #bd4147;
     border-bottom: none;
     border-left: none;
     border-right: none;
 }
 div.wpcf7-mail-sent-ok {
     border-top: 3px solid #398f14;
+}
+.important {
+    padding: 10px 20px;
 }
