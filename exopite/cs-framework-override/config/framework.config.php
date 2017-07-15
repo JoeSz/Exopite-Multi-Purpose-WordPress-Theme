@@ -18,14 +18,14 @@ require_once( 'cs-functions.php' );
 // FRAMEWORK SETTINGS
 // -----------------------------------------------------------------------------------------------
 // ===============================================================================================
-$settings           = array(
+$exopite_settings           = array(
   'menu_title'      => 'Theme Options',
   'menu_type'       => 'theme', // menu, submenu, options, theme, etc.
   'menu_slug'       => 'cs-framework',
   'menu_capability' => 'manage_options',
   'ajax_save'       => true,
   'show_reset_all'  => true,
-  'framework_title' => 'Exopite One - Options <small style="color: #999;">by <a target="_blank" href="http://joe.szalai.org">joe.szalai.org</a> - Version ' . EXOPITE_VERSION . '</small>',
+  'framework_title' => 'Exopite One - Options <small style="color: #999;">by <a target="_blank" href="//joe.szalai.org">joe.szalai.org</a> - Version ' . EXOPITE_VERSION . '</small>',
 );
 
 // ===============================================================================================
@@ -33,12 +33,12 @@ $settings           = array(
 // FRAMEWORK OPTIONS
 // -----------------------------------------------------------------------------------------------
 // ===============================================================================================
-$options        = array();
+$exopite_options    = array();
 
 // ----------------------------------------
 // general                                -
 // ----------------------------------------
-$options[]      = array(
+$exopite_options[]      = array(
   'name'        => 'general_section',
   'title'       => esc_attr__( 'General', 'exopite' ),
   'icon'        => 'fa fa-star',
@@ -49,7 +49,7 @@ $options[]      = array(
     array(
       'type'    => 'notice',
       'class'   => 'danger',
-      'content' => 'NO WARRANTY OF ANY KIND! USE THIS SOFTWARES AND INFORMATIONS AT YOUR OWN RISK! <a href="http://joe.szalai.org/disclamer_pre.txt" target="_blank">READ DISCLAMER</a>, <a href="http://www.gnu.org/licenses/gpl-3.0.html" target="_blank">License: GNU General Public License v3</a>',
+      'content' => 'NO WARRANTY OF ANY KIND! USE THIS SOFTWARES AND INFORMATIONS AT YOUR OWN RISK! <a href="//joe.szalai.org/disclaimer/" target="_blank">READ DISCLAMER</a>, <a href="//www.gnu.org/licenses/gpl-3.0.html" target="_blank">License: GNU General Public License v3</a>',
     ),
 
 
@@ -100,8 +100,32 @@ $options[]      = array(
       'id'      => 'exopite-show-comments',
       'type'    => 'switcher',
       'title'   => esc_attr__( 'Show comments', 'exopite' ),
-      'default' => true,
+      'default' => false,
       'label'   => esc_attr__( 'Enable or disable comments everywhere on the site.', 'exopite' ),
+    ),
+
+    array(
+      'id'      => 'exopite-enable-revisions-limit',
+      'type'    => 'switcher',
+      'title'   => esc_attr__( 'Limit revisions', 'exopite' ),
+      'default' => true,
+      'label'   => esc_attr__( 'If you enable this, you can override amount on every post and page.', 'exopite' ) . '<br>' . sprintf( esc_attr__( 'Read more about %1$swhy limit post revisions%2$s.', 'exopite' ), ' <a href="http://www.wpstuffs.com/how-to-limit-post-revisions-in-wordpress-without-plugin/" target="_blank">', '</a>' ),
+      'desc'    => '<span style="color:#E52745;">' . esc_attr__( 'Before activate this, please make sure that you know what you doing!', 'exopite' ) . '</span>',
+    ),
+
+    array(
+        'id'        => 'exopite-revisions-limit-to-keep',
+        'type'      => 'slider',
+        'title'     => esc_attr__( 'Number of revisions to keep', 'exopite' ),
+        'validate'  => 'numeric',
+        'default'   => 9,
+        'options'   => array(
+            'step'    => 1,
+            'min'     => 0,
+            'max'     => 100,
+            'unit'    => ''
+        ),
+        'dependency'  => array( 'exopite-enable-revisions-limit', '==', 'true' ),
     ),
 
     array(
@@ -167,7 +191,7 @@ $options[]      = array(
 // ----------------------------------------
 // CSS                                    -
 // ----------------------------------------
-$options[]      = array(
+$exopite_options[]      = array(
   'name'        => 'css_section',
   'title'       => esc_attr__( 'CSS', 'exopite' ),
   'icon'        => 'fa fa-code',
@@ -192,7 +216,7 @@ $options[]      = array(
 // ----------------------------------------
 // JavaScript                             -
 // ----------------------------------------
-$options[]      = array(
+$exopite_options[]      = array(
   'name'        => 'js_section',
   'title'       => esc_attr__( 'JavaScript', 'exopite' ),
   'icon'        => 'fa fa-code',
@@ -217,7 +241,7 @@ $options[]      = array(
 // ------------------------------
 // header accordion sections    -
 // ------------------------------
-$options[]   = array(
+$exopite_options[]   = array(
   'name'     => 'header_section',
   'title'    => esc_attr__( 'Header & Menus', 'exopite' ),
   'icon'     => 'fa fa-bars',
@@ -1359,7 +1383,7 @@ $options[]   = array(
 // ------------------------------
 // footer                       -
 // ------------------------------
-$options[]   = array(
+$exopite_options[]   = array(
   'name'     => 'footer_section',
   'title'    => esc_attr__( 'Footer', 'exopite' ),
   'icon'     => 'fa fa-bars',
@@ -1555,7 +1579,7 @@ $options[]   = array(
 // typography                   -
 // ------------------------------
 
-$options[]   = array(
+$exopite_options[]   = array(
   'name'     => 'typography_section',
   'title'    => esc_attr__( 'Content Typography', 'exopite' ),
   'icon'     => 'fa fa-font',
@@ -1723,7 +1747,7 @@ $options[]   = array(
 // ------------------------------
 // blog list                   -
 // ------------------------------
-$options[]   = array(
+$exopite_options[]   = array(
   'name'     => 'blog_list_section',
   'title'    => esc_attr__( 'Blog, Search & Archives', 'exopite' ),
   'icon'     => 'fa fa-files-o',
@@ -2069,7 +2093,7 @@ $options[]   = array(
           'title'          => esc_attr__( 'Display releated on', 'exopite' ),
           'default'        => array(
             'enabled'      => array(
-              'page'        => esc_attr__( 'Pages', 'exopite' ),
+              //'page'        => esc_attr__( 'Pages', 'exopite' ),
               'post'        => esc_attr__( 'Posts', 'exopite' ),
             ),
             'disabled'     => array(
@@ -2383,7 +2407,7 @@ $options[]   = array(
 // ------------------------------
 // media                        -
 // ------------------------------
-$options[]   = array(
+$exopite_options[]   = array(
   'id'       => 'media_section',
   'name'     => 'media_section',
   'title'    => esc_attr__( 'Media', 'exopite' ),
@@ -2442,7 +2466,7 @@ $options[]   = array(
 // ------------------------------
 // sidebars                     -
 // ------------------------------
-$options[]   = array(
+$exopite_options[]   = array(
   'name'     => 'sidebar_section',
   'title'    => esc_attr__( 'Sidebars', 'exopite' ),
   'icon'     => 'fa fa-th-list',
@@ -2478,7 +2502,7 @@ $options[]   = array(
 // ------------------------------
 // extensions                   -
 // ------------------------------
-$options[]   = array(
+$exopite_options[]   = array(
   'name'     => 'extensions_section',
   'title'    => esc_attr__( 'Extensions', 'exopite' ),
   'icon'     => 'fa fa-puzzle-piece',
@@ -2540,7 +2564,7 @@ $options[]   = array(
 // ------------------------------
 // seo                          -
 // ------------------------------
-$options[]   = array(
+$exopite_options[]   = array(
   'name'     => 'seo_section',
   'title'    => esc_attr__( 'SEO', 'exopite' ),
   'icon'     => 'fa fa-search',
@@ -2600,7 +2624,7 @@ $options[]   = array(
 // ----------------------------------------
 // Security                               -
 // ----------------------------------------
-$options[]      = array(
+$exopite_options[]      = array(
   'name'        => 'security',
   'title'       => esc_attr__( 'Security', 'exopite' ),
   'icon'        => 'fa fa-shield',
@@ -2765,7 +2789,7 @@ $options[]      = array(
 // ------------------------------
 // seo                          -
 // ------------------------------
-$options[]   = array(
+$exopite_options[]   = array(
   'name'     => 'maintenance_section',
   'title'    => esc_attr__( 'Maintenance', 'exopite' ),
   'icon'     => 'fa fa-exclamation-triangle',
@@ -2815,7 +2839,7 @@ if ( ExopiteSettings::getValue( 'woocommerce-activated' ) ) {
 // ------------------------------
 // seo                          -
 // ------------------------------
-$options[]   = array(
+    $exopite_options[]   = array(
   'name'     => 'woocommerce_section',
   'title'    => esc_attr__( 'WooCommerce', 'exopite' ),
   'icon'     => 'fa fa-shopping-cart',
@@ -2966,7 +2990,7 @@ $options[]   = array(
 // ------------------------------
 // backup                       -
 // ------------------------------
-$options[]   = array(
+$exopite_options[]   = array(
   'name'     => 'backup_section',
   'title'    => esc_attr__( 'Backup & Restore', 'exopite' ),
   'icon'     => 'fa fa-floppy-o',
@@ -2986,4 +3010,4 @@ $options[]   = array(
   )
 );
 
-CSFramework::instance( $settings, $options );
+CSFramework::instance( $exopite_settings, $exopite_options );
