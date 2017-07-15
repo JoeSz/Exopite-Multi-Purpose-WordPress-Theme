@@ -108,7 +108,7 @@ $exopite_options[]      = array(
       'id'      => 'exopite-enable-revisions-limit',
       'type'    => 'switcher',
       'title'   => esc_attr__( 'Limit revisions', 'exopite' ),
-      'default' => true,
+      'default' => false,
       'label'   => esc_attr__( 'If you enable this, you can override amount on every post and page.', 'exopite' ) . '<br>' . sprintf( esc_attr__( 'Read more about %1$swhy limit post revisions%2$s.', 'exopite' ), ' <a href="http://www.wpstuffs.com/how-to-limit-post-revisions-in-wordpress-without-plugin/" target="_blank">', '</a>' ),
       'desc'    => '<span style="color:#E52745;">' . esc_attr__( 'Before activate this, please make sure that you know what you doing!', 'exopite' ) . '</span>',
     ),
