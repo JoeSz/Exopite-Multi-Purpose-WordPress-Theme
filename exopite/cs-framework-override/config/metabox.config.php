@@ -241,20 +241,6 @@ $exopite_meta_section_post = array(
     ),
 
     array(
-      'id'      => 'exopite-meta-enable-author',
-      'type'    => 'switcher',
-      'title'   => esc_attr__( 'Enable author', 'exopite' ),
-      'default' => true,
-    ),
-
-    array(
-      'id'      => 'exopite-meta-enable-post-nav',
-      'type'    => 'switcher',
-      'title'   => esc_attr__( 'Enable post navigation', 'exopite' ),
-      'default' => true,
-    ),
-
-    array(
       'id'      => 'exopite-meta-enable-releated-posts',
       'type'    => 'switcher',
       'title'   => esc_attr__( 'Enable releated posts', 'exopite' ),
@@ -264,6 +250,24 @@ $exopite_meta_section_post = array(
 
    ), // end: fields
 );
+
+if ( ! isset( $exopite_settings['exopite-single-display-post-navigation'] ) || esc_attr( $exopite_settings['exopite-single-display-post-navigation'] ) ) {
+    $exopite_meta_section_post['fields'][] = array(
+      'id'      => 'exopite-meta-enable-post-nav',
+      'type'    => 'switcher',
+      'title'   => esc_attr__( 'Enable post navigation', 'exopite' ),
+      'default' => true,
+    );
+}
+
+if ( ! isset( $exopite_settings['exopite-single-display-author-bio'] ) || $exopite_settings['exopite-single-display-author-bio'] == true ) {
+    $exopite_meta_section_post['fields'][] = array(
+      'id'      => 'exopite-meta-enable-author',
+      'type'    => 'switcher',
+      'title'   => esc_attr__( 'Enable author', 'exopite' ),
+      'default' => true,
+    );
+}
 
 $exopite_meta_section_hero_header_front_page = array(
   'name'  => 'exopite_section_hero_header',
@@ -447,7 +451,7 @@ array(
 // -----------------------------------------
 // Page Metabox Options                    -
 // -----------------------------------------
-$options[]    = array(
+$exopite_options[]    = array(
   'id'        => 'exopite_custom_page_options',
   'title'     => 'Exopite One - Page Options',
   'post_type' => apply_filters( 'exopite-post-types-pages-to-display-metabox', array( 'page' ) ),
@@ -457,7 +461,7 @@ $options[]    = array(
   ),
 );
 
-$options[]    = array(
+$exopite_options[]    = array(
   'id'        => 'exopite_custom_post_options',
   'title'     => 'Exopite One - Post Options',
   'post_type' => apply_filters( 'exopite-post-types-posts-to-display-metabox', array( 'post' ) ),
@@ -467,22 +471,22 @@ $options[]    = array(
   ),
 );
 
-$options[0]['sections'][] = $exopite_meta_section_general;
-$options[0]['sections'][] = $exopite_meta_section_header;
-$options[0]['sections'][] = $exopite_meta_section_sidebar;
-$options[0]['sections'][] = ( function_exists( 'yoast_breadcrumb' ) ) ? $exopite_meta_section_seo_yoast : $exopite_meta_section_seo;
+$exopite_options[0]['sections'][] = $exopite_meta_section_general;
+$exopite_options[0]['sections'][] = $exopite_meta_section_header;
+$exopite_options[0]['sections'][] = $exopite_meta_section_sidebar;
+$exopite_options[0]['sections'][] = ( function_exists( 'yoast_breadcrumb' ) ) ? $exopite_meta_section_seo_yoast : $exopite_meta_section_seo;
 
-$options[1]['sections'][] = $exopite_meta_section_general;
-$options[1]['sections'][] = $exopite_meta_section_header;
-$options[1]['sections'][] = $exopite_meta_section_sidebar;
-$options[1]['sections'][] = $exopite_meta_section_post;
-$options[1]['sections'][] = ( function_exists( 'yoast_breadcrumb' ) ) ? $exopite_meta_section_seo_yoast : $exopite_meta_section_seo;
+$exopite_options[1]['sections'][] = $exopite_meta_section_general;
+$exopite_options[1]['sections'][] = $exopite_meta_section_header;
+$exopite_options[1]['sections'][] = $exopite_meta_section_sidebar;
+$exopite_options[1]['sections'][] = $exopite_meta_section_post;
+$exopite_options[1]['sections'][] = ( function_exists( 'yoast_breadcrumb' ) ) ? $exopite_meta_section_seo_yoast : $exopite_meta_section_seo;
 
 /*
  * Option to disable logo.
  * Only available, if logo on top of the menu (and menu is on top)
  */
-$meta_enable_desktop_logo = array(
+$exopite_meta_enable_desktop_logo = array(
   'id'      => 'exopite-meta-desktop-logo',
   'type'    => 'switcher',
   'title'   => esc_attr__( 'Enable desktop logo', 'exopite' ),
@@ -492,13 +496,36 @@ $meta_enable_desktop_logo = array(
 
 if ( ! isset( $exopite_settings['exopite-desktop-logo-position'] ) || $exopite_settings['exopite-desktop-logo-position'] == 'top' ) {
 
-    $options[0]['sections'][0]['fields'][] = $meta_enable_desktop_logo;
+    $exopite_options[0]['sections'][0]['fields'][] = $exopite_meta_enable_desktop_logo;
 }
 
 /*
  * Show fixed top menu esettings only if menu in top (not for side menu)
  */
-$meta_enable_fixed_top_menu_settings = array(
+$exopite_meta_revisions_limit_to_keep = array(
+  'id'        => 'exopite-meta-revisions-limit-to-keep',
+  'type'      => 'slider',
+  'title'     => esc_attr__( 'Number of revisions to keep', 'exopite' ),
+  'validate'  => 'numeric',
+  'default'   => 9,
+  'options'   => array(
+      'step'    => 1,
+      'min'     => 0,
+      'max'     => 100,
+      'unit'    => ''
+  ),
+);
+
+if ( isset( $exopite_settings['exopite-enable-revisions-limit'] ) && $exopite_settings['exopite-enable-revisions-limit'] ) {
+
+    $exopite_options[0]['sections'][0]['fields'][] = $exopite_meta_revisions_limit_to_keep;
+    $exopite_options[1]['sections'][0]['fields'][] = $exopite_meta_revisions_limit_to_keep;
+}
+
+/*
+ * Show fixed top menu esettings only if menu in top (not for side menu)
+ */
+$exopite_meta_enable_fixed_top_menu_settings = array(
   'id'      => 'exopite-enable-fixed-header',
   'type'    => 'switcher',
   'title'   => esc_attr__( 'Enable fixed menu', 'exopite' ),
@@ -508,8 +535,8 @@ $meta_enable_fixed_top_menu_settings = array(
 
 if ( ! isset( $exopite_settings['exopite-menu-alignment'] ) || $exopite_settings['exopite-menu-alignment'] == 'top' ) {
 
-    $options[0]['sections'][1]['fields'][] = $meta_enable_fixed_top_menu_settings;
-    $options[1]['sections'][1]['fields'][] = $meta_enable_fixed_top_menu_settings;
+    $exopite_options[0]['sections'][1]['fields'][] = $exopite_meta_enable_fixed_top_menu_settings;
+    $exopite_options[1]['sections'][1]['fields'][] = $exopite_meta_enable_fixed_top_menu_settings;
 }
 
 /*
@@ -519,19 +546,19 @@ if ( ! isset( $exopite_settings['exopite-menu-alignment'] ) || $exopite_settings
 if ( ! isset( $exopite_settings['exopite-enable-hero-header'] ) || ( $exopite_settings['exopite-enable-hero-header'] ) && ( isset( $_GET['post'] ) && $_GET['post'] != get_option( 'page_on_front' ) ) ) {
 
     // Add hero header section only, if hero header is enabled in settings and this is not a fron page.
-    $options[0]['sections'][] = $exopite_meta_section_hero_header;
-    $options[1]['sections'][] = $exopite_meta_section_hero_header;
+    $exopite_options[0]['sections'][] = $exopite_meta_section_hero_header;
+    $exopite_options[1]['sections'][] = $exopite_meta_section_hero_header;
 
 } elseif ( isset( $_GET['post'] ) && $_GET['post'] == get_option( 'page_on_front' ) ) {
 
     // Hero header for front page need to be set in options
-    $options[0]['sections'][] = $exopite_meta_section_hero_header_front_page;
+    $exopite_options[0]['sections'][] = $exopite_meta_section_hero_header_front_page;
 }
 
 /*
  * Enable content for Blog page
  */
-$meta_enable_blog_content = array(
+$exopite_meta_enable_blog_content = array(
   'id'      => 'exopite-enable-blog-content',
   'type'    => 'switcher',
   'title'   => esc_attr__( 'Display blog content', 'exopite' ),
@@ -540,8 +567,8 @@ $meta_enable_blog_content = array(
 
 if ( isset( $_GET['post'] ) && $_GET['post'] == get_option('page_for_posts') ) {
     // Only on "Blog" page
-    $options[0]['sections'][1]['fields'][] = $meta_enable_blog_content;
+    $exopite_options[0]['sections'][1]['fields'][] = $exopite_meta_enable_blog_content;
 }
 
-CSFramework_Metabox::instance( $options );
+CSFramework_Metabox::instance( $exopite_options );
 
