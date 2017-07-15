@@ -14,16 +14,18 @@ defined('ABSPATH') or die( 'You cannot access this page directly.' );
  *
  * Shortcodes:
  *  - Insert an image with hover effect                         [exopite-image-effect]
- *  - Display file                                              [exopite-loop]
- *  - Display loop                                              [exopite-display-file]
- *  - Display page content                                      [exopite-display-page-content slug="slug"]
+ *  - Display file                                              [exopite-display-file]
+ *  - Display loop                                              [exopite-loop]
+ *  - Display page content by slug                              [exopite-display-page-content slug="slug"]
  *  - Display sidebar						                    [exopite-display-sidebar]
  *  - Display any widget                                        [exopite-display-widget]
  *  - Include any PHP file                                      [exopite-include]
  *  - Shortcode menu 						                    [exopite-shortcode-menu]
  *  - Social menu 							                    [exopite-social-menu]
  *  - Display WooCommerce cart 				                    [exopite-woocommerce-cart]
- *  - Display Exopite or Yoast SEO Breadcrumbs if activated		[exopite-breadcrumbs]
+ *  - Display Exopite or Yoast SEO Breadcrumbs if activated     [exopite-breadcrumbs]
+ *  - Display releated posts                                    [exopite-releated-posts]
+ *  - Display author meta                                		[exopite-author-meta]
  */
 
 /*
@@ -505,3 +507,37 @@ if ( ( class_exists( 'WooCommerce' ) ) && ( ! function_exists( 'exopite_display_
  * [exopite-breadcrumbs]
  */
 add_shortcode( 'exopite-breadcrumbs', 'exopite_breadcrumbs' );
+
+add_shortcode( 'exopite-releated-posts', 'exopite_releated_posts_shortcode' );
+if ( ! function_exists( 'exopite_releated_posts_shortcode' ) ) {
+    function exopite_releated_posts_shortcode( $args ) {
+
+        // Usage eg.: [exopite-releated-posts taxonomies_amount="3" taxonomies_per_row="3" taxonomies_title="Test Title"]
+
+        $taxonomies = shortcode_atts(
+            array(
+                'taxonomies_amount'   => 0,
+                'taxonomies_per_row' => 0,
+                'taxonomies_title' => '',
+                'taxonomies_show_title' => true,
+                'taxonomies_show_exceprt' => true,
+                'taxonomies_excerpt_length' => 10,
+                'taxonomies_excerpt_end' => '...',
+                'taxonomies_thumbnail_size' => 'releated',
+                'taxonomies_taxonomy_slug' => 'category',
+                'taxonomies_post_type' => 'post',
+            ),
+            $args
+        );
+
+        return exopite_releated_posts($taxonomies);
+
+    }
+}
+
+add_shortcode( 'exopite-author-meta', 'exopite_the_author_meta_shortcode' );
+if ( ! function_exists( 'exopite_the_author_meta_shortcode' ) ) {
+    function exopite_the_author_meta_shortcode() {
+        return exopite_author_meta();
+    }
+}
