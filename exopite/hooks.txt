@@ -75,6 +75,11 @@ exopite-meta-meta-author-allowed-post-types (post type slug, like: post or pages
 exopite-search-form-post-type (<input type="hidden" name="post_type" value="' . echo get_post_type() . '" />)
 exopite-page-content-template-part-slug (content-slug)
 exopite-post-content-template-part-slug (content-slug)
+exopite-breadcrumbs-before
+exopite-breadcrumbs-after
+exopite-breadcrumbs-divider
+exopite-breadcrumbs-home-name
+exopite-breadcrumbs-category-divider
 exopite-logo
 - WooCommerce
     exopite-woocommerce-sidebar (Woocommerce sidebar)
