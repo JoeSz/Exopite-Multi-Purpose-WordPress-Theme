@@ -13,6 +13,8 @@ defined('ABSPATH') or die( 'You cannot access this page directly.' );
  *  - exopite_add_taxonomies_to_pages (pluggable)
  *  - exopite_category_and_tag_archives (pluggable)
  *  - exopite_replace_footer_admin (pluggable)
+ *  - exopite_limit_revisions (pluggable)
+ *
  *  Make the user role sortable in the WordPress user list
  *  - exopite_replace_footer_admin
  *  - exopite_pre_user_query
@@ -154,6 +156,48 @@ if ( ! function_exists( 'exopite_replace_footer_admin' ) ) {
             $timer,
             memory_get_peak_usage() / 1024
         ) . '</span></p>';
+    }
+}
+
+/**
+ * Limit revisions
+ *
+ * @link https://www.sitepoint.com/wordpress-post-revision-control/
+ */
+add_filter( 'wp_revisions_to_keep', 'exopite_limit_revisions', 10, 2 );
+if ( ! function_exists( 'exopite_limit_revisions' ) ) {
+    function exopite_limit_revisions( $num, $post ) {
+
+        $exopite_settings = get_option( 'exopite_options' );
+
+        // Check if it is enabled
+        if ( isset( $exopite_settings['exopite-enable-revisions-limit'] ) && $exopite_settings['exopite-enable-revisions-limit'] ) {
+
+            /*
+             * Individual page/post settings
+             */
+            $exopite_meta_data_type = 'exopite_custom_post_options';
+            if ( 'page' == $post->post_type ) {
+                $exopite_meta_data_type = 'exopite_custom_page_options';
+            }
+            $exopite_meta_data = get_post_meta( $post->ID, $exopite_meta_data_type, true );
+
+            if ( isset( $exopite_meta_data['exopite-meta-revisions-limit-to-keep'] ) ) {
+
+                // If meta exist, use meta
+                $num = esc_attr( $exopite_meta_data['exopite-meta-revisions-limit-to-keep'] );
+
+            } else if ( isset( $exopite_settings['exopite-revisions-limit-to-keep'] ) ) {
+
+                // If meta not exist, use options
+                $num = esc_attr( $exopite_settings['exopite-revisions-limit-to-keep'] );
+
+            }
+
+        }
+
+        return $num;
+
     }
 }
 
