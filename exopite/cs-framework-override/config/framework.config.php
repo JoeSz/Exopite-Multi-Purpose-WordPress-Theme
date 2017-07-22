@@ -322,12 +322,19 @@ $exopite_options[]   = array(
         ),
 
         array(
+          'id'          => 'exopite-menu-full-width',
+          'type'        => 'switcher',
+          'title'       => esc_attr__( 'Menu full width', 'exopite' ),
+          'default'     => false,
+          'dependency'  => array( 'exopite-menu-alignment_top', '==', 'true' ),
+        ),
+
+        array(
           'id'          => 'exopite-sidebar-preheader-full-width',
           'type'        => 'switcher',
           'title'       => esc_attr__( 'Preheader widget full width', 'exopite' ),
           'default'     => false,
           'dependency'  => array( 'exopite-menu-alignment_top', '==', 'true' ),
-          //'dependency' => array( 'exopite-sidebar-preheader-count', '>', '0' ),
         ),
 
         array(
