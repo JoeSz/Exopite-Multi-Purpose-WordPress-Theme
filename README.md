@@ -17,7 +17,9 @@
 
 Exopite is a advanced multi-purpose WordPress theme with clean and elegant design to create an awesome user-experience. Full Responsive and SEO friendly. It can be to used for any type of website on any type of device. No coding required, easy to use. Can be used with any (recommended: SiteOrigin) page builder plugin. It has been designed to suit beginners as well as developers. Premium-grade theme for free!
 
-<p align="center">[![Theme URL & Live Demo](http://joe.szalai.org/wp-content/uploads/2017/07/live_demo.png)](http://joe.szalai.org/exopite/)</p>
+<p align="center">
+    <a href="http://joe.szalai.org/exopite/" rel="Theme URL & Live Demo">![Theme URL & Live Demo](http://joe.szalai.org/wp-content/uploads/2017/07/live_demo.png)]</a>
+</p>
 
 ## Features
 
