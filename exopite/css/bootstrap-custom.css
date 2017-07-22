@@ -25,7 +25,7 @@ input[type=button],
 .btn-loadmore,
 a.page-numbers,
 span.page-numbers,
-.scrollToTop {
+.scrollToTop .fa {
     background: [#exopite-font-content-link];
 }
 .btn-material, .image-aside .entry-thumbnail {
