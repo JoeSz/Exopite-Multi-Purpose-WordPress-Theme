@@ -7,78 +7,79 @@
  */
 defined('ABSPATH') or die( 'You cannot access this page directly.' );
 
-$menu_left = $exopite_menu_alignment == 'left';
+$exopite_menu_left = $exopite_menu_alignment == 'left';
+$exopite_menu_container = ( $exopite_menu_full_width ) ? 'container-fluid' : 'container';
 
 // Logo position
-$logo_left_pos = $logo_right_pos = $logo_top_pos = $logo_top_in_menu_pos = $logo_center_pos = false;
+$exopite_logo_left_pos = $exopite_logo_right_pos = $exopite_logo_top_pos = $exopite_logo_top_in_menu_pos = $exopite_logo_center_pos = false;
 switch ( $exopite_desktop_logo_position ) {
     case 'left':
-        $logo_left_pos = true;
+        $exopite_logo_left_pos = true;
         break;
     case 'right':
-        $logo_right_pos = true;
+        $exopite_logo_right_pos = true;
         break;
     case 'top':
-        $logo_top_pos = true;
+        $exopite_logo_top_pos = true;
         break;
     case 'top-in-menu':
-        $logo_top_in_menu_pos = true;
+        $exopite_logo_top_in_menu_pos = true;
         break;
     case 'center':
-        $logo_center_pos = true;
+        $exopite_logo_center_pos = true;
         break;
 }
 
 // Logo alignment
-$logo_left = $logo_right = $logo_center = false;
+$exopite_logo_left = $exopite_logo_right = $exopite_logo_center = false;
 switch ( $exopite_desktop_logo_alignment ) {
     case 'text-left flex-left':
-        $logo_left = true;
+        $exopite_logo_left = true;
         break;
     case 'text-right flex-right':
-        $logo_right = true;
+        $exopite_logo_right = true;
         break;
     case 'text-center flex-center':
-        $logo_center = true;
+        $exopite_logo_center = true;
         break;
 }
 
 // Sidebars
-$left_side_logo_widget_area = is_active_sidebar( 'left-side-logo-widget-area' );
-$right_side_logo_widget_area = is_active_sidebar( 'right-side-logo-widget-area' );
+$exopite_left_side_logo_widget_area = is_active_sidebar( 'left-side-logo-widget-area' );
+$exopite_right_side_logo_widget_area = is_active_sidebar( 'right-side-logo-widget-area' );
 
-$logo_top = $logo_top_pos || $logo_top_in_menu_pos;
-$logo_menu_center = ( $exopite_desktop_logo_position == 'center' );
-$both = $left_side_logo_widget_area && $right_side_logo_widget_area && $logo_center;
-$left_or_right = $left_side_logo_widget_area || $right_side_logo_widget_area;
+$exopite_logo_top = $exopite_logo_top_pos || $exopite_logo_top_in_menu_pos;
+$exopite_logo_menu_center = ( $exopite_desktop_logo_position == 'center' );
+$exopite_both = $exopite_left_side_logo_widget_area && $exopite_right_side_logo_widget_area && $exopite_logo_center;
+$exopite_left_or_right = $exopite_left_side_logo_widget_area || $exopite_right_side_logo_widget_area;
 
 // Alignment classes
-$logo_alignment_classes = ( $logo_top || $menu_left ) ? '' : ' col-md-4 col-lg-3';
-$logo_in_menu = ( $logo_top || $menu_left ) ? '' : ' logo-in-menu';
-$logo_alignment_classes .= ( ( $logo_top && $logo_center && ( $left_or_right ) ) ||
-                             ( $logo_left && $right_side_logo_widget_area ) ||
-                             ( $logo_right && $left_side_logo_widget_area ) ) ?
+$exopite_logo_alignment_classes = ( $exopite_logo_top || $exopite_menu_left ) ? '' : ' col-md-4 col-lg-3';
+$exopite_logo_in_menu = ( $exopite_logo_top || $exopite_menu_left ) ? '' : ' logo-in-menu';
+$exopite_logo_alignment_classes .= ( ( $exopite_logo_top && $exopite_logo_center && ( $exopite_left_or_right ) ) ||
+                             ( $exopite_logo_left && $exopite_right_side_logo_widget_area ) ||
+                             ( $exopite_logo_right && $exopite_left_side_logo_widget_area ) ) ?
                              ' col-md-4' : '';
 
-$menu_alignment_classes = ( $logo_top || $menu_left || $logo_menu_center ) ? '' : ' col-md-8 col-lg-9';
+$exopite_menu_alignment_classes = ( $exopite_logo_top || $exopite_menu_left || $exopite_logo_menu_center ) ? '' : ' col-md-8 col-lg-9';
 
 // Logos
-$desktop_logo = ( isset( $exopite_settings['exopite-desktop-logo'] ) ) ?
+$exopite_desktop_logo = ( isset( $exopite_settings['exopite-desktop-logo'] ) ) ?
     wp_get_attachment_image_src( $exopite_settings['exopite-desktop-logo'], 'full' )[0] :
     '';
 
-$mobile_logo = ( isset( $exopite_settings['exopite-mobile-menu-logo'] ) ) ?
+$exopite_mobile_logo = ( isset( $exopite_settings['exopite-mobile-menu-logo'] ) ) ?
     wp_get_attachment_image_src( $exopite_settings['exopite-mobile-menu-logo'], 'full' )[0] :
     '';
 
-$desktop_logo = apply_filters( 'exopite-desktop-logo', $desktop_logo );
-$mobile_logo = apply_filters( 'exopite-mobile-logo', $mobile_logo );
+$exopite_desktop_logo = apply_filters( 'exopite-desktop-logo', $exopite_desktop_logo );
+$exopite_mobile_logo = apply_filters( 'exopite-mobile-logo', $exopite_mobile_logo );
 
-$enable_fixed_header = isset( $exopite_meta_data['exopite-enable-fixed-header'] ) ?
+$exopite_enable_fixed_header = isset( $exopite_meta_data['exopite-enable-fixed-header'] ) ?
     $exopite_meta_data['exopite-enable-fixed-header'] :
     false;
 
-ExopiteSettings::setValue( 'logo_url', $desktop_logo );
+ExopiteSettings::setValue( 'logo_url', $exopite_desktop_logo );
 
 if ( ! function_exists( 'exopite_create_logo' ) ) {
     function exopite_create_logo() {
@@ -93,21 +94,21 @@ if ( ! function_exists( 'exopite_create_logo' ) ) {
  * Assemble logo image, I put it in a variable, because I may have to display
  * before, after or top of the menu, depends on the logo left or right settings.
  */
-$logo = apply_filters( 'exopite-logo', '<div class="desktop-menu desktop-menu-logo col-12' . $logo_alignment_classes . ' ' . $exopite_desktop_logo_alignment . $logo_in_menu . '">' . exopite_create_logo() . '</div>' );
+$exopite_logo = apply_filters( 'exopite-logo', '<div class="desktop-menu desktop-menu-logo col-12' . $exopite_logo_alignment_classes . ' ' . $exopite_desktop_logo_alignment . $exopite_logo_in_menu . '">' . exopite_create_logo() . '</div>' );
 
 /*
  * MOBILE MENU
  *
  * If there is no mobile logo set, use desktop version
  */
-$mobile_logo_img = ( $mobile_logo != '' ) ? $mobile_logo : $desktop_logo;
+$exopite_mobile_logo_img = ( $exopite_mobile_logo != '' ) ? $exopite_mobile_logo : $exopite_desktop_logo;
 
 
-$mobile_logo = ( $mobile_logo_img == '' ) ? '' : '<a href="' . SITEURL . '">
-        <img src="' . $mobile_logo_img . '" class="logo" alt="Mobile Logo">
+$exopite_mobile_logo = ( $exopite_mobile_logo_img == '' ) ? '' : '<a href="' . SITEURL . '">
+        <img src="' . $exopite_mobile_logo_img . '" class="logo" alt="Mobile Logo">
     </a>';
 
-$mobile_hamburger_icon = apply_filters( 'exopite-mobile-hamburger-icon', '<div id="mobile-trigger" class="mobile-button mobile-button-hamburger">
+    $exopite_mobile_hamburger_icon = apply_filters( 'exopite-mobile-hamburger-icon', '<div id="mobile-trigger" class="mobile-button mobile-button-hamburger">
         <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
         <span class="icon-text">MENU</span>
     </div>' );
@@ -136,7 +137,7 @@ if ( ! function_exists( 'exopite_child_add_top_search_menu' ) ) {
     }
 }
 
-if ( $logo_center_pos ) add_filter( 'exopite_center_nav_menu_item', 'exopite_create_logo' );
+if ( $exopite_logo_center_pos ) add_filter( 'exopite_center_nav_menu_item', 'exopite_create_logo' );
 
 ?><header id="masthead" class="site-header menu-alignment-<?php echo $exopite_menu_alignment; ?>" itemscope="itemscope" itemtype="https://schema.org/WPHeader">
     <?php tha_header_top();
@@ -144,10 +145,10 @@ if ( $logo_center_pos ) add_filter( 'exopite_center_nav_menu_item', 'exopite_cre
     /*
      * If desktop logo is on top, then display here.
      */
-    if ( $logo_top_pos ) include( locate_template( 'template-parts/logo-top.php' ) );
+    if ( $exopite_logo_top_pos ) include( locate_template( 'template-parts/logo-top.php' ) );
 
     ?>
-    <nav id="site-navigation" class="row-menu main-navigation normal-menu<?php if ( $enable_fixed_header && ! $menu_left ) echo ' fixed-top'; ?>" itemscope="itemscope" itemtype="https://schema.org/SiteNavigationElement">
+    <nav id="site-navigation" class="row-menu main-navigation normal-menu<?php if ( $exopite_enable_fixed_header && ! $exopite_menu_left ) echo ' fixed-top'; ?>" itemscope="itemscope" itemtype="https://schema.org/SiteNavigationElement">
         <?php
 
         // Display contant above menu from page meta
@@ -178,10 +179,10 @@ if ( $logo_center_pos ) add_filter( 'exopite_center_nav_menu_item', 'exopite_cre
         /*
          * If desktop logo is on top but inside the menu, then display here.
          */
-        if ( $logo_top_in_menu_pos ) include( locate_template( 'template-parts/logo-top.php' ) );
+        if ( $exopite_logo_top_in_menu_pos ) include( locate_template( 'template-parts/logo-top.php' ) );
 
         ?>
-        <div class="container ">
+        <div class="<?php echo $exopite_menu_container; ?> ">
             <div class="row flex">
                 <?php
 
@@ -194,13 +195,13 @@ if ( $logo_center_pos ) add_filter( 'exopite_center_nav_menu_item', 'exopite_cre
                 /*
                  * If logo is on the left, then display here.
                  */
-                if ( $logo_left_pos ) echo $logo;
+                if ( $exopite_logo_left_pos ) echo $exopite_logo;
 
                 /*
                  * Mobile menu buttons and search field.
                  */
                 ?>
-                <div class="flex col-12 <?php echo $menu_alignment_classes . ' ' . $exopite_desktop_menu_horizontal_alignment . ' ' . $exopite_desktop_menu_vertical_alignment; ?>">
+                <div class="flex col-12 <?php echo $exopite_menu_alignment_classes . ' ' . $exopite_desktop_menu_horizontal_alignment . ' ' . $exopite_desktop_menu_vertical_alignment; ?>">
                     <?php
 
                     /*
@@ -228,7 +229,7 @@ if ( $logo_center_pos ) add_filter( 'exopite_center_nav_menu_item', 'exopite_cre
                              */
                             elseif ( $exopite_mobile_menu_position === 'left' ) : ?>
                             <div class="col-3 mobile-menu-left">
-                                <?php echo $mobile_hamburger_icon; ?>
+                                <?php echo $exopite_mobile_hamburger_icon; ?>
                             </div>
                             <?php endif;
 
@@ -239,7 +240,7 @@ if ( $logo_center_pos ) add_filter( 'exopite_center_nav_menu_item', 'exopite_cre
                                 /*
                                  * If no mobile search is activated, then place logo on the right and use its space too
                                  */
-                                if ( $mobile_logo != '' ) echo $mobile_logo;
+                                if ( $exopite_mobile_logo != '' ) echo $exopite_mobile_logo;
 
                                 ?>
                             </div>
@@ -263,7 +264,7 @@ if ( $logo_center_pos ) add_filter( 'exopite_center_nav_menu_item', 'exopite_cre
                              */
                             elseif ( $exopite_mobile_menu_position === 'right' ) : ?>
                             <div class="col-3 mobile-menu-right">
-                                <?php echo $mobile_hamburger_icon; ?>
+                                <?php echo $exopite_mobile_hamburger_icon; ?>
                             </div>
                             <?php
 
@@ -296,7 +297,7 @@ if ( $logo_center_pos ) add_filter( 'exopite_center_nav_menu_item', 'exopite_cre
 
                         exopite_hooks_before_menu();
 
-                        $items_wrap = ( has_nav_menu( 'mobile' ) ) ?
+                        $exopite_items_wrap = ( has_nav_menu( 'mobile' ) ) ?
                             apply_filters( 'exopite-desktop-mobile-menu-wrap', '<div id="cssmenu" class="menu-row menu-both"><ul id="desktop-menu" class="desktop-menu">%3$s</ul></div>' ) :
                             apply_filters( 'exopite-desktop-menu-wrap', '<ul id="menu" class="desktop-menu slimmenu">%3$s</ul>' );
 
@@ -304,7 +305,7 @@ if ( $logo_center_pos ) add_filter( 'exopite_center_nav_menu_item', 'exopite_cre
                             array(
                                 'theme_location'    => 'primary',
                                 'menu_id'           => apply_filters( 'exopite-primary-menu', 'primary-menu' ), //using 22658.88 kB memory
-                                'items_wrap'        => $items_wrap,
+                                'items_wrap'        => $exopite_items_wrap,
                                 'container'         => false,
                                 'walker'            => new Exopite_Menu_Walker(),
                             )
@@ -320,7 +321,7 @@ if ( $logo_center_pos ) add_filter( 'exopite_center_nav_menu_item', 'exopite_cre
                 /*
                  * If desktop logo is on the right, then display here
                  */
-                if ( $logo_right_pos ) echo $logo;
+                if ( $exopite_logo_right_pos ) echo $exopite_logo;
 
                 ?>
             </div>

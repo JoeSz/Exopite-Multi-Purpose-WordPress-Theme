@@ -43,7 +43,9 @@ $exopite_mobile_menu_position = ( isset( $exopite_settings['exopite-mobile-menu-
 $exopite_settings_enable_hero_header = ( isset( $exopite_settings['exopite-enable-hero-header-front-page'] ) ) ?
     $exopite_settings['exopite-enable-hero-header-front-page'] :
     true;
-
+$exopite_menu_full_width = ( isset( $exopite_settings['exopite-menu-full-width'] ) ) ?
+    $exopite_settings['exopite-menu-full-width'] :
+    false;
 
 /*
  * Possibility to override menu with filter
@@ -55,7 +57,8 @@ $exopite_desktop_menu_horizontal_alignment = apply_filters( 'exopite-desktop-men
 $exopite_desktop_menu_vertical_alignment = apply_filters( 'exopite-desktop-menu-vertical-alignment', $exopite_desktop_menu_vertical_alignment );
 $exopite_mobile_menu_search = apply_filters( 'exopite-mobile-menu-search', $exopite_mobile_menu_search );
 $exopite_mobile_menu_position = apply_filters( 'exopite-mobile-menu-position', $exopite_mobile_menu_position );
-$exopite_settings_enable_hero_header  = apply_filters( 'exopite-enable-hero-header-front-page', $exopite_settings_enable_hero_header  );
+$exopite_settings_enable_hero_header  = apply_filters( 'exopite-enable-hero-header-front-page', $exopite_settings_enable_hero_header );
+$exopite_menu_full_width  = apply_filters( 'exopite-menu-full-width', $exopite_menu_full_width );
 
 /*
  * Individual page/post settings
@@ -66,17 +69,17 @@ if ( is_page() ) {
 }
 $exopite_meta_data = get_post_meta( get_queried_object_ID(), $exopite_meta_data_type, true );
 
-$show_desktop_logo = isset( $exopite_meta_data['exopite-meta-desktop-logo'] ) ? $exopite_meta_data['exopite-meta-desktop-logo'] : true;
-$show_menu = isset( $exopite_meta_data['exopite-meta-enable-menu'] ) ? $exopite_meta_data['exopite-meta-enable-menu'] : true;
-$show_header = isset( $exopite_meta_data['exopite-meta-enable-header'] ) ? $exopite_meta_data['exopite-meta-enable-header'] : true;
-$body_classes = isset( $exopite_meta_data['exopite-meta-enable-menu'] ) ? esc_attr( $exopite_meta_data['exopite-meta-extra-body-classes'] ) : '';
-$display_breadcrumbs = isset( $exopite_meta_data['exopite-meta-enable-breadcrumbs'] ) ? $exopite_meta_data['exopite-meta-enable-breadcrumbs'] : true;
-$display_preheader_sidebar = isset( $exopite_meta_data['exopite-meta-enable-preheader-sidebar'] ) ? $exopite_meta_data['exopite-meta-enable-preheader-sidebar'] : true;
-ExopiteSettings::setValue( 'exopite-meta-enable-breadcrumbs', $display_breadcrumbs );
+$exopite_show_desktop_logo = isset( $exopite_meta_data['exopite-meta-desktop-logo'] ) ? $exopite_meta_data['exopite-meta-desktop-logo'] : true;
+$exopite_show_menu = isset( $exopite_meta_data['exopite-meta-enable-menu'] ) ? $exopite_meta_data['exopite-meta-enable-menu'] : true;
+$exopite_show_header = isset( $exopite_meta_data['exopite-meta-enable-header'] ) ? $exopite_meta_data['exopite-meta-enable-header'] : true;
+$exopite_body_classes = isset( $exopite_meta_data['exopite-meta-enable-menu'] ) ? esc_attr( $exopite_meta_data['exopite-meta-extra-body-classes'] ) : '';
+$exopite_display_breadcrumbs = isset( $exopite_meta_data['exopite-meta-enable-breadcrumbs'] ) ? $exopite_meta_data['exopite-meta-enable-breadcrumbs'] : true;
+$exopite_display_preheader_sidebar = isset( $exopite_meta_data['exopite-meta-enable-preheader-sidebar'] ) ? $exopite_meta_data['exopite-meta-enable-preheader-sidebar'] : true;
+ExopiteSettings::setValue( 'exopite-meta-enable-breadcrumbs', $exopite_display_breadcrumbs );
 
 // Check if diplay hero header
 $exopite_meta_data_enable_hero_header = isset( $exopite_meta_data['exopite-enable-hero-header'] ) ? $exopite_meta_data['exopite-enable-hero-header'] : false;
-$display_hero_header = false;
+$exopite_display_hero_header = false;
 
 /*
  * Hero header
@@ -89,14 +92,14 @@ $display_hero_header = false;
  */
 if( isset( $exopite_settings['exopite-enable-hero-header'] ) && $exopite_settings['exopite-enable-hero-header'] ) {
     if ( ( is_front_page() && $exopite_settings_enable_hero_header ) || (  ! is_front_page() && $exopite_meta_data_enable_hero_header ) ) {
-        $display_hero_header = true;
+        $exopite_display_hero_header = true;
     }
 }
 
 // Hero header extra inline style to override height dinamically from page meta
-$override_height = false;
-if ( $display_hero_header && isset( $exopite_meta_data['exopite-hero-header-height'] ) && $exopite_meta_data['exopite-hero-header-height'] > 0 && $exopite_settings['exopite-hero-header-height'] != $exopite_meta_data['exopite-hero-header-height'] ) {
-    $override_height = true;
+$exopite_override_hero_header_height = false;
+if ( $exopite_display_hero_header && isset( $exopite_meta_data['exopite-hero-header-height'] ) && $exopite_meta_data['exopite-hero-header-height'] > 0 && $exopite_settings['exopite-hero-header-height'] != $exopite_meta_data['exopite-hero-header-height'] ) {
+    $exopite_override_hero_header_height = true;
 
     add_action('wp_print_scripts', function() use( $exopite_meta_data ) {
         ?><style type="text/css">@supports(object-fit: cover){.meta-height{height:<?php echo $exopite_meta_data['exopite-hero-header-height']; ?>vh !important;min-height:<?php echo $exopite_meta_data['exopite-hero-header-height']; ?>vh !important;}}</style><?php
@@ -106,7 +109,7 @@ if ( $display_hero_header && isset( $exopite_meta_data['exopite-hero-header-heig
 
 // Determinate if Load Google fonts async or enqueue in the normal way.
 // Google font async is loading by javascript
-$html_class = ( isset( $exopite_settings['exopite-load-google-fonts-async'] ) && ! $exopite_settings['exopite-load-google-fonts-async'] ) ? 'class="wf-active" ' : '';
+$exopite_html_class = ( isset( $exopite_settings['exopite-load-google-fonts-async'] ) && ! $exopite_settings['exopite-load-google-fonts-async'] ) ? 'class="wf-active" ' : '';
 
 // Theme Hook Alliance (include/plugins/tha-theme-hooks.php)
 tha_html_before();
@@ -123,7 +126,7 @@ if ( isset( $exopite_settings['exopite-minify-html'] ) &&
 
 ?>
 <!DOCTYPE html>
-<html <?php echo apply_filters( 'exopite-html-classes', $html_class ); ?><?php language_attributes(); ?>>
+<html <?php echo apply_filters( 'exopite-html-classes', $exopite_html_class ); ?><?php language_attributes(); ?>>
 <head>
 <?php
 
@@ -149,7 +152,7 @@ tha_head_bottom();
 
 ?>
 </head>
-<body <?php body_class( explode( ' ', apply_filters( 'exopite-body-classes', $body_classes ) ) ); ?> itemscope="itemscope" itemtype="https://schema.org/WebPage">
+<body <?php body_class( explode( ' ', apply_filters( 'exopite-body-classes', $exopite_body_classes ) ) ); ?> itemscope="itemscope" itemtype="https://schema.org/WebPage">
 <?php
 
 /**
@@ -164,7 +167,7 @@ if ( ! isset( $exopite_settings['exopite-desktop-menu-search'] ) || ( $exopite_s
 }
 
 // Diplay hero header on top menu
-if ( $exopite_menu_alignment == 'top' && apply_filters( 'exopite-display-hero-header', $display_hero_header ) ) :
+if ( $exopite_menu_alignment == 'top' && apply_filters( 'exopite-display-hero-header', $exopite_display_hero_header ) ) :
 
     include( locate_template( 'template-parts/hero-header.php' ) );
 
@@ -175,10 +178,10 @@ endif;
     <?php
 
     // If show header
-    if ( apply_filters( 'exopite-enable-header', $show_header ) ) :
+    if ( apply_filters( 'exopite-enable-header', $exopite_show_header ) ) :
 
         // Remove preheader hooks, if preheader isn't displayed
-        if ( ! $display_preheader_sidebar ) :
+        if ( ! $exopite_display_preheader_sidebar ) :
             remove_action( 'tha_header_before', 'display_preheader_sidebar', 10 );
             remove_action( 'tha_content_before', 'display_preheader_sidebar', 10 );
         endif;
@@ -193,7 +196,7 @@ endif;
         tha_header_before();
 
         // Show/Hide menu
-        if ( apply_filters( 'exopite-enable-menu', $show_menu ) ) :
+        if ( apply_filters( 'exopite-enable-menu', $exopite_show_menu ) ) :
 
             include( locate_template( 'template-parts/menu.php' ) );
 
@@ -219,7 +222,7 @@ endif;
         endif;
 
         // Diplay hero header on side menu
-        if( $exopite_menu_alignment != 'top' && apply_filters( 'exopite-display-hero-header', $display_hero_header ) ) :
+        if( $exopite_menu_alignment != 'top' && apply_filters( 'exopite-display-hero-header', $exopite_display_hero_header ) ) :
 
             include( locate_template( 'template-parts/hero-header.php' ) );
 
