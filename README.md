@@ -3,6 +3,7 @@
 - Author: Joe Szalai
 - Version: 20170722
 - Theme URL: https://joe.szalai.org/exopite/
+- Demo URL: https://joe.szalai.org/exopite/
 - Theme GitHub URL: https://github.com/JoeSz/Exopite-Multi-Purpose-WordPress-Theme
 - Author URL: https://joe.szalai.org/
 - License: GNU General Public License v3 or later
