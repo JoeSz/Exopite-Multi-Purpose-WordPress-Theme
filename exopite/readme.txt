@@ -1,7 +1,7 @@
 === Exopite - High Performance Multi-purpose WordPress Theme ===
 
 - Author: Joe Szalai
-- Version: 20170709
+- Version: 20170722
 - Theme URL: http://joe.szalai.org/exopite/
 - Theme GitHub URL: https://github.com/JoeSz/Exopite-Multi-Purpose-WordPress-Theme
 - Author URL: http://joe.szalai.org/
@@ -187,8 +187,18 @@ Req:
 
 == Changelog ==
 
+= 20170722 - Jul 22 2017
+* ADDED: menu full width option
+* ADDED: hooks to:
+         - change left side content of logo top
+         - change right side content of logo top
+* ENHANCEMENT: prefix variables in header, menu, logo-top, hero_header
+
+= 20170715 - Jul 15 2017
+* ADDED: option in theme options and in meta options to limit revisions
+
 = 20170709 - Jul 09 2017
-* ADDED: Display releated post and author shortcode
+* ADDED: display releated post and author shortcode
 
 = 20170708 - Jul 08 2017
 * ENHANCEMENT: releated posts can be added on custom post types too (via filters)
@@ -205,13 +215,13 @@ Req:
 * FIXED: create logo function name if logo is in menu middle
 
 = 20170702 - Jul 02 2017
-* ADDED: Skip/scroll to content in Hero Header with animation
-* ENHANCEMENT: Breadcrumbs display all parent page and all parent categories for posts/post_types
+* ADDED: skip/scroll to content in Hero Header with animation
+* ENHANCEMENT: breadcrumbs display all parent page and all parent categories for posts/post_types
 
 = 20170625 - Jun 25 2017
 * ADDED: option to disable desktop logo if logo is in top
-         This is useful if user has a hero header and fixed menu on top, but the logo is displayed in hero header
-* ADDED: Hooks to:
+         this is useful if user has a hero header and fixed menu on top, but the logo is displayed in hero header
+* ADDED: hooks to:
          - change logo anchor link url
          - chenge hamburger icon
          - change mobile menu slug
@@ -222,24 +232,24 @@ Req:
 * ADDED: wpml-config.xml for WPML compatibility
 
 = 20170618 - Jun 18 2017
-* ADDED: Color for link hover
-* ADDED: Underline for link and link hover in content
+* ADDED: color for link hover
+* ADDED: underline for link and link hover in content
 
 = 20170613 - Jun 13 2017
-* FIXED: Remove editor and admin JavaScript and style for category sticky plugin.
-* FIXED: Sidebar checking for blog and archives.
-* FIXED: Check wp.media in JavaScript and only load when need it.
-* FIXED: Category_name and tags in archive query by slug not by name.
+* FIXED: remove editor and admin JavaScript and style for category sticky plugin.
+* FIXED: sidebar checking for blog and archives.
+* FIXED: check wp.media in JavaScript and only load when need it.
+* FIXED: category_name and tags in archive query by slug not by name.
 
 = 20170611 - Jun 11 2017
 * ENHANCEMENT: redirect to "Install Required Plugins" after theme activated.
 * ENHANCEMENT: refresh "Install Required Plugins" page after plugin installed (to show up theme options menu),
                and redirect to theme options after all plugins are installed.
-* FIXED: Definie some option variable, to prevent error on theme actiovation before the exopite-core plugin is activated.
+* FIXED: definie some option variable, to prevent error on theme actiovation before the exopite-core plugin is activated.
 
 = 20170606 - Jun 6 2017
-* ADDED: Desktop logo with
-* ADDED: Mobile logo width and padding top/bottom
+* ADDED: desktop logo with
+* ADDED: mobile logo width and padding top/bottom
 
 = 20170601 - Jun 1 2017
 * ENHANCEMENT: load framework styles and scripts only on required pages. (options page, post, page and for metabox: custom post type pages)
@@ -259,37 +269,37 @@ Req:
 = 20170523 - May 23 2017
 * ADDED: option to not minify certain js files
 * ENHANCEMENT: WooCommerce sidebar
-* ENHANCEMENT: Stick Anything: Check more often closer to top, reduce problem if scroll to top is too fast
+* ENHANCEMENT: stick Anything: Check more often closer to top, reduce problem if scroll to top is too fast
 
 = 20170521 - May 21 2017
 * ADDED: support for WooCommerce (styles and functions)
 * ADDED: style for Contact From 7
 
 = 20170516 - May 16 2017
-* ADDED: Search in options
-* ADDED: Maintenence mode
+* ADDED: search in options
+* ADDED: maintenence mode
 
 = 20170514 - May 14 2017
 * ADDED: hooks.txt to display available hooks
-* ADDED: Use a "section" post type for "preheader and footer as page"
+* ADDED: use a "section" post type for "preheader and footer as page"
 * ADDED: SiteOrigin Page Builder to "section" post type (if SiteOrigin is instelled before theme is activated)
-* IMPROVEMENT: Upgrade license to GPL v3
+* ENHANCEMENT: Upgrade license to GPL v3
 * FIXED: added new media sizes name and display them in media library too
 * FIXED: mobile menu floating even if it is set to off
 
 = 20170508 - May 08 2017
-* ADDED: Option to disable comments on WordPress media attachments
+* ADDED: option to disable comments on WordPress media attachments
 * ADDED: paddign top and botton for boxed layout
 * FIXED: content background-size cover
 
 = 20170507 - May 07 2017
-* ADDED: Options to add/remove emojicons (for speed, most people do not need emojicons)
-* ADDED: Options to enable/disable dekstop menu search
+* ADDED: options to add/remove emojicons (for speed, most people do not need emojicons)
+* ADDED: options to enable/disable dekstop menu search
 * ADDED: filters to header (logo, menu ect...), footer
 * FIXED: google font loading in https protocol
 
 = 20170417 - Arp 16 2017
-* IMPROVEMENT: Version based on date
+* ENHANCEMENT: Version based on date
 * FIXED: some minor PHP warnings
 
 = 1.0.26 - Arp 2 2017
@@ -307,11 +317,11 @@ Req:
 * ADDED: option to display blog page content top of the loop
 * ADDED: option for minifying HTML
 * FIXED: category sticky display first
-* FIXED: Some minor fix
+* FIXED: some minor fix
 
 = 1.0.23 - Mar 19 2017
 * ADDED: mobile menu break point to options
-* IMPROVEMENT: mobile menu: Disable scroll (also in iOS) if menu is fixed and opened and
+* ENHANCEMENT: mobile menu: Disable scroll (also in iOS) if menu is fixed and opened and
 do not fix it if it is opened before fixed.
 
 = 1.0.22 - Mar 16 2017
@@ -319,14 +329,14 @@ do not fix it if it is opened before fixed.
 * ADDED: HTML minifying
 
 = 1.0.21 - Mar 13 2017
-* ADDED: JS combine and minify
-* ADDED: Integrate with theme and plugin update checker
-* IMPROVEMENT: move JS/CSS minify to core plugin
+* ADDED: JavaSrcipt combine and minify
+* ADDED: integrate with theme and plugin update checker
+* ENHANCEMENT: move JS/CSS minify to core plugin
 * FIXED: some HTML 5 validate issue
 
 = 1.0.20 - Mar 5 2017
 * FIXED: set page without sidebar default
-* IMPROVEMENT: Automatic script and style versioning for local css and js files based on file time.
+* ENHANCEMENT: automatic script and style versioning for local css and js files based on file time.
 https://www.doitwithwp.com/enqueue-scripts-styles-automatic-versioning/
 
 = 1.0.19 - Feb 26 2017
@@ -337,19 +347,19 @@ https://www.doitwithwp.com/enqueue-scripts-styles-automatic-versioning/
 
 = 1.0.18 - Feb 25 2017
 * ADDED: animation to skip to content. Also calculate fixed header and nav height.
-* IMPROVEMENT: Refactor 404 and search page
+* ENHANCEMENT: refactor 404 and search page
 remove sidebar from 404 and search
 adding hooks to suggestions and for 404: custom search based on not found url
 
 = 1.0.17 - Feb 19 2017 =
 * FIXED: various bugs
-* IMPROVEMENT: Refactor code
+* ENHANCEMENT: refactor code
 * ADDED: comments
 
 = 1.0.16 - Feb 15 2017 =
 * ADDED: sidebar id as class for sidebar (useful with custom sidebars)
 * ADDED: last modifidied to post meta
-* IMPROVEMENT: Refactor options
+* ENHANCEMENT: refactor options
 
 = 1.0.15 - Feb 10 2017 =
 * ADDED: Menu left and/or right widget if logo on top
@@ -360,7 +370,7 @@ adding hooks to suggestions and for 404: custom search based on not found url
 * ADDED: option for use custom page to display archive
 
 = 1.0.13 - Jan 25 2017
-* IMPROVEMENT: Move theme options (CodeStar Framework) and some core PHP and JavaScript in a plugin.
+* ENHANCEMENT: move theme options (CodeStar Framework) and some core PHP and JavaScript in a plugin.
 Possibility for other plugins to use it.
 
 = 1.0.12 - Jan 20 2017
@@ -371,7 +381,7 @@ Possibility for other plugins to use it.
 
 = 1.0.10 - Jan 10 2017
 * ADDED: versioning
-* IMPROVEMENT: Use custom query instead of main query, for DRY. (use the same code in tempalte and shortcode too)
+* ENHANCEMENT: use custom query instead of main query, for DRY. (use the same code in tempalte and shortcode too)
 The idea is to give the user full control over blog and archive pages. A lots of customers want
 to customize those pages.
 * FIXED: archive and search (using custom queries)
