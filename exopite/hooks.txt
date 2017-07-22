@@ -108,7 +108,11 @@ exopite-logo
     exopite-desktop-mobile-menu-wrap (if no mobile menu set, wapper around desktop and mobile menu)
     exopite-enable-footer (true/false)
     exopite-desktop-menu-search (true/false)
-    exopite-preheader-content
+    exopite-preheader-content (content)
+    exopite-menu-full-width (true/false)
+    exopite-enable-hero-header-front-page
+    exopite-left-side-of-logo-top (content)
+    exopite-right-side-of-logo-top (content)
 
 
 
