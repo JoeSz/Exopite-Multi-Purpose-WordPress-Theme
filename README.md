@@ -197,3 +197,5 @@ Based on the activated elements ad activated plugins. (This may take a few secon
 Exopite theme uses flex, may not working 100% on IE9 or before.
 
 [Changelog](changelog.md)
+
+[![forthebadge](http://forthebadge.com/images/badges/built-by-developers.svg)](http://forthebadge.com) [![forthebadge](http://forthebadge.com/images/badges/for-you.svg)](http://forthebadge.com)
