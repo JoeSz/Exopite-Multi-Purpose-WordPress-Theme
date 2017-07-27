@@ -187,6 +187,9 @@ Req:
 
 == Changelog ==
 
+= 20170727 - Jul 27 2017
+* FIXED: Check exopite-thumbnail-size-crop exist before use it in media.php
+
 = 20170722 - Jul 22 2017
 * ADDED: menu full width option
 * ADDED: hooks to:
