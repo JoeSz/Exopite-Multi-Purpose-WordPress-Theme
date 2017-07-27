@@ -28,7 +28,12 @@ defined('ABSPATH') or die( 'You cannot access this page directly.' );
 if ( isset( $exopite_settings['exopite-thumbnail-sizes'] ) && is_array( $exopite_settings['exopite-thumbnail-sizes'] ) ) {
 
     foreach ( $exopite_settings['exopite-thumbnail-sizes'] as $key => $sizes ) {
-        $crop = ( $sizes['exopite-thumbnail-size-crop'] ) ? true : false;
+        if ( isset( $sizes['exopite-thumbnail-size-crop'] ) ) {
+            $crop = ( $sizes['exopite-thumbnail-size-crop'] ) ? $sizes['exopite-thumbnail-size-crop'] : false;
+        } else {
+            $crop = false;
+        }
+
         //$title = sanitize_text_field( $sizes['exopite-thumbnail-size-title'] );
         $thumbnail_size_title = sanitize_title( $sizes['exopite-thumbnail-size-title'] );
         add_image_size( $thumbnail_size_title, $sizes['exopite-thumbnail-size-dimention']['width']['value'], $sizes['exopite-thumbnail-size-dimention']['height']['value'], $crop );
