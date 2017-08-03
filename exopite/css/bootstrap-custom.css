@@ -1,6 +1,8 @@
 /* Bootstrap override */
-.button, input[type=button],
-.btn-material, .page-numbers {
+.button,
+input[type=button],
+.btn-material,
+.page-numbers {
     border: 0;
     color: #fff;
     -webkit-transition: all 0.3s ease-in-out;
@@ -8,6 +10,13 @@
     -o-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
 }
+.button:focus,
+input[type=button]:focus,
+.btn-material:focus,
+.page-numbers:focus {
+    color: #fff;
+}
+
 .button:hover,
 input[type=submit]:hover,
 input[type=button]:hover,

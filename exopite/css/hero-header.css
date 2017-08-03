@@ -73,9 +73,10 @@
 /* Hearo Header skip to content */
 .hero-header-skip-to-content {
     color: #fff;
-    z-index: 99999999999;
+    z-index: 9;
     position: absolute;
     bottom: 50px;
+    bottom: 7vw;
     font-size: 1.2em;
     left: calc(50% - 20px);
 }
@@ -87,6 +88,7 @@
     padding-left: 8px;
     padding-top: 8px;
 }
+.hero-header-skip-to-content:focus,
 .hero-header-skip-to-content:hover {
     color: #fff;
 }
