@@ -61,7 +61,7 @@ if ( ! function_exists( 'exopite_breadcrumbs' ) ) {
 
                 $breadcrumb .= '<a href="' . get_option('home') .'">' . apply_filters( 'exopite-breadcrumbs-home-name', $home ) . '</a>' . $divider;
 
-                if ( is_category() || is_single() ) {
+                if ( is_category() || ( is_single() && "post" == get_post_type() ) ) {
 
                     $categories = get_the_category();
                     $last_category = key( array_slice( $categories, -1, 1, TRUE ) );
@@ -128,6 +128,14 @@ if ( ! function_exists( 'exopite_breadcrumbs' ) ) {
                         $breadcrumb .= get_the_title();
 
                     }
+
+                }  elseif ( is_single() && ( 'post' != get_post_type() && 'page' != get_post_type() ) ) {
+
+                    $obj = get_post_type_object( get_post_type() );
+                    $cpt_archive = get_post_type_archive_link( $obj->name );
+                    $breadcrumb .= ( empty( $cpt_archive ) ) ? $obj->labels->singular_name : '<a href="' . $obj->slug . '">' . $obj->labels->singular_name . '</a>';
+                    $breadcrumb .= $divider;
+                    $breadcrumb .= get_the_title();
 
                 }  elseif ( is_tag() ) {
 
