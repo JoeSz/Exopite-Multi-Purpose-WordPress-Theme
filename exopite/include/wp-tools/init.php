@@ -59,6 +59,7 @@ function load_settings() {
     WPToolsSettings::setDefault( 'security-stop-user-enumeration', true );
     WPToolsSettings::setDefault( 'security-disable-xmlrpc', true );
     WPToolsSettings::setDefault( 'security-disable-rest-api', false );
+    WPToolsSettings::setDefault( 'security-rest-api-only-authenticated', false );
     WPToolsSettings::setDefault( 'security-prevent-script-injection', true );
     WPToolsSettings::setDefault( 'security-comment-flood-check-referer', true );
     WPToolsSettings::setDefault( 'security-send-email-on-failed-login', true );
