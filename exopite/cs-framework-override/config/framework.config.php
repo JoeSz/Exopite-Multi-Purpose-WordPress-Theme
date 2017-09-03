@@ -2622,11 +2622,22 @@ $exopite_options[]   = array(
       'label'   => '',
     ),
 
+    // array(
+    //   'id'     => 'exopite-js-analytics',
+    //   'type'   => 'textarea',
+    //   'attributes' => array(
+    //     'rows'     => 8,
+    //   ),
+    //   'before' => '<div class="cs-title"><h4 style="padding-bottom: 20px;">' . esc_attr__( 'Add your Google Analytics code here', 'exopite' ) . '</h4></div>',
+    //   'after' => '<b><i class="cs-text-muted">' . esc_html__( 'without the &lt;srcipt&gt; tag', 'exopite' ) . '</i></b>',
+    // ),
+
     array(
       'id'     => 'exopite-js-analytics',
-      'type'   => 'textarea',
-      'attributes' => array(
-        'rows'     => 8,
+      'type'   => 'aceeditor',
+      'attributes'  => array(
+        'data-theme'    => 'chrome',
+        'data-mode'     => 'javascript',
       ),
       'before' => '<div class="cs-title"><h4 style="padding-bottom: 20px;">' . esc_attr__( 'Add your Google Analytics code here', 'exopite' ) . '</h4></div>',
       'after' => '<b><i class="cs-text-muted">' . esc_html__( 'without the &lt;srcipt&gt; tag', 'exopite' ) . '</i></b>',
@@ -2752,8 +2763,17 @@ $exopite_options[]      = array(
       'type'    => 'switcher',
       'title'   => esc_attr__( 'Disable JSON Rest API', 'exopite' ),
       'default' => false,
-      'label'   => esc_attr__( 'For WordPress versions 4.4 - 4.6, makes use of the rest_enabled filter provided by the API to disable the API functionality. For WordPress 4.7+, the plugin will return an authentication error for any user not logged into the website.', 'exopite' ) . ' <a href="https://wordpress.org/plugins/disable-json-api/" target="_blank">' . esc_attr__( 'More...', 'exopite' ) . '</a>',
+      'label'   => esc_attr__( 'For WordPress 4.7+ only. Return 405 error code with <code>"REST-API services are disabled on this site."</code>.', 'exopite' ),
       'dependency'  => array( 'exopite-security-enabled', '==', 'true' ),
+    ),
+
+    array(
+      'id'      => 'exopite-security-rest-api-only-authenticated',
+      'type'    => 'switcher',
+      'title'   => esc_attr__( 'Limit JSON Rest API for authenticated users only', 'exopite' ),
+      'default' => false,
+      'label'   => esc_attr__( 'For WordPress versions 4.4 - 4.6, makes use of the rest_enabled filter provided by the API to disable the API functionality. For WordPress 4.7+, the plugin will return an authentication error for any user not logged into the website.', 'exopite' ) . ' <a href="https://wordpress.org/plugins/disable-json-api/" target="_blank">' . esc_attr__( 'More...', 'exopite' ) . '</a>',
+      'dependency'  => array( 'exopite-security-enabled|exopite-security-disable-rest-api', '==|==', 'true|false' ),
     ),
 
     array(
