@@ -57,7 +57,7 @@ if ( ! function_exists( 'load_exopite_styles' ) ) {
          * Get Bootstrap 4
          */
         if ( ! wp_style_is( 'bootstrap-4' ) ) {
-            wp_register_style( 'bootstrap-4', "http" . ($_SERVER['SERVER_PORT'] == 443 ? "s" : "") . "://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css", false, '4.0.0-alpha6' );
+            wp_register_style( 'bootstrap-4', "http" . ($_SERVER['SERVER_PORT'] == 443 ? "s" : "") . "://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css", false, '4.0.0-beta' );
             wp_enqueue_style( 'bootstrap-4' );
         }
 
@@ -99,12 +99,12 @@ if ( ! function_exists( 'load_exopite_scripts' ) ) {
          * Check if jQuery tether is already enqueued,
          * if not, enqueue it
          */
-        if ( ! wp_script_is( 'jquery-tether-133' ) ) {
-            wp_enqueue_script( 'jquery-tether-133', 'https://cdnjs.cloudflare.com/ajax/libs/tether/1.3.3/js/tether.min.js', array( 'jquery' ), '1.3.3', true );
+        if ( ! wp_script_is( 'jquery-popper-1110' ) ) {
+            wp_enqueue_script( 'jquery-popper-1110', 'http' . ($_SERVER['SERVER_PORT'] == 443 ? "s" : "") . '://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js', array( 'jquery' ), '1.11.0', true );
         }
 
         if ( ! wp_script_is( 'bootstrap-4-js' ) ) {
-            wp_register_script( 'bootstrap-4-js', "http" . ($_SERVER['SERVER_PORT'] == 443 ? "s" : "") . "://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js", array( 'jquery', 'jquery-tether-133' ), '4.0.0-alpha.6', true );
+            wp_register_script( 'bootstrap-4-js', "http" . ($_SERVER['SERVER_PORT'] == 443 ? "s" : "") . "://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js", array( 'jquery', 'jquery-popper-1110' ), '4.0.0-beta', true );
             wp_enqueue_script( 'bootstrap-4-js' );
         }
 
