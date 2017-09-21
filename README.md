@@ -1,7 +1,7 @@
 # Exopite - High Performance Multi-purpose WordPress Theme
 
 - Author: Joe Szalai
-- Version: 20170722
+- Version: 20170921
 - Theme URL: https://joe.szalai.org/exopite/
 - Demo URL: https://joe.szalai.org/exopite/
 - Theme GitHub URL: https://github.com/JoeSz/Exopite-Multi-Purpose-WordPress-Theme

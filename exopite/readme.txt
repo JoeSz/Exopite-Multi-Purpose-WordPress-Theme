@@ -187,6 +187,9 @@ Req:
 
 == Changelog ==
 
+= 20170921 - Sep 21 2017
+* **UPDATE**: Update to Bootstrap 4.0.0 beta
+
 = 20170825 - Aug 25 2017
 * ENHANCEMENT: Possibility to completely deactivate REST API with 405 error code for WordPress 4.7+.
 * ENHANCEMENT: Make Google Analytics option filed as ACE Editor.
