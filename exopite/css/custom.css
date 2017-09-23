@@ -46,6 +46,15 @@
         line-height: 2.3rem;
     }
 }
+@media screen and (max-width: 670px) {
+    .post-jsimageviewer .site-branding.center {
+        left: auto;
+    }
+    .post-jsimageviewer .site-branding.middle.center {
+        transform: translatey(-50%);
+        padding: 0 10px;
+    }
+}
 @media screen and (min-width: 768px) {
     .image-container,
     .exopite-one-usp h4,
@@ -57,6 +66,557 @@
         margin-right: 20px;
         margin-bottom: 0;
     }
+}
+.btn-download {
+    background: #6a8ccb;
+    padding: 0.5em 1.7em;
+    font-size: 22px;
+}
+.jsimageviewer-hero-header {
+    position: relative;
+}
+.jsimageviewer-hero-header h1 {
+    position: absolute;
+    color: #fff;
+    left: 50%;
+    top: 53%;
+    transform: translate(-50%,-50%);
+}
+.exopite-multifilter-usage-table tr td:first-child {
+    width: 210px;
+}
+.exopite-multifilter-usage-table td {
+    border: 1px solid #eee;
+    padding: 2px 10px;
+    font-size: 80%;
+}
+
+@media screen and (max-width: 550px) {
+    .exopite-multifilter-usage-table td {
+        border: none;
+        border-left: 1px solid #f5f5f5;
+        border-right: 1px solid #f5f5f5;
+        border-top: 1px solid #f5f5f5;
+        position: relative;
+        padding-left: 65px;
+        min-height: 34px;
+    }
+    table.exopite-multifilter-usage-table th {
+        /*display: none;*/
+        visibility: hidden;
+        line-height: 0;
+    }
+    .exopite-multifilter-usage-table td {
+        display: inline-block;
+        width: calc( 100% - 28px ) !important;
+        margin-left: 28px;
+        text-align: left; /* or right */
+    }
+    .exopite-multifilter-usage-table td:last-child {
+        margin-bottom: 3px;
+        border-bottom: 1px solid #f5f5f5;
+    }
+    .exopite-multifilter-usage-table td:first-child {
+        border-top: 2px solid #eee;
+    }
+    .exopite-multifilter-usage-table td:first-child:before ,
+    .exopite-multifilter-usage-table td:nth-child(2):before,
+    .exopite-multifilter-usage-table td:last-child:before {
+        font-style: italic;
+        color: #ccc;
+        position: absolute;
+        left: 5px;
+    }
+    /*
+     * Responsive table
+     * Info before table cell:
+     *  (use data-th attribute, all cell must have this)
+     *  - https://codepen.io/geoffyuen/pen/FCBEg
+     *  (or use a before element, only once have to declair, less code)
+     */
+    .exopite-multifilter-usage-table td:before {
+        /*content: attr(data-th) ": ";*/
+    }
+    .exopite-multifilter-usage-table td:first-child:before {
+        content: 'option: ';
+    }
+    .exopite-multifilter-usage-table td:nth-child(2):before {
+        content: 'values: ';
+    }
+    .exopite-multifilter-usage-table td:last-child:before {
+        content: 'defaults: ';
+    }
+    /* increment */
+    table.exopite-multifilter-usage-table tbody tr:before {
+        content: counter(em-table-counter);
+        counter-increment: em-table-counter;
+        width: 28px;
+        position: absolute;
+        font-weight: bold;
+        top: 0;
+        bottom: 3px;
+        background: #f5f5f5;
+        text-align: center;
+        border-top: 2px solid #eee;
+    }
+    table.exopite-multifilter-usage-table {
+        counter-reset: em-table-counter;
+    }
+    table.exopite-multifilter-usage-table tr {
+        position: relative;
+        display: block;
+    }
+}
+/* lists */
+ul.features {
+    padding-left: 0;
+}
+ul.features li {
+    list-style: none;
+    position: relative;
+    padding-left: 20px;
+}
+ul.features li::before {
+    content: '\f067'; /*\2022*/
+    position: absolute;
+    left: 0;
+    font-size: 14px;
+    line-height: 1.8rem;
+    font-family: 'FontAwesome';
+    color: #5379BA;
+}
+/* Rounded list */
+ul.circles-list,
+ul.rectangle-list,
+ul.simple-list,
+ul.rounded-list {
+    counter-reset: li;
+    list-style: none;
+    /*font: 15px 'trebuchet MS', 'lucida sans';*/
+    padding: 0;
+    margin-bottom: 4em;
+    /*text-shadow: 0 1px 0 rgba(255,255,255,.5);*/
+}
+ul.simple-list li,
+ul.circles-list > li,
+ul.rectangle-list li,
+ul.rounded-list li {
+    position: relative;
+    display: block;
+    padding: .2em .4em .2em 1.2em;
+    margin: .5em 0 .5em 2.5em;
+    text-decoration: none;
+    transition: all .3s ease-out;
+}
+ul.rectangle-list,
+ul.rounded-list {
+    font-size: 15px;
+}
+ul.circles-list > li:before {
+    position: absolute;
+    top: 0;
+    left: -2.5em;
+    width: 2em;
+    height: 2em;
+    font-size: 1em;
+    line-height: 1.65em;
+    text-align: center;
+    color: #f5f5f5;
+    border: 3px solid #c5c5c5;
+    border-radius: 50%;
+    background-color: #464646;
+    content: counter(li);
+    counter-increment: li;
+}
+ul.rectangle-list li,
+ul.rounded-list li {
+    background: #f4f4f4;
+    color: #444;
+}
+ul.rectangle-list li {
+    margin-left: 2.7em;
+}
+ul.rounded-list li:before {
+/*    content: counter(li);
+    counter-increment: li;*/
+    content: '\f067'; /*\2022*/
+    font-family: 'FontAwesome';
+    position: absolute;
+    left: -1.3em;
+    top: 1.2em;
+    margin-top: -1.3em;
+    background: #6a8ccb;
+    height: 2.4em;
+    width: 2.4em;
+    line-height: 2em;
+    border: .3em solid #fff;
+    text-align: center;
+    border-radius: 2em;
+    transition: all .3s ease-out;
+    color: #fff;
+}
+ul.rectangle-list li:hover,
+ul.rounded-list li:hover{
+    background: #eee;
+}
+ul.rectangle-list li:before {
+    position: absolute;
+    text-align: center;
+    left: -2.7em;
+    top: 1em;
+    margin-top: -1em;
+    background: #ffaa00;
+    /* Counter */
+    content: counter(li);
+    counter-increment: li;
+    height: 2.26em;
+    width: 2.26em;
+    line-height: 2.3;
+    color: #fff;
+}
+ul.rectangle-list.fa-icons li:before {
+    /* FontAwesome icon */
+    content: '\f00c';
+    font-family: 'FontAwesome';
+    height: 2.43em;
+    width: 2.43em;
+    line-height: 2.58;
+    font-size: 14px;
+}
+ul.simple-list > li:before {
+    position: absolute;
+    top: 0;
+    left: -1.4em;
+    width: 1.1em;
+    font-size: 1.8em;
+    line-height: 1;
+    font-weight: bold;
+    text-align: right;
+    color: #464646;
+    content: counter(li);
+    counter-increment: li;
+    letter-spacing: -4px;
+}
+ul.simple-list > li {
+    padding-left: 10px;
+    margin: .5em 0 .5em 1.4em;
+}
+ul.simple-list.list-small li {
+    padding: 0 .4em 0 1.2em;
+}
+ul.simple-list.list-small > li {
+    min-height: 25px;
+    border-left: 2px solid #CCCCCC;
+    line-height: 24px;
+    padding-left: 10px;
+    margin: .6em 0 .4em 1.4em;
+    display: block;
+}
+ul.simple-list.list-small > li::before {
+    top: -2px;
+    left: -1.6em;
+    font-size: 1.2em;
+    font-weight: 400;
+}
+ul.circles-list > li {
+    padding-left: 0;
+}
+ul.simple-list > li{
+    min-height: 1.8em;
+    border-left: 2px solid #CCCCCC;
+}
+.list-desc {
+    font-size: 0.7em;
+    color: #ababab;
+    font-style: italic;
+    line-height: 0.9em;
+    display: block;
+}
+/* Hero Header */
+.so-pb-hero-darken-bg {
+    position: relative;
+}
+.so-pb-hero-darken-bg:before {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.3);
+    content: '';
+}
+.rectangle-list h5 {
+    padding-top: 4px;
+}
+.rectangle-list p {
+    margin-bottom: 0;
+}
+.entry-header h1 {
+    margin-top: 60px;
+}
+/* EnlighterJS */
+.EnlighterJS,
+.EnlighterJSWrapper {
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace !important;
+}
+.enlighterEnlighterJSWrapper pre,
+ol.enlighterEnlighterJS,
+ul.enlighterEnlighterJS {
+    border-radius: 3px !important;
+    font-size: 12px !important;
+    color: #939393 !important;
+    background-color: #fff !important;
+    padding-left: 10px;
+    border: 1px solid #ddd !important;
+}
+ol.enlighterEnlighterJS li,
+ul.enlighterEnlighterJS li {
+    line-height: 20px !important;
+    margin-left: 3.5em !important;
+}
+ol.enlighterEnlighterJS li {
+    border-left: none !important;
+    list-style: none !important;
+}
+ol.enlighterEnlighterJS {
+  list-style-type: none;
+  margin-left: 0;
+}
+ol.enlighterEnlighterJS > li {
+  counter-increment: customlistcounter;
+}
+
+ol.enlighterEnlighterJS > li:before {
+  content: counter(customlistcounter) " ";
+  float: left;
+  width: 3em;
+  text-align: right;
+  color: rgba(27,31,35,0.3);
+  position: absolute;
+  left: 10px;
+}
+ol.enlighterEnlighterJS:first-child {
+  counter-reset: customlistcounter;
+}
+ol.EnlighterJS li:first-child,
+ul.EnlighterJS li:first-child {
+    padding-top: 16px !important;
+}
+ol.EnlighterJS li:last-child,
+ul.EnlighterJS li:last-child {
+    padding-bottom: 16px !important;
+}
+.highlight ol.EnlighterJS li,
+.highlight ul.EnlighterJS li {
+    background-color: #f7f7f9 !important;
+    border-left: 2px solid #fbfbfb !important;
+}
+.highlight .enlighterEnlighterJSWrapper pre,
+.highlight ol.enlighterEnlighterJS,
+.highlight ul.enlighterEnlighterJS {
+    border: none !important;
+}
+.highlight .enlighterEnlighterJSWrapper pre,
+.highlight ol.enlighterEnlighterJS,
+.highlight ul.enlighterEnlighterJS,
+.highlight .EnlighterJS span {
+    line-height: 1.5 !important;
+    font-size: 15px !important;
+    background-color: #f7f7f9 !important;
+}
+.highlight ol.enlighterEnlighterJS > li::before {
+    width: 2.5em;
+    color: rgba(27, 31, 35, 0.15);
+}
+/* Livemesh Tabs */
+.lsow-tabs .lsow-tab-nav .lsow-tab a {
+    padding: 10px 40px;
+}
+.lsow-tabs .lsow-tab-nav .lsow-tab span.lsow-tab-title {
+    font-weight: 400;
+    letter-spacing: 0px;
+}
+.lsow-tabs .lsow-tab-panes .lsow-tab-pane {
+    padding: 20px;
+}
+.lsow-tabs.style9,
+.lsow-tabs.style1 .lsow-tab-panes,
+.lsow-tabs.style1 .lsow-tab-nav .lsow-tab:last-child,
+.lsow-tabs.style1 .lsow-tab-nav .lsow-tab:first-child {
+    border-radius: 0;
+}
+.lsow-tabs.style9 .lsow-tab-nav .lsow-tab.lsow-active,
+.lsow-tabs.style9,
+.lsow-tabs.style1 .lsow-tab-nav .lsow-tab.lsow-active,
+.lsow-tabs.style1 .lsow-tab-panes {
+    background: #fafafa;
+}
+
+/* Livemesh Team */
+.lsow-team-members.lsow-style1 .lsow-team-member .lsow-image-wrapper img {
+    margin: 0 auto;
+    border-radius: 0px;
+}
+.lsow-style1 .lsow-team-member .lsow-team-member-text {
+    margin-top: 15px;
+}
+.lsow-style1 .lsow-team-member .lsow-team-member-text .lsow-title {
+    letter-spacing: 0px;
+    font-weight: 400;
+    color: inherit;
+}
+.lsow-team-members.lsow-style1 .lsow-team-member .lsow-team-member-text .lsow-title {
+    margin-bottom: 2px;
+}
+.lsow-team-members .lsow-team-member .lsow-team-member-text .lsow-team-member-position {
+    font-size: 14px;
+    font-style: normal;
+    text-transform: uppercase;
+}
+
+/* Livemesh Testemonial */
+.lsow-testimonials .lsow-testimonial-text {
+    border-radius: 3px;
+    padding: 20px;
+}
+.lsow-testimonials .lsow-testimonial-user .lsow-text .lsow-author-name {
+    letter-spacing: 0;
+    color: #555;
+    font-weight: 400;
+}
+.lsow-testimonials .lsow-author-credentials {
+    font-size: 14px;
+}
+/* Flipbox */
+.cl-flipbox-hh .cl-flipbox-front-desc, .cl-flipbox-back-desc {
+    line-height: 1.5;
+    margin: 0 !important;
+}
+
+/* CodeLights Testemonial */
+.widget_cl-review .cl-review.layout_balloon .cl-review-quote-text {
+    padding: 21px 28px 23px;
+    border-radius: 3px;
+    background-color: #f8f8f8;
+}
+.cl-review.quote_italic .cl-review-quote-text q {
+    font-size: 18px;
+}
+.cl-review .cl-review-author-name {
+    font-weight: 300;
+    font-size: 18px;
+}
+/* Livemesh Services */
+/* Style 3 */
+.lsow-services.lsow-style3 .lsow-service .lsow-icon-wrapper span {
+    text-align: center;
+    font-size: 50px;
+    color: #aaa;
+}
+.lsow-services.lsow-style3 .lsow-service .lsow-service-text .lsow-title {
+    letter-spacing: 0;
+    font-weight: 400;
+    color: #555;
+    text-align: center;
+}
+.lsow-services.lsow-style3 .lsow-service .lsow-service-text {
+    font-size: 15px;
+    line-height: 1.7;
+    color: inherit;
+    text-align: center;
+}
+/* Style 1 */
+.lsow-services.lsow-style1 .lsow-service {
+    border: 1px solid #6a8ccb;
+}
+.lsow-services.lsow-style1 .lsow-service .lsow-icon-wrapper span {
+    font-size: 30px;
+    color: #fff;
+    background: #6a8ccb;
+    padding: 10px 0;
+}
+.lsow-services.lsow-style1 .lsow-service-wrapper:first-child .sow-icon-fontawesome {
+    font-size: 40px;
+    padding: 5px 0;
+}
+.lsow-services.lsow-style1 .lsow-service-text {
+    padding: 0 10px 20px;
+    width: 100%;
+    display: block;
+    max-width: 100%;
+}
+.lsow-services.lsow-style1 .lsow-service .lsow-service-text .lsow-title {
+    font-size: 18px;
+    line-height: 26px;
+    letter-spacing: 0;
+    font-weight: 400;
+    color: inherit;
+    text-transform: none;
+    margin-bottom: 14px;
+}
+.lsow-services.lsow-style1 .lsow-service {
+    width: 100%;
+}
+.lsow-services.lsow-style1 .lsow-service {
+    margin-bottom: 36px;
+}
+.lsow-container.lsow-style1 {
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.lsow-container.lsow-style1 .lsow-fourcol {
+    display: flex;
+    flex-wrap: wrap;
+}
+.lsow-services.lsow-style2 .lsow-service .lsow-icon-wrapper span {
+    font-size: 50px;
+    line-height: 60px;
+    border: 2px solid #6a8ccb;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    position: relative;
+    text-align: center;
+    float: none;
+    margin-right: 0;
+    color: #6a8ccb;
+}
+.lsow-services.lsow-style2 .sow-icon-fontawesome[data-sow-icon]:before {
+    content: attr(data-sow-icon);
+    vertical-align: -webkit-baseline-middle;
+}
+.lsow-services.lsow-style2 .sow-icon-fontawesome[data-sow-icon]::before,
+.lsow-services.lsow-style2 .sow-icon-ionicons[data-sow-icon]:before {
+    content: attr(data-sow-icon);
+    padding-top: 16px;
+    display: inline-block;
+}
+.lsow-services.lsow-style2 .lsow-service-text,
+.lsow-services.lsow-style2 .lsow-icon-wrapper {
+    text-align: center;
+    padding-top: 20px;
+}
+.lsow-services.lsow-style2 .lsow-service .lsow-service-text .lsow-title {
+    letter-spacing: 2px;
+    font-weight: 400;
+}
+/* Inked divider */
+.iw-so-divider:before {
+    content: '×';
+    position: absolute;
+    top: -16px;
+    left: calc( 50% - 25px );
+    width: 50px;
+    background: #fff;
+    text-align: center;
+    font-size: 25px;
+    color: #aaa;
+}
+.so-widget-ink-divider {
+    position: relative;
 }
 /* DEBUG */
 .erliama-stats {
@@ -71,4 +631,480 @@
     z-index: 2;
     position: relative;
 }
-/* DEBUG */
+/* /DEBUG */
+/* Inked Accordion */
+.iw-so-accordion-plain .sow-icon-fontawesome {
+    background: #ffaa00;
+    padding: 12px 11px 10px 13px;
+    font-size: 14px !important;
+}
+.iw-so-accordion .iw-so-acc-item .iw-so-acc-title {
+    padding: 4px;
+}
+.widget_ink-accordion .iw-so-accordion .iw-so-acc-item .iw-so-acc-title {
+    padding-left: 10px;
+    margin-left: 40px;
+    font-size: 1em;
+}
+.widget_ink-accordion .iw-so-accordion .iw-so-acc-item .iw-so-acc-title span {
+    top: 0px;
+    left: -20px !important;
+}
+.widget_ink-accordion .so-widget-ink-accordion .iw-so-accordion .iw-so-acc-item {
+    margin-bottom: 6px;
+}
+.widget_ink-accordion .iw-so-accordion .iw-so-acc-item .iw-so-acc-content {
+    margin-left: 40px;
+    font-size: 0.9em;
+    padding: 10px;
+}
+/* Featured items (div) */
+.featured-item {
+    position: relative;
+    display: block;
+    margin: .5em 0 .5em 2.5em;
+    margin-left: 2.7em;
+    text-decoration: none;
+    transition: all .3s ease-out;
+    background: #f4f4f4;
+    color: #444;
+    font-size: 15px;
+    padding: .3em 1.2em 1em 1.2em;
+}
+.featured-item:hover {
+    background: #eee;
+}
+.featured-item::before {
+    position: absolute;
+    text-align: center;
+    left: -2.9em;
+    top: 1em;
+    margin-top: -1em;
+    background: #ffaa00;
+    content: counter(li);
+    counter-increment: li;
+    color: #fff;
+    content: '\f067';
+    font-family: 'FontAwesome';
+    height: 2.43em;
+    width: 2.43em;
+    line-height: 2.58;
+    font-size: 14px;
+    padding-left: 2px;
+}
+.featured-title {
+    font-weight: 400;
+    font-size: 16px;
+}
+.test.responsive-remover-test {
+    background: #f4f4f4;
+    padding: 10px;
+    font-size: 16px;
+}
+.test-title {
+    font-weight: 400;
+    padding-bottom: 12px;
+}
+.features {
+    width: 100%;
+}
+.features th,
+.features tbody td {
+    padding: 5px 10px;
+}
+.features tbody td {
+    border-top: 1px solid #ccc;
+    border-right: 1px dotted #dbdbdb;
+}
+.features tbody td:last-child {
+    border-right: none;
+}
+.features th {
+    font-weight: 400;
+}
+.featured-item-alt {
+    padding-left: 30px;
+    position: relative;
+    padding-bottom: 12px;
+}
+.featured-item-alt::after {
+    content: '';
+}
+.featured-item-alt::before {
+    content: '';
+    position: absolute;
+    top: 4px;
+    width: 20px;
+    height: 20px;
+    background: #ccc;
+    border-radius: 50%;
+    left: -12px;
+}
+.featured-item-alt::after {
+    content: '';
+    border-left: 3px solid #ccc;
+    position: absolute;
+    left: -3px;
+    height: 100%;
+    top: 4px;
+}
+.featured-item-alt:last-child::after {
+    border-left: none;
+}
+/**/
+h4.description {
+    margin-bottom: 20px;
+    display: block;
+    line-height: 1.4;
+}
+b.description {
+    font-weight: 400;
+}
+.logo-jj-slogen {
+    font-size: 60px;
+    color:#000;
+    position: relative;
+    height: 60px;
+    line-height: 61px;
+
+}
+.logo-jj-img {
+    width: 46px;
+    margin-bottom: 8px;
+}
+.logo-jj-img-2 {
+    width: 36px;
+    position: absolute;
+    top: 0;
+}
+.logo-jj-img-2-ph {
+    display: inline-block;
+    width: 37px;
+}
+.logo-jj-img-3 {
+    width: 48px;
+    margin-bottom: 11px;
+}
+.logo-jj-img-4 {
+    width: 48px;
+    margin-bottom: 10px;
+}
+#parlament-silhouette img {
+    display: none;
+}
+@media screen and (min-width: 768px) {
+    #parlament-silhouette img {
+        position: absolute;
+        right: 0;
+        top: -150px;
+        width: 200px;
+    }
+    #parlament-silhouette {
+        position: relative;
+    }
+}
+.gray-bg {
+    background: #ededed;
+}
+.gray-line-bottom {
+    border-bottom: 2px solid #e1e1e1;
+}
+/************/
+/* dividers */
+/************/
+/*------------------------------------------------*/
+/*------[Triangles Diagonal Lines - Quiroz.co]-------*/
+/*------------------------------------------------*/
+/* https://quiroz.co/how-to-create-a-triangle-between-sections-in-divi/ */
+.divider-style-triangles {
+    position: relative;
+    overflow: hidden;
+}
+.divider-style-triangles::before, .triangles::after {
+    position: absolute; content: '';
+    pointer-events: none;
+    left: 50%;
+    width: 100px;
+    height: 100px;
+    -webkit-transform: translateX(-50%) rotate(45deg);
+    transform: translateX(-50%) rotate(45deg);}
+
+/* Top arrow pointing down. Currently set as black. This can be removed if you don't want a top arrow */
+.divider-style-triangles::before {
+    top: -50px;
+    background: #fff;
+}
+
+/* Bottom arrow pointing down. Currently set to inherit the background of the section. This can be removed if you don't want a bottom arrow */
+.divider-style-triangles::after {
+/*    bottom: -50px;
+    z-index: 10;
+    background: inherit;*/
+}
+/*------------------------------------------------*/
+/*------[Shadow Diagonal Lines - Quiroz.co]-------*/
+/*------------------------------------------------*/
+.divider-style-diagonal-shadow {
+    position: relative;
+    overflow: hidden;
+}
+.divider-style-diagonal-shadow::before,
+.divider-style-diagonal-shadow::after {
+    position: absolute;
+    content: '';
+    pointer-events: none;
+}
+
+.divider-style-diagonal-shadow {
+    z-index: 1;
+    padding-top: 6em;
+    background: #2072a7;
+}
+
+.divider-style-diagonal-shadow::before,
+.divider-style-diagonal-shadow::after {
+    top: 100%;
+    left: -25%;
+    z-index: -1;
+    width: 150%;
+    height: 15%;
+    background: #fff;
+    -webkit-transform: rotate(-2deg);
+    transform: rotate(-2deg);
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+}
+.divider-style-diagonal-shadow::before {
+    height: 50%;
+    background: #535353;
+    -webkit-transform: rotate(-3deg);
+    transform: rotate(-3deg);
+    -webkit-transform-origin: 3% 0;
+    transform-origin: 3% 0;
+}
+/*------------------------------------------------*/
+/*------[Big Invisible Triangle - Quiroz.co]------*/
+/* https://quiroz.co/how-to-create-transparent-triangles-between-sections-in-divi/ */
+/* http://montereydev.com/demos/menucta-and-logoswap/section-separators/ */
+/*------------------------------------------------*/
+.divider-style-big-triangle {
+    position: relative;
+    overflow: hidden;
+}
+.divider-style-big-triangle:after,
+.divider-style-big-triangle:before {
+    content:'';
+    position:absolute;
+    bottom:0;
+    width:50%;
+    z-index:100;
+    border-bottom:50px solid #fff;
+    -moz-transform:rotate(0.000001deg);
+    -webkit-transform:rotate(0.000001deg);
+    -o-transform:rotate(0.000001deg);
+    -ms-transform:rotate(0.000001deg);
+    transform:rotate(0.000001deg);
+}
+
+.divider-style-big-triangle:before{
+    right:50%;
+    border-right:1000px solid transparent;
+    border-left:1000px solid;
+}
+
+.divider-style-big-triangle:after{
+    left:50%;
+    border-left:1000px solid transparent;
+    border-right:1000px solid;
+}
+/*------------------------------------------------*/
+/*----[Left Diagonal Lines - By Geno Quiroz]------*/
+/*-----------------[Quiroz.Co]--------------------*/
+/*------------------------------------------------*/
+.divider-style-left-diagonal {
+    z-index: 1;
+    padding-top: 0px;
+    position: relative;
+    overflow: hidden;
+}
+.divider-style-left-diagonal::before,
+.divider-style-left-diagonal::after {
+    position: absolute;
+    content: '';
+    -webkit-transform: rotate(3deg);
+    transform: rotate(3deg);
+    -webkit-transform-origin: -3% 0;
+    transform-origin: -3% 0;
+    background-color: inherit;
+    height: 25%;
+    z-index: -1;
+    width: 150%;
+    pointer-events: none;
+}
+.divider-style-left-diagonal::before {
+    top: -25%;
+    left: -25%;
+}
+.divider-style-left-diagonal::after {
+    bottom: 0;
+    left: -25%;
+}
+/*------------------------------------------------*/
+/*----[Zig-Zag Diagonal Lines - By Joe Szalai]------*/
+/*-----------------[Quiroz.Co]--------------------*/
+/*------------------------------------------------*/
+.divider-style-zig-zag-diagonal {
+    z-index: 1;
+    padding-top: 0px;
+    position: relative;
+    overflow: hidden;
+}
+.divider-style-zig-zag-diagonal::before,
+.divider-style-zig-zag-diagonal::after {
+    position: absolute;
+    content: '';
+    -webkit-transform-origin: -3% 0;
+    transform-origin: -3% 0;
+    background-color: inherit;
+    height: 25%;
+    z-index: -1;
+    width: 150%;
+    pointer-events: none;
+}
+.divider-style-zig-zag-diagonal::before {
+    -webkit-transform: rotate(2deg);
+    transform: rotate(2deg);
+    top: -25%;
+    left: -25%;
+}
+.divider-style-zig-zag-diagonal::after {
+    -webkit-transform: rotate(-2deg);
+    transform: rotate(-2deg);
+    bottom: -25%;
+    left: -25%;
+    background-color:#ededed;
+    border-top: 3px solid #5e5e5e;
+}
+/*****************/
+/* https://tympanus.net/Development/SectionSeparators/ */
+/*****************/
+.divider-style-v-slit {
+    position: relative;
+    overflow: hidden;
+}
+.divider-style-v-slit::before {
+    left: -20px;
+    -webkit-transform: skewX(10deg);
+    transform: skewX(10deg);
+    box-shadow: -10px -20px #5e5e5ecc;
+}
+.divider-style-v-slit::after {
+    right: -20px;
+    -webkit-transform: skewX(-10deg);
+    transform: skewX(-10deg);
+    box-shadow: 10px -20px #5e5e5ecc;
+}
+.divider-style-v-slit::before,
+.divider-style-v-slit::after {
+    content: '';
+    position: absolute;
+    width: 50.5%;
+    width: -webkit-calc(50% + 10px);
+    width: -moz-calc(50% + 10px);
+    width: calc(50% + 10px);
+    background-color: inherit;
+    height: 120px;
+    bottom: 0;
+}
+/*ss-style-doubleline*/
+.divider-style-doubleline {
+    position: relative;
+    overflow: hidden;
+}
+.divider-style-doubleline::before {
+    position: absolute;
+    content: '';
+    pointer-events: none;
+    bottom: 30px;
+    width: 140px;
+    height: 2px;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    background: #5379ba;
+    box-shadow: 0 30px 0 #5379ba;
+}
+/*@media only screen and ( min-width: 1901px ) and ( max-width: 2500px ) {.left-diagonal::after {top: -150px; height: 85%;}}
+@media only screen and ( min-width: 1501px ) and ( max-width: 1900px ) {.left-diagonal::after {top: -131px; height: 68%;}}
+@media only screen and ( min-width: 1001px ) and ( max-width: 1500px ) {.left-diagonal::after {top: -228px;}}
+@media only screen and ( max-width: 1000px ) {.left-diagonal::after {top: -90px;}}*/
+/*------------------------------------------------*/
+/*----[Left Diagonal Lines - By Geno Quiroz]------*/
+/*-----------------[Quiroz.Co]--------------------*/
+/*------------------------------------------------*/
+/*.left-diagonal-over {
+    z-index: 1;
+    padding-top: 0px;
+    position: relative;
+    overflow-x: hidden;
+}
+.left-diagonal-over::after {
+    position: absolute;
+    content: '';
+    pointer-events: none;
+    top: -220px;
+    left: -25%;
+    z-index: -1;
+    width: 150%;
+    height: 50%;
+    background: inherit;
+    -webkit-transform: rotate(3deg);
+    transform: rotate(3deg);
+    -webkit-transform-origin: -3% 0;
+    transform-origin: -3% 0;
+}
+@media only screen and ( min-width: 1901px ) and ( max-width: 2500px ) {.left-diagonal-over::after {top: -150px; height: 85%;}}
+@media only screen and ( min-width: 1501px ) and ( max-width: 1900px ) {.left-diagonal-over::after {top: -131px; height: 68%;}}
+@media only screen and ( min-width: 1001px ) and ( max-width: 1500px ) {.left-diagonal-over::after {top: -228px;}}
+@media only screen and ( max-width: 1000px ) {.left-diagonal-over::after {top: -90px;}}*/
+/*https://tympanus.net/Development/SectionSeparators/?hc_location=ufi
+*/
+#trianglePath1 {
+    fill: #fff;
+    stroke: #fff;
+}
+#trianglePath2 {
+    fill: #e1e1e1;
+    stroke: #e1e1e1;
+}
+@media screen and (max-width: 767px) {
+    h1 {
+
+    }
+    h2 {
+        font-size: 23px;
+        line-height: 27px;
+    }
+    h3 {
+        font-size: 21px;
+        line-height: 25px;
+    }
+    h4 {
+        font-size: 19px;
+        line-height: 23px;
+    }
+    .hero-header-exopite h1 {
+        font-size: 3.5rem;
+        line-height: 5rem;
+    }
+    .hero-header-exopite h2 {
+        font-size: 1.8rem;
+        line-height: 2rem;
+    }
+}
+ul.simple-list.list-small > li li {
+    margin-left: 0;
+}
+#pg-1160-3 > .panel-row-style, #pg-1160-5 > .panel-row-style, #pg-1160-7 > .panel-row-style, #pg-1160-9 > .panel-row-style, #pg-1160-11 > .panel-row-style, #pg-1160-13 > .panel-row-style {
+    background-attachment: fixed !important;
+}
