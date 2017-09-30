@@ -148,7 +148,7 @@
     .slimmenu li a {
         color: [#exopite-mobile-menu-color.link.value];
     }
-    .slimmenu li.current_page_item a,
+    .slimmenu li.current_page_item > a,
     .slimmenu li.current-menu-ancestor > a {
         color: [#exopite-mobile-menu-color.link-active-hover.value];
     }
