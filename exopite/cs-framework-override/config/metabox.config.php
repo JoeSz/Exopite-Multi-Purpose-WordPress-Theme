@@ -331,6 +331,22 @@ array(
     ),
 
     array(
+        'id'         => 'exopite-hero-header-min-height',
+        'type'       => 'slider',
+        'title'      => esc_attr__( 'Hero header minimum height in px', 'exopite' ),
+        'validate'   => 'numeric',
+        'default'    => 0,
+        'options'    => array(
+            'step'     => 1,
+            'min'      => 0,
+            'max'      => 1000,
+            'unit'     => ''
+        ),
+        'dependency' => array( 'exopite-enable-hero-header', '==', 'true' ),
+        'desc'       => '<i>' . esc_attr__( 'Zero for default option.', 'exopite' ) . '</i>',
+    ),
+
+    array(
       'id'         => 'exopite-hero-header-image',
       'type'       => 'image',
       'title'      => esc_attr__( 'Hero header image', 'exopite' ),
