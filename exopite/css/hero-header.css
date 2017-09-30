@@ -2,6 +2,7 @@
     display: table;
     height: 300px;
     height: [#exopite-hero-header-height]vh;
+    min-height: [#exopite-hero-header-min-height]px;
     width: 100%;
     position: relative;
     z-index: 1;
@@ -76,7 +77,8 @@
     z-index: 9;
     position: absolute;
     bottom: 50px;
-    bottom: 7vw;
+    bottom: 30px;
+    /*bottom: 7vw;*/
     font-size: 1.2em;
     left: calc(50% - 20px);
 }
@@ -109,10 +111,12 @@
     right: 0;
 }
 .site-branding.center {
-    left: 50%;
+/*    left: 50%;
     -webkit-transform: translateX(-50%);
     -moz-transform: translateX(-50%);
-    transform: translateX(-50%);
+    transform: translateX(-50%);*/
+    margin: 0 auto;
+    position: relative;
 }
 .site-branding.middle {
     top: 50%;
@@ -121,8 +125,10 @@
     transform: translateY(-50%);
 }
 .site-branding.middle.center {
-    -webkit-transform: translate(-50%, -50%);
+/*    -webkit-transform: translate(-50%, -50%);
     -moz-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
+    margin: 0 auto;
+    position: relative;*/
 }
 
