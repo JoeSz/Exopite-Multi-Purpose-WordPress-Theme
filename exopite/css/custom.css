@@ -1108,3 +1108,85 @@ ul.simple-list.list-small > li li {
 #pg-1160-3 > .panel-row-style, #pg-1160-5 > .panel-row-style, #pg-1160-7 > .panel-row-style, #pg-1160-9 > .panel-row-style, #pg-1160-11 > .panel-row-style, #pg-1160-13 > .panel-row-style {
     background-attachment: fixed !important;
 }
+/* Overlay menu */
+#menu-overlay .sub-menu {
+    position: relative;
+    display: block;
+    color: #000;
+    left: auto;
+    box-shadow: none;
+}
+#menu-overlay .sub-menu li a {
+    font-size: 14px;
+    padding: 4px 16px 4px 16px;
+    background: inherit;
+    color: inherit;
+}
+#menu-overlay > li {
+    display: inline-block;
+    vertical-align: top;
+}
+.menu-overlay-wrapper {
+    position: fixed;
+    z-index: 999999;
+    background-color: rgba(83,121,186,0.88);
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    top: 0;
+    visibility: hidden;
+    opacity: 0;
+    overflow-y: auto;
+    transition: all 0.3s ease;
+    left:0;
+}
+.menu-overlay-wrapper.show {
+    visibility: visible;
+    opacity: 1;
+}
+.menu-overlay-inner {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+.menu-overlay-content {
+    text-align: center;
+}
+.row-overlay-top {
+    position: fixed;
+    top: 40px;
+    right: 40px;
+    z-index: 9;
+}
+.fixed-content {
+    overflow: hidden;
+}
+#menu-overlay {
+    display: inline-block;
+}
+.menu-overlay-widget-col {
+    text-align: center;
+}
+.menu-overlay-widget {
+    text-align: left;
+    display: inline-block;
+    margin-right: 30px;
+}
+.menu-overlay-widget-col .menu-overlay-widget:last-child {
+    margin-right: 0;
+}
+.menu-overlay-close {
+    cursor: pointer;
+    font-size: 40px;
+}
+.menu-overlay-open {
+    font-size: 28px;
+    cursor: pointer;
+}
+.exopite-multifilter-image-description {
+    text-align: center;
+    font-size: 14px;
+    margin-top: -32px;
+}
