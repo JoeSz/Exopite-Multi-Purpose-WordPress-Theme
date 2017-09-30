@@ -1,7 +1,7 @@
 === Exopite - High Performance Multi-purpose WordPress Theme ===
 
 - Author: Joe Szalai
-- Version: 20170722
+- Version: 20170730
 - Theme URL: http://joe.szalai.org/exopite/
 - Theme GitHub URL: https://github.com/JoeSz/Exopite-Multi-Purpose-WordPress-Theme
 - Author URL: http://joe.szalai.org/
@@ -186,6 +186,9 @@ Req:
 == Frequently Asked Questions ==
 
 == Changelog ==
+
+= 20170930 - Sep 30 2017
+* **FIXED**: some effects css didn't showed up property
 
 = 20170921 - Sep 21 2017
 * **UPDATE**: Update to Bootstrap 4.0.0 beta
