@@ -96,7 +96,7 @@ if ( $exopite_hero_header_site_branding_type == 'widget' ) {
 }
 ?>
 <!-- Hero header -->
-<div class="hero-header-wrapper"<?php if ( $exopite_override_hero_header_height ) echo ' style="height:' . $exopite_meta_data['exopite-hero-header-height'] . 'vh;"'; ?>>
+<div class="hero-header-wrapper"<?php if ( $exopite_override_hero_header_height ) echo ' style="height:' . $exopite_meta_data['exopite-hero-header-height'] . 'vh;min-height:' . $exopite_meta_data['exopite-hero-header-min-height'] . 'px;"'; ?>>
     <a class="hero-header-skip-to-content" href="#content" title="Skip to content"><i class="fa fa-chevron-down" aria-hidden="true"></i></a>
     <div class="hero-header">
 <?php
