@@ -102,7 +102,17 @@ if ( $exopite_display_hero_header && isset( $exopite_meta_data['exopite-hero-hea
     $exopite_override_hero_header_height = true;
 
     add_action('wp_print_scripts', function() use( $exopite_meta_data ) {
-        ?><style type="text/css">@supports(object-fit: cover){.meta-height{height:<?php echo $exopite_meta_data['exopite-hero-header-height']; ?>vh !important;min-height:<?php echo $exopite_meta_data['exopite-hero-header-height']; ?>vh !important;}}</style><?php
+        ?><style type="text/css">@supports(object-fit: cover){.meta-height{height:<?php echo $exopite_meta_data['exopite-hero-header-height']; ?>vh !important;}}</style><?php
+    });
+
+}
+
+$exopite_override_hero_header_min_height = false;
+if ( $exopite_display_hero_header && isset( $exopite_meta_data['exopite-hero-header-min-height'] ) && $exopite_meta_data['exopite-hero-header-min-height'] > 0 && $exopite_settings['exopite-hero-header-min-height'] != $exopite_meta_data['exopite-hero-header-min-height'] ) {
+    $exopite_override_hero_header_min_height = true;
+
+    add_action('wp_print_scripts', function() use( $exopite_meta_data ) {
+        ?><style type="text/css">@supports(object-fit: cover){.meta-height{min-height:<?php echo $exopite_meta_data['exopite-hero-header-min-height']; ?>px !important;}}</style><?php
     });
 
 }
