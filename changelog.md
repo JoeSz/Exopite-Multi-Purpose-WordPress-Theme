@@ -2,6 +2,7 @@
 
 = 20170930 - Sep 30 2017
 * **FIXED**: some effects css didn't showed up property
+* **ENHANCEMENT**: add min height for hero header (theme options and meta too)
 
 = 20170921 - Sep 21 2017
 * **UPDATE**: Update to Bootstrap 4.0.0 beta
