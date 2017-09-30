@@ -94,6 +94,6 @@
     transition: all 0.3s ease-in-out;
     width: 140px;
 }
-figure:hover .figure-caption {
+figure.effect-lexi:hover .figure-caption.animation {
     opacity: 1;
 }

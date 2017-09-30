@@ -55,7 +55,7 @@
     font-size: 90%;
     opacity: 0;
     color: #fff;
-    width: calc(100% - 40px);
+    /*width: calc(100% - 40px);*/
     -webkit-transform: scale3d(0.8,0.8,1);
     transform: scale3d(0.8,0.8,1);
     -webkit-transform-origin: 50% -100%;
