@@ -25,7 +25,7 @@
     height: auto;
     left: 50%;
     max-width: 1000%;
-    min-height: 100%;
+    /*min-height: 100%;*/
     min-width: 100%;
     min-width: 100vw; /* vw prevents 1px gap on left that 100% has */
     width: auto;
@@ -41,7 +41,7 @@
     box-sizing: border-box;
     height: 56.25vw;
     left: 50%;
-    min-height: 100%;
+    /*min-height: 100%;*/
     min-width: 100%;
     transform: translate(-50%, -50%);
     position: fixed;
@@ -57,7 +57,7 @@
         height: 75vh;
         min-height: 75vh;
         height: [#exopite-hero-header-height]vh;
-        min-height: [#exopite-hero-header-height]vh;
+        min-height: [#exopite-hero-header-min-height]px;
         left: 0;
         -o-object-fit: cover;
         object-fit: cover;
