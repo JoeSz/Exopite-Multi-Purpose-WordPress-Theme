@@ -790,7 +790,7 @@ b.description {
     margin-bottom: 10px;
 }
 #parlament-silhouette img {
-    display: none;
+    /*display: none;*/
 }
 @media screen and (min-width: 768px) {
     #parlament-silhouette img {
@@ -798,6 +798,7 @@ b.description {
         right: 0;
         top: -150px;
         width: 200px;
+        display: block;
     }
     #parlament-silhouette {
         position: relative;
@@ -806,8 +807,42 @@ b.description {
 .gray-bg {
     background: #ededed;
 }
+.gray-line-top {
+    border-top: 2px solid #e1e1e1;
+}
 .gray-line-bottom {
     border-bottom: 2px solid #e1e1e1;
+}
+@media screen and (max-width: 767px) {
+    h1 {
+
+    }
+    h2 {
+        font-size: 23px;
+        line-height: 27px;
+    }
+    h3 {
+        font-size: 21px;
+        line-height: 25px;
+    }
+    h4 {
+        font-size: 19px;
+        line-height: 23px;
+    }
+    .hero-header-exopite h1 {
+        font-size: 3.5rem;
+        line-height: 5rem;
+    }
+    .hero-header-exopite h2 {
+        font-size: 1.8rem;
+        line-height: 2rem;
+    }
+}
+ul.simple-list.list-small > li li {
+    margin-left: 0;
+}
+#pg-1160-3 > .panel-row-style, #pg-1160-5 > .panel-row-style, #pg-1160-7 > .panel-row-style, #pg-1160-9 > .panel-row-style, #pg-1160-11 > .panel-row-style, #pg-1160-13 > .panel-row-style {
+    background-attachment: fixed !important;
 }
 /************/
 /* dividers */
@@ -844,43 +879,80 @@ b.description {
 /*------------------------------------------------*/
 /*------[Shadow Diagonal Lines - Quiroz.co]-------*/
 /*------------------------------------------------*/
+.divider-style-diagonal-shadow-reverse,
 .divider-style-diagonal-shadow {
     position: relative;
     overflow: hidden;
+    z-index: 1;
+    padding-top: 6em;
+    background: #2072a7;
 }
+.divider-style-diagonal-shadow-reverse::before,
+.divider-style-diagonal-shadow-reverse::after,
 .divider-style-diagonal-shadow::before,
 .divider-style-diagonal-shadow::after {
     position: absolute;
     content: '';
     pointer-events: none;
-}
-
-.divider-style-diagonal-shadow {
-    z-index: 1;
-    padding-top: 6em;
-    background: #2072a7;
-}
-
-.divider-style-diagonal-shadow::before,
-.divider-style-diagonal-shadow::after {
     top: 100%;
     left: -25%;
     z-index: -1;
     width: 150%;
-    height: 15%;
+    height: 25%;
     background: #fff;
     -webkit-transform: rotate(-2deg);
     transform: rotate(-2deg);
     -webkit-transform-origin: 0 0;
     transform-origin: 0 0;
 }
+.divider-style-diagonal-shadow-reverse::before,
+.divider-style-diagonal-shadow-reverse::after {
+    top: 0;
+    height: 100%;
+}
+.divider-style-diagonal-shadow.bottom-gray::after {
+    background: #f3f4f5;
+}
+.divider-style-diagonal-shadow-reverse::before,
 .divider-style-diagonal-shadow::before {
     height: 50%;
     background: #535353;
-    -webkit-transform: rotate(-3deg);
-    transform: rotate(-3deg);
     -webkit-transform-origin: 3% 0;
     transform-origin: 3% 0;
+}
+.divider-style-diagonal-shadow::before {
+    -webkit-transform: rotate(-6deg);
+    transform: rotate(-6deg);
+}
+.divider-style-diagonal-shadow-reverse::after {
+    -webkit-transform: rotate(6deg);
+    transform: rotate(6deg);
+}
+@media screen and (min-width: 600px) {
+    .divider-style-diagonal-shadow::before {
+        -webkit-transform: rotate(-4deg);
+        transform: rotate(-4deg);
+    }
+    .divider-style-diagonal-shadow-reverse::after {
+        -webkit-transform: rotate(4deg);
+        transform: rotate(4deg);
+    }
+}
+@media screen and (min-width: 900px) {
+    .divider-style-diagonal-shadow::before {
+        -webkit-transform: rotate(-3deg);
+        transform: rotate(-3deg);
+    }
+    .divider-style-diagonal-shadow-reverse::after {
+        -webkit-transform: rotate(3deg);
+        transform: rotate(3deg);
+    }
+}
+.divider-style-diagonal-shadow-reverse::before {
+    -webkit-transform: rotate(2deg);
+    transform: rotate(2deg);
+    -webkit-transform-origin: 2% 0;
+    transform-origin: 2% 0;
 }
 /*------------------------------------------------*/
 /*------[Big Invisible Triangle - Quiroz.co]------*/
@@ -942,12 +1014,92 @@ b.description {
     pointer-events: none;
 }
 .divider-style-left-diagonal::before {
-    top: -25%;
-    left: -25%;
+    top: -30%;
+    left: -30%;
 }
 .divider-style-left-diagonal::after {
+    bottom: 5%;
+    left: -30%;
+}
+/* Divider simple diagonal */
+.divider-style-simple-triangle {
+    position: relative;
+    overflow: hidden;
+}
+.divider-style-simple-triangle::after {
+    position: absolute;
+    content: '';
+    width: 0;
+    height: 0;
+    left: 0;
     bottom: 0;
+    border-style: solid;
+    border-width: 0 0 5vw 100vw;
+    border-color: transparent transparent #fff transparent;
+}
+/* Divider simple diagonal */
+.divider-style-simple-triangle-with-border {
+    position: relative;
+    overflow: hidden;
+}
+.divider-style-simple-triangle-with-border::before,
+.divider-style-simple-triangle-with-border::after {
+    position: absolute;
+    content: '';
     left: -25%;
+    z-index: 1;
+    width: 150%;
+    height: 25%;
+}
+.divider-style-simple-triangle-with-border.top-left::before,
+.divider-style-simple-triangle-with-border.bottom-right::after {
+    -webkit-transform: rotate(-3deg);
+    transform: rotate(-3deg);
+    -webkit-transform-origin: 3% 0;
+    transform-origin: 3% 0;
+}
+.divider-style-simple-triangle-with-border.top-right::before,
+.divider-style-simple-triangle-with-border.bottom-left::after {
+    -webkit-transform: rotate(3deg);
+    transform: rotate(3deg);
+    -webkit-transform-origin: 3% 0;
+    transform-origin: 3% 0;
+}
+.divider-style-simple-triangle-with-border.top-left::before {
+    /* top left */
+    top: 0;
+    background-color: inherit;
+    border-bottom: 2px solid #5e5e5e;
+}
+.divider-style-simple-triangle-with-border.bottom-right::after {
+    /* bottom right */
+    bottom: -25%;
+    background-color: inherit;
+    border-top: 2px solid #5e5e5e;
+}
+.divider-style-simple-triangle-with-border.top-right::before {
+    /* top right */
+    top: -25%;
+    background-color: inherit;
+    border-bottom: 2px solid #5e5e5e;
+}
+.divider-style-simple-triangle-with-border.bottom-left::after {
+    /* bottom left */
+    bottom: -3%;
+    background-color: inherit;
+    border-top: 2px solid #5e5e5e;
+}
+.divider-style-simple-triangle-with-border.bg-light-gray-top::before {
+    background-color: #ededed;
+}
+.divider-style-simple-triangle-with-border.bg-light-gray-bottom::after {
+    background-color: #ededed;
+}
+.divider-style-simple-triangle-with-border.bg-white-top::before {
+    background-color: #fff;
+}
+.divider-style-simple-triangle-with-border.bg-white-bottom::after {
+    background-color: #fff;
 }
 /*------------------------------------------------*/
 /*----[Zig-Zag Diagonal Lines - By Joe Szalai]------*/
@@ -1069,6 +1221,7 @@ b.description {
 @media only screen and ( max-width: 1000px ) {.left-diagonal-over::after {top: -90px;}}*/
 /*https://tympanus.net/Development/SectionSeparators/?hc_location=ufi
 */
+/*effects*/
 #trianglePath1 {
     fill: #fff;
     stroke: #fff;
@@ -1192,4 +1345,92 @@ ul.simple-list.list-small > li li {
 }
 .btn.btn-material.btn-readmore.next {
     margin-top: 30px;
+}
+.exopite-multifilter-filter-reset,
+.exopite-multifilter-filter-item {
+    background: #fff;
+    border: 1px solid #ddd;
+}
+
+.page-multifilter .exopite-multifilter-search input.form-group {
+    border-style: solid;
+    border-color: #ddd;
+}
+.page-multifilter .exopite-multifilter-search input.form-group {
+    border-top-width: 1px;
+    border-right-width: 0;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+}
+.page-multifilter .exopite-multifilter-search button {
+    background: #ddd;
+    cursor: pointer;
+}
+/*.multifilter-top-image {
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.5);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.5);
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.5);
+}
+.multifilter-hero-header h1,
+.multifilter-hero-header h2 {
+    text-shadow: 0px 0px 2px rgba(150, 150, 150, 1);
+}
+.multifilter-hero-header h1 {
+    color:#fff;
+    padding-bottom:30px;
+    text-align: center;
+}
+.multifilter-hero-header h2 {
+    color:#fff;
+    padding-bottom:30px;
+    text-align: center;
+    font-size: 21px;
+}
+@media all and (max-width: 767) {
+    .multifilter-hero-header h2 {
+        font-size: 21px;
+    }
+}
+@media all and (min-width: 768px) {
+    .multifilter-hero-header .hero-new-line-desktop {
+        display: block;
+        padding-bottom: 12px;
+    }
+    .multifilter-hero-header h2 {
+        text-align: left;
+    }
+    .multifilter-hero-header h1 {
+        font-size:55px;
+    }
+}
+@media all and (min-width: 901px) {
+    .multifilter-hero-header .hero-new-line-desktop {
+        padding-bottom: 17px;
+    }
+    .multifilter-hero-header h2 {
+        font-size: 28px;
+    }
+}
+@media all and (min-width: 768) and (max-width: 900px) {
+    .multifilter-hero-header h2 {
+        font-size: 28px;
+    }
+}
+#multifilter-screenshots img {
+    -webkit-box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.5);
+    -moz-box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.5);
+    box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.5);
+    margin-top: 4px;
+}
+.no-col-bottom-margin > div:not(:last-child) {
+    margin-bottom: 0 !important;
+}
+*/
+.container.hero-header-light h1,
+.container.hero-header-light h2 {
+    color: #fff;
+    text-shadow: 0px 0px 5px rgba(100, 100, 100, 1);
+}
+.container.hero-header-light h1 {
+    font-size: 50px;
 }
