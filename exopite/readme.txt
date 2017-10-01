@@ -1,7 +1,7 @@
 === Exopite - High Performance Multi-purpose WordPress Theme ===
 
 - Author: Joe Szalai
-- Version: 20170730
+- Version: 20171001
 - Theme URL: http://joe.szalai.org/exopite/
 - Theme GitHub URL: https://github.com/JoeSz/Exopite-Multi-Purpose-WordPress-Theme
 - Author URL: http://joe.szalai.org/
@@ -186,6 +186,9 @@ Req:
 == Frequently Asked Questions ==
 
 == Changelog ==
+
+= 20171001 - Okt 01 2017
+* FIXED: masonry didn't activated if "first full" not on in blog settings
 
 = 20170930 - Sep 30 2017
 * FIXED: some effects css didn't showed up property
