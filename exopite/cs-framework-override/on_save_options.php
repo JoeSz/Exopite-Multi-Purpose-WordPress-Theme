@@ -76,7 +76,7 @@ if ( ! function_exists( 'on_save_options' ) ) {
         $options['theme-uri'] = TEMPLATEURI;
         $options['theme-prefix'] = get_template();
 
-        $menu_top = ( $options['exopite-menu-alignment'] == 'top' );
+        $menu_top = ( $options['exopite-menu-alignment'] == 'top' || $options['exopite-menu-alignment'] == 'overlay' );
         $woocomerce_activated = ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) );
 
         $options['exopite-desktop-width'] = $options['exopite-mobile-width'] + 1;
@@ -166,6 +166,10 @@ if ( ! function_exists( 'on_save_options' ) ) {
         } elseif ( $options['exopite-menu-alignment'] == 'left' ) {
             $css_files[] = 'menu.side-left.css';
             $css_files[] = 'footer.menu-left.css';
+        }
+
+        if ( $options['exopite-menu-alignment'] == 'overlay' ) {
+            $css_files[] = 'menu.top.overlay.css';
         }
 
         if ( $menu_top && $options['exopite-desktop-logo-position'] == 'center') {
@@ -273,8 +277,7 @@ if ( ! function_exists( 'on_save_options' ) ) {
         $js_files[] = 'document-ready.open.js';
 
         if ( $options['exopite-blog-post-per-row'] > 1 &&
-             $options['exopite-blog-multi-column-layout-type'] == 'masonry' &&
-             $options['exopite-infiniteload-add-page-number'] == false ) {
+             $options['exopite-blog-multi-column-layout-type'] == 'masonry' ) {
             $js_files_no_minification[] = 'macy.min.js';
             $js_files[] = 'macy.load.js';
         }
@@ -310,11 +313,18 @@ if ( ! function_exists( 'on_save_options' ) ) {
             $js_files[] = 'menu.side-left.toggle.js';
         }
 
+        if ( $options['exopite-menu-alignment'] == 'overlay' ) {
+            $js_files[] = 'menu.overlay.js';
+        }
+
         if ( $woocomerce_activated ) {
             $js_files[] = 'woocommerce.js';
         }
 
         $js_files[] = 'document-ready.close.js';
+
+        $css_files = apply_filters( 'exopite-css-files-before-combine-minify', $css_files );
+        $js_files = apply_filters( 'exopite-js-files-before-combine-minify', $js_files );
 
         $css_files = array_merge( $required_files, $css_files );
 
@@ -327,6 +337,7 @@ if ( ! function_exists( 'on_save_options' ) ) {
         $generate->options = $options;
         $generate->user_css = ( isset( $options['exopite-css'] ) ) ? $options['exopite-css'] : '';
         $generate->user_js = ( isset( $options['exopite-js'] ) ) ? $options['exopite-js'] . $options['exopite-js-analytics'] : '';
+        //$generate->user_js = ( isset( $options['exopite-js'] ) ) ? $options['exopite-js'] : '';
         $generate->generate_css();
         $generate->combine_js();
 

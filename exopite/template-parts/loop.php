@@ -165,6 +165,7 @@ if ( ! function_exists( 'the_loop' ) ) {
             $args['blog-multi-column-layout-type'] :
             $exopite_blog_multi_column_layout_type;
         $colum_layout = ( $blog_multi_column_layout_type == 'column' );
+        $masonry_layout = ( $blog_multi_column_layout_type == 'masonry' );
         $show_filter_before_nth_item = apply_filters( 'exopite_filter_before_nth_item', 1 );
         $show_not_found = isset( $args['show_not_found'] ) ? $args['show_not_found'] : true;
 
@@ -172,13 +173,14 @@ if ( ! function_exists( 'the_loop' ) ) {
          * Calculate row classes
          */
         $row_class = 'row';
-        if ( ! $is_blog_first_full  ) {
+        if ( ! $is_blog_first_full || ! $blog_first_full ) {
 
             // This class is required for masonry, card-column layout
             $row_class .= ' content-row';
 
             if ( $blog_no_gap ) $row_class .= ' gap';
             if ( $colum_layout ) $row_class .= ' card-columns';
+            if ( $masonry_layout ) $row_class .= ' masonry-container';
 
         }
 
