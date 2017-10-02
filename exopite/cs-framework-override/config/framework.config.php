@@ -268,6 +268,7 @@ $exopite_options[]   = array(
           'options'      => array(
             'top'        => CS_URI . '/assets/images/top.jpg',
             'left'       => CS_URI . '/assets/images/left.jpg',
+            'overlay'    => CS_URI . '/assets/images/menu-overlay.jpg',
           ),
           'radio'        => true,
           'default'      => 'top'
@@ -326,7 +327,8 @@ $exopite_options[]   = array(
           'type'        => 'switcher',
           'title'       => esc_attr__( 'Menu full width', 'exopite' ),
           'default'     => false,
-          'dependency'  => array( 'exopite-menu-alignment_top', '==', 'true' ),
+          'dependency'  => array( 'exopite-menu-alignment_left', '==', 'false' ),
+          //'dependency'  => array( 'exopite-menu-alignment_top|exopite-menu-alignment_overlay', '==|==', 'true|true' ),
         ),
 
         array(
@@ -334,7 +336,7 @@ $exopite_options[]   = array(
           'type'        => 'switcher',
           'title'       => esc_attr__( 'Preheader widget full width', 'exopite' ),
           'default'     => false,
-          'dependency'  => array( 'exopite-menu-alignment_top', '==', 'true' ),
+          'dependency'  => array( 'exopite-menu-alignment_left', '==', 'false' ),
         ),
 
         array(
@@ -428,7 +430,7 @@ $exopite_options[]   = array(
           'type'        => 'switcher',
           'title'       => esc_attr__( 'Hero header show menu below', 'exopite' ),
           'default'     => false,
-          'dependency'  => array( 'exopite-enable-hero-header|exopite-menu-alignment_top', '==|==', 'true|true' ),
+          'dependency'  => array( 'exopite-enable-hero-header|exopite-menu-alignment_left', '==|==', 'true|false' ),
         ),
 
         array(
@@ -733,7 +735,7 @@ $exopite_options[]   = array(
           ),
           'radio'        => true,
           'default'      => 'menu-center',
-          'dependency'  => array( 'exopite-menu-alignment_top', '==', 'true' ),
+          'dependency'  => array( 'exopite-menu-alignment_left', '==', 'false' ),
         ),
 
         array(
@@ -747,7 +749,7 @@ $exopite_options[]   = array(
           ),
           'radio'        => true,
           'default'      => 'menu-middle',
-          'dependency'  => array( 'exopite-menu-alignment_top', '==', 'true' ),
+          'dependency'  => array( 'exopite-menu-alignment_left', '==', 'false' ),
         ),
 
         array(
@@ -756,7 +758,7 @@ $exopite_options[]   = array(
           'title'   => esc_attr__( 'Enable search in menu', 'exopite' ),
           'default' => true,
           'label'   => '',
-          'dependency'  => array( 'exopite-menu-alignment_top', '==', 'true' ),
+          'dependency'  => array( 'exopite-menu-alignment_left', '==', 'false' ),
         ),
 
 
@@ -772,7 +774,7 @@ $exopite_options[]   = array(
           'type'    => 'switcher',
           'title'   => esc_attr__( 'Enable menu toggle on desktop', 'exopite' ),
           'default' => false,
-          'dependency'  => array( 'exopite-menu-alignment_top', '==', 'false' ),
+          'dependency'  => array( 'exopite-menu-alignment_left', '==', 'true' ),
         ),
 
 
@@ -839,7 +841,7 @@ $exopite_options[]   = array(
           'title'   => esc_attr__('Navbar background color', 'exopite'),
           'rgba'    => true,
           'default' => '#5379BA',
-          'dependency'  => array( 'exopite-menu-alignment_top', '==', 'true' ),
+          'dependency'  => array( 'exopite-menu-alignment_left', '==', 'false' ),
         ),
 
         array(
@@ -968,7 +970,7 @@ $exopite_options[]   = array(
                     'name'   => 'Color',
                 ),
             ),
-            'dependency'  => array( 'exopite-menu-alignment_top', '==', 'true' ),
+            'dependency'  => array( 'exopite-menu-alignment_left', '==', 'false' ),
         ),
 
       )
@@ -1056,7 +1058,7 @@ $exopite_options[]   = array(
           'type'    => 'notice',
           'class'   => 'warning',
           'content' => esc_attr__( 'This options available only on top menu.', 'exopite' ),
-          'dependency'  => array( 'exopite-menu-alignment_top', '==', 'false' ),
+          'dependency'  => array( 'exopite-menu-alignment_left', '==', 'true' ),
         ),
 
         array(
@@ -1065,7 +1067,7 @@ $exopite_options[]   = array(
           'title'   => esc_attr__( 'Enable sticky menu', 'exopite' ),
           'default' => true,
           'label'   => '',
-          'dependency'  => array( 'exopite-menu-alignment_top', '==', 'true' ),
+          'dependency'  => array( 'exopite-menu-alignment_left', '==', 'false' ),
         ),
 
         array(
@@ -1074,7 +1076,7 @@ $exopite_options[]   = array(
           'title'   => esc_attr__( 'Show floating menu logo', 'exopite' ),
           'default' => true,
           'label'   => '',
-          'dependency'  => array( 'exopite-menu-alignment_top', '==', 'true' ),
+          'dependency'  => array( 'exopite-menu-alignment_left', '==', 'false' ),
         ),
 
         array(
@@ -1099,7 +1101,7 @@ $exopite_options[]   = array(
                     'name'  => esc_attr__( 'Link active and hover color', 'exopite' ),
                 ),
             ),
-            'dependency'  => array( 'exopite-menu-alignment_top', '==', 'true' ),
+            'dependency'  => array( 'exopite-menu-alignment_left', '==', 'false' ),
         ),
 
         array(
@@ -1114,7 +1116,7 @@ $exopite_options[]   = array(
                 'max'     => 20,
                 'unit'    => ''
             ),
-            'dependency'  => array( 'exopite-menu-alignment_top', '==', 'true' ),
+            'dependency'  => array( 'exopite-menu-alignment_left', '==', 'false' ),
         ),
 
         array(
@@ -1129,7 +1131,7 @@ $exopite_options[]   = array(
                 'max'     => 20,
                 'unit'    => ''
             ),
-            'dependency'  => array( 'exopite-menu-alignment_top', '==', 'true' ),
+            'dependency'  => array( 'exopite-menu-alignment_left', '==', 'false' ),
         ),
 
         array(
@@ -1144,7 +1146,7 @@ $exopite_options[]   = array(
                 'max'     => 1,
                 'unit'    => ''
             ),
-            'dependency'  => array( 'exopite-menu-alignment_top', '==', 'true' ),
+            'dependency'  => array( 'exopite-menu-alignment_left', '==', 'false' ),
         ),
 
         array(
@@ -1186,7 +1188,7 @@ $exopite_options[]   = array(
                     'name'   => 'Color',
                 ),
             ),
-            'dependency'  => array( 'exopite-menu-alignment_top', '==', 'true' ),
+            'dependency'  => array( 'exopite-menu-alignment_left', '==', 'false' ),
         ),
 
         array(
@@ -1211,7 +1213,7 @@ $exopite_options[]   = array(
                     'name'   => 'Color',
                 ),
             ),
-            'dependency'  => array( 'exopite-menu-alignment_top', '==', 'true' ),
+            'dependency'  => array( 'exopite-menu-alignment_left', '==', 'false' ),
         ),
 
       )
@@ -1228,14 +1230,14 @@ $exopite_options[]   = array(
           'type'    => 'notice',
           'class'   => 'warning',
           'content' => esc_attr__( 'This options available only on top menu.', 'exopite' ),
-          'dependency'  => array( 'exopite-menu-alignment_top', '==', 'false' ),
+          'dependency'  => array( 'exopite-menu-alignment_left', '==', 'true' ),
         ),
 
         array(
           'type'    => 'notice',
           'class'   => 'info',
           'content' => esc_attr__( 'You can activate this menu on individual page or post settings.', 'exopite' ),
-          'dependency'  => array( 'exopite-menu-alignment_top', '==', 'true' ),
+          'dependency'  => array( 'exopite-menu-alignment_left', '==', 'false' ),
         ),
 
         array(
@@ -1244,7 +1246,7 @@ $exopite_options[]   = array(
           'title'   => esc_attr__('Navbar background color', 'exopite'),
           'rgba'    => true,
           'default' => 'rgba(255, 255, 255, 0)',
-          'dependency'  => array( 'exopite-menu-alignment_top', '==', 'true' ),
+          'dependency'  => array( 'exopite-menu-alignment_left', '==', 'false' ),
         ),
 
         array(
@@ -1270,7 +1272,7 @@ $exopite_options[]   = array(
                 ),
             ),
             'desc'    => esc_attr__( 'Only for desktop menu', 'exopite' ),
-            'dependency'  => array( 'exopite-menu-alignment_top', '==', 'true' ),
+            'dependency'  => array( 'exopite-menu-alignment_left', '==', 'false' ),
         ),
 
       )
@@ -1286,7 +1288,7 @@ $exopite_options[]   = array(
           'type'    => 'notice',
           'class'   => 'warning',
           'content' => esc_attr__( 'This options available only on top menu.', 'exopite' ),
-          'dependency'  => array( 'exopite-menu-alignment_top', '==', 'false' ),
+          'dependency'  => array( 'exopite-menu-alignment_left', '==', 'true' ),
         ),
 
         array(
@@ -1294,7 +1296,7 @@ $exopite_options[]   = array(
           'type'      => 'image',
           'title'     => esc_attr__( 'Logo', 'exopite' ),
           'add_title' => esc_attr__( 'Add Logo', 'exopite' ),
-          'dependency'  => array( 'exopite-menu-alignment_top', '==', 'true' ),
+          'dependency'  => array( 'exopite-menu-alignment_left', '==', 'false' ),
         ),
 
         array(
@@ -1345,7 +1347,7 @@ $exopite_options[]   = array(
           'title'   => esc_attr__( 'Enable floating menu', 'exopite' ),
           'default' => true,
           'label'   => '',
-          'dependency'  => array( 'exopite-menu-alignment_top', '==', 'true' ),
+          'dependency'  => array( 'exopite-menu-alignment_left', '==', 'false' ),
         ),
 
         array(
@@ -1354,7 +1356,7 @@ $exopite_options[]   = array(
           'title'   => esc_attr__( 'Enable search in menu', 'exopite' ),
           'default' => true,
           'label'   => '',
-          'dependency'  => array( 'exopite-menu-alignment_top', '==', 'true' ),
+          'dependency'  => array( 'exopite-menu-alignment_left', '==', 'false' ),
         ),
 
         array(
@@ -1367,7 +1369,7 @@ $exopite_options[]   = array(
           ),
           'radio'        => true,
           'default'      => 'left',
-          'dependency'  => array( 'exopite-menu-alignment_top', '==', 'true' ),
+          'dependency'  => array( 'exopite-menu-alignment_left', '==', 'false' ),
         ),
 
         array(
@@ -1400,7 +1402,7 @@ $exopite_options[]   = array(
                     'name'  => esc_attr__( 'Link active and hover color', 'exopite' ),
                 ),
             ),
-            'dependency'  => array( 'exopite-menu-alignment_top', '==', 'true' ),
+            'dependency'  => array( 'exopite-menu-alignment_left', '==', 'false' ),
         ),
 
       )
