@@ -171,6 +171,10 @@ tha_head_bottom();
  */
 tha_body_top();
 
+if ( isset( $exopite_settings['exopite-menu-alignment'] ) && $exopite_settings['exopite-menu-alignment'] == 'overlay' ) {
+    include( locate_template( 'template-parts/menu-overlay.php' ) );
+}
+
 // Full page search
 if ( ! isset( $exopite_settings['exopite-desktop-menu-search'] ) || ( $exopite_settings['exopite-desktop-menu-search'] && apply_filters( 'exopite-desktop-menu-search', true ) ) ) {
     get_template_part( 'template-parts/full-search' );
@@ -226,7 +230,7 @@ endif;
         <?php
 
         // Menu toggle for side menu
-        if ( isset( $exopite_menu_alignment ) && $exopite_menu_alignment != 'top' ) : ?>
+        if ( isset( $exopite_menu_alignment ) && $exopite_menu_alignment == 'left' ) : ?>
         <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a>
         <?php
         endif;
@@ -240,7 +244,7 @@ endif;
 
         // Add boxed marker to side menu on layout boxed,
         // to add color or image background to preheader, content and footer.
-        if ( $exopite_menu_alignment != 'top' && $exopite_settings['exopite-content-layout'] == 'boxed' ) : ?>
+        if ( $exopite_menu_alignment == 'left' && $exopite_settings['exopite-content-layout'] == 'boxed' ) : ?>
         <div id="boxed-content">
         <?php
         endif;
