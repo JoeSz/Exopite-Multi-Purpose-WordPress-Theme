@@ -325,6 +325,9 @@ ul.simple-list > li{
     min-height: 1.8em;
     border-left: 2px solid #CCCCCC;
 }
+.simple-list.list-small {
+    margin-bottom: 0;
+}
 .list-desc {
     font-size: 0.7em;
     color: #ababab;
@@ -790,18 +793,23 @@ b.description {
     margin-bottom: 10px;
 }
 #parlament-silhouette img {
-    /*display: none;*/
+    display: none;
 }
 @media screen and (min-width: 768px) {
     #parlament-silhouette img {
         position: absolute;
         right: 0;
-        top: -150px;
+        top: -120px;
         width: 200px;
         display: block;
     }
     #parlament-silhouette {
         position: relative;
+    }
+}
+@media screen and (min-width: 781px) {
+    #parlament-silhouette img {
+        top: -150px;
     }
 }
 .gray-bg {
@@ -812,6 +820,12 @@ b.description {
 }
 .gray-line-bottom {
     border-bottom: 2px solid #e1e1e1;
+}
+.dark-gray-line-top {
+    border-top: 8px solid #535353;
+}
+.dark-gray-line-bottom {
+    border-bottom: 8px solid #535353;
 }
 @media screen and (max-width: 767px) {
     h1 {
@@ -855,7 +869,8 @@ ul.simple-list.list-small > li li {
     position: relative;
     overflow: hidden;
 }
-.divider-style-triangles::before, .triangles::after {
+.divider-style-triangles::before,
+.triangles::after {
     position: absolute; content: '';
     pointer-events: none;
     left: 50%;
@@ -1261,83 +1276,6 @@ ul.simple-list.list-small > li li {
 #pg-1160-3 > .panel-row-style, #pg-1160-5 > .panel-row-style, #pg-1160-7 > .panel-row-style, #pg-1160-9 > .panel-row-style, #pg-1160-11 > .panel-row-style, #pg-1160-13 > .panel-row-style {
     background-attachment: fixed !important;
 }
-/* Overlay menu */
-#menu-overlay .sub-menu {
-    position: relative;
-    display: block;
-    color: #000;
-    left: auto;
-    box-shadow: none;
-}
-#menu-overlay .sub-menu li a {
-    font-size: 14px;
-    padding: 4px 16px 4px 16px;
-    background: inherit;
-    color: inherit;
-}
-#menu-overlay > li {
-    display: inline-block;
-    vertical-align: top;
-}
-.menu-overlay-wrapper {
-    position: fixed;
-    z-index: 999999;
-    background-color: rgba(83,121,186,0.88);
-    width: 100%;
-    height: 100%;
-    color: #fff;
-    top: 0;
-    visibility: hidden;
-    opacity: 0;
-    overflow-y: auto;
-    transition: all 0.3s ease;
-    left:0;
-}
-.menu-overlay-wrapper.show {
-    visibility: visible;
-    opacity: 1;
-}
-.menu-overlay-inner {
-    align-items: center;
-    justify-content: center;
-    display: flex;
-    height: 100%;
-    width: 100%;
-}
-.menu-overlay-content {
-    text-align: center;
-}
-.row-overlay-top {
-    position: fixed;
-    top: 40px;
-    right: 40px;
-    z-index: 9;
-}
-.fixed-content {
-    overflow: hidden;
-}
-#menu-overlay {
-    display: inline-block;
-}
-.menu-overlay-widget-col {
-    text-align: center;
-}
-.menu-overlay-widget {
-    text-align: left;
-    display: inline-block;
-    margin-right: 30px;
-}
-.menu-overlay-widget-col .menu-overlay-widget:last-child {
-    margin-right: 0;
-}
-.menu-overlay-close {
-    cursor: pointer;
-    font-size: 40px;
-}
-.menu-overlay-open {
-    font-size: 28px;
-    cursor: pointer;
-}
 .exopite-multifilter-image-description {
     text-align: center;
     font-size: 14px;
@@ -1433,4 +1371,41 @@ ul.simple-list.list-small > li li {
 }
 .container.hero-header-light h1 {
     font-size: 50px;
+}
+/*#exopite-blog-features-wrapper .so-panel.panel-first-child {
+    margin-bottom: 0;
+}
+#exipote-blog-style-title {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    text-shadow: 0px 0px 2px rgba(150, 150, 150, 1);
+}
+*/
+.bg-text-header::before {
+    content: 'Header';
+    position: absolute;
+    font-size: 28vw;
+    font-weight: 600;
+    color: rgba(0, 0, 0, .05);
+    -moz-transform: rotate(-20.0deg) translate(-50%,-50%);
+    -o-transform: rotate(-20.0deg) translate(-50%,-50%);
+    -webkit-transform: rotate(-20.0deg) translate(-50%,-50%);
+    left: 50%;
+    top: 15%;
+    transform: rotate(-20.0deg) translate(-50%,-50%);
+}
+@media screen and (min-width: 900px) {
+    .bg-text-header::before {
+        font-size: 20vw;
+    }
+}
+@media screen and (min-width: 1920px) {
+    .bg-text-header::before {
+        font-size: 240px;
+    }
+}
+.bg-text-header {
+    position: relative;
 }
