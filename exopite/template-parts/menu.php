@@ -79,7 +79,13 @@ $exopite_enable_fixed_header = isset( $exopite_meta_data['exopite-enable-fixed-h
     $exopite_meta_data['exopite-enable-fixed-header'] :
     false;
 
+$exopite_mobile_hamburger_icon = apply_filters( 'exopite-mobile-hamburger-icon', '<div class="mobile-button mobile-button-hamburger">
+    <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+    <span class="icon-text">MENU</span>
+</div>' );
+
 ExopiteSettings::setValue( 'logo_url', $exopite_desktop_logo );
+ExopiteSettings::setValue( 'desktop-menu-search', '<div class="full-search-menu mobile-button mobile-button-search"><i class="fa fa-search" aria-hidden="true"></i></div>' );
 
 if ( ! function_exists( 'exopite_create_logo' ) ) {
     function exopite_create_logo() {
@@ -108,16 +114,11 @@ $exopite_mobile_logo = ( $exopite_mobile_logo_img == '' ) ? '' : '<a href="' . S
         <img src="' . $exopite_mobile_logo_img . '" class="logo" alt="Mobile Logo">
     </a>';
 
-    $exopite_mobile_hamburger_icon = apply_filters( 'exopite-mobile-hamburger-icon', '<div id="mobile-trigger" class="mobile-button mobile-button-hamburger">
-        <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
-        <span class="icon-text">MENU</span>
-    </div>' );
-
 if ( $exopite_mobile_menu_search ) {
     add_action( 'expote-extend-mobile-menu', 'add_mobile_menu_search' );
     if ( ! function_exists( 'add_mobile_menu_search' ) ) {
         function add_mobile_menu_search() {
-            echo apply_filters( 'exopite-menu-search-icon', '<div class="full-search-menu mobile-button mobile-button-search"><i class="fa fa-search" aria-hidden="true"></i></div>' );
+            echo apply_filters( 'exopite-menu-search-icon', ExopiteSettings::getValue( 'desktop-menu-search' ) );
         }
     }
 }
@@ -125,7 +126,7 @@ if ( $exopite_mobile_menu_search ) {
 /**
  * Add search to menu
  */
-if ( ! isset( $exopite_settings['exopite-desktop-menu-search'] ) || ( $exopite_settings['exopite-desktop-menu-search'] && apply_filters( 'exopite-desktop-menu-search', true ) ) ) {
+if ( ! isset( $exopite_menu_search ) || ( $exopite_menu_search && apply_filters( 'exopite-desktop-menu-search', true ) ) ) {
     add_filter( 'wp_nav_menu_items', 'exopite_child_add_top_search_menu', 10, 2 );
 }
 if ( ! function_exists( 'exopite_child_add_top_search_menu' ) ) {
@@ -207,88 +208,18 @@ if ( $exopite_logo_center_pos ) add_filter( 'exopite_center_nav_menu_item', 'exo
                     /*
                      * Display mobile menu only, if menu on the top.
                      */
-                    if ( $exopite_menu_alignment == 'top' ) : ?>
-                        <div class="row menu-collapser flex">
-                            <?php
+                    // if ( $exopite_menu_alignment == 'top' ) :
 
-                            /*
-                             * Display this column only, if mobile search is on and menu is on the right side
-                             */
-                            if ( $exopite_mobile_menu_search && $exopite_mobile_menu_position === 'right' ) : ?>
-                            <div class="col-3 mobile-menu-left">
-                                <?php
+                    //     include( locate_template( 'template-parts/menu-top.php' ) );
 
-                                do_action( 'expote-extend-mobile-menu', '' );
 
-                                ?>
-                            </div>
-                            <?php
+                    // endif;
 
-                            /*
-                             * If menu on the left side
-                             */
-                            elseif ( $exopite_mobile_menu_position === 'left' ) : ?>
-                            <div class="col-3 mobile-menu-left">
-                                <?php echo $exopite_mobile_hamburger_icon; ?>
-                            </div>
-                            <?php endif;
+                    if ( $exopite_menu_alignment == 'top' || $exopite_menu_alignment == 'overlay' ) {
 
-                            ?>
-                            <div class="<?php if ( $exopite_mobile_menu_search ) : echo 'col-6 text-center'; else: echo 'col-9'; endif; ?> <?php if ( $exopite_mobile_menu_position === 'left' ) echo 'text-right'; ?>">
-                                <?php
+                        include( locate_template( 'template-parts/menu-top-mobile.php' ) );
 
-                                /*
-                                 * If no mobile search is activated, then place logo on the right and use its space too
-                                 */
-                                if ( $exopite_mobile_logo != '' ) echo $exopite_mobile_logo;
-
-                                ?>
-                            </div>
-                            <?php
-
-                            /*
-                             * Display this column only, if mobile search is on and menu is on the left side
-                             */
-                            if ( $exopite_mobile_menu_search && $exopite_mobile_menu_position === 'left' ) : ?>
-                            <div class="col-3 mobile-menu-right">
-                                <?php
-
-                                do_action( 'expote-extend-mobile-menu', '' );
-
-                                ?>
-                            </div>
-                            <?php
-
-                            /*
-                             * If menu on the right side
-                             */
-                            elseif ( $exopite_mobile_menu_position === 'right' ) : ?>
-                            <div class="col-3 mobile-menu-right">
-                                <?php echo $exopite_mobile_hamburger_icon; ?>
-                            </div>
-                            <?php
-
-                            endif;
-
-                            ?>
-                        </div>
-                        <?php
-
-                        /*
-                         * Display mobile menu if exist
-                         */
-                        if ( has_nav_menu( 'mobile' ) ):
-                            wp_nav_menu(
-                                array(
-                                    'theme_location'    => 'mobile',
-                                    'menu_id'           => apply_filters( 'exopite-mobile-menu', 'mobile-menu' ), //using 22658.88 kB memory
-                                    'items_wrap'        => apply_filters( 'exopite-mobile-menu-wrap', '<ul id="mobile-menu" class="menu-row row slimmenu">%3$s</ul>' ),
-                                    'container'         => false,
-                                    )
-                                );
-                        endif;
-
-                    endif;
+                    }
 
                     /*
                      * Display primary menu and if mobile menu not exist, use this menu to mobile menu as well
@@ -297,19 +228,37 @@ if ( $exopite_logo_center_pos ) add_filter( 'exopite_center_nav_menu_item', 'exo
 
                         exopite_hooks_before_menu();
 
-                        $exopite_items_wrap = ( has_nav_menu( 'mobile' ) ) ?
-                            apply_filters( 'exopite-desktop-mobile-menu-wrap', '<div id="cssmenu" class="menu-row menu-both"><ul id="desktop-menu" class="desktop-menu">%3$s</ul></div>' ) :
-                            apply_filters( 'exopite-desktop-menu-wrap', '<ul id="menu" class="desktop-menu slimmenu">%3$s</ul>' );
+                        switch ( $exopite_menu_alignment ) {
 
-                        wp_nav_menu(
-                            array(
-                                'theme_location'    => 'primary',
-                                'menu_id'           => apply_filters( 'exopite-primary-menu', 'primary-menu' ), //using 22658.88 kB memory
-                                'items_wrap'        => $exopite_items_wrap,
-                                'container'         => false,
-                                'walker'            => new Exopite_Menu_Walker(),
-                            )
-                        );
+
+                            case 'left':
+                            case 'top':
+
+                                include( locate_template( 'template-parts/menu-top.php' ) );
+
+                                break;
+
+                            case 'overlay':
+
+                                ?><div class="overlay-desktop"><?php
+
+                                echo $exopite_mobile_hamburger_icon;
+
+                                if ( ! isset( $exopite_menu_search ) || ( $exopite_menu_search && apply_filters( 'exopite-desktop-menu-search', true ) ) ) {
+
+                                    if ( has_nav_menu( 'primary' ) ) {
+
+                                        echo ExopiteSettings::getValue( 'desktop-menu-search' );
+
+                                    }
+
+                                }
+
+                                ?></div><?php
+
+                                break;
+
+                        }
 
                         exopite_hooks_after_menu();
 
