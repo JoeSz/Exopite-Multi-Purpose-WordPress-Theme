@@ -93,7 +93,7 @@ if ( ! function_exists( 'exopite_custom_wp_trim_excerpt' ) ) :
         $excerpt_button = apply_filters( 'excerpt_button', '<p><a class="btn btn-material btn-readmore" href="'. esc_url( get_permalink() ) . '">' . __( 'Read More', 'exopite' ) . '</a></p>' );
 
         // Apply filter if any
-        $excerpt_more = apply_filters( 'excerpt_more', $excerpt_end . $excerpt_button );
+        $excerpt_more = apply_filters( 'excerpt_more', $excerpt_button );
 
         $raw_excerpt = $exopite_excerpt;
 
@@ -110,7 +110,7 @@ if ( ! function_exists( 'exopite_custom_wp_trim_excerpt' ) ) :
             if ( str_word_count( $exopite_excerpt ) <= $excerpt_length ) $excerpt_more = apply_filters( 'excerpt_no_more', $excerpt_button );
 
             // Add read more after the content and return
-            return $exopite_excerpt . $excerpt_more;
+            return $exopite_excerpt . $excerpt_end . $excerpt_more;
         }
 
         // Custom exceprt
