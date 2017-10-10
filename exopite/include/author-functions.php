@@ -189,7 +189,7 @@ if ( ! function_exists( 'exopite_author_meta' ) ) {
                 $user_skills .= '</div>';
             }
 
-            $author_details = '<div class="exopite-author secondary-box" itemprop="author" itemscope itemtype="http://schema.org/Person"><div class="row">';
+            $author_details = '<div class="exopite-author secondary-box"'. WP_Schema::get_attribute( 'author', false ) . '><div class="row">';
 
             // Author socials
             $author_social = '';

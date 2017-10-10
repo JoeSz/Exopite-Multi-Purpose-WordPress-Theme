@@ -140,7 +140,7 @@ if ( ! function_exists( 'exopite_child_add_top_search_menu' ) ) {
 
 if ( $exopite_logo_center_pos ) add_filter( 'exopite_center_nav_menu_item', 'exopite_create_logo' );
 
-?><header id="masthead" class="site-header menu-alignment-<?php echo $exopite_menu_alignment; ?>" itemscope="itemscope" itemtype="https://schema.org/WPHeader">
+?><header id="masthead" class="site-header menu-alignment-<?php echo $exopite_menu_alignment; ?>"<?php WP_Schema::get_attribute( 'site-header' ); ?>>
     <?php tha_header_top();
 
     /*
@@ -149,7 +149,7 @@ if ( $exopite_logo_center_pos ) add_filter( 'exopite_center_nav_menu_item', 'exo
     if ( $exopite_logo_top_pos ) include( locate_template( 'template-parts/logo-top.php' ) );
 
     ?>
-    <nav id="site-navigation" class="row-menu main-navigation normal-menu<?php if ( $exopite_enable_fixed_header && ! $exopite_menu_left ) echo ' fixed-top'; ?>" itemscope="itemscope" itemtype="https://schema.org/SiteNavigationElement">
+    <nav id="site-navigation" class="row-menu main-navigation normal-menu<?php if ( $exopite_enable_fixed_header && ! $exopite_menu_left ) echo ' fixed-top'; ?>"<?php WP_Schema::get_attribute( 'main-navigation' ); ?>>
         <?php
 
         // Display contant above menu from page meta

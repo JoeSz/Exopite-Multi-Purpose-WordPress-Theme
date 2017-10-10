@@ -25,7 +25,7 @@ $exopite_settings = get_option( 'exopite_options' );
         ?>
         <div class="row">
             <header class="<?php echo $content_class; ?> page-header">
-                <h1 class="page-title" itemprop="headline">
+                <h1 class="page-title"<?php WP_Schema::get_attribute( 'site-title' ); ?>>
                     <?php
 
                         $args = array();

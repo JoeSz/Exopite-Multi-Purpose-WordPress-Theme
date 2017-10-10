@@ -43,7 +43,7 @@ if ( ! is_active_sidebar( $sidebar_id ) ) return;
 tha_sidebars_before();
 
 ?>
-<aside id="secondary" class="col-md-3 widget-area sidebar main-sidebar" aria-label="Primary Sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+<aside id="secondary" class="col-md-3 widget-area sidebar main-sidebar" aria-label="Primary Sidebar"<?php WP_Schema::get_attribute( 'sidebar' ); ?>>
 <?php
 
 // Theme Hook Alliance (include/plugins/tha-theme-hooks.php)

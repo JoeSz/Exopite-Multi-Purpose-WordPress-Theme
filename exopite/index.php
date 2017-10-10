@@ -45,7 +45,7 @@ get_header();
 		if ( isset( $exopite_settings['exopite-blog-display-title'] ) && $exopite_settings['exopite-blog-display-title'] ) : ?>
 		<div class="row">
 			<header class="<?php echo $content_class; ?>">
-				<h1 class="page-title" itemprop="headline"><?php echo $exopite_settings['exopite-blog-title']; // Display the blog title ?></h1>
+				<h1 class="page-title"<?php WP_Schema::get_attribute( 'site-title' ); ?>><?php echo $exopite_settings['exopite-blog-title']; // Display the blog title ?></h1>
 			</header>
 		</div>
 		<?php

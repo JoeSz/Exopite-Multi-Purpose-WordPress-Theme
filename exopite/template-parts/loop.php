@@ -190,7 +190,7 @@ if ( ! function_exists( 'the_loop' ) ) {
          * row         -> need for the first blog post if it is full width
          * content-row -> to hold normal articles (blog posts), it is a class for infinite load
          */
-        $page .= '<div id="loop" class="blog-container" itemscope="itemscope" itemtype="https://schema.org/Blog"><div class="' . $row_class . '">';
+        $page .= '<div id="loop" class="blog-container"><div class="' . $row_class . '">';
         $ignore_sticky_posts = false;
 
         if ( ! is_search() ) {

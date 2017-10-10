@@ -100,8 +100,9 @@ if ( ! function_exists( 'exopite_post_meta' ) ) {
                 array_key_exists( 'author', $exopite_settings['exopite-single-meta-tags-to-display']['enabled'] ) ) :
 			// Get the post author.
 			$author = sprintf(
-				'<li class="meta-author">By <a href="%1$s" rel="author" itemprop="author" itemscope itemtype="https://schema.org/Person">%2$s</a></li>',
+				'<li class="meta-author">By <a href="%1$s" rel="author"%2$s>%3$s</a></li>',
 				esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
+                WP_Schema::get_attribute( 'author', false ),
 				get_the_author()
 			);
 			endif;
