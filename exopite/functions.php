@@ -97,7 +97,7 @@ ExopiteSettings::setValue( 'allowed-htmls', array(
  * 1.0 - Define constants.
  * ----------------------------------------------------------------------------------------
  */
-define( 'EXOPITE_VERSION',  '20171001' );
+define( 'EXOPITE_VERSION',  '20171010' );
 defined( 'TEMPLATEPATH' ) or define( 'TEMPLATEPATH', get_template_directory() );
 define( 'TEMPLATEURI', get_template_directory_uri() );
 defined( 'STYLESHEETPATH' ) or define( 'STYLESHEETPATH', get_stylesheet_directory() );
@@ -567,5 +567,14 @@ if ( ExopiteSettings::getValue( 'woocommerce-activated' ) ) {
      */
     require_once INC . '/woocommerce.php';
 }
+
+/**
+ * This file incorporates code from Manta WordPress Theme,
+ * Copyright (c) 2013 - 2016, PremiumWP https://wordpress.org/themes/manta.
+ * Stargazer WordPress Theme is distributed under the terms of the GNU GPL.
+ *
+ * @link https://schema.org/docs/gs.html
+ */
+require_once PLUGINS . '/class-wp-schema.php';
 
 //-------------------------------- END PLUGINS ---------------------------------
