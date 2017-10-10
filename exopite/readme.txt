@@ -187,6 +187,9 @@ Req:
 
 == Changelog ==
 
+= 20171010 - Okt 10 2017
+* ENHANCEMENT: improve schema.org
+
 = 20171001 - Okt 01 2017
 * FIXED: masonry didn't activated if "first full" not on in blog settings
 
