@@ -79,7 +79,7 @@ class WP_Schema {
      * @param  array $attr Array of attributes to pass in (overwrites filters).
      * @return string
      */
-    public function get_attribute( $slug, $attr = array() ) {
+    public function get_attribute( $slug, $echo = true, $attr = array() ) {
 
         /**
          * Filter element's attributes.
@@ -96,7 +96,11 @@ class WP_Schema {
             }
         }
 
-        echo $out;
+        if ( $echo ) {
+            echo $out;
+        } else {
+            return $out;
+        }
     }
 
 	/**
