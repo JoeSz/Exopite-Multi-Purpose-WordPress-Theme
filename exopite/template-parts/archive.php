@@ -137,7 +137,7 @@ $exopite_settings = get_option( 'exopite_options' );
 
             ?>
             <div id="primary" class="<?php echo $content_class; ?> content-area">
-                <main id="main" class="site-main">
+                <main id="main" class="site-main"<?php WP_Schema::get_attribute( 'site-main' ); ?>>
                 <?php
 
                 // Theme Hook Alliance (include/plugins/tha-theme-hooks.php)

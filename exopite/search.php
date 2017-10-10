@@ -26,7 +26,7 @@ $exopite_settings = get_option( 'exopite_options' );
                 <h1 class="page-title"><?php printf( esc_html__( 'Search Results for: %s', 'exopite' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
             </header><!-- .page-header -->
 			<div id="primary" class="col-md-12 content-area">
-				<main id="main" class="site-main">
+				<main id="main" class="site-main"<?php WP_Schema::get_attribute( 'site-main' ); ?>>
 				<?php
 
                 // Theme Hook Alliance (include/plugins/tha-theme-hooks.php)

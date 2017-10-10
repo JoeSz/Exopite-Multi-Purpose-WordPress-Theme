@@ -40,7 +40,7 @@ $show_footer = isset( $exopite_meta_data['exopite-meta-enable-footer'] ) ? esc_a
 		tha_footer_before();
 
         ?>
-		<footer id="colophon" class="site-footer <?php if( $exopite_settings['exopite-sidebar-footer-enable-slide-up'] && $exopite_settings['exopite-content-layout'] == 'wide' ) echo ' fixed'; ?>" itemscope="itemscope" itemtype="https://schema.org/WPFooter">
+		<footer id="colophon" class="site-footer <?php if( $exopite_settings['exopite-sidebar-footer-enable-slide-up'] && $exopite_settings['exopite-content-layout'] == 'wide' ) echo ' fixed'; ?>"<?php WP_Schema::get_attribute( 'site-footer' ); ?>>
 			<?php tha_footer_top();
 
             /**

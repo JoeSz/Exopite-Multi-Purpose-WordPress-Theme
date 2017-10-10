@@ -45,7 +45,7 @@ $exopite_settings = get_option( 'exopite_options' );
 
             ?>
             <div id="primary" class="<?php if ( $sidebar != 'none' ) : ?>col-md-9<?php else : ?>col-md-12<?php endif; ?> content-area">
-                <main id="main" class="site-main" tabindex="-1">
+                <main id="main" class="site-main" tabindex="-1"<?php WP_Schema::get_attribute( 'site-main' ); ?>>
                     <?php
 
                     // Theme Hook Alliance (include/plugins/tha-theme-hooks.php)

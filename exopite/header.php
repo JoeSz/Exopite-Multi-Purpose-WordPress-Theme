@@ -162,7 +162,7 @@ tha_head_bottom();
 
 ?>
 </head>
-<body <?php body_class( explode( ' ', apply_filters( 'exopite-body-classes', $exopite_body_classes ) ) ); ?> itemscope="itemscope" itemtype="https://schema.org/WebPage">
+<body <?php body_class( explode( ' ', apply_filters( 'exopite-body-classes', $exopite_body_classes ) ) ); ?><?php WP_Schema::get_attribute( 'body' ); ?>>
 <?php
 
 /**
