@@ -56,9 +56,18 @@ if ( ! function_exists( 'the_loop' ) ) {
             if ( is_tag() ) $args_default['query_args']['tag'] = $wp_query->query_vars['tag'];
             if ( is_category() ) $args_default['query_args']['category_name'] = $wp_query->query_vars['category_name'];
             if ( is_date() ) {
-                if ( is_year() ) $args_default['query_args']['year'] = $wp_query->query_vars['year'];
-                if ( is_year() || is_month() ) $args_default['query_args']['monthnum'] = $wp_query->query_vars['monthnum'];
-                if ( is_year() || is_month() || is_day() ) $args_default['query_args']['day'] = $wp_query->query_vars['day'];
+                if ( is_year() ) {
+                    $args['query']['year'] = $wp_query->query_vars['year'];
+                }
+                if ( is_year() || is_month() ) {
+                    $args['query']['year'] = $wp_query->query_vars['year'];
+                    $args['query']['monthnum'] = $wp_query->query_vars['monthnum'];
+                }
+                if ( is_year() || is_month() || is_day() ) {
+                    $args['query']['year'] = $wp_query->query_vars['year'];
+                    $args['query']['monthnum'] = $wp_query->query_vars['monthnum'];
+                    $args['query']['day'] = $wp_query->query_vars['day'];
+                }
             }
             if ( is_author() ) $args_default['query_args']['author_name'] = $wp_query->query_vars['author_name'];
         }
