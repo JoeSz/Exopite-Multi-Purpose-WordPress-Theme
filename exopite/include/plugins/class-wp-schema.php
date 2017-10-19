@@ -79,7 +79,7 @@ class WP_Schema {
      * @param  array $attr Array of attributes to pass in (overwrites filters).
      * @return string
      */
-    public function get_attribute( $slug, $echo = true, $attr = array() ) {
+    public static function get_attribute( $slug, $echo = true, $attr = array() ) {
 
         /**
          * Filter element's attributes.
