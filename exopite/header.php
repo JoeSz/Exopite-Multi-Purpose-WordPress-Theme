@@ -178,7 +178,7 @@ if ( isset( $exopite_settings['exopite-menu-alignment'] ) && $exopite_settings['
 }
 
 // Full page search
-if ( $exopite_menu_search ) {
+if ( $exopite_menu_search ||$exopite_mobile_menu_search ) {
     get_template_part( 'template-parts/full-search' );
 }
 
