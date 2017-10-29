@@ -244,7 +244,7 @@ if ( $exopite_logo_center_pos ) add_filter( 'exopite_center_nav_menu_item', 'exo
 
                                 echo $exopite_mobile_hamburger_icon;
 
-                                if ( ! isset( $exopite_menu_search ) || ( $exopite_menu_search && apply_filters( 'exopite-desktop-menu-search', true ) ) ) {
+                                if ( $exopite_menu_search ) {
 
                                     if ( has_nav_menu( 'primary' ) ) {
 
