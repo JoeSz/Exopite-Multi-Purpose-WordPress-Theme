@@ -20,7 +20,7 @@
             childrenIndenter: '&nbsp;&nbsp;',
             expandIcon: '<i class="mobile-expand-icon fa fa-chevron-down" aria-hidden="true"></i>',
             collapseIcon: '<i class="mobile-collapse-icon fa fa-chevron-up" aria-hidden="true"></i>',
-            mobileTrigger: '#mobile-trigger'
+            mobileTrigger: '.mobile-button-hamburger'
         };
 
     function Plugin(element, options) {
