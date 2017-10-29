@@ -126,7 +126,7 @@ if ( $exopite_mobile_menu_search ) {
 /**
  * Add search to menu
  */
-if ( ! isset( $exopite_menu_search ) || ( $exopite_menu_search && apply_filters( 'exopite-desktop-menu-search', true ) ) ) {
+if ( $exopite_menu_search ) {
     add_filter( 'wp_nav_menu_items', 'exopite_child_add_top_search_menu', 10, 2 );
 }
 if ( ! function_exists( 'exopite_child_add_top_search_menu' ) ) {

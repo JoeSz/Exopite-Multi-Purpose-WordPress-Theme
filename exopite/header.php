@@ -60,6 +60,8 @@ $exopite_mobile_menu_position = apply_filters( 'exopite-mobile-menu-position', $
 $exopite_settings_enable_hero_header  = apply_filters( 'exopite-enable-hero-header-front-page', $exopite_settings_enable_hero_header );
 $exopite_menu_full_width  = apply_filters( 'exopite-menu-full-width', $exopite_menu_full_width );
 
+$exopite_menu_search = ( isset( $exopite_settings['exopite-desktop-menu-search'] ) && $exopite_settings['exopite-desktop-menu-search'] == false ) ? false : true;
+$exopite_menu_search =  apply_filters( 'exopite-desktop-menu-search', $exopite_menu_search );
 /*
  * Individual page/post settings
  */
@@ -176,7 +178,7 @@ if ( isset( $exopite_settings['exopite-menu-alignment'] ) && $exopite_settings['
 }
 
 // Full page search
-if ( ! isset( $exopite_settings['exopite-desktop-menu-search'] ) || ( $exopite_settings['exopite-desktop-menu-search'] && apply_filters( 'exopite-desktop-menu-search', true ) ) ) {
+if ( $exopite_menu_search ) {
     get_template_part( 'template-parts/full-search' );
 }
 
