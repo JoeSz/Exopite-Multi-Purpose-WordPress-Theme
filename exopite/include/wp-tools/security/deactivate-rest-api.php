@@ -16,3 +16,6 @@ function deactivate_rest_api() {
     status_header( 405 );
     die( '{"code":"rest_api_disabled","message":"REST API services are disabled on this site.","data":{"status":405}}' );
 }
+
+// Remove the REST API endpoint.
+remove_action( 'rest_api_init', 'wp_oembed_register_route' );
