@@ -97,7 +97,7 @@ ExopiteSettings::setValue( 'allowed-htmls', array(
  * 1.0 - Define constants.
  * ----------------------------------------------------------------------------------------
  */
-define( 'EXOPITE_VERSION',  '20171010' );
+define( 'EXOPITE_VERSION',  '20171202' );
 defined( 'TEMPLATEPATH' ) or define( 'TEMPLATEPATH', get_template_directory() );
 define( 'TEMPLATEURI', get_template_directory_uri() );
 defined( 'STYLESHEETPATH' ) or define( 'STYLESHEETPATH', get_stylesheet_directory() );
@@ -522,20 +522,21 @@ require_once PLUGINS . '/tha-theme-hooks.php';
  */
 require_once INC . '/exopite-hooks.php';
 
+// Not working well with page builders, because its store content in meta fields.
 // Load contact form 7 scripts & styles only when needed to save memory and time.
-add_action( 'wp_enqueue_scripts', 'exopite_wcs_cf7_scripts_conditional_load', 99 );
-if ( ! function_exists( 'exopite_wcs_cf7_scripts_conditional_load' ) ) {
-	function exopite_wcs_cf7_scripts_conditional_load() {
-		$load_scripts = false;
-		if ( is_singular() ) {
-			$post = get_post();
-			if( ! has_shortcode( $post->post_content, 'contact-form-7' ) ) {
-				wp_dequeue_script( 'contact-form-7' );
-				wp_dequeue_style( 'contact-form-7' );
-			}
-		}
-	}
-}
+// add_action( 'wp_enqueue_scripts', 'exopite_wcs_cf7_scripts_conditional_load', 99 );
+// if ( ! function_exists( 'exopite_wcs_cf7_scripts_conditional_load' ) ) {
+// 	function exopite_wcs_cf7_scripts_conditional_load() {
+// 		$load_scripts = false;
+// 		if ( is_singular() ) {
+// 			$post = get_post();
+// 			if( ! has_shortcode( $post->post_content, 'contact-form-7' ) ) {
+// 				wp_dequeue_script( 'contact-form-7' );
+// 				wp_dequeue_style( 'contact-form-7' );
+// 			}
+// 		}
+// 	}
+// }
 
 /*
  * Category Sticky Post
