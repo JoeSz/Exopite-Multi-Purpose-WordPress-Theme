@@ -26,6 +26,4 @@ $( '.woocommerce' ).on( 'click', '.remove', function(event) {
 
     });
 
-    return false;
-
 });
