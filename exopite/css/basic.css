@@ -283,6 +283,7 @@ select,
 textarea,
 input[type="text"],
 input[type="email"],
+input[type="tel"],
 input[type="password"],
 input[type="search"] {
     border: 1px solid #ccc;
@@ -290,6 +291,7 @@ input[type="search"] {
 }
 input[type="text"],
 input[type="email"],
+input[type="tel"],
 input[type="password"],
 input[type="search"] {
     padding: .3rem .3rem;
