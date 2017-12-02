@@ -1,5 +1,10 @@
 # Changelog
 
+= 20171202 - Dec 02 2017
+* **UPDATE**: Update to Bootstrap 4.0.0 beta 2
+* **CHANGED**: Remove contect-form-7 JavaScript conditional load
+* **FIXED**: WooCommerce remove in cart
+
 = 20171010 - Okt 10 2017
 * **ENHANCEMENT**: improve schema.org
 
