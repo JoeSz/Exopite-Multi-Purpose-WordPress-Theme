@@ -217,6 +217,7 @@ function exopite_setup() {
 	/**
 	 * Security
 	 * remove junk from head
+     *
 	 * @link http://bhoover.com/remove-unnecessary-code-from-your-wordpress-blog-header/
 	 */
 	remove_action( 'wp_head', 'rsd_link' ); // Display the link to the Really Simple Discovery service endpoint, EditURI link
@@ -228,6 +229,23 @@ function exopite_setup() {
 	remove_action( 'wp_head', 'start_post_rel_link', 10, 0 ); // start link
 	remove_action( 'wp_head', 'parent_post_rel_link', 10, 0 );  // prev link
 	remove_action( 'wp_head', 'adjacent_posts_rel_link', 10, 0 ); // Display relational links for the posts adjacent to the current post.
+
+    /**
+     * Remove JSON API links from header
+     * for SEO reasons, XOVI issue a warning for too long urls.
+     * This will not disable JSON API.
+     *
+     * @link https://wordpress.stackexchange.com/questions/211467/remove-json-api-links-in-header-html/212472#212472
+     */
+    // Remove the REST API lines from the HTML Header
+    remove_action( 'wp_head', 'rest_output_link_wp_head', 10 );
+    remove_action( 'wp_head', 'wp_oembed_add_discovery_links', 10 );
+
+    // Turn off oEmbed auto discovery.
+    add_filter( 'embed_oembed_discover', '__return_false' );
+
+    // Remove oEmbed discovery links.
+    remove_action( 'wp_head', 'wp_oembed_add_discovery_links' );
 
     /*
      * Add Custom Post Type Support After Activating the Page Builder Plugin
