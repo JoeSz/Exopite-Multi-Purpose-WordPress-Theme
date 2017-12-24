@@ -1,5 +1,9 @@
 # Changelog
 
+= 20171212 - Dec 12 2017
+* **ADDED**: Image template (image.php) to redirect image attachement singles to parent page
+* **ENHANCEMENT**: Remove JSON API links form header for SEO reasons
+
 = 20171202 - Dec 02 2017
 * **UPDATE**: Update to Bootstrap 4.0.0 beta 2
 * **CHANGED**: Remove contect-form-7 JavaScript conditional load

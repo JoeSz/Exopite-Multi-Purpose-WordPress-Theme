@@ -1,7 +1,7 @@
 === Exopite - High Performance Multi-purpose WordPress Theme ===
 
 - Author: Joe Szalai
-- Version: 20171001
+- Version: 20171212
 - Theme URL: http://joe.szalai.org/exopite/
 - Theme GitHub URL: https://github.com/JoeSz/Exopite-Multi-Purpose-WordPress-Theme
 - Author URL: http://joe.szalai.org/
@@ -186,6 +186,15 @@ Req:
 == Frequently Asked Questions ==
 
 == Changelog ==
+
+= 20171212 - Dec 12 2017
+* ADDED: Image template (image.php) to redirect image attachement singles to parent page
+* ENHANCEMENT: Remove JSON API links form header for SEO reasons
+
+= 20171202 - Dec 02 2017
+* UPDATE: Update to Bootstrap 4.0.0 beta 2
+* CHANGED: Remove contect-form-7 JavaScript conditional load
+* FIXED: WooCommerce remove in cart
 
 = 20171010 - Okt 10 2017
 * ENHANCEMENT: improve schema.org
