@@ -1,5 +1,8 @@
 # Changelog
 
+= 20171231 - Dec 31 2017
+* **ADDED**: Automatically Set the WordPress Image Title, Alt-Text & Other Meta for SEO reasons
+
 = 20171212 - Dec 12 2017
 * **ADDED**: Image template (image.php) to redirect image attachement singles to parent page
 * **ENHANCEMENT**: Remove JSON API links form header for SEO reasons
