@@ -13,6 +13,7 @@ defined('ABSPATH') or die( 'You cannot access this page directly.' );
  *  - exopite_breadcrumb (pluggable)
  *  - exopite_generate_meta (pluggable)
  *  - exopite_add_noindex (pluggable)
+ *  - exopite_set_image_meta_upon_image_upload (pluggable)
  *
  */
 
