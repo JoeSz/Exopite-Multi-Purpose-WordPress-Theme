@@ -1,5 +1,8 @@
 # Changelog
 
+= 20180117 - Jan 18 2018
+* **ADDED**: "Theme Options" to Admin-bar
+
 = 20171231 - Dec 31 2017
 * **ADDED**: Automatically Set the WordPress Image Title, Alt-Text & Other Meta for SEO reasons
 
