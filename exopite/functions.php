@@ -97,7 +97,7 @@ ExopiteSettings::setValue( 'allowed-htmls', array(
  * 1.0 - Define constants.
  * ----------------------------------------------------------------------------------------
  */
-define( 'EXOPITE_VERSION',  '20171231' );
+define( 'EXOPITE_VERSION',  '20180117' );
 defined( 'TEMPLATEPATH' ) or define( 'TEMPLATEPATH', get_template_directory() );
 define( 'TEMPLATEURI', get_template_directory_uri() );
 defined( 'STYLESHEETPATH' ) or define( 'STYLESHEETPATH', get_stylesheet_directory() );
@@ -489,6 +489,23 @@ if ( isset( $exopite_settings['exopite-custom-excerpt-more-enabled'] ) && $exopi
     add_filter( 'excerpt_more', 'exopite_excerpt_more', 98 );
 }
 
+// Add Theme Options to Admin Bar (to save time!)
+add_action( 'admin_bar_menu', 'admin_bar_theme_editor_option', 100 );
+if ( ! function_exists( 'admin_bar_theme_editor_option' ) ) {
+
+    function admin_bar_theme_editor_option() {
+
+        global $wp_admin_bar;
+        if ( !is_super_admin() || !is_admin_bar_showing() ) return;
+        $wp_admin_bar->add_menu( array(
+            'id' => 'theme-options',
+            'title' => __('Theme Options'),
+            'href' => admin_url( 'themes.php?page=cs-framework')
+        ) );
+
+    }
+
+}
 //---------------------------------- PLUGINS -----------------------------------
 
 add_action( 'current_screen', 'this_screen' );
