@@ -10,6 +10,7 @@
 defined('ABSPATH') or die( 'You cannot access this page directly.' );
 /*
  * ToDo:
+ * - update to Bootstrap 4 beta 3
  * - single navigation on custom post type (first, last)
  * - desc for
  *  - Menu alignment (Top, Left)
