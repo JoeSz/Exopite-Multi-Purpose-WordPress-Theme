@@ -98,7 +98,7 @@ ExopiteSettings::setValue( 'allowed-htmls', array(
  * 1.0 - Define constants.
  * ----------------------------------------------------------------------------------------
  */
-define( 'EXOPITE_VERSION',  '20180117' );
+define( 'EXOPITE_VERSION',  '20180118' );
 defined( 'TEMPLATEPATH' ) or define( 'TEMPLATEPATH', get_template_directory() );
 define( 'TEMPLATEURI', get_template_directory_uri() );
 defined( 'STYLESHEETPATH' ) or define( 'STYLESHEETPATH', get_stylesheet_directory() );
@@ -508,6 +508,50 @@ if ( ! function_exists( 'admin_bar_theme_editor_option' ) ) {
 
 }
 //---------------------------------- PLUGINS -----------------------------------
+
+/**
+ * Plugin Name: T5 Comment moderation links
+ * Version:     2012.06.04
+ * Author:      Thomas Scholz <info@toscho.de>
+ * Author URI:  http://toscho.de
+ * License:     MIT
+ * License URI: http://www.opensource.org/licenses/mit-license.php
+ */
+add_filter( 'edit_comment_link', 'exopite_comment_mod_links', 10, 2 );
+if ( ! function_exists( 'exopite_comment_mod_links' ) ) {
+
+    /**
+     * Adds Spam and Delete links to the Sdit link.
+     *
+     * @wp-hook edit_comment_link
+     * @param   string  $link Edit link markup
+     * @param   int $id Comment ID
+     * @return  string
+     */
+    function exopite_comment_mod_links( $link, $id ) {
+        $template = ' <a class="comment-edit-link" href="%1$s%2$s">%3$s</a>';
+        $admin_url = admin_url( "comment.php?c=$id&action=" );
+
+        // Mark as Spam.
+        $link .= sprintf( $template, $admin_url, 'cdc&dt=spam', __( 'Spam' ) );
+        // Delete.
+        $link .= sprintf( $template, $admin_url, 'cdc', __( 'Delete' ) );
+
+        // Approve or unapprove.
+        $comment = get_comment( $id );
+
+        if ( '0' === $comment->comment_approved ) {
+
+            $link .= sprintf( $template, $admin_url, 'approvecomment', __( 'Approve' ) );
+
+        } else {
+
+            $link .= sprintf( $template, $admin_url, 'unapprovecomment', __( 'Unapprove' ) );
+        }
+
+        return $link;
+    }
+}
 
 add_action( 'current_screen', 'this_screen' );
 function this_screen() {
