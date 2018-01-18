@@ -1,6 +1,9 @@
 # Changelog
 
-= 20180117 - Jan 18 2018
+= 20180118 - Jan 18 2018
+* **ADDED**: Moderation links for comments (spam, delete, approve, unapprove)
+
+= 20180117 - Jan 17 2018
 * **ADDED**: "Theme Options" to Admin-bar
 
 = 20171231 - Dec 31 2017
