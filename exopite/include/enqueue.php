@@ -56,16 +56,12 @@ if ( ! function_exists( 'load_exopite_styles' ) ) {
          *
          * Get Bootstrap 4
          */
-        if ( ! wp_style_is( 'bootstrap-4' ) ) {
-            wp_register_style( 'bootstrap-4', "//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css", false, '4.0.0' );
-            wp_enqueue_style( 'bootstrap-4' );
-        }
+        wp_register_style( 'bootstrap-4', "//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css", false, '4.0.0' );
+        wp_enqueue_style( 'bootstrap-4' );
 
-        if ( ! wp_style_is( 'font-awesome-470' ) ) {
-            /* Get font awsome */
-            wp_register_style( 'font-awesome-470', "//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css", false, '470' );
-            wp_enqueue_style( 'font-awesome-470' );
-        }
+        /* Get font awsome */
+        wp_register_style( 'font-awesome-470', "//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css", false, '470' );
+        wp_enqueue_style( 'font-awesome-470' );
 
         load_google_fonts();
 
@@ -95,18 +91,15 @@ if ( ! function_exists( 'load_exopite_scripts' ) ) {
 
         $exopite_settings = get_option( 'exopite_options' );
 
-        /*
-         * Check if jQuery tether is already enqueued,
-         * if not, enqueue it
+        /**
+         * CDNs
+         *
+         * Get Bootstrap 4
          */
-        if ( ! wp_script_is( 'jquery-popper-1123' ) ) {
-            wp_enqueue_script( 'jquery-popper-1123', '//cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js', array( 'jquery' ), '1.12.9', true );
-        }
+        wp_enqueue_script( 'jquery-popper-1129', '//cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js', array( 'jquery' ), '1.12.9', true );
 
-        if ( ! wp_script_is( 'bootstrap-4-js' ) ) {
-            wp_register_script( 'bootstrap-4-js', "//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js", array( 'jquery', 'jquery-popper-1110' ), '4.0.0', true );
-            wp_enqueue_script( 'bootstrap-4-js' );
-        }
+        wp_register_script( 'bootstrap-4-js', "//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js", array( 'jquery', 'jquery-popper-1129' ), '4.0.0', true );
+        wp_enqueue_script( 'bootstrap-4-js' );
 
 		/**
 		 * Adds support for pages with threaded comments
