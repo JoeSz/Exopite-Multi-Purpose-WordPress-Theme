@@ -1,5 +1,8 @@
 # Changelog
 
+= 20180123 - Jan 23 2018
+* **ADDED**: Update Bootstrap to 4.0.0(-beta3)
+
 = 20180118 - Jan 18 2018
 * **ADDED**: Moderation links for comments (spam, delete, approve, unapprove)
 
