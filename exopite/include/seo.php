@@ -340,7 +340,7 @@ if ( ! defined('WPSEO_VERSION') ) {
 }
 
 /**
- * Add noidex on archives and search
+ * Add noindex on archives and search
  */
 if ( ! function_exists( 'yoast_breadcrumb' ) ) add_action( 'wp_head', 'exopite_add_noindex' );
 if ( ! function_exists( 'exopite_add_noindex' ) ) {
