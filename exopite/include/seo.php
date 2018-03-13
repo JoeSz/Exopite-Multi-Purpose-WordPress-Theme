@@ -348,7 +348,7 @@ if ( ! function_exists( 'exopite_add_noindex' ) ) {
 
         $exopite_settings = get_option( 'exopite_options' );
 
-        if( ( is_author() || is_date() || is_search() || is_category() || is_tag() ) && $exopite_settings['exopite-noidex-archives-enabled'] ) {
+        if( ( is_author() || is_date() || is_search() || is_category() || is_tag()  || is_404() ) && $exopite_settings['exopite-noidex-archives-enabled'] ) {
 
             echo '<meta name="robots" content="noindex,follow" />';
 
