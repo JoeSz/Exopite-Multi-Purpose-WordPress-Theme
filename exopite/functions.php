@@ -637,7 +637,7 @@ if ( isset( $exopite_settings['exopite-enable-category-sticky'] ) && $exopite_se
 /**
  * GZip compression for less data and more speed.
  */
-if ( isset( $exopite_settings['exopite-seo-gzip-enabled'] ) && $exopite_settings['exopite-seo-gzip-enabled'] ) {
+if ( isset( $exopite_settings['exopite-seo-gzip-enabled'] ) && $exopite_settings['exopite-seo-gzip-enabled'] && ( ! is_admin() && ! in_array( $GLOBALS['pagenow'], array( 'wp-login.php', 'wp-register.php' ) ) ) ) {
     require_once PLUGINS . '/filosofo-gzip-compression.php';
 }
 
