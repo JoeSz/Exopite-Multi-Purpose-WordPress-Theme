@@ -799,7 +799,7 @@ b.description {
     #parlament-silhouette img {
         position: absolute;
         right: 0;
-        top: -120px;
+        top: -195px;
         width: 200px;
         display: block;
     }
@@ -809,7 +809,7 @@ b.description {
 }
 @media screen and (min-width: 781px) {
     #parlament-silhouette img {
-        top: -150px;
+        top: -225px;
     }
 }
 .gray-bg {
@@ -1201,41 +1201,6 @@ ul.simple-list.list-small > li li {
     background: #5379ba;
     box-shadow: 0 30px 0 #5379ba;
 }
-/*@media only screen and ( min-width: 1901px ) and ( max-width: 2500px ) {.left-diagonal::after {top: -150px; height: 85%;}}
-@media only screen and ( min-width: 1501px ) and ( max-width: 1900px ) {.left-diagonal::after {top: -131px; height: 68%;}}
-@media only screen and ( min-width: 1001px ) and ( max-width: 1500px ) {.left-diagonal::after {top: -228px;}}
-@media only screen and ( max-width: 1000px ) {.left-diagonal::after {top: -90px;}}*/
-/*------------------------------------------------*/
-/*----[Left Diagonal Lines - By Geno Quiroz]------*/
-/*-----------------[Quiroz.Co]--------------------*/
-/*------------------------------------------------*/
-/*.left-diagonal-over {
-    z-index: 1;
-    padding-top: 0px;
-    position: relative;
-    overflow-x: hidden;
-}
-.left-diagonal-over::after {
-    position: absolute;
-    content: '';
-    pointer-events: none;
-    top: -220px;
-    left: -25%;
-    z-index: -1;
-    width: 150%;
-    height: 50%;
-    background: inherit;
-    -webkit-transform: rotate(3deg);
-    transform: rotate(3deg);
-    -webkit-transform-origin: -3% 0;
-    transform-origin: -3% 0;
-}
-@media only screen and ( min-width: 1901px ) and ( max-width: 2500px ) {.left-diagonal-over::after {top: -150px; height: 85%;}}
-@media only screen and ( min-width: 1501px ) and ( max-width: 1900px ) {.left-diagonal-over::after {top: -131px; height: 68%;}}
-@media only screen and ( min-width: 1001px ) and ( max-width: 1500px ) {.left-diagonal-over::after {top: -228px;}}
-@media only screen and ( max-width: 1000px ) {.left-diagonal-over::after {top: -90px;}}*/
-/*https://tympanus.net/Development/SectionSeparators/?hc_location=ufi
-*/
 /*effects*/
 #trianglePath1 {
     fill: #fff;
@@ -1355,70 +1320,6 @@ ul.simple-list.list-small > li li {
 .page-contact .contact-form {
     padding: 0 15px;
 }
-/*body.page-contact {
-    height: 100vh;
-    overflow: hidden;
-}*/
-/*.multifilter-top-image {
-    -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.5);
-    -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.5);
-    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.5);
-}
-.multifilter-hero-header h1,
-.multifilter-hero-header h2 {
-    text-shadow: 0px 0px 2px rgba(150, 150, 150, 1);
-}
-.multifilter-hero-header h1 {
-    color:#fff;
-    padding-bottom:30px;
-    text-align: center;
-}
-.multifilter-hero-header h2 {
-    color:#fff;
-    padding-bottom:30px;
-    text-align: center;
-    font-size: 21px;
-}
-@media all and (max-width: 767) {
-    .multifilter-hero-header h2 {
-        font-size: 21px;
-    }
-}
-@media all and (min-width: 768px) {
-    .multifilter-hero-header .hero-new-line-desktop {
-        display: block;
-        padding-bottom: 12px;
-    }
-    .multifilter-hero-header h2 {
-        text-align: left;
-    }
-    .multifilter-hero-header h1 {
-        font-size:55px;
-    }
-}
-@media all and (min-width: 901px) {
-    .multifilter-hero-header .hero-new-line-desktop {
-        padding-bottom: 17px;
-    }
-    .multifilter-hero-header h2 {
-        font-size: 28px;
-    }
-}
-@media all and (min-width: 768) and (max-width: 900px) {
-    .multifilter-hero-header h2 {
-        font-size: 28px;
-    }
-}
-#multifilter-screenshots img {
-    -webkit-box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.5);
-    -moz-box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.5);
-    box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.5);
-    margin-top: 4px;
-}
-.no-col-bottom-margin > div:not(:last-child) {
-    margin-bottom: 0 !important;
-}
-*/
 .container.hero-header-light h1,
 .container.hero-header-light h2 {
     color: #fff;
@@ -1427,43 +1328,32 @@ ul.simple-list.list-small > li li {
 .container.hero-header-light h1 {
     font-size: 50px;
 }
-/*#exopite-blog-features-wrapper .so-panel.panel-first-child {
+.demo-item {
+    padding-top: 30px;
+    padding-bottom: 20px;
+}
+.demo-item .exopite-multifilter-filter-wrapper {
+    padding-top: 0;
+}
+.demo-item .equal-height .entry-content-container {
+    background: #fff;
+}
+.page-exopite-multifilter-demos small code {
+    line-height: 23px;
+    display: inline-block;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+.scrollToTop {
+    background: #5379BA;
+}
+#footer-menu {
     margin-bottom: 0;
 }
-#exipote-blog-style-title {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%,-50%);
-    text-shadow: 0px 0px 2px rgba(150, 150, 150, 1);
+#footer-menu li:not(:last-child)::after {
+    padding-right: 4px;
 }
-*/
-/*.bg-text-header::before {
-    content: 'Header';
-    position: absolute;
-    font-size: 28vw;
-    font-weight: 600;
-    color: rgba(0, 0, 0, .05);
-    -moz-transform: rotate(-20.0deg) translate(-50%,-50%);
-    -o-transform: rotate(-20.0deg) translate(-50%,-50%);
-    -webkit-transform: rotate(-20.0deg) translate(-50%,-50%);
-    left: 50%;
-    top: 15%;
-    transform: rotate(-20.0deg) translate(-50%,-50%);
-}
-@media screen and (min-width: 900px) {
-    .bg-text-header::before {
-        font-size: 20vw;
-    }
-}
-@media screen and (min-width: 1920px) {
-    .bg-text-header::before {
-        font-size: 240px;
-    }
-}
-.bg-text-header {
-    position: relative;
-}
+<<<<<<< HEAD
 */
 .demo-item {
     padding-top: 30px;
@@ -1490,3 +1380,5 @@ ul.simple-list.list-small > li li {
 #footer-menu li:not(:last-child)::after {
     padding-right: 4px;
 }
+=======
+>>>>>>> 5c23182b884c55086e7c781673e1606d05854d54

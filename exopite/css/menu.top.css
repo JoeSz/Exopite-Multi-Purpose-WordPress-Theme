@@ -51,7 +51,7 @@
     }
     .desktop-menu > li > div,
     .desktop-menu > li > a {
-        padding: 0 16px;
+        padding: 0 14px;
         padding-top: [#exopite-desktop-menu-padding-top]px;
         padding-bottom: [#exopite-desktop-menu-padding-bottom]px;
         background: [#exopite-desktop-menu-color.background.value];
