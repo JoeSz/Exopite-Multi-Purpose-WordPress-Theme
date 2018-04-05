@@ -1465,3 +1465,28 @@ ul.simple-list.list-small > li li {
     position: relative;
 }
 */
+.demo-item {
+    padding-top: 30px;
+    padding-bottom: 20px;
+}
+.demo-item .exopite-multifilter-filter-wrapper {
+    padding-top: 0;
+}
+.demo-item .equal-height .entry-content-container {
+    background: #fff;
+}
+.page-exopite-multifilter-demos small code {
+    line-height: 23px;
+    display: inline-block;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+.scrollToTop {
+    background: #5379BA;
+}
+#footer-menu {
+    margin-bottom: 0;
+}
+#footer-menu li:not(:last-child)::after {
+    padding-right: 4px;
+}
