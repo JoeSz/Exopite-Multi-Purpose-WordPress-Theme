@@ -37,11 +37,11 @@ function load_google_fonts() {
                 // include/google-fonts.php
                 $google_fonts = get_google_fonts();
 
-                wp_enqueue_style( 'wpb-google-fonts', 'http' . ($_SERVER['SERVER_PORT'] == 443 ? "s" : "") . '://fonts.googleapis.com/css?family=' . $google_fonts['regular'], false );
+                wp_enqueue_style( 'wpb-google-fonts', 'http' . ($_SERVER['SERVER_PORT'] == 443 ? 's' : '') . '://fonts.googleapis.com/css?family=' . $google_fonts['regular'], false );
             }
         }
     } else {
-        wp_enqueue_style( 'wpb-google-fonts', 'http' . ($_SERVER['SERVER_PORT'] == 443 ? "s" : "") . '://fonts.googleapis.com/css?family=Shadows+Into+Light+Two|Roboto:300,500', false );
+        wp_enqueue_style( 'wpb-google-fonts', 'http' . ($_SERVER['SERVER_PORT'] == 443 ? 's' : '') . '://fonts.googleapis.com/css?family=Shadows+Into+Light+Two|Roboto:300,500', false );
     }
 
 }
@@ -56,12 +56,10 @@ if ( ! function_exists( 'load_exopite_styles' ) ) {
          *
          * Get Bootstrap 4
          */
-        wp_register_style( 'bootstrap-4', "//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css", false, '4.0.0' );
-        wp_enqueue_style( 'bootstrap-4' );
+        wp_enqueue_style( 'bootstrap-41', 'http' . ($_SERVER['SERVER_PORT'] == 443 ? 's' : '' ) . '://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css', false, '4.1.0' );
 
         /* Get font awsome */
-        wp_register_style( 'font-awesome-470', "//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css", false, '470' );
-        wp_enqueue_style( 'font-awesome-470' );
+        wp_enqueue_style( 'font-awesome-470', 'http' . ($_SERVER['SERVER_PORT'] == 443 ? 's': '' ) . '://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css', false, '470' );
 
         load_google_fonts();
 
@@ -96,10 +94,9 @@ if ( ! function_exists( 'load_exopite_scripts' ) ) {
          *
          * Get Bootstrap 4
          */
-        wp_enqueue_script( 'jquery-popper-1129', '//cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js', array( 'jquery' ), '1.12.9', true );
+        wp_enqueue_script( 'jquery-popper-1140', 'http' . ($_SERVER['SERVER_PORT'] == 443 ? 's' : '' ) . '://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js', array( 'jquery' ), '1.14.0', true );
 
-        wp_register_script( 'bootstrap-4-js', "//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js", array( 'jquery', 'jquery-popper-1129' ), '4.0.0', true );
-        wp_enqueue_script( 'bootstrap-4-js' );
+        wp_enqueue_script( 'bootstrap-41-js', 'http' . ($_SERVER['SERVER_PORT'] == 443 ? 's' : '' ) . "://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js", array( 'jquery', 'jquery-popper-1140' ), '4.1.0', true );
 
 		/**
 		 * Adds support for pages with threaded comments
