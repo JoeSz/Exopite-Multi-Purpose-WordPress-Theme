@@ -1,5 +1,8 @@
 # Changelog
 
+= 20180415 - Apr 15 2018
+* **ADDED**: Update Bootstrap to 4.1.0
+
 = 20180123 - Jan 23 2018
 * **ADDED**: Update Bootstrap to 4.0.0(-beta3)
 

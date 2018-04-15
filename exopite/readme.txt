@@ -1,7 +1,7 @@
 === Exopite - High Performance Multi-purpose WordPress Theme ===
 
 - Author: Joe Szalai
-- Version: 20180123
+- Version: 20180415
 - Theme URL: http://joe.szalai.org/exopite/
 - Theme GitHub URL: https://github.com/JoeSz/Exopite-Multi-Purpose-WordPress-Theme
 - Author URL: http://joe.szalai.org/
@@ -186,6 +186,21 @@ Req:
 == Frequently Asked Questions ==
 
 == Changelog ==
+
+= 20180415 - Apr 15 2018
+* ADDED: Update Bootstrap to 4.1.0
+
+= 20180123 - Jan 23 2018
+* ADDED: Update Bootstrap to 4.0.0(-beta3)
+
+= 20180118 - Jan 18 2018
+* ADDED: Moderation links for comments (spam, delete, approve, unapprove)
+
+= 20180117 - Jan 17 2018
+* ADDED: "Theme Options" to Admin-bar
+
+= 20171231 - Dec 31 2017
+* ADDED: Automatically Set the WordPress Image Title, Alt-Text & Other Meta for SEO reasons
 
 = 20171212 - Dec 12 2017
 * ADDED: Image template (image.php) to redirect image attachement singles to parent page
