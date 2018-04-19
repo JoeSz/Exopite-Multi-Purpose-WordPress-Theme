@@ -71,6 +71,13 @@ get_header();
                     // Possibility to use content-custom-post-type.php, if not exist post will be loaded
                     $page_template_type = ( locate_template( 'template-parts/content-' . get_post_type() . '.php') != '') ? get_post_type() : 'post';
 
+                    if ( get_post_format() ) {
+                        $fn = get_template_directory() . DIRECTORY_SEPARATOR . 'template-parts' . DIRECTORY_SEPARATOR . 'content-' . get_post_type() . '-' . get_post_format() . '.php';
+                        if ( file_exists( $fn ) ) {
+                            $page_template_type .= '-' . get_post_format();
+                        }
+                    }
+
                     get_template_part( 'template-parts/content', apply_filters( 'exopite-post-content-template-part-slug', $page_template_type ) );
 
 					/**
