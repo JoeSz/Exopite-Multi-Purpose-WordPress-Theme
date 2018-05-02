@@ -20,5 +20,5 @@ var WebFontConfig = {
 };
 </script>
 <noscript>
-    <link href='http://fonts.googleapis.com/css?family=<?php echo $google_fonts['regular']; ?>' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=<?php echo $google_fonts['regular']; ?>' rel='stylesheet' type='text/css'>
 </noscript>

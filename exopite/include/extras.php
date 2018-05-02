@@ -265,7 +265,7 @@ if ( ! function_exists( 'exopite_post_nav' ) ) {
 								else:
 
                                     ?>
-    								<img src="http://dummyimage.com/80x80/616161/ffffff.jpg&text=<?php esc_attr_e( 'Prev', 'exopite' ); ?>" class="animation" alt="prev">
+    								<img src="//dummyimage.com/80x80/616161/ffffff.jpg&text=<?php esc_attr_e( 'Prev', 'exopite' ); ?>" class="animation" alt="prev">
     								<?php
 
                                 endif;
@@ -300,7 +300,7 @@ if ( ! function_exists( 'exopite_post_nav' ) ) {
 								else:
 
                                     ?>
-    								<img src="http://dummyimage.com/80x80/616161/ffffff.jpg&text=<?php esc_attr_e( 'Next', 'exopite' ); ?>" class="animation" alt="next">
+    								<img src="//dummyimage.com/80x80/616161/ffffff.jpg&text=<?php esc_attr_e( 'Next', 'exopite' ); ?>" class="animation" alt="next">
     								<?php
 
                                 endif;
@@ -467,7 +467,7 @@ if ( ! function_exists( 'exopite_releated_posts' ) ) {
                             else:
 
                                 $ret .= '<a href="' . get_the_permalink() .'">';
-                                $dummy_img = '<img src="http://dummyimage.com/330x220/616161/ffffff.jpg&text=' . get_the_title() . '" alt="title">';
+                                $dummy_img = '<img src="//dummyimage.com/330x220/616161/ffffff.jpg&text=' . get_the_title() . '" alt="title">';
                                 $ret .= exopite_create_effect_image_frame( $dummy_img, get_the_title() );
                                 $ret .= '</a>';
 
