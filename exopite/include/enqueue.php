@@ -27,20 +27,22 @@ $exopite_settings = get_option( 'exopite_options' );
 
 function load_google_fonts() {
 
+    $exopite_settings = get_option( 'exopite_options' );
+
     // If load Google fonts not async
     if ( isset( $exopite_settings['exopite-load-google-fonts-async'] ) && ! $exopite_settings['exopite-load-google-fonts-async'] ) {
-        if ( ! is_admin() ) add_action( 'wp_enqueue_scripts', 'load_google_fonts' );
-        if ( ! function_exists( 'load_google_fonts' ) ) {
-            function load_google_fonts() {
 
-                // Generate Google fonts query string from options.
-                // include/google-fonts.php
-                $google_fonts = get_google_fonts();
+        if ( ! is_admin() ){
 
-                wp_enqueue_style( 'wpb-google-fonts', 'http' . ($_SERVER['SERVER_PORT'] == 443 ? 's' : '') . '://fonts.googleapis.com/css?family=' . $google_fonts['regular'], false );
-            }
+            // Generate Google fonts query string from options.
+            // include/google-fonts.php
+            $google_fonts = get_google_fonts();
+
+            wp_enqueue_style( 'wpb-google-fonts', 'http' . ($_SERVER['SERVER_PORT'] == 443 ? 's' : '') . '://fonts.googleapis.com/css?family=' . $google_fonts['regular'], false );
         }
+
     } else {
+
         wp_enqueue_style( 'wpb-google-fonts', 'http' . ($_SERVER['SERVER_PORT'] == 443 ? 's' : '') . '://fonts.googleapis.com/css?family=Shadows+Into+Light+Two|Roboto:300,500', false );
     }
 
