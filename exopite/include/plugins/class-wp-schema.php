@@ -3,7 +3,7 @@
  * Schema microdata
  *
  * This file incorporates code from Stargazer WordPress Theme,
- * Copyright (c) 2013 - 2016, Justin Tadlock http://themehybrid.com/themes/stargazer.
+ * Copyright (c) 2013 - 2016, Justin Tadlock https://themehybrid.com/themes/stargazer.
  * Stargazer WordPress Theme is distributed under the terms of the GNU GPL.
  *
  * This file incorporates code from Manta WordPress Theme,
@@ -113,7 +113,7 @@ class WP_Schema {
 	 */
 	public static function head( $attr ) {
 		$attr['itemscope'] = 'itemscope';
-		$attr['itemtype']  = 'http://schema.org/WebSite';
+		$attr['itemtype']  = 'https://schema.org/WebSite';
 		return $attr;
 	}
 
@@ -127,7 +127,7 @@ class WP_Schema {
 	 */
 	public static function body( $attr ) {
 		$attr['itemscope'] = 'itemscope';
-		$attr['itemtype']  = 'http://schema.org/WebPage';
+		$attr['itemtype']  = 'https://schema.org/WebPage';
 		return $attr;
 	}
 
@@ -141,7 +141,7 @@ class WP_Schema {
 	 */
 	public static function site_header( $attr ) {
 		$attr['itemscope'] = 'itemscope';
-		$attr['itemtype']  = 'http://schema.org/WPHeader';
+		$attr['itemtype']  = 'https://schema.org/WPHeader';
 		return $attr;
 	}
 
@@ -181,7 +181,7 @@ class WP_Schema {
 	 */
 	public static function main_navigation( $attr ) {
 		$attr['itemscope'] = 'itemscope';
-		$attr['itemtype']  = 'http://schema.org/SiteNavigationElement';
+		$attr['itemtype']  = 'https://schema.org/SiteNavigationElement';
 		return $attr;
 	}
 
@@ -211,14 +211,14 @@ class WP_Schema {
 	public static function site_main( $attr ) {
 		if ( ! is_page() && ! is_404() ) {
 			$attr['itemscope'] = 'itemscope';
-			$attr['itemtype']  = 'http://schema.org/Blog';
+			$attr['itemtype']  = 'https://schema.org/Blog';
 		} else {
 			$attr['itemprop']  = 'mainContentOfPage';
 		}
 
 		if ( is_search() ) {
 			$attr['itemscope'] = 'itemscope';
-			$attr['itemtype']  = 'http://schema.org/SearchResultsPage';
+			$attr['itemtype']  = 'https://schema.org/SearchResultsPage';
 		}
 
 		return $attr;
@@ -234,7 +234,7 @@ class WP_Schema {
 	 */
 	public static function post( $attr ) {
 		$attr['itemscope'] = 'itemscope';
-		$attr['itemtype']  = 'http://schema.org/CreativeWork';
+		$attr['itemtype']  = 'https://schema.org/CreativeWork';
 		return $attr;
 	}
 
@@ -248,7 +248,7 @@ class WP_Schema {
 	 */
 	public static function sidebar( $attr ) {
 		$attr['itemscope'] = 'itemscope';
-		$attr['itemtype']  = 'http://schema.org/WPSideBar';
+		$attr['itemtype']  = 'https://schema.org/WPSideBar';
 		return $attr;
 	}
 
@@ -262,7 +262,7 @@ class WP_Schema {
 	 */
 	public static function site_footer( $attr ) {
 		$attr['itemscope'] = 'itemscope';
-		$attr['itemtype']  = 'http://schema.org/WPFooter';
+		$attr['itemtype']  = 'https://schema.org/WPFooter';
 		return $attr;
 	}
 
@@ -328,7 +328,7 @@ class WP_Schema {
 	 */
 	public static function author( $attr ) {
 		$attr['itemscope'] = 'itemscope';
-		$attr['itemtype']  = 'http://schema.org/Person';
+		$attr['itemtype']  = 'https://schema.org/Person';
 		$attr['itemprop']  = 'author';
 		return $attr;
 	}
@@ -382,7 +382,7 @@ class WP_Schema {
 	 */
 	public static function comment_inner( $attr ) {
 		$attr['itemscope'] = 'itemscope';
-		$attr['itemtype']  = 'http://schema.org/Comment';
+		$attr['itemtype']  = 'https://schema.org/Comment';
 		$attr['itemprop']  = 'comment';
 		return $attr;
 	}
@@ -397,7 +397,7 @@ class WP_Schema {
 	 */
 	public static function comment_author( $attr ) {
 		$attr['itemscope'] = 'itemscope';
-		$attr['itemtype']  = 'http://schema.org/Person';
+		$attr['itemtype']  = 'https://schema.org/Person';
 		$attr['itemprop']  = 'author';
 		return $attr;
 	}
@@ -438,7 +438,7 @@ class WP_Schema {
 	 */
 	public static function page_header( $attr ) {
 		$attr['itemscope'] = 'itemscope';
-		$attr['itemtype']  = 'http://schema.org/WebPageElement';
+		$attr['itemtype']  = 'https://schema.org/WebPageElement';
 		return $attr;
 	}
 
@@ -453,7 +453,7 @@ class WP_Schema {
 	public static function search_form( $attr ) {
 		$attr['itemprop']  = 'potentialAction';
 		$attr['itemscope'] = 'itemscope';
-		$attr['itemtype']  = 'http://schema.org/SearchAction';
+		$attr['itemtype']  = 'https://schema.org/SearchAction';
 		return $attr;
 	}
 
