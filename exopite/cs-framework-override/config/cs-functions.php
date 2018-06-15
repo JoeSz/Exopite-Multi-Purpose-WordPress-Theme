@@ -56,3 +56,44 @@ if ( ! function_exists( 'get_sections' ) ) {
         return $sections;
     }
 }
+
+add_action( 'cs_websafe_fonts_variants', 'cs_websafe_fonts_variants_custom', 10, 1 );
+function cs_websafe_fonts_variants_custom( $variants ) {
+    return array(
+        '300',
+        '300italic',
+        'regular',
+        'italic',
+        '600',
+        '600italic',
+        '700',
+        '700italic',
+        'inherit'
+    );
+}
+
+add_action( 'cs_typography_family', 'cs_typography_family_custom', 10, 2 );
+function cs_typography_family_custom( $family_value, $typography ) {
+    $exopite_settings = get_option( 'exopite_options' );
+
+    $default_custom_variants =  array(
+        '300',
+        '300italic',
+        '400',
+        '400italic',
+        '600',
+        '600italic',
+        'inherit'
+    );
+
+    // file_put_contents( get_stylesheet_directory() . '/settings.log', date('Y-m-d H:i:s') . ' - ' . var_export( $exopite_settings, true ) . PHP_EOL, FILE_APPEND );
+
+    if ( isset( $exopite_settings['exopite-custom-fonts'] ) && ! empty( $exopite_settings['exopite-custom-fonts'] ) ) {
+        echo '<optgroup label="'. esc_html__( 'Custom Fonts', 'cs-framework' ) .'">';
+        foreach ( $exopite_settings['exopite-custom-fonts'] as $custom_font ) {
+            echo '<option value="'. $custom_font['exopite-local-font-name'] .'" data-variants="'. implode( '|', $default_custom_variants ) .'" data-type="custom"'. selected( $custom_font['exopite-local-font-name'], $family_value, true ) .'>'. $custom_font['exopite-local-font-name'] .'</option>';
+        }
+        echo '</optgroup>';
+    }
+
+}
