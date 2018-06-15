@@ -21,7 +21,7 @@ if ( ! function_exists( 'get_google_fonts' ) ) {
          */
         $exopite_settings = get_option( 'exopite_options' );
 
-        $google_fonts_noscrypt = 'Shadows+Into+Light+Two|';
+        $google_fonts_noscript = 'Shadows+Into+Light+Two|';
         $google_fonts_async = "'Shadows Into Light Two',";
 
         if ( ! is_array( $exopite_settings['google_fonts'] ) ) {
@@ -36,12 +36,12 @@ if ( ! function_exists( 'get_google_fonts' ) ) {
 
             // Different format for link and async js
             $google_fonts_async .= "'" . $family_name . ':';
-            $google_fonts_noscrypt .= str_replace( ' ', '+', $family_name ) . ':';
+            $google_fonts_noscript .= str_replace( ' ', '+', $family_name ) . ':';
 
             // Get font weights
             foreach ( $family_weight as $key => $weight ) {
                 $google_fonts_async .= $weight . ',';
-                $google_fonts_noscrypt .= $weight . ',';
+                $google_fonts_noscript .= $weight . ',';
             }
 
             /*
@@ -50,24 +50,24 @@ if ( ! function_exists( 'get_google_fonts' ) ) {
              */
             if ( ! in_array( '500', $family_weight ) ) {
                 $google_fonts_async .= '500';
-                $google_fonts_noscrypt .= '500';
+                $google_fonts_noscript .= '500';
             }
 
             $google_fonts_async = rtrim( $google_fonts_async, ',' );
-            $google_fonts_noscrypt = rtrim( $google_fonts_noscrypt, ',' );
+            $google_fonts_noscript = rtrim( $google_fonts_noscript, ',' );
 
             // Add separator between fonts
             $google_fonts_async .= "',";
-            $google_fonts_noscrypt .= '|';
+            $google_fonts_noscript .= '|';
         }
 
         // Get rid of last separator
         $google_fonts_async = rtrim( $google_fonts_async, ',' );
-        $google_fonts_noscrypt = rtrim( $google_fonts_noscrypt, '|' );
+        $google_fonts_noscript = rtrim( $google_fonts_noscript, '|' );
 
         return array(
             'async' => $google_fonts_async,
-            'regular' => $google_fonts_noscrypt
+            'regular' => $google_fonts_noscript
         );
     }
 }
