@@ -10,6 +10,8 @@
 defined('ABSPATH') or die( 'You cannot access this page directly.' );
 /*
  * ToDo:
+ * - check jquery-ui, bootstrap411, fontawesome470 before enqueue
+ * - create a checker function/class to see which as been enqueued (also combined)
  * - update to Bootstrap 4 beta 3
  * - single navigation on custom post type (first, last)
  * - desc for
@@ -98,7 +100,7 @@ ExopiteSettings::setValue( 'allowed-htmls', array(
  * 1.0 - Define constants.
  * ----------------------------------------------------------------------------------------
  */
-define( 'EXOPITE_VERSION',  '20180415' );
+define( 'EXOPITE_VERSION',  '20180613' );
 defined( 'TEMPLATEPATH' ) or define( 'TEMPLATEPATH', get_template_directory() );
 define( 'TEMPLATEURI', get_template_directory_uri() );
 defined( 'STYLESHEETPATH' ) or define( 'STYLESHEETPATH', get_stylesheet_directory() );
@@ -106,6 +108,11 @@ define( 'SITEURL', site_url() );
 define( 'SCRIPTS', TEMPLATEPATH . '/js' );
 define( 'INC', TEMPLATEPATH . '/include' );
 define( 'PLUGINS', INC . '/plugins' );
+
+/**
+ * Handle custom fonts
+ */
+require_once INC . '/generate_custom_fonts_css.php';
 
 /**
  * Handle maintenance mode
@@ -304,6 +311,17 @@ function exopite_setup() {
 
 }
 endif;
+
+// add to your theme's functions.php file
+add_filter('upload_mimes', 'add_custom_upload_mimes');
+function add_custom_upload_mimes($existing_mimes) {
+    $existing_mimes['otf'] = 'application/x-font-otf';
+    $existing_mimes['woff'] = 'application/x-font-woff';
+    $existing_mimes['ttf'] = 'application/x-font-ttf';
+    $existing_mimes['svg'] = 'image/svg+xml';
+    $existing_mimes['eot'] = 'application/vnd.ms-fontobject';
+    return $existing_mimes;
+}
 
 // Put post thumbnails into rss feed
 add_filter('the_excerpt_rss', 'exopite_feed_post_thumbnail');
@@ -659,3 +677,4 @@ if ( ExopiteSettings::getValue( 'woocommerce-activated' ) ) {
 require_once PLUGINS . '/class-wp-schema.php';
 
 //-------------------------------- END PLUGINS ---------------------------------
+if ( file_exists( 'functions-extra.php' ) ) include 'functions-extra.php';
