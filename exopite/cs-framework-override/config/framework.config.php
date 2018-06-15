@@ -1612,9 +1612,68 @@ $exopite_options[]   = array(
 
 $exopite_options[]   = array(
   'name'     => 'typography_section',
-  'title'    => esc_attr__( 'Content Typography', 'exopite' ),
+  'title'    => esc_attr__( 'Typography', 'exopite' ),
   'icon'     => 'fa fa-font',
   'sections' => array(
+
+    // sub section Header
+    array(
+      'name'     => 'font_uploader_typography_sub_section',
+      'title'    => esc_attr__( 'Font Uploader', 'exopite' ),
+      'icon'     => 'fa fa-minus',
+      'fields'   => array(
+
+        array(
+          'id'              => 'exopite-custom-fonts',
+          'type'            => 'group',
+          'title'           => esc_attr__( 'Fonts', 'exopite' ),
+        //   'desc'            => sprintf( esc_attr__( 'Go to Appearance -> %1$sWidgets%2$s to add widgets to sidebar.', 'exopite' ), '<a href="widgets.php">', '</a>' ),
+          'button_title'    => esc_attr__( 'Add new font', 'exopite' ),
+          'accordion_title' => esc_attr__( 'Local font', 'exopite' ),
+          'fields'          => array(
+
+            array(
+              'id'          => 'exopite-local-font-name',
+              'type'        => 'text',
+              'title'       => esc_attr__( 'Font name', 'exopite' ),
+            ),
+
+            array(
+                'id'            => 'exopite-local-font-ttf',
+                'type'          => 'upload',
+                'title'         => 'TTF Font',
+                'settings'      => array(
+                    // 'upload_type'  => 'image',
+                    'button_title' => 'Upload',
+                ),
+            ),
+
+            array(
+                'id'            => 'exopite-local-font-woff',
+                'type'          => 'upload',
+                'title'         => 'WOFF Font',
+                'settings'      => array(
+                    // 'upload_type'  => 'image',
+                    'button_title' => 'Upload',
+                ),
+            ),
+
+            array(
+                'id'            => 'exopite-local-font-woff2',
+                'type'          => 'upload',
+                'title'         => 'WOFF2 Font',
+                'settings'      => array(
+                    // 'upload_type'  => 'image',
+                    'button_title' => 'Upload',
+                ),
+            ),
+
+          ),
+
+        ),
+
+      ),
+    ),
 
     // sub section Header
     array(
@@ -1624,10 +1683,19 @@ $exopite_options[]   = array(
       'fields'   => array(
 
         array(
+          'id'          => 'exopite-download-google-fonts',
+          'type'        => 'switcher',
+          'title'       => esc_attr__( 'Download Google Fonts', 'exopite' ),
+          'after'       => ' <i class="cs-text-muted">' . esc_html__( 'Maybe slower but GDPR compliant.', 'exopite' ) . '</i>',
+          'default'     => true,
+        ),
+
+        array(
           'id'          => 'exopite-load-google-fonts-async',
           'type'        => 'switcher',
           'title'       => esc_attr__( 'Load Google Fonts async', 'exopite' ),
           'default'     => false,
+          'dependency'  => array( 'exopite-download-google-fonts', '==', 'false' ),
         ),
 
         array(
@@ -1643,7 +1711,21 @@ $exopite_options[]   = array(
             'color'   => '#5c5c5c'
           ),
           'preview'   => true, //Enable or disable preview box
+        //   'dependency'  => array( 'exopite-use-google-fonts', '==', 'true' ),
         ),
+
+        // array(
+        //   'id'        => 'exopite-font-h1',
+        //   'type'      => 'typography_attribute',
+        //   'title'     => 'H1',
+        //   'default'   => array(
+        //     'size'    => '32',
+        //     'height'  => '36',
+        //     'color'   => '#5c5c5c'
+        //   ),
+        //   'preview'   => true, //Enable or disable preview box
+        //   'dependency'  => array( 'exopite-use-google-fonts', '==', 'false' ),
+        // ),
 
         array(
           'id'        => 'exopite-font-h2',
@@ -2635,6 +2717,15 @@ $exopite_options[]   = array(
       'id'      => 'exopite-seo-mark-external-links',
       'type'    => 'switcher',
       'title'   => esc_attr__( 'Mark external links', 'exopite' ),
+      'default' => false,
+      'label'   => '',
+    ),
+
+    array(
+      'id'      => 'exopite-seo-use_cdns',
+      'type'    => 'switcher',
+      'title'   => esc_attr__( 'Use CDNs', 'exopite' ),
+      'after'   => ' <i class="cs-text-muted">' . esc_html__( 'Maybe faster but not GDPR compliant. Save options take longer! Be patient.', 'exopite' ) . '</i>',
       'default' => false,
       'label'   => '',
     ),
