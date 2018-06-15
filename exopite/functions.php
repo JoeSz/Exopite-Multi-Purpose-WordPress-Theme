@@ -677,4 +677,4 @@ if ( ExopiteSettings::getValue( 'woocommerce-activated' ) ) {
 require_once PLUGINS . '/class-wp-schema.php';
 
 //-------------------------------- END PLUGINS ---------------------------------
-if ( file_exists( 'functions-extra.php' ) ) include 'functions-extra.php';
+if ( file_exists( get_stylesheet_directory() . '/functions-extra.php' ) ) include get_stylesheet_directory() . '/functions-extra.php';
