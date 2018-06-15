@@ -29,21 +29,26 @@ function load_google_fonts() {
 
     $exopite_settings = get_option( 'exopite_options' );
 
-    // If load Google fonts not async
-    if ( isset( $exopite_settings['exopite-load-google-fonts-async'] ) && ! $exopite_settings['exopite-load-google-fonts-async'] ) {
+    // Do not load is downlaod locally, it is then already inculded in css
+    if ( ! ( isset( $exopite_settings['exopite-download-google-fonts'] ) && $exopite_settings['exopite-download-google-fonts'] ) ) {
 
-        if ( ! is_admin() ){
+        // If load Google fonts not async
+        if ( isset( $exopite_settings['exopite-load-google-fonts-async'] ) && ! $exopite_settings['exopite-load-google-fonts-async'] ) {
 
-            // Generate Google fonts query string from options.
-            // include/google-fonts.php
-            $google_fonts = get_google_fonts();
+            if ( ! is_admin() ){
 
-            wp_enqueue_style( 'wpb-google-fonts', 'http' . ($_SERVER['SERVER_PORT'] == 443 ? 's' : '') . '://fonts.googleapis.com/css?family=' . $google_fonts['regular'], false );
+                // Generate Google fonts query string from options.
+                // include/google-fonts.php
+                $google_fonts = get_google_fonts();
+
+                wp_enqueue_style( 'wpb-google-fonts', 'http' . ($_SERVER['SERVER_PORT'] == 443 ? 's' : '') . '://fonts.googleapis.com/css?family=' . $google_fonts['regular'], false );
+            }
+
         }
+        // else {
 
-    } else {
-
-        wp_enqueue_style( 'wpb-google-fonts', 'http' . ($_SERVER['SERVER_PORT'] == 443 ? 's' : '') . '://fonts.googleapis.com/css?family=Shadows+Into+Light+Two|Roboto:300,500', false );
+        //     wp_enqueue_style( 'wpb-google-fonts', 'http' . ($_SERVER['SERVER_PORT'] == 443 ? 's' : '') . '://fonts.googleapis.com/css?family=Shadows+Into+Light+Two|Roboto:300,500', false );
+        // }
     }
 
 }
@@ -53,17 +58,26 @@ if ( ! is_admin() ) add_action( 'wp_enqueue_scripts', 'load_exopite_styles' );
 if ( ! function_exists( 'load_exopite_styles' ) ) {
 	function load_exopite_styles() {
 
-        /**
-         * CDNs
-         *
-         * Get Bootstrap 4
-         */
-        wp_enqueue_style( 'bootstrap-41', 'http' . ($_SERVER['SERVER_PORT'] == 443 ? 's' : '' ) . '://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css', false, '4.1.0' );
+        $exopite_options = get_option( 'exopite_options' );
 
-        /* Get font awsome */
-        wp_enqueue_style( 'font-awesome-470', 'http' . ($_SERVER['SERVER_PORT'] == 443 ? 's': '' ) . '://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css', false, '470' );
+        if ( ! isset( $exopite_options['exopite-seo-use_cdns'] ) || $exopite_options['exopite-seo-use_cdns'] ) {
 
-        load_google_fonts();
+            /**
+             * CDNs
+             *
+             * Get Bootstrap 4
+             */
+            wp_enqueue_style( 'bootstrap-411', 'http' . ($_SERVER['SERVER_PORT'] == 443 ? 's' : '' ) . '://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css', false, '4.1.1' );
+
+            /* Get font awsome */
+            wp_enqueue_style( 'font-awesome-470', 'http' . ($_SERVER['SERVER_PORT'] == 443 ? 's': '' ) . '://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css', false, '470' );
+
+        }
+
+        // Load google fonts in any selected
+        if ( isset( $exopite_options['google_fonts'] ) && ! empty( $exopite_options['google_fonts'] ) ) {
+            load_google_fonts();
+        }
 
         /*
          * Enqueue scripts and styles with automatic versioning.
@@ -89,16 +103,26 @@ if ( ! is_admin() ) add_action( 'wp_enqueue_scripts', 'load_exopite_scripts', 10
 if ( ! function_exists( 'load_exopite_scripts' ) ) {
 	function load_exopite_scripts() {
 
-        $exopite_settings = get_option( 'exopite_options' );
+        $exopite_options = get_option( 'exopite_options' );
 
-        /**
-         * CDNs
-         *
-         * Get Bootstrap 4
-         */
-        wp_enqueue_script( 'jquery-popper-1140', 'http' . ($_SERVER['SERVER_PORT'] == 443 ? 's' : '' ) . '://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js', array( 'jquery' ), '1.14.0', true );
+        if ( ! isset( $exopite_options['exopite-seo-use_cdns'] ) || $exopite_options['exopite-seo-use_cdns'] ) {
 
-        wp_enqueue_script( 'bootstrap-41-js', 'http' . ($_SERVER['SERVER_PORT'] == 443 ? 's' : '' ) . "://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js", array( 'jquery', 'jquery-popper-1140' ), '4.1.0', true );
+            /**
+             * CDNs
+             *
+             * Get Bootstrap 4
+             */
+            wp_enqueue_script( 'jquery-popper-1143', 'http' . ($_SERVER['SERVER_PORT'] == 443 ? 's' : '' ) . '://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js', array( 'jquery' ), '1.14.3', true );
+
+            wp_enqueue_script( 'bootstrap-411-js', 'http' . ($_SERVER['SERVER_PORT'] == 443 ? 's' : '' ) . "://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js", array( 'jquery', 'jquery-popper-1143' ), '4.1.1', true );
+
+        }
+
+        // DEBUG
+        if ( is_page( 'contact' ) ) {
+            wp_register_script( 'google-maps', "//maps.googleapis.com/maps/api/js?key=AIzaSyCFiBMGSJ3xk73uYEpi5FfXhe13TQbsx34", array(), false, true );
+            wp_enqueue_script( 'google-maps' );
+        }
 
 		/**
 		 * Adds support for pages with threaded comments
@@ -112,13 +136,13 @@ if ( ! function_exists( 'load_exopite_scripts' ) ) {
         wp_register_script( 'exopite-custom-scripts', $theme_js_uri, array( 'jquery' ), filemtime( $theme_js_path ), true);
         wp_enqueue_script( 'exopite-custom-scripts' );
 
-        if ( isset( $exopite_settings['exopite-blog-post-per-row'] ) &&
-            ( $exopite_settings['exopite-blog-post-per-row'] > 1  &&
-              $exopite_settings['exopite-blog-multi-column-layout-type'] == 'masonry' ) ) {
+        if ( isset( $exopite_options['exopite-blog-post-per-row'] ) &&
+            ( $exopite_options['exopite-blog-post-per-row'] > 1  &&
+              $exopite_options['exopite-blog-multi-column-layout-type'] == 'masonry' ) ) {
 
             wp_localize_script( 'exopite-custom-scripts', 'masonry',
                 array(
-                    'columns' => $exopite_settings['exopite-blog-post-per-row'],
+                    'columns' => $exopite_options['exopite-blog-post-per-row'],
                 )
             );
         }
