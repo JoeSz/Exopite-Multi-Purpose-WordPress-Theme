@@ -22,7 +22,7 @@ $exopite_settings = get_option( 'exopite_options' );
 /**
  * Generate Google fonts query.
  */
-require INC . '/google-fonts.php';
+require_once( INC . '/google-fonts.php' );
 
 /**
  * Enqueue scripts and styles.
@@ -30,14 +30,33 @@ require INC . '/google-fonts.php';
 require( INC . '/enqueue.php' );
 
 require_once( TEMPLATEPATH . '/cs-framework-override/on_save_options.php' );
-require_once( INC . '/google-fonts.php' );
 
 $exopite_settings = css_generate_background( 'exopite-maintenance-backgorund', $exopite_settings );
-$google_fonts = get_google_fonts();
+
+if ( isset( $exopite_settings['google_fonts'] ) && ! empty( $exopite_settings['google_fonts'] ) ) {
+
+    // Do not load is downlaod locally, it is then already inculded in css
+    if ( ! ( isset( $exopite_settings['exopite-download-google-fonts'] ) && $exopite_settings['exopite-download-google-fonts'] ) ) {
+
+        $google_fonts = get_google_fonts();
+        ?>
+        <link rel="stylesheet" type="text/css" href="<?php echo 'http' . ($_SERVER['SERVER_PORT'] == 443 ? "s" : "") . '://fonts.googleapis.com/css?family=' . $google_fonts['regular'] ?>">
+        <?php
+
+    } else {
+        ?>
+        <link rel="stylesheet" type="text/css" href="<?php echo get_stylesheet_directory_uri() . '/css/google-fonts.css'; ?>">
+        <?php
+    }
+}
 
 ?>
-<link rel="stylesheet" type="text/css" href="<?php echo 'http' . ($_SERVER['SERVER_PORT'] == 443 ? "s" : "") . '://fonts.googleapis.com/css?family=' . $google_fonts['regular'] ?>">
 <style type="text/css">
+<?php
+if ( isset( $exopite_settings['custom_fonts'] ) && ! empty( $exopite_settings['custom_fonts'] ) ) {
+    echo generate_custom_fonts_css( $exopite_settings, TEMPLATEPATH . '/css/' );
+}
+?>
 body,h1,h2,h3,h4,h5,h6,p {
     font-family: "<?php echo $exopite_settings['exopite-font-content']['family']; ?>";
     font-weight: <?php echo $exopite_settings['exopite-font-content']['weight']; ?>;
