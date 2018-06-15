@@ -80,11 +80,15 @@ if ( ! class_exists( 'Exopite_Minify_Combine' ) ) {
 
             if ( ! isset( $this->options ) || empty( $this->options ) ) return;
 
+            $path = TEMPLATEPATH . '/css/';
+            $template = '';
+
+            $template .= generate_custom_fonts_css( $this->options, $path );
+
             //Template = new Template;
             Exopite_Template::$variables_array = $this->options;
 
             $core_file = TEMPLATEPATH . '/style.css';
-            $path = TEMPLATEPATH . '/css/';
 
             // Write version in css fragment
             Exopite_Template::$variables_array['version'] = EXOPITE_VERSION;
@@ -95,6 +99,8 @@ if ( ! class_exists( 'Exopite_Minify_Combine' ) ) {
 
             // Write last generated
             $data .= '/* Generated: ' . date("Y-m-d H:i:s") . ' */' . PHP_EOL;
+
+            $data .= ( class_exists( 'Exopite_Minifier' ) ) ? Exopite_Minifier::minify_css( $template ) : $template;
 
             foreach ( $this->css_files as $filename ) {
 
