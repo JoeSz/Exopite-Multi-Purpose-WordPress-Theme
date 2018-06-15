@@ -1,7 +1,7 @@
 # Exopite - High Performance Multi-purpose WordPress Theme
 
 - Author: Joe Szalai
-- Version: 20180415
+- Version: 20180613
 - Theme URL: https://joe.szalai.org/exopite/
 - Demo URL: https://joe.szalai.org/exopite/
 - Theme GitHub URL: https://github.com/JoeSz/Exopite-Multi-Purpose-WordPress-Theme
@@ -127,6 +127,12 @@ Based on the activated elements ad activated plugins. (This may take a few secon
 - 1-4 Related products per page
 - Choose a shop and product sidebar (any sidebar)
 - Change shop title
+
+#### GDPR (General Data Protection Regulation) compliant
+- Option to donwload Google Fonts locally
+- Option to use Bootstrap and FontAwesome locally without CDN
+- IMPORTANT! Backend will load FontAwesom from CDN.
+             Read Privacy Policy: https://www.bootstrapcdn.com/privacy-policy/
 
 #### Shortcodes
 

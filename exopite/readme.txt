@@ -1,7 +1,7 @@
 === Exopite - High Performance Multi-purpose WordPress Theme ===
 
 - Author: Joe Szalai
-- Version: 20180415
+- Version: 20180613
 - Theme URL: http://joe.szalai.org/exopite/
 - Theme GitHub URL: https://github.com/JoeSz/Exopite-Multi-Purpose-WordPress-Theme
 - Author URL: http://joe.szalai.org/
@@ -146,6 +146,12 @@ SHORTCODES
 - Display releated posts                                    [exopite-releated-posts]
 - Display author meta                                       [exopite-author-meta]
 
+GDPR (General Data Protection Regulation) compliant
+- Option to donwload Google Fonts locally
+- Option to use Bootstrap and FontAwesome locally without CDN
+- IMPORTANT! Backend will load FontAwesom from CDN.
+             Read Privacy Policy: https://www.bootstrapcdn.com/privacy-policy/
+
 Well organized, commented & clean code
 
 COMPATIBILITY:
@@ -179,13 +185,25 @@ Req:
 == Installation ==
 
 1. Download theme
+> Extra steps for GitHub:
+> - Click on `Clone or Download`
+> - `Download ZIP`
+> - Right click on the downloaded zip file and select `Extract All...`
+> - Copy the `exopite` folder form inside `Exopite-Multi-Purpose-WordPress-Theme-master` folder to somewhere
+> - Right click on the copied `exopite` folder and `Send to -> Compressed (zipped) folder`
 2. In your admin panel, go to Appearance > Themes and click the Add New button.
-3. Click Upload and Choose File, then select the theme's .zip file. Click Install Now.
+3. Click Upload and Choose File, then select the exopite.zip file. Click Install Now.
 4. Click Activate to use your new theme right away.
 
 == Frequently Asked Questions ==
 
 == Changelog ==
+
+= 20180613 - Jun 13 2018
+* ADDED: Option to download and use Google Fonts locally (GDPR compliant)
+* ADDED: Option to disable CDNs and load Bootstrap and FontAwesome locally (GDPR compliant)
+* ADDED: Option to upload and use custom fonts
+* ADDED: Update Bootstrap to 4.1.1
 
 = 20180415 - Apr 15 2018
 * ADDED: Update Bootstrap to 4.1.0
@@ -438,6 +456,3 @@ to customize those pages.
 
 * Based on Underscores http://underscores.me/, (C) 2012-2016 Automattic, Inc., [GPLv2 or later](https://www.gnu.org/licenses/gpl-2.0.html)
 * normalize.css http://necolas.github.io/normalize.css/, (C) 2012-2016 Nicolas Gallagher and Jonathan Neal, [MIT](http://opensource.org/licenses/MIT)
-
-
-

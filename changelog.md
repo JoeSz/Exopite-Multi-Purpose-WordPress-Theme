@@ -1,5 +1,11 @@
 # Changelog
 
+= 20180613 - Jun 13 2018
+* **ADDED**: Option to download and use Google Fonts locally (GDPR compliant)
+* **ADDED**: Option to disable CDNs and load Bootstrap and FontAwesome locally (GDPR compliant)
+* **ADDED**: Option to upload and use custom fonts
+* **ADDED**: Update Bootstrap to 4.1.1
+
 = 20180415 - Apr 15 2018
 * **ADDED**: Update Bootstrap to 4.1.0
 
@@ -246,5 +252,3 @@ to customize those pages.
 
 = 1.0 - May 12 2015 =
 * Initial release
-
-
