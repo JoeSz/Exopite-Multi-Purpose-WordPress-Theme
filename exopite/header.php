@@ -155,7 +155,7 @@ tha_head_top();
 wp_head();
 
 // If load Google fonts async
-if ( isset( $exopite_settings['exopite-load-google-fonts-async'] ) && $exopite_settings['exopite-load-google-fonts-async'] ) {
+if ( ( isset( $exopite_settings['exopite-load-google-fonts-async'] ) && $exopite_settings['exopite-load-google-fonts-async'] ) && ! ( isset( $exopite_settings['exopite-download-google-fonts'] ) && $exopite_settings['exopite-download-google-fonts'] ) ) {
     get_template_part( 'template-parts/font-async' );
 }
 
