@@ -198,3 +198,6 @@ body.wp-admin select {
     font-size: 80%;
     color: #bbb;
 }
+.cs-field-switcher .cs-text-muted {
+    padding-left: 10px;
+}
