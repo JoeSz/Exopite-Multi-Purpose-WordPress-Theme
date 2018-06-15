@@ -7,6 +7,21 @@
 
 if ( ! defined( 'ABSPATH' ) ) die; // Cannot access pages directly.
 
+// Generate RGB from Hex color
+function css_generate_rgb( $setting, $options ) {
+
+    if ( preg_match( '/#([a-fA-F0-9]{3}){1,2}\b/', $options[$setting] ) ) {
+
+        list( $r, $g, $b ) = sscanf( $options[$setting], "#%02x%02x%02x" );
+
+        $options[$setting . '-rgb'] = "$r,$g,$b";
+    } else {
+        $options[$setting . '-rgb'] = $options[$setting];
+    }
+
+    return $options;
+}
+
 // Generate CSS background property
 function css_generate_background( $setting, $options ) {
     if ( empty( $options[$setting]['image'] ) ) {
@@ -27,6 +42,14 @@ function css_generate_background( $setting, $options ) {
     return $options;
 }
 
+// Generate Google font families to include
+function add_google_font( $family, $weight, $google_fonts ) {
+    if( ! array_key_exists( $family, $google_fonts ) || ! in_array( $weight, $google_fonts[$family] ) ) {
+        $google_fonts[$family][] = ( $weight == 'regular' ) ? '400' : $weight;
+    }
+    return $google_fonts;
+}
+
 // Generate CSS font property
 function css_generate_font( $setting, $options ) {
     if ( strpos( $options[$setting]['variant'], 'italic') !== false) {
@@ -41,32 +64,107 @@ function css_generate_font( $setting, $options ) {
         $options[$setting]['weight'] = '400';
     }
 
-    $options['google_fonts'] = add_google_font( $options[$setting]['family'], $options[$setting]['weight'], $options['google_fonts'] );
+    $prefix = $options[$setting]['font'];
+    $options[$prefix . '_fonts'] = add_google_font( $options[$setting]['family'], $options[$setting]['weight'], $options[$prefix . '_fonts'] );
+
+    // if ( ( isset( $options['exopite-use-google-fonts'] ) && $options['exopite-use-google-fonts'] ) || ! isset( $options['exopite-use-google-fonts'] ) ) {
+    //     $options['google_fonts'] = add_google_font( $options[$setting]['family'], $options[$setting]['weight'], $options['google_fonts'] );
+    // }
+
 
     return $options;
 }
 
-// Generate RGB from Hex color
-function css_generate_rgb( $setting, $options ) {
+/**
+ * Google Fonts Downloader
+ * @link https://github.com/ediamin/google-fonts-downloader/blob/master/downloader.php
+ *
+ * Use:
+ * Open the script in your browser and copy/paste the google <link ...> code in the input box and press "Download".
+ * A sample <link ...> for Open Sans is there by default.
+ * -- or --
+ * download_google_fonts( $link ) where $list is like http://fonts.googleapis.com/css?family=Shadows+Into+Light+Two|Ubuntu:400,500|Roboto:400,500
+ */
+function download_google_fonts( $link ) {
 
-    if ( preg_match( '/#([a-fA-F0-9]{3}){1,2}\b/', $options[$setting] ) ) {
+    $regex_url = "/(http|https|ftp|ftps)\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(\/\S*)?/";
 
-        list( $r, $g, $b ) = sscanf( $options[$setting], "#%02x%02x%02x" );
+	// Check if there is a url in the text
+	if( preg_match( $regex_url, $link, $url ) ) {
 
-        $options[$setting . '-rgb'] = "$r,$g,$b";
-    } else {
-        $options[$setting . '-rgb'] = $options[$setting];
-    }
+        $css_dir = get_stylesheet_directory() . '/css';
+        $font_dir = get_stylesheet_directory() . "/fonts/google_fonts";
+		$css_file = $css_dir . '/google-fonts.css';
 
-    return $options;
-}
+        $google_css = $url[0];
 
-// Generate Google font families to include
-function add_google_font( $family, $weight, $google_fonts ) {
-    if( ! array_key_exists( $family, $google_fonts ) || ! in_array( $weight, $google_fonts[$family] ) ) {
-        $google_fonts[$family][] = ( $weight == 'regular' ) ? '400' : $weight;
-    }
-    return $google_fonts;
+		$google_css = rtrim( $google_css, "'" );
+		$ch = curl_init();
+        $fp = fopen ( $css_file, 'w+' );
+		$ch = curl_init( $google_css );
+        /**
+         * Set User-Agent to get woff files instead of ttf
+         * @link http://php.net/manual/en/function.curl-setopt.php
+         * @link https://stackoverflow.com/questions/17801094/php-curl-how-to-add-the-user-agent-value-or-overcome-the-servers-blocking-curl-r/17801135#17801135
+         */
+        $agent = 'Mozilla/60.0 (compatible; MSIE 11.0; Windows NT 10; SV1)';
+        curl_setopt( $ch, CURLOPT_USERAGENT, $agent );
+		curl_setopt( $ch, CURLOPT_TIMEOUT, 50 );
+        curl_setopt( $ch, CURLOPT_FILE, $fp );
+		curl_setopt( $ch, CURLOPT_FOLLOWLOCATION, 1 );
+		curl_exec( $ch );
+		curl_close( $ch );
+        fclose( $fp );
+
+    	// get the download css content
+        $css_file_contents = file_get_contents( $css_file );
+        if ( preg_match_all( $regex_url, $css_file_contents, $fonts ) ) {
+			$fonts = $fonts[0];
+
+            // Get files list
+            $font_files = array();
+            foreach ( $fonts as $i => $font ) {
+				$font = rtrim( $font, ")" );
+				$font_file = explode( "/", $font );
+                $font_file = array_pop( $font_file );
+                $font_files[$font] = $font_file;
+            }
+
+            // DEBUG
+            // file_put_contents( get_stylesheet_directory() . '/font.log', date('Y-m-d H:i:s') . ' - FONTFILE: ' . var_export( $font_files, true ) . PHP_EOL, FILE_APPEND );
+
+            if ( ! file_exists( $font_dir ) ) mkdir( $font_dir );
+
+            // Delete file(s) which not in css file
+            foreach( glob("$font_dir/*") as $file ) {
+                if( ! in_array( basename($file), $font_files, true ) ) unlink($file);
+            }
+
+            foreach ( $font_files as $font => $font_file ) {
+
+                // Do not download if exist
+                if ( ! file_exists( $font_dir . '/' . $font_file ) ) {
+                    // download font
+                    $ch = curl_init();
+                    $fp = fopen ( $font_dir . "/{$font_file}", 'w+' );
+                    $ch = curl_init( $font );
+                    curl_setopt( $ch, CURLOPT_TIMEOUT, 50 );
+                    curl_setopt( $ch, CURLOPT_FILE, $fp );
+                    curl_setopt( $ch, CURLOPT_FOLLOWLOCATION, 1 );
+                    curl_exec( $ch );
+                    curl_close( $ch );
+                    fclose( $fp );
+                }
+
+                // replace string
+				$css_file_contents = str_replace( $font, get_stylesheet_directory_uri() . "/fonts/google_fonts/{$font_file}", $css_file_contents );
+			}
+			$fh = fopen ( $css_file, 'w+' );
+			fwrite( $fh, $css_file_contents );
+			fclose( $fh );
+
+        }
+	}
 }
 
 if ( ! function_exists( 'on_save_options' ) ) {
@@ -121,7 +219,6 @@ if ( ! function_exists( 'on_save_options' ) ) {
         $required_files = array(
             'bootstrap-custom.css',
             'flex.css',
-            'fonts.css',
             'basic.css',
             'typography.css',
             'sidebar.css',
@@ -129,6 +226,18 @@ if ( ! function_exists( 'on_save_options' ) ) {
             'blog.sticky.css',
             'comments.css',
         );
+
+        //exopite-seo-use_cdns
+        if ( isset( $options['exopite-seo-use_cdns'] ) && ! $options['exopite-seo-use_cdns'] ) {
+            array_unshift( $required_files, 'font-awesome.4.7.0.min.css', 'bootstrap.4.1.1.min.css' );
+        }
+
+        // Download Google Fonts
+        if ( isset( $options['exopite-download-google-fonts'] ) && $options['exopite-download-google-fonts'] ) {
+            $google_fonts = get_google_fonts();
+            download_google_fonts( 'http' . ($_SERVER['SERVER_PORT'] == 443 ? 's' : '') . '://fonts.googleapis.com/css?family=' . $google_fonts['regular'] );
+            array_unshift( $required_files, 'google-fonts.css' );
+        }
 
         /*
          * Additional style files based on settings
@@ -260,6 +369,13 @@ if ( ! function_exists( 'on_save_options' ) ) {
         $js_files = array(
             'jquery.validate-comment.js',
         );
+
+        //exopite-seo-use_cdns
+        if ( isset( $options['exopite-seo-use_cdns'] ) && ! $options['exopite-seo-use_cdns'] ) {
+            $js_files[] = 'popper.1.14.3.min.js';
+            $js_files[] = 'bootstrap.4.1.1.min.js';
+        }
+
         $js_files_no_minification = array();
 
         if ( $menu_top ) {
@@ -305,7 +421,7 @@ if ( ! function_exists( 'on_save_options' ) ) {
             $js_files[] = 'fixed-footer.js';
         }
 
-        if ( $options['exopite-load-google-fonts-async'] ) {
+        if ( $options['exopite-load-google-fonts-async'] && ! ( isset( $options['exopite-download-google-fonts'] ) && $options['exopite-download-google-fonts'] ) ) {
             $js_files[] = 'google-font-async.js';
         }
 
@@ -345,4 +461,3 @@ if ( ! function_exists( 'on_save_options' ) ) {
 
     }
 }
-
