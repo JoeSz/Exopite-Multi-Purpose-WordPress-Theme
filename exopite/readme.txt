@@ -1,7 +1,7 @@
 === Exopite - High Performance Multi-purpose WordPress Theme ===
 
 - Author: Joe Szalai
-- Version: 20180613
+- Version: 20180622
 - Theme URL: http://joe.szalai.org/exopite/
 - Theme GitHub URL: https://github.com/JoeSz/Exopite-Multi-Purpose-WordPress-Theme
 - Author URL: http://joe.szalai.org/
@@ -198,6 +198,10 @@ Req:
 == Frequently Asked Questions ==
 
 == Changelog ==
+
+= 20180622 - Jun 22 2018
+* ADDED: Option for footer and copyright font family, size and color
+* ENHANCEMENT: Reorganized menu for better user expirience
 
 = 20180613 - Jun 13 2018
 * ADDED: Option to download and use Google Fonts locally (GDPR compliant)

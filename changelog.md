@@ -1,5 +1,9 @@
 # Changelog
 
+= 20180622 - Jun 22 2018
+* **ADDED**: Option for footer and copyright font family, size and color
+* **ENHANCEMENT**: Reorganized menu for better user expirience
+
 = 20180613 - Jun 13 2018
 * **ADDED**: Option to download and use Google Fonts locally (GDPR compliant)
 * **ADDED**: Option to disable CDNs and load Bootstrap and FontAwesome locally (GDPR compliant)
