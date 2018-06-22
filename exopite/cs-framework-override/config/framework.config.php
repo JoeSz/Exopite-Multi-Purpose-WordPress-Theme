@@ -268,7 +268,7 @@ $exopite_options[]   = array(
           'options'      => array(
             'top'        => CS_URI . '/assets/images/top.jpg',
             'left'       => CS_URI . '/assets/images/left.jpg',
-            'overlay'    => CS_URI . '/assets/images/menu-overlay.jpg',
+            // 'overlay'    => CS_URI . '/assets/images/menu-overlay.jpg',
           ),
           'radio'        => true,
           'default'      => 'top'
@@ -337,15 +337,6 @@ $exopite_options[]   = array(
           'title'       => esc_attr__( 'Preheader widget full width', 'exopite' ),
           'default'     => false,
           'dependency'  => array( 'exopite-menu-alignment_left', '==', 'false' ),
-        ),
-
-        array(
-          'id'      => 'exopite-sidebar-preheader-font-color',
-          'type'    => 'color_picker',
-          'title'   => esc_attr__('Preheader font color', 'exopite'),
-          'rgba'    => false,
-          'default' => '#5C5C5C',
-          'dependency' => array( 'exopite-sidebar-preheader-count|exopite-preheader-content_widget', '>|==', '0|true' ),
         ),
 
         array(
@@ -628,17 +619,18 @@ $exopite_options[]   = array(
       )
     ),
 
-    // sub section Desktop menu
+    // sub section Logo menu
     array(
-      'name'     => 'desktop_menu_sub_section',
-      'title'    => esc_attr__( 'Desktop menu', 'exopite' ),
+      'name'     => 'logo_menu_sub_section',
+      'title'    => esc_attr__( 'Logo', 'exopite' ),
       'icon'     => 'fa fa-minus',
       'fields'   => array(
+
 
         array(
           'type'    => 'notice',
           'class'   => 'info',
-          'content' => esc_attr__( 'Logo', 'exopite' ),
+          'content' => esc_attr__( 'Desktop logo', 'exopite' ),
         ),
 
         array(
@@ -719,10 +711,86 @@ $exopite_options[]   = array(
         ),
 
         array(
+          'id'      => 'exopite-floating-menu-logo',
+          'type'    => 'switcher',
+          'title'   => esc_attr__( 'Show floating menu logo', 'exopite' ),
+          'default' => true,
+          'label'   => '',
+          'dependency'  => array( 'exopite-menu-alignment_left', '==', 'false' ),
+        ),
+
+        array(
           'type'    => 'notice',
           'class'   => 'info',
-          'content' => esc_attr__( 'Menu', 'exopite' ),
+          'content' => esc_attr__( 'Mobile logo', 'exopite' ),
         ),
+
+        array(
+          'type'    => 'notice',
+          'class'   => 'warning',
+          'content' => esc_attr__( 'This options available only on top menu.', 'exopite' ),
+          'dependency'  => array( 'exopite-menu-alignment_left', '==', 'true' ),
+        ),
+
+        array(
+          'id'        => 'exopite-mobile-menu-logo',
+          'type'      => 'image',
+          'title'     => esc_attr__( 'Logo', 'exopite' ),
+          'add_title' => esc_attr__( 'Add Logo', 'exopite' ),
+          'dependency'  => array( 'exopite-menu-alignment_left', '==', 'false' ),
+        ),
+
+        array(
+            'id'        => 'exopite-mobile-logo-width',
+            'type'      => 'slider',
+            'title'     => esc_attr__( 'Logo width', 'exopite' ),
+            'validate'  => 'numeric',
+            'default'   => 42,
+            'options'   => array(
+                'step'    => 1,
+                'min'     => 20,
+                'max'     => 300,
+                'unit'    => ''
+            )
+        ),
+
+        array(
+            'id'        => 'exopite-mobile-logo-padding-top',
+            'type'      => 'slider',
+            'title'     => esc_attr__( 'Logo padding top', 'exopite' ),
+            'validate'  => 'numeric',
+            'default'   => 0,
+            'options'   => array(
+                'step'    => 1,
+                'min'     => 0,
+                'max'     => 100,
+                'unit'    => ''
+            )
+        ),
+
+        array(
+            'id'        => 'exopite-mobile-logo-padding-bottom',
+            'type'      => 'slider',
+            'title'     => esc_attr__( 'Logo padding bottom', 'exopite' ),
+            'validate'  => 'numeric',
+            'default'   => 0,
+            'options'   => array(
+                'step'    => 1,
+                'min'     => 0,
+                'max'     => 100,
+                'unit'    => ''
+            )
+        ),
+
+      ),
+    ),
+
+    // sub section Desktop menu
+    array(
+      'name'     => 'desktop_menu_sub_section',
+      'title'    => esc_attr__( 'Desktop menu', 'exopite' ),
+      'icon'     => 'fa fa-minus',
+      'fields'   => array(
 
         array(
           'id'           => 'exopite-desktop-menu-horizontal-alignment',
@@ -845,45 +913,6 @@ $exopite_options[]   = array(
         ),
 
         array(
-          'id'        => 'menu-font',
-          'type'      => 'typography_advanced',
-          'title'     => esc_attr__('Font for menus', 'exopite'),
-          'default'   => array(
-            'family'  => 'Roboto',
-            'variant' => '300',
-            'font'    => 'google',
-            'size'    => '18',
-            'height'  => '22',
-            'color'   => '#5c5c5c'
-          ),
-          'preview'   => true, //Enable or disable preview box
-        ),
-
-        array(
-            'id'        => 'exopite-desktop-menu-color',
-            'type'      => 'color_picker_menu',
-            'title'     => esc_attr__( 'Color', 'exopite' ),
-            'default'   =>  array(
-                'background' => array(
-                    'value' => '#5379BA',
-                    'name'  => esc_attr__( 'Background color', 'exopite' ),
-                ),
-                'background-active-hover' => array(
-                    'value' => '#5379BA',
-                    'name'  => esc_attr__( 'Background active and hover color', 'exopite' ),
-                ),
-                'link' => array(
-                    'value' => '#ffffff',
-                    'name'  => esc_attr__( 'Link color', 'exopite' ),
-                ),
-                'link-active-hover' => array(
-                    'value' => '#FFDD00',
-                    'name'  => esc_attr__( 'Link active and hover color', 'exopite' ),
-                ),
-            ),
-        ),
-
-        array(
             'id'        => 'exopite-desktop-menu-shadow',
             'type'      => 'shadow',
             'title'     => esc_attr__( 'Shadow', 'exopite' ),
@@ -984,38 +1013,6 @@ $exopite_options[]   = array(
       'fields'   => array(
 
         array(
-          'id'        => 'exopite-desktop-submenu-font-size',
-          'type'      => 'number',
-          'title'     => esc_attr__( 'Font size', 'exopite' ),
-          'validate'  => 'numeric',
-          'default'   => '14',
-        ),
-
-        array(
-            'id'        => 'exopite-desktop-submenu-color',
-            'type'      => 'color_picker_menu',
-            'title'     => esc_attr__( 'Color', 'exopite' ),
-            'default'   =>  array(
-                'background' => array(
-                    'value' => '#5379BA',
-                    'name'  => esc_attr__( 'Background color', 'exopite' ),
-                ),
-                'background-active-hover' => array(
-                    'value' => '#5379BA',
-                    'name'  => esc_attr__( 'Background active and hover color', 'exopite' ),
-                ),
-                'link' => array(
-                    'value' => '#ffffff',
-                    'name'  => esc_attr__( 'Link color', 'exopite' ),
-                ),
-                'link-active-hover' => array(
-                    'value' => '#FFDD00',
-                    'name'  => esc_attr__( 'Link active and hover color', 'exopite' ),
-                ),
-            ),
-        ),
-
-        array(
             'id'        => 'exopite-submenu-padding-top',
             'type'      => 'slider',
             'title'     => esc_attr__( 'Padding top', 'exopite' ),
@@ -1071,40 +1068,6 @@ $exopite_options[]   = array(
         ),
 
         array(
-          'id'      => 'exopite-floating-menu-logo',
-          'type'    => 'switcher',
-          'title'   => esc_attr__( 'Show floating menu logo', 'exopite' ),
-          'default' => true,
-          'label'   => '',
-          'dependency'  => array( 'exopite-menu-alignment_left', '==', 'false' ),
-        ),
-
-        array(
-            'id'        => 'exopite-floating-menu-color',
-            'type'      => 'color_picker_menu',
-            'title'     => esc_attr__( 'Color', 'exopite' ),
-            'default'   =>  array(
-                'background' => array(
-                    'value' => '#5379BA',
-                    'name'  => esc_attr__( 'Background color', 'exopite' ),
-                ),
-                'background-active-hover' => array(
-                    'value' => '#5379BA',
-                    'name'  => esc_attr__( 'Background active and hover color', 'exopite' ),
-                ),
-                'link' => array(
-                    'value' => '#ffffff',
-                    'name'  => esc_attr__( 'Link color', 'exopite' ),
-                ),
-                'link-active-hover' => array(
-                    'value' => '#FFDD00',
-                    'name'  => esc_attr__( 'Link active and hover color', 'exopite' ),
-                ),
-            ),
-            'dependency'  => array( 'exopite-menu-alignment_left', '==', 'false' ),
-        ),
-
-        array(
             'id'        => 'exopite-floating-menu-padding-top',
             'type'      => 'slider',
             'title'     => esc_attr__( 'Padding top', 'exopite' ),
@@ -1116,7 +1079,7 @@ $exopite_options[]   = array(
                 'max'     => 20,
                 'unit'    => ''
             ),
-            'dependency'  => array( 'exopite-menu-alignment_left', '==', 'false' ),
+            'dependency'  => array( 'exopite-menu-alignment_left|exopite-floation-menu-enabled', '==|==', 'false|true' ),
         ),
 
         array(
@@ -1131,7 +1094,7 @@ $exopite_options[]   = array(
                 'max'     => 20,
                 'unit'    => ''
             ),
-            'dependency'  => array( 'exopite-menu-alignment_left', '==', 'false' ),
+            'dependency'  => array( 'exopite-menu-alignment_left|exopite-floation-menu-enabled', '==|==', 'false|true' ),
         ),
 
         array(
@@ -1146,7 +1109,7 @@ $exopite_options[]   = array(
                 'max'     => 1,
                 'unit'    => ''
             ),
-            'dependency'  => array( 'exopite-menu-alignment_left', '==', 'false' ),
+            'dependency'  => array( 'exopite-menu-alignment_left|exopite-floation-menu-enabled', '==|==', 'false|true' ),
         ),
 
         array(
@@ -1188,7 +1151,7 @@ $exopite_options[]   = array(
                     'name'   => 'Color',
                 ),
             ),
-            'dependency'  => array( 'exopite-menu-alignment_left', '==', 'false' ),
+            'dependency'  => array( 'exopite-menu-alignment_left|exopite-floation-menu-enabled', '==|==', 'false|true' ),
         ),
 
         array(
@@ -1213,7 +1176,7 @@ $exopite_options[]   = array(
                     'name'   => 'Color',
                 ),
             ),
-            'dependency'  => array( 'exopite-menu-alignment_left', '==', 'false' ),
+            'dependency'  => array( 'exopite-menu-alignment_left|exopite-floation-menu-enabled', '==|==', 'false|true' ),
         ),
 
       )
@@ -1249,32 +1212,6 @@ $exopite_options[]   = array(
           'dependency'  => array( 'exopite-menu-alignment_left', '==', 'false' ),
         ),
 
-        array(
-            'id'        => 'exopite-fixed-menu-color',
-            'type'      => 'color_picker_menu',
-            'title'     => esc_attr__( 'Color', 'exopite' ),
-            'default'   =>  array(
-                'background' => array(
-                    'value' => 'rgba( 0, 0, 0, 0 )',
-                    'name'  => esc_attr__( 'Background color', 'exopite' ),
-                ),
-                'background-active-hover' => array(
-                    'value' => 'rgba( 0, 0, 0, 0 )',
-                    'name'  => esc_attr__( 'Background active and hover color', 'exopite' ),
-                ),
-                'link' => array(
-                    'value' => '#777',
-                    'name'  => esc_attr__( 'Link color', 'exopite' ),
-                ),
-                'link-active-hover' => array(
-                    'value' => '#888',
-                    'name'  => esc_attr__( 'Link active and hover color', 'exopite' ),
-                ),
-            ),
-            'desc'    => esc_attr__( 'Only for desktop menu', 'exopite' ),
-            'dependency'  => array( 'exopite-menu-alignment_left', '==', 'false' ),
-        ),
-
       )
     ),
     // sub section Mobile menu
@@ -1283,63 +1220,6 @@ $exopite_options[]   = array(
       'title'    => esc_attr__( 'Mobile menu', 'exopite' ),
       'icon'     => 'fa fa-minus',
       'fields'   => array(
-
-        array(
-          'type'    => 'notice',
-          'class'   => 'warning',
-          'content' => esc_attr__( 'This options available only on top menu.', 'exopite' ),
-          'dependency'  => array( 'exopite-menu-alignment_left', '==', 'true' ),
-        ),
-
-        array(
-          'id'        => 'exopite-mobile-menu-logo',
-          'type'      => 'image',
-          'title'     => esc_attr__( 'Logo', 'exopite' ),
-          'add_title' => esc_attr__( 'Add Logo', 'exopite' ),
-          'dependency'  => array( 'exopite-menu-alignment_left', '==', 'false' ),
-        ),
-
-        array(
-            'id'        => 'exopite-mobile-logo-width',
-            'type'      => 'slider',
-            'title'     => esc_attr__( 'Logo width', 'exopite' ),
-            'validate'  => 'numeric',
-            'default'   => 42,
-            'options'   => array(
-                'step'    => 1,
-                'min'     => 20,
-                'max'     => 300,
-                'unit'    => ''
-            )
-        ),
-
-        array(
-            'id'        => 'exopite-mobile-logo-padding-top',
-            'type'      => 'slider',
-            'title'     => esc_attr__( 'Logo padding top', 'exopite' ),
-            'validate'  => 'numeric',
-            'default'   => 0,
-            'options'   => array(
-                'step'    => 1,
-                'min'     => 0,
-                'max'     => 100,
-                'unit'    => ''
-            )
-        ),
-
-        array(
-            'id'        => 'exopite-mobile-logo-padding-bottom',
-            'type'      => 'slider',
-            'title'     => esc_attr__( 'Logo padding bottom', 'exopite' ),
-            'validate'  => 'numeric',
-            'default'   => 0,
-            'options'   => array(
-                'step'    => 1,
-                'min'     => 0,
-                'max'     => 100,
-                'unit'    => ''
-            )
-        ),
 
         array(
           'id'      => 'exopite-mobile-menu-floation-enabled',
@@ -1380,31 +1260,6 @@ $exopite_options[]   = array(
           'rgba'    => true,
         ),
 
-        array(
-            'id'        => 'exopite-mobile-menu-color',
-            'type'      => 'color_picker_menu',
-            'title'     => esc_attr__( 'Color', 'exopite' ),
-            'default'   =>  array(
-                'background' => array(
-                    'value' => '#5379BA',
-                    'name'  => esc_attr__( 'Background color', 'exopite' ),
-                ),
-                'background-active-hover' => array(
-                    'value' => '#5379BA',
-                    'name'  => esc_attr__( 'Background active and hover color', 'exopite' ),
-                ),
-                'link' => array(
-                    'value' => '#ffffff',
-                    'name'  => esc_attr__( 'Link color', 'exopite' ),
-                ),
-                'link-active-hover' => array(
-                    'value' => '#FFDD00',
-                    'name'  => esc_attr__( 'Link active and hover color', 'exopite' ),
-                ),
-            ),
-            'dependency'  => array( 'exopite-menu-alignment_left', '==', 'false' ),
-        ),
-
       )
     ),
 
@@ -1443,14 +1298,6 @@ $exopite_options[]   = array(
           'default'     => false,
           'label'       => '',
           'dependency'  => array( 'exopite-content-layout_wide', '==', 'true' ),
-        ),
-
-        array(
-          'id'      => 'exopite-footer-font-color',
-          'type'    => 'color_picker',
-          'title'   => esc_attr__('Footer font color', 'exopite' ),
-          'default' => '#cccccc',
-          'rgba'    => true,
         ),
 
         array(
@@ -1584,14 +1431,6 @@ $exopite_options[]   = array(
         ),
 
         array(
-          'id'      => 'exopite-copyright-font-color',
-          'type'    => 'color_picker',
-          'title'   => esc_attr__( 'Copyright font color', 'exopite' ),
-          'default' => '#888888',
-          'rgba'    => true,
-        ),
-
-        array(
           'id'      => 'exopite-copyright-background',
           'type'    => 'color_picker',
           'title'   => esc_attr__('Copyright background color', 'exopite' ),
@@ -1619,14 +1458,30 @@ $exopite_options[]   = array(
     // sub section Header
     array(
       'name'     => 'font_uploader_typography_sub_section',
-      'title'    => esc_attr__( 'Font Uploader', 'exopite' ),
+      'title'    => esc_attr__( 'Font Management', 'exopite' ),
       'icon'     => 'fa fa-minus',
       'fields'   => array(
 
         array(
+          'id'          => 'exopite-download-google-fonts',
+          'type'        => 'switcher',
+          'title'       => esc_attr__( 'Download Google Fonts', 'exopite' ),
+          'after'       => ' <i class="cs-text-muted">' . esc_html__( 'Maybe slower but GDPR compliant.', 'exopite' ) . '</i>',
+          'default'     => true,
+        ),
+
+        array(
+          'id'          => 'exopite-load-google-fonts-async',
+          'type'        => 'switcher',
+          'title'       => esc_attr__( 'Load Google Fonts async', 'exopite' ),
+          'default'     => false,
+          'dependency'  => array( 'exopite-download-google-fonts', '==', 'false' ),
+        ),
+
+        array(
           'id'              => 'exopite-custom-fonts',
           'type'            => 'group',
-          'title'           => esc_attr__( 'Fonts', 'exopite' ),
+          'title'           => esc_attr__( 'Custom fonts', 'exopite' ),
         //   'desc'            => sprintf( esc_attr__( 'Go to Appearance -> %1$sWidgets%2$s to add widgets to sidebar.', 'exopite' ), '<a href="widgets.php">', '</a>' ),
           'button_title'    => esc_attr__( 'Add new font', 'exopite' ),
           'accordion_title' => esc_attr__( 'Local font', 'exopite' ),
@@ -1675,28 +1530,179 @@ $exopite_options[]   = array(
       ),
     ),
 
+    // sub section Menu
+    array(
+      'name'     => 'menu_typography_sub_section',
+      'title'    => esc_attr__( 'Header & Menu', 'exopite' ),
+      'icon'     => 'fa fa-minus',
+      'fields'   => array(
+
+        array(
+          'id'      => 'exopite-sidebar-preheader-font-color',
+          'type'    => 'color_picker',
+          'title'   => esc_attr__('Preheader font color', 'exopite'),
+          'rgba'    => false,
+          'default' => '#5C5C5C',
+          'dependency' => array( 'exopite-sidebar-preheader-count|exopite-preheader-content_widget', '>|==', '0|true' ),
+        ),
+
+        array(
+          'id'        => 'menu-font',
+          'type'      => 'typography_advanced',
+          'title'     => esc_attr__('Menu font', 'exopite'),
+          'default'   => array(
+            'family'  => 'Roboto',
+            'variant' => '300',
+            'font'    => 'google',
+            'size'    => '18',
+            'height'  => '22',
+            'color'   => '#5c5c5c'
+          ),
+          'preview'   => true, //Enable or disable preview box
+        ),
+
+        array(
+            'id'        => 'exopite-desktop-menu-color',
+            'type'      => 'color_picker_menu',
+            'title'     => esc_attr__( 'Menu font color', 'exopite' ),
+            'default'   =>  array(
+                'background' => array(
+                    'value' => '#5379BA',
+                    'name'  => esc_attr__( 'Background color', 'exopite' ),
+                ),
+                'background-active-hover' => array(
+                    'value' => '#5379BA',
+                    'name'  => esc_attr__( 'Background active and hover color', 'exopite' ),
+                ),
+                'link' => array(
+                    'value' => '#ffffff',
+                    'name'  => esc_attr__( 'Link color', 'exopite' ),
+                ),
+                'link-active-hover' => array(
+                    'value' => '#FFDD00',
+                    'name'  => esc_attr__( 'Link active and hover color', 'exopite' ),
+                ),
+            ),
+        ),
+
+        array(
+            'id'        => 'exopite-fixed-menu-color',
+            'type'      => 'color_picker_menu',
+            'title'     => esc_attr__( 'Fixed menu font color', 'exopite' ),
+            'default'   =>  array(
+                'background' => array(
+                    'value' => 'rgba( 0, 0, 0, 0 )',
+                    'name'  => esc_attr__( 'Background color', 'exopite' ),
+                ),
+                'background-active-hover' => array(
+                    'value' => 'rgba( 0, 0, 0, 0 )',
+                    'name'  => esc_attr__( 'Background active and hover color', 'exopite' ),
+                ),
+                'link' => array(
+                    'value' => '#777',
+                    'name'  => esc_attr__( 'Link color', 'exopite' ),
+                ),
+                'link-active-hover' => array(
+                    'value' => '#888',
+                    'name'  => esc_attr__( 'Link active and hover color', 'exopite' ),
+                ),
+            ),
+            'desc'    => esc_attr__( 'Only for desktop menu', 'exopite' ),
+            'dependency'  => array( 'exopite-menu-alignment_left', '==', 'false' ),
+        ),
+
+        array(
+            'id'        => 'exopite-desktop-submenu-color',
+            'type'      => 'color_picker_menu',
+            'title'     => esc_attr__( 'Submenu font color', 'exopite' ),
+            'default'   =>  array(
+                'background' => array(
+                    'value' => '#5379BA',
+                    'name'  => esc_attr__( 'Background color', 'exopite' ),
+                ),
+                'background-active-hover' => array(
+                    'value' => '#5379BA',
+                    'name'  => esc_attr__( 'Background active and hover color', 'exopite' ),
+                ),
+                'link' => array(
+                    'value' => '#ffffff',
+                    'name'  => esc_attr__( 'Link color', 'exopite' ),
+                ),
+                'link-active-hover' => array(
+                    'value' => '#FFDD00',
+                    'name'  => esc_attr__( 'Link active and hover color', 'exopite' ),
+                ),
+            ),
+        ),
+
+        array(
+          'id'        => 'exopite-desktop-submenu-font-size',
+          'type'      => 'number',
+          'title'     => esc_attr__( 'Submenu font size', 'exopite' ),
+          'validate'  => 'numeric',
+          'default'   => '14',
+        ),
+
+        array(
+            'id'        => 'exopite-floating-menu-color',
+            'type'      => 'color_picker_menu',
+            'title'     => esc_attr__( 'Floating menu font color', 'exopite' ),
+            'default'   =>  array(
+                'background' => array(
+                    'value' => '#5379BA',
+                    'name'  => esc_attr__( 'Background color', 'exopite' ),
+                ),
+                'background-active-hover' => array(
+                    'value' => '#5379BA',
+                    'name'  => esc_attr__( 'Background active and hover color', 'exopite' ),
+                ),
+                'link' => array(
+                    'value' => '#ffffff',
+                    'name'  => esc_attr__( 'Link color', 'exopite' ),
+                ),
+                'link-active-hover' => array(
+                    'value' => '#FFDD00',
+                    'name'  => esc_attr__( 'Link active and hover color', 'exopite' ),
+                ),
+            ),
+            'dependency'  => array( 'exopite-menu-alignment_left', '==', 'false' ),
+        ),
+
+        array(
+            'id'        => 'exopite-mobile-menu-color',
+            'type'      => 'color_picker_menu',
+            'title'     => esc_attr__( 'Mobile menu color', 'exopite' ),
+            'default'   =>  array(
+                'background' => array(
+                    'value' => '#5379BA',
+                    'name'  => esc_attr__( 'Background color', 'exopite' ),
+                ),
+                'background-active-hover' => array(
+                    'value' => '#5379BA',
+                    'name'  => esc_attr__( 'Background active and hover color', 'exopite' ),
+                ),
+                'link' => array(
+                    'value' => '#ffffff',
+                    'name'  => esc_attr__( 'Link color', 'exopite' ),
+                ),
+                'link-active-hover' => array(
+                    'value' => '#FFDD00',
+                    'name'  => esc_attr__( 'Link active and hover color', 'exopite' ),
+                ),
+            ),
+            'dependency'  => array( 'exopite-menu-alignment_left', '==', 'false' ),
+        ),
+
+
+      ),
+    ),
+
     // sub section Header
     array(
       'name'     => 'heading_typography_sub_section',
       'title'    => esc_attr__( 'Heading', 'exopite' ),
       'icon'     => 'fa fa-minus',
       'fields'   => array(
-
-        array(
-          'id'          => 'exopite-download-google-fonts',
-          'type'        => 'switcher',
-          'title'       => esc_attr__( 'Download Google Fonts', 'exopite' ),
-          'after'       => ' <i class="cs-text-muted">' . esc_html__( 'Maybe slower but GDPR compliant.', 'exopite' ) . '</i>',
-          'default'     => true,
-        ),
-
-        array(
-          'id'          => 'exopite-load-google-fonts-async',
-          'type'        => 'switcher',
-          'title'       => esc_attr__( 'Load Google Fonts async', 'exopite' ),
-          'default'     => false,
-          'dependency'  => array( 'exopite-download-google-fonts', '==', 'false' ),
-        ),
 
         array(
           'id'        => 'exopite-font-h1',
@@ -1713,19 +1719,6 @@ $exopite_options[]   = array(
           'preview'   => true, //Enable or disable preview box
         //   'dependency'  => array( 'exopite-use-google-fonts', '==', 'true' ),
         ),
-
-        // array(
-        //   'id'        => 'exopite-font-h1',
-        //   'type'      => 'typography_attribute',
-        //   'title'     => 'H1',
-        //   'default'   => array(
-        //     'size'    => '32',
-        //     'height'  => '36',
-        //     'color'   => '#5c5c5c'
-        //   ),
-        //   'preview'   => true, //Enable or disable preview box
-        //   'dependency'  => array( 'exopite-use-google-fonts', '==', 'false' ),
-        // ),
 
         array(
           'id'        => 'exopite-font-h2',
@@ -1790,7 +1783,7 @@ $exopite_options[]   = array(
       ),
     ),
 
-    // sub section Header
+    // sub section Content
     array(
       'name'     => 'content_typography_sub_section',
       'title'    => esc_attr__( 'Content', 'exopite' ),
@@ -1800,7 +1793,7 @@ $exopite_options[]   = array(
         array(
           'id'        => 'exopite-font-content',
           'type'      => 'typography_advanced',
-          'title'     => esc_attr__('Font', 'exopite'),
+          'title'     => esc_attr__('Content font', 'exopite'),
           'default'   => array(
             'family'  => 'Roboto',
             'variant' => '300',
@@ -1815,7 +1808,7 @@ $exopite_options[]   = array(
         array(
           'id'      => 'exopite-font-content-link',
           'type'    => 'color_picker',
-          'title'   => esc_attr__('Link', 'exopite'),
+          'title'   => esc_attr__('Link color', 'exopite'),
           'rgba'    => false,
           'default' => '#5379BA',
         ),
@@ -1823,7 +1816,7 @@ $exopite_options[]   = array(
         array(
           'id'      => 'exopite-font-content-link-hover',
           'type'    => 'color_picker',
-          'title'   => esc_attr__('Link hover', 'exopite'),
+          'title'   => esc_attr__('Link hover color', 'exopite'),
           'rgba'    => false,
           'default' => '#5379BA',
         ),
@@ -1831,7 +1824,7 @@ $exopite_options[]   = array(
         array(
           'id'      => 'exopite-font-content-alternative',
           'type'    => 'color_picker',
-          'title'   => esc_attr__('Secondary', 'exopite'),
+          'title'   => esc_attr__('Secondary color', 'exopite'),
           'rgba'    => false,
           'default' => '#5379BA',
         ),
@@ -1852,6 +1845,82 @@ $exopite_options[]   = array(
 
       ),
     ),
+
+    // sub section Footer
+    array(
+      'name'     => 'footer_typography_sub_section',
+      'title'    => esc_attr__( 'Footer & Copyright', 'exopite' ),
+      'icon'     => 'fa fa-minus',
+      'fields'   => array(
+
+        array(
+          'id'        => 'exopite-font-footer',
+          'type'      => 'typography_advanced',
+          'title'     => 'Footer font',
+          'default'   => array(
+            'family'  => 'Roboto',
+            'variant' => '300',
+            'font'    => 'google',
+            'size'    => '16',
+            'height'  => '24',
+            'color'   => '#ddd'
+          ),
+          'preview'   => true, //Enable or disable preview box
+        //   'dependency'  => array( 'exopite-use-google-fonts', '==', 'true' ),
+        ),
+
+        array(
+          'id'      => 'exopite-font-footer-link',
+          'type'    => 'color_picker',
+          'title'   => esc_attr__('Link color', 'exopite'),
+          'rgba'    => false,
+          'default' => '#5379BA',
+        ),
+
+        array(
+          'id'      => 'exopite-font-footer-link-hover',
+          'type'    => 'color_picker',
+          'title'   => esc_attr__('Link hover color', 'exopite'),
+          'rgba'    => false,
+          'default' => '#5379BA',
+        ),
+
+
+        array(
+          'id'        => 'exopite-font-copyright',
+          'type'      => 'typography_advanced',
+          'title'     => 'Copyright font',
+          'default'   => array(
+            'family'  => 'Roboto',
+            'variant' => '300',
+            'font'    => 'google',
+            'size'    => '14',
+            'height'  => '20',
+            'color'   => '#888'
+          ),
+          'preview'   => true, //Enable or disable preview box
+        //   'dependency'  => array( 'exopite-use-google-fonts', '==', 'true' ),
+        ),
+
+        array(
+          'id'      => 'exopite-font-copyright-link',
+          'type'    => 'color_picker',
+          'title'   => esc_attr__('Link color', 'exopite'),
+          'rgba'    => false,
+          'default' => '#5379BA',
+        ),
+
+        array(
+          'id'      => 'exopite-font-copyright-link-hover',
+          'type'    => 'color_picker',
+          'title'   => esc_attr__('Link hover color', 'exopite'),
+          'rgba'    => false,
+          'default' => '#5379BA',
+        ),
+
+      ),
+    ),
+
 
   ),
 
