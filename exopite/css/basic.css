@@ -127,12 +127,28 @@ img {
 a {
     color: [#exopite-font-content-link];
 }
-#content a {
-    [#exopite-font-content-link-underline-css]
-}
 a:hover {
     color: [#exopite-font-content-link-hover];
 }
+.footer-background a {
+    color: [#exopite-font-footer-link];
+}
+.footer-background a:hover {
+    color: [#exopite-font-footer-link-hover];
+}
+.copyright-background a {
+    color: [#exopite-font-copyright-link];
+}
+.copyright-background a:hover {
+    color: [#exopite-font-copyright-link-hover];
+}
+.footer-background a,
+.copyright-background a,
+#content a {
+    [#exopite-font-content-link-underline-css]
+}
+.footer-background a:hover,
+.copyright-background a:hover,
 #content a:hover {
     [#exopite-font-content-link-hover-underline-css]
 }
