@@ -202,6 +202,8 @@ if ( ! function_exists( 'on_save_options' ) ) {
         $options['google_fonts'] = array();
         $options = css_generate_font( 'menu-font', $options );
         $options = css_generate_font( 'exopite-font-content', $options );
+        $options = css_generate_font( 'exopite-font-footer', $options );
+        $options = css_generate_font( 'exopite-font-copyright', $options );
         $options = css_generate_font( 'exopite-font-h1', $options );
 
         //exopite-enable-desktop-menu-toggle
