@@ -131,6 +131,7 @@ Based on the activated elements ad activated plugins. (This may take a few secon
 #### GDPR (General Data Protection Regulation) compliant
 - Option to donwload Google Fonts locally
 - Option to use Bootstrap and FontAwesome locally without CDN
+- Recommended plugins for GDPR and SEO purposes
 - IMPORTANT! Backend will load FontAwesom from CDN.
              Read Privacy Policy: https://www.bootstrapcdn.com/privacy-policy/
 
