@@ -96,6 +96,19 @@ function exopite_register_required_plugins() {
             'required'          => false,
         ),
 
+        array(
+            'name'              => 'WP Comment Policy Checkbox',
+            'slug'              => 'wp-comment-policy-checkbox',
+            'required'          => false,
+        ),
+
+        array(
+            'name'              => 'Exopite SEO Core',
+            'slug'              => 'exopite-seo-core',
+            'source'            => 'https://update.szalai.org/packages/exopite-seo-core.zip', // The plugin source.
+            'required'          => false,
+        ),
+
 	);
 
     if ( ExopiteSettings::getValue( 'woocommerce-activated' ) ) {
