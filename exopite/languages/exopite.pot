@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-13 10:40+0200\n"
+"POT-Creation-Date: 2018-06-22 22:29+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -96,43 +96,43 @@ msgstr ""
 msgid "Your message (min 10 charachter)"
 msgstr ""
 
-#: functions.php:197
+#: functions.php:199
 msgid "Primary Menu"
 msgstr ""
 
-#: functions.php:198
+#: functions.php:200
 msgid "Mobile Menu (optional)"
 msgstr ""
 
-#: functions.php:199
+#: functions.php:201
 msgid "Footer Menu"
 msgstr ""
 
-#: functions.php:200
+#: functions.php:202
 msgid "Shortcode Menu"
 msgstr ""
 
-#: functions.php:201
+#: functions.php:203
 msgid "Social Menu"
 msgstr ""
 
-#: functions.php:519
+#: functions.php:521
 msgid "Theme Options"
 msgstr ""
 
-#: functions.php:552
+#: functions.php:554
 msgid "Spam"
 msgstr ""
 
-#: functions.php:554
+#: functions.php:556
 msgid "Delete"
 msgstr ""
 
-#: functions.php:561
+#: functions.php:563
 msgid "Approve"
 msgstr ""
 
-#: functions.php:565
+#: functions.php:567
 msgid "Unapprove"
 msgstr ""
 
@@ -266,7 +266,7 @@ msgid "Add your JavaScript here"
 msgstr ""
 
 #: cs-framework-override/config/framework.config.php:241
-#: cs-framework-override/config/framework.config.php:2751
+#: cs-framework-override/config/framework.config.php:2820
 msgid "without the &lt;srcipt&gt; tag"
 msgstr ""
 
@@ -292,19 +292,19 @@ msgid "Display page as preheader"
 msgstr ""
 
 #: cs-framework-override/config/framework.config.php:302
-#: cs-framework-override/config/framework.config.php:1494
-#: cs-framework-override/config/framework.config.php:2343
-#: cs-framework-override/config/framework.config.php:2370
-#: cs-framework-override/config/framework.config.php:2397
-#: cs-framework-override/config/framework.config.php:2424
-#: cs-framework-override/config/framework.config.php:2451
-#: cs-framework-override/config/framework.config.php:2478
-#: cs-framework-override/config/framework.config.php:2505
+#: cs-framework-override/config/framework.config.php:1341
+#: cs-framework-override/config/framework.config.php:2412
+#: cs-framework-override/config/framework.config.php:2439
+#: cs-framework-override/config/framework.config.php:2466
+#: cs-framework-override/config/framework.config.php:2493
+#: cs-framework-override/config/framework.config.php:2520
+#: cs-framework-override/config/framework.config.php:2547
+#: cs-framework-override/config/framework.config.php:2574
 msgid "Page(s)"
 msgstr ""
 
 #: cs-framework-override/config/framework.config.php:306
-#: cs-framework-override/config/framework.config.php:1498
+#: cs-framework-override/config/framework.config.php:1345
 #, php-format
 msgid "First you have to add a sections %1$shere%2$s."
 msgstr ""
@@ -314,11 +314,11 @@ msgid "Preheader widget columns"
 msgstr ""
 
 #: cs-framework-override/config/framework.config.php:322
-#: cs-framework-override/config/framework.config.php:588
-#: cs-framework-override/config/framework.config.php:793
-#: cs-framework-override/config/framework.config.php:1514
-#: cs-framework-override/config/framework.config.php:1583
-#: cs-framework-override/config/framework.config.php:2592
+#: cs-framework-override/config/framework.config.php:579
+#: cs-framework-override/config/framework.config.php:861
+#: cs-framework-override/config/framework.config.php:1361
+#: cs-framework-override/config/framework.config.php:1430
+#: cs-framework-override/config/framework.config.php:2661
 #, php-format
 msgid "Go to Appearance -> %1$sWidgets%2$s to add widgets to sidebar."
 msgstr ""
@@ -332,1043 +332,1060 @@ msgid "Preheader widget full width"
 msgstr ""
 
 #: cs-framework-override/config/framework.config.php:345
-msgid "Preheader font color"
-msgstr ""
-
-#: cs-framework-override/config/framework.config.php:354
 msgid "Preheader image and/or color"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:368
+#: cs-framework-override/config/framework.config.php:359
 msgid "After the header widget columns"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:377
+#: cs-framework-override/config/framework.config.php:368
 #, php-format
 msgid "Go to Appearance -> %1$s to add widgets to sidebar."
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:386
+#: cs-framework-override/config/framework.config.php:377
 msgid "Hero Header"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:393
+#: cs-framework-override/config/framework.config.php:384
 msgid "To use hero header on individual pages, enable it here."
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:399
+#: cs-framework-override/config/framework.config.php:390
 #: cs-framework-override/config/metabox.config.php:297
 msgid "Enable hero header"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:406
+#: cs-framework-override/config/framework.config.php:397
 msgid "Display on front page"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:408
+#: cs-framework-override/config/framework.config.php:399
 msgid "You can turn on hero header on individual page or posts too."
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:415
+#: cs-framework-override/config/framework.config.php:406
 msgid "Fixed hero header"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:423
+#: cs-framework-override/config/framework.config.php:414
 msgid "Enable hero header parallax"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:431
+#: cs-framework-override/config/framework.config.php:422
 msgid "Hero header show menu below"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:439
+#: cs-framework-override/config/framework.config.php:430
 msgid "Height is calculated automatically. Disabled on fixed menu."
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:446
+#: cs-framework-override/config/framework.config.php:437
 msgid "Menu below color"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:450
-#: cs-framework-override/config/framework.config.php:869
-#: cs-framework-override/config/framework.config.php:1001
-#: cs-framework-override/config/framework.config.php:1089
-#: cs-framework-override/config/framework.config.php:1259
-#: cs-framework-override/config/framework.config.php:1390
+#: cs-framework-override/config/framework.config.php:441
+#: cs-framework-override/config/framework.config.php:1571
+#: cs-framework-override/config/framework.config.php:1595
+#: cs-framework-override/config/framework.config.php:1621
+#: cs-framework-override/config/framework.config.php:1653
+#: cs-framework-override/config/framework.config.php:1678
 msgid "Background color"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:454
-#: cs-framework-override/config/framework.config.php:873
-#: cs-framework-override/config/framework.config.php:1005
-#: cs-framework-override/config/framework.config.php:1093
-#: cs-framework-override/config/framework.config.php:1263
-#: cs-framework-override/config/framework.config.php:1394
+#: cs-framework-override/config/framework.config.php:445
+#: cs-framework-override/config/framework.config.php:1575
+#: cs-framework-override/config/framework.config.php:1599
+#: cs-framework-override/config/framework.config.php:1625
+#: cs-framework-override/config/framework.config.php:1657
+#: cs-framework-override/config/framework.config.php:1682
 msgid "Background active and hover color"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:458
-#: cs-framework-override/config/framework.config.php:877
-#: cs-framework-override/config/framework.config.php:1009
-#: cs-framework-override/config/framework.config.php:1097
-#: cs-framework-override/config/framework.config.php:1267
-#: cs-framework-override/config/framework.config.php:1398
+#: cs-framework-override/config/framework.config.php:449
+#: cs-framework-override/config/framework.config.php:1579
+#: cs-framework-override/config/framework.config.php:1603
+#: cs-framework-override/config/framework.config.php:1629
+#: cs-framework-override/config/framework.config.php:1661
+#: cs-framework-override/config/framework.config.php:1686
+#: cs-framework-override/config/framework.config.php:1811
+#: cs-framework-override/config/framework.config.php:1875
+#: cs-framework-override/config/framework.config.php:1908
 msgid "Link color"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:462
-#: cs-framework-override/config/framework.config.php:881
-#: cs-framework-override/config/framework.config.php:1013
-#: cs-framework-override/config/framework.config.php:1101
-#: cs-framework-override/config/framework.config.php:1271
-#: cs-framework-override/config/framework.config.php:1402
+#: cs-framework-override/config/framework.config.php:453
+#: cs-framework-override/config/framework.config.php:1583
+#: cs-framework-override/config/framework.config.php:1607
+#: cs-framework-override/config/framework.config.php:1633
+#: cs-framework-override/config/framework.config.php:1665
+#: cs-framework-override/config/framework.config.php:1690
 msgid "Link active and hover color"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:471
+#: cs-framework-override/config/framework.config.php:462
 msgid "Menu below background image and/or color"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:485
+#: cs-framework-override/config/framework.config.php:476
 #: cs-framework-override/config/metabox.config.php:320
 msgid "Hero header height in %"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:500
+#: cs-framework-override/config/framework.config.php:491
 #: cs-framework-override/config/metabox.config.php:336
 msgid "Hero header minimum height in px"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:515
+#: cs-framework-override/config/framework.config.php:506
 #: cs-framework-override/config/metabox.config.php:305
 msgid "Hero header type"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:530
+#: cs-framework-override/config/framework.config.php:521
 #: cs-framework-override/config/metabox.config.php:352
 msgid "Hero header image"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:531
-#: cs-framework-override/config/framework.config.php:595
+#: cs-framework-override/config/framework.config.php:522
+#: cs-framework-override/config/framework.config.php:586
 #: cs-framework-override/config/metabox.config.php:353
 #: cs-framework-override/config/metabox.config.php:416
 msgid "Add Image"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:537
+#: cs-framework-override/config/framework.config.php:528
 #: cs-framework-override/config/metabox.config.php:368
 msgid "upload"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:538
+#: cs-framework-override/config/framework.config.php:529
 #: cs-framework-override/config/metabox.config.php:369
 msgid "Hero header mp4 video"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:541
+#: cs-framework-override/config/framework.config.php:532
 #: cs-framework-override/config/metabox.config.php:372
 msgid "Upload"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:542
+#: cs-framework-override/config/framework.config.php:533
 #: cs-framework-override/config/metabox.config.php:373
 msgid "Select .mp4 video file"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:543
+#: cs-framework-override/config/framework.config.php:534
 #: cs-framework-override/config/metabox.config.php:374
 msgid "Use this file"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:545
+#: cs-framework-override/config/framework.config.php:536
 #: cs-framework-override/config/metabox.config.php:376
 msgid "Upload .mp4 video file. Recommended max. size is 2MB."
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:552
+#: cs-framework-override/config/framework.config.php:543
 #: cs-framework-override/config/metabox.config.php:360
 msgid "Hero header overlay color"
 msgstr ""
 
+#: cs-framework-override/config/framework.config.php:554
 #: cs-framework-override/config/framework.config.php:563
-#: cs-framework-override/config/framework.config.php:572
 #: cs-framework-override/config/metabox.config.php:384
 #: cs-framework-override/config/metabox.config.php:393
 msgid "The height of the video will be 100%."
 msgstr ""
 
+#: cs-framework-override/config/framework.config.php:554
 #: cs-framework-override/config/framework.config.php:563
-#: cs-framework-override/config/framework.config.php:572
 #: cs-framework-override/config/metabox.config.php:384
 #: cs-framework-override/config/metabox.config.php:393
 msgid "Video will be not muted."
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:564
+#: cs-framework-override/config/framework.config.php:555
 #: cs-framework-override/config/metabox.config.php:385
 msgid "Please insert your Youtube video ID."
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:573
+#: cs-framework-override/config/framework.config.php:564
 #: cs-framework-override/config/metabox.config.php:394
 msgid ""
 "Make sure, you share Google Video via link to everyone. Please insert your "
 "Google video ID."
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:580
+#: cs-framework-override/config/framework.config.php:571
 #: cs-framework-override/config/metabox.config.php:401
 msgid "Site branding type"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:594
+#: cs-framework-override/config/framework.config.php:585
 #: cs-framework-override/config/metabox.config.php:415
 msgid "Site branding image"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:597
+#: cs-framework-override/config/framework.config.php:588
 #: cs-framework-override/config/metabox.config.php:418
 msgid "Leave it empty, if you don't want to display anything here."
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:603
+#: cs-framework-override/config/framework.config.php:594
 #: cs-framework-override/config/metabox.config.php:438
 msgid "Site branding horizontal alignment"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:617
+#: cs-framework-override/config/framework.config.php:608
 #: cs-framework-override/config/metabox.config.php:452
 msgid "Site branding vertical alignment"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:634
-msgid "Desktop menu"
-msgstr ""
-
-#: cs-framework-override/config/framework.config.php:641
-#: cs-framework-override/config/framework.config.php:647
-#: cs-framework-override/config/framework.config.php:1297
+#: cs-framework-override/config/framework.config.php:625
+#: cs-framework-override/config/framework.config.php:639
+#: cs-framework-override/config/framework.config.php:738
 msgid "Logo"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:648
-#: cs-framework-override/config/framework.config.php:1298
+#: cs-framework-override/config/framework.config.php:633
+msgid "Desktop logo"
+msgstr ""
+
+#: cs-framework-override/config/framework.config.php:640
+#: cs-framework-override/config/framework.config.php:739
 msgid "Add Logo"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:654
+#: cs-framework-override/config/framework.config.php:646
 msgid "Logo position"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:669
+#: cs-framework-override/config/framework.config.php:661
 msgid "Logo alignement"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:682
-#: cs-framework-override/config/framework.config.php:1305
+#: cs-framework-override/config/framework.config.php:674
+#: cs-framework-override/config/framework.config.php:746
 msgid "Logo width"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:696
-#: cs-framework-override/config/framework.config.php:1319
+#: cs-framework-override/config/framework.config.php:688
+#: cs-framework-override/config/framework.config.php:760
 msgid "Logo padding top"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:710
-#: cs-framework-override/config/framework.config.php:1333
+#: cs-framework-override/config/framework.config.php:702
+#: cs-framework-override/config/framework.config.php:774
 msgid "Logo padding bottom"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:724
-msgid "Menu"
-msgstr ""
-
-#: cs-framework-override/config/framework.config.php:730
-msgid "Menu horizontal alignment"
-msgstr ""
-
-#: cs-framework-override/config/framework.config.php:744
-msgid "Menu vertical alignment"
-msgstr ""
-
-#: cs-framework-override/config/framework.config.php:758
-#: cs-framework-override/config/framework.config.php:1356
-msgid "Enable search in menu"
-msgstr ""
-
-#: cs-framework-override/config/framework.config.php:768
-msgid "Font uppercase"
-msgstr ""
-
-#: cs-framework-override/config/framework.config.php:775
-msgid "Enable menu toggle on desktop"
-msgstr ""
-
-#: cs-framework-override/config/framework.config.php:784
-msgid "Menu top widget columns"
-msgstr ""
-
-#: cs-framework-override/config/framework.config.php:800
-msgid "Menu padding top"
-msgstr ""
-
-#: cs-framework-override/config/framework.config.php:814
-msgid "Menu padding bottom"
-msgstr ""
-
-#: cs-framework-override/config/framework.config.php:828
-msgid "Header background image and/or color"
-msgstr ""
-
-#: cs-framework-override/config/framework.config.php:841
-#: cs-framework-override/config/framework.config.php:1246
-msgid "Navbar background color"
-msgstr ""
-
-#: cs-framework-override/config/framework.config.php:850
-msgid "Font for menus"
-msgstr ""
-
-#: cs-framework-override/config/framework.config.php:865
-#: cs-framework-override/config/framework.config.php:997
-#: cs-framework-override/config/framework.config.php:1085
-#: cs-framework-override/config/framework.config.php:1255
-#: cs-framework-override/config/framework.config.php:1386
-msgid "Color"
-msgstr ""
-
-#: cs-framework-override/config/framework.config.php:889
-#: cs-framework-override/config/framework.config.php:1155
-msgid "Shadow"
-msgstr ""
-
-#: cs-framework-override/config/framework.config.php:930
-#: cs-framework-override/config/framework.config.php:1197
-msgid "Border"
-msgstr ""
-
-#: cs-framework-override/config/framework.config.php:954
-msgid "Link border effect"
-msgstr ""
-
-#: cs-framework-override/config/framework.config.php:982
-msgid "Desktop submenu"
-msgstr ""
-
-#: cs-framework-override/config/framework.config.php:989
-msgid "Font size"
-msgstr ""
-
-#: cs-framework-override/config/framework.config.php:1021
-#: cs-framework-override/config/framework.config.php:1110
-msgid "Padding top"
-msgstr ""
-
-#: cs-framework-override/config/framework.config.php:1035
-#: cs-framework-override/config/framework.config.php:1125
-msgid "Padding bottom"
-msgstr ""
-
-#: cs-framework-override/config/framework.config.php:1052
-msgid "Desktop sticky menu"
-msgstr ""
-
-#: cs-framework-override/config/framework.config.php:1060
-#: cs-framework-override/config/framework.config.php:1232
-#: cs-framework-override/config/framework.config.php:1290
-msgid "This options available only on top menu."
-msgstr ""
-
-#: cs-framework-override/config/framework.config.php:1067
-msgid "Enable sticky menu"
-msgstr ""
-
-#: cs-framework-override/config/framework.config.php:1076
+#: cs-framework-override/config/framework.config.php:716
 msgid "Show floating menu logo"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:1140
+#: cs-framework-override/config/framework.config.php:725
+msgid "Mobile logo"
+msgstr ""
+
+#: cs-framework-override/config/framework.config.php:731
+#: cs-framework-override/config/framework.config.php:1057
+#: cs-framework-override/config/framework.config.php:1195
+msgid "This options available only on top menu."
+msgstr ""
+
+#: cs-framework-override/config/framework.config.php:791
+msgid "Desktop menu"
+msgstr ""
+
+#: cs-framework-override/config/framework.config.php:798
+msgid "Menu horizontal alignment"
+msgstr ""
+
+#: cs-framework-override/config/framework.config.php:812
+msgid "Menu vertical alignment"
+msgstr ""
+
+#: cs-framework-override/config/framework.config.php:826
+#: cs-framework-override/config/framework.config.php:1236
+msgid "Enable search in menu"
+msgstr ""
+
+#: cs-framework-override/config/framework.config.php:836
+msgid "Font uppercase"
+msgstr ""
+
+#: cs-framework-override/config/framework.config.php:843
+msgid "Enable menu toggle on desktop"
+msgstr ""
+
+#: cs-framework-override/config/framework.config.php:852
+msgid "Menu top widget columns"
+msgstr ""
+
+#: cs-framework-override/config/framework.config.php:868
+msgid "Menu padding top"
+msgstr ""
+
+#: cs-framework-override/config/framework.config.php:882
+msgid "Menu padding bottom"
+msgstr ""
+
+#: cs-framework-override/config/framework.config.php:896
+msgid "Header background image and/or color"
+msgstr ""
+
+#: cs-framework-override/config/framework.config.php:909
+#: cs-framework-override/config/framework.config.php:1209
+msgid "Navbar background color"
+msgstr ""
+
+#: cs-framework-override/config/framework.config.php:918
+#: cs-framework-override/config/framework.config.php:1118
+msgid "Shadow"
+msgstr ""
+
+#: cs-framework-override/config/framework.config.php:959
+#: cs-framework-override/config/framework.config.php:1160
+msgid "Border"
+msgstr ""
+
+#: cs-framework-override/config/framework.config.php:983
+msgid "Link border effect"
+msgstr ""
+
+#: cs-framework-override/config/framework.config.php:1011
+msgid "Desktop submenu"
+msgstr ""
+
+#: cs-framework-override/config/framework.config.php:1018
+#: cs-framework-override/config/framework.config.php:1073
+msgid "Padding top"
+msgstr ""
+
+#: cs-framework-override/config/framework.config.php:1032
+#: cs-framework-override/config/framework.config.php:1088
+msgid "Padding bottom"
+msgstr ""
+
+#: cs-framework-override/config/framework.config.php:1049
+msgid "Desktop sticky menu"
+msgstr ""
+
+#: cs-framework-override/config/framework.config.php:1064
+msgid "Enable sticky menu"
+msgstr ""
+
+#: cs-framework-override/config/framework.config.php:1103
 msgid "Opacity"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:1225
+#: cs-framework-override/config/framework.config.php:1188
 msgid "Fixed menu"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:1239
+#: cs-framework-override/config/framework.config.php:1202
 msgid "You can activate this menu on individual page or post settings."
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:1274
-msgid "Only for desktop menu"
-msgstr ""
-
-#: cs-framework-override/config/framework.config.php:1283
+#: cs-framework-override/config/framework.config.php:1220
 msgid "Mobile menu"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:1347
+#: cs-framework-override/config/framework.config.php:1227
 msgid "Enable floating menu"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:1365
+#: cs-framework-override/config/framework.config.php:1245
 msgid "Menu alignement"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:1378
+#: cs-framework-override/config/framework.config.php:1258
 msgid "Navigation background color"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:1419
-#: cs-framework-override/config/framework.config.php:1426
+#: cs-framework-override/config/framework.config.php:1274
+#: cs-framework-override/config/framework.config.php:1281
 #: include/sidebars.php:355 include/sidebars.php:359 include/sidebars.php:363
 #: include/sidebars.php:367
 msgid "Footer"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:1433
+#: cs-framework-override/config/framework.config.php:1288
 msgid "Slide up animation"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:1442
+#: cs-framework-override/config/framework.config.php:1297
 msgid "Slide up animation for mobile"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:1451
-msgid "Footer font color"
-msgstr ""
-
-#: cs-framework-override/config/framework.config.php:1459
+#: cs-framework-override/config/framework.config.php:1306
 msgid "Footer background image and/or color"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:1472
+#: cs-framework-override/config/framework.config.php:1319
 msgid "Footer content"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:1484
+#: cs-framework-override/config/framework.config.php:1331
 msgid "Display page as footer"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:1504
+#: cs-framework-override/config/framework.config.php:1351
 msgid "Full width content"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:1513
+#: cs-framework-override/config/framework.config.php:1360
 msgid "Footer sidebars"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:1515
+#: cs-framework-override/config/framework.config.php:1362
 msgid "Add new footer sidebar"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:1516
+#: cs-framework-override/config/framework.config.php:1363
 msgid "Adding new footer sidebar"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:1522
+#: cs-framework-override/config/framework.config.php:1369
 msgid "Footer sidebar name"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:1528
+#: cs-framework-override/config/framework.config.php:1375
 msgid "Footer widget columns"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:1544
+#: cs-framework-override/config/framework.config.php:1391
 msgid "Footer widget columns amount"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:1567
+#: cs-framework-override/config/framework.config.php:1414
 msgid "Copyright"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:1574
+#: cs-framework-override/config/framework.config.php:1421
 msgid "Copyright widget columns"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:1589
-msgid "Copyright font color"
-msgstr ""
-
-#: cs-framework-override/config/framework.config.php:1597
+#: cs-framework-override/config/framework.config.php:1436
 msgid "Copyright background color"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:1615
+#: cs-framework-override/config/framework.config.php:1454
 msgid "Typography"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:1622
-msgid "Font Uploader"
+#: cs-framework-override/config/framework.config.php:1461
+msgid "Font Management"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:1629
-msgid "Fonts"
-msgstr ""
-
-#: cs-framework-override/config/framework.config.php:1631
-msgid "Add new font"
-msgstr ""
-
-#: cs-framework-override/config/framework.config.php:1632
-msgid "Local font"
-msgstr ""
-
-#: cs-framework-override/config/framework.config.php:1638
-msgid "Font name"
-msgstr ""
-
-#: cs-framework-override/config/framework.config.php:1681
-msgid "Heading"
-msgstr ""
-
-#: cs-framework-override/config/framework.config.php:1688
+#: cs-framework-override/config/framework.config.php:1468
 msgid "Download Google Fonts"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:1689
+#: cs-framework-override/config/framework.config.php:1469
 msgid "Maybe slower but GDPR compliant."
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:1696
+#: cs-framework-override/config/framework.config.php:1476
 msgid "Load Google Fonts async"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:1796
+#: cs-framework-override/config/framework.config.php:1484
+msgid "Custom fonts"
+msgstr ""
+
+#: cs-framework-override/config/framework.config.php:1486
+msgid "Add new font"
+msgstr ""
+
+#: cs-framework-override/config/framework.config.php:1487
+msgid "Local font"
+msgstr ""
+
+#: cs-framework-override/config/framework.config.php:1493
+msgid "Font name"
+msgstr ""
+
+#: cs-framework-override/config/framework.config.php:1536
+msgid "Header & Menu"
+msgstr ""
+
+#: cs-framework-override/config/framework.config.php:1543
+msgid "Preheader font color"
+msgstr ""
+
+#: cs-framework-override/config/framework.config.php:1552
+msgid "Menu font"
+msgstr ""
+
+#: cs-framework-override/config/framework.config.php:1567
+msgid "Menu font color"
+msgstr ""
+
+#: cs-framework-override/config/framework.config.php:1591
+msgid "Fixed menu font color"
+msgstr ""
+
+#: cs-framework-override/config/framework.config.php:1610
+msgid "Only for desktop menu"
+msgstr ""
+
+#: cs-framework-override/config/framework.config.php:1617
+msgid "Submenu font color"
+msgstr ""
+
+#: cs-framework-override/config/framework.config.php:1641
+msgid "Submenu font size"
+msgstr ""
+
+#: cs-framework-override/config/framework.config.php:1649
+msgid "Floating menu font color"
+msgstr ""
+
+#: cs-framework-override/config/framework.config.php:1674
+msgid "Mobile menu color"
+msgstr ""
+
+#: cs-framework-override/config/framework.config.php:1703
+msgid "Heading"
+msgstr ""
+
+#: cs-framework-override/config/framework.config.php:1789
 msgid "Content"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:1803
-msgid "Font"
+#: cs-framework-override/config/framework.config.php:1796
+msgid "Content font"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:1818
-msgid "Link"
+#: cs-framework-override/config/framework.config.php:1819
+#: cs-framework-override/config/framework.config.php:1883
+#: cs-framework-override/config/framework.config.php:1916
+msgid "Link hover color"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:1826
-msgid "Link hover"
+#: cs-framework-override/config/framework.config.php:1827
+msgid "Secondary color"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:1834
-msgid "Secondary"
-msgstr ""
-
-#: cs-framework-override/config/framework.config.php:1842
+#: cs-framework-override/config/framework.config.php:1835
 msgid "Link underline"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:1849
+#: cs-framework-override/config/framework.config.php:1842
 msgid "Link hover underline"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:1865
+#: cs-framework-override/config/framework.config.php:1852
+msgid "Footer & Copyright"
+msgstr ""
+
+#: cs-framework-override/config/framework.config.php:1934
 msgid "Blog, Search & Archives"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:1872
+#: cs-framework-override/config/framework.config.php:1941
 msgid "Layout & Design"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:1879
+#: cs-framework-override/config/framework.config.php:1948
 msgid "Blog item layout"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:1894
+#: cs-framework-override/config/framework.config.php:1963
 msgid "Blog list layout"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:1908
+#: cs-framework-override/config/framework.config.php:1977
 msgid "Select multi-row thumbnail size"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:1920
+#: cs-framework-override/config/framework.config.php:1989
 msgid "Select single-row thumbnail size"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:1933
+#: cs-framework-override/config/framework.config.php:2002
 msgid "Image hover effect"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:1955
+#: cs-framework-override/config/framework.config.php:2024
 msgid "Select Blog Sidebar"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:1965
+#: cs-framework-override/config/framework.config.php:2034
 msgid "Blog item content length"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:1987
+#: cs-framework-override/config/framework.config.php:2056
 msgid "Display blog title"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:1995
+#: cs-framework-override/config/framework.config.php:2064
 msgid "Blog title"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:1996
+#: cs-framework-override/config/framework.config.php:2065
 msgid "Blog"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2003
+#: cs-framework-override/config/framework.config.php:2072
 msgid "Display breadcrumb"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2005
-#: cs-framework-override/config/framework.config.php:2150
-#: cs-framework-override/config/framework.config.php:2629
+#: cs-framework-override/config/framework.config.php:2074
+#: cs-framework-override/config/framework.config.php:2219
+#: cs-framework-override/config/framework.config.php:2698
 msgid "Note:"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2005
-#: cs-framework-override/config/framework.config.php:2150
-#: cs-framework-override/config/framework.config.php:2629
+#: cs-framework-override/config/framework.config.php:2074
+#: cs-framework-override/config/framework.config.php:2219
+#: cs-framework-override/config/framework.config.php:2698
 #, php-format
 msgid "You can display the breadcrumbs everywhere via %1$s shortcode."
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2011
+#: cs-framework-override/config/framework.config.php:2080
 msgid "Display first post in full width"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2018
+#: cs-framework-override/config/framework.config.php:2087
 msgid "Display post thumbnail"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2026
+#: cs-framework-override/config/framework.config.php:2095
 msgid "Display post title"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2034
+#: cs-framework-override/config/framework.config.php:2103
 msgid "Display post categories and tags"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2042
+#: cs-framework-override/config/framework.config.php:2111
 msgid "Display post meta"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2050
+#: cs-framework-override/config/framework.config.php:2119
 msgid "Custom excerpt more"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2064
+#: cs-framework-override/config/framework.config.php:2133
 msgid "Excerpt length"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2078
+#: cs-framework-override/config/framework.config.php:2147
 msgid "Top padding for blog, search and archives"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2092
+#: cs-framework-override/config/framework.config.php:2161
 msgid "Posts per row"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2106
+#: cs-framework-override/config/framework.config.php:2175
 msgid "Multi-column layout type"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2120
+#: cs-framework-override/config/framework.config.php:2189
 msgid "Items same height"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2129
+#: cs-framework-override/config/framework.config.php:2198
 msgid "No gap between posts"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2131
+#: cs-framework-override/config/framework.config.php:2200
 msgid "Only effect multiple post in one row"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2141
+#: cs-framework-override/config/framework.config.php:2210
 msgid "Single post"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2148
+#: cs-framework-override/config/framework.config.php:2217
 msgid "Display breadcumbs"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2156
+#: cs-framework-override/config/framework.config.php:2225
 msgid "Display post navigation"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2164
+#: cs-framework-override/config/framework.config.php:2233
 msgid "Navigation in same term"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2173
+#: cs-framework-override/config/framework.config.php:2242
 msgid "Infinite navigation"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2182
+#: cs-framework-override/config/framework.config.php:2251
 msgid "Display author bio"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2190
+#: cs-framework-override/config/framework.config.php:2259
 msgid "Display categories and tags"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2198
+#: cs-framework-override/config/framework.config.php:2267
 msgid "Display meta"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2206
+#: cs-framework-override/config/framework.config.php:2275
 msgid "Display releated on"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2210
+#: cs-framework-override/config/framework.config.php:2279
 msgid "Posts"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2220
+#: cs-framework-override/config/framework.config.php:2289
 msgid "Releated posts by categories"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2234
+#: cs-framework-override/config/framework.config.php:2303
 msgid "Releated posts by categories in one row"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2248
+#: cs-framework-override/config/framework.config.php:2317
 msgid "Releated posts by tags"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2262
+#: cs-framework-override/config/framework.config.php:2331
 msgid "Releated posts by tags in one row"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2281
+#: cs-framework-override/config/framework.config.php:2350
 msgid "Meta tags"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2288
+#: cs-framework-override/config/framework.config.php:2357
 msgid "Meta tags to display on blog and single post"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2291
+#: cs-framework-override/config/framework.config.php:2360
 #: template-parts/archive.php:53
 msgid "Author"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2292
+#: cs-framework-override/config/framework.config.php:2361
 msgid "Date"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2293
+#: cs-framework-override/config/framework.config.php:2362
 msgid "Comment count"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2294
+#: cs-framework-override/config/framework.config.php:2363
 msgid "Last modified"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2296
+#: cs-framework-override/config/framework.config.php:2365
 msgid "Categories"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2297
+#: cs-framework-override/config/framework.config.php:2366
 msgid "Tags"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2312
+#: cs-framework-override/config/framework.config.php:2381
 msgid "Custom pages"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2319
+#: cs-framework-override/config/framework.config.php:2388
 msgid ""
 "After set the page, just add [exopite-loop] shortcode in the selected page "
 "content, where you want to display the loop. It will take care of the rest."
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2326
+#: cs-framework-override/config/framework.config.php:2395
 msgid "Category archive as page"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2333
+#: cs-framework-override/config/framework.config.php:2402
 msgid "Page ID for category archive"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2353
+#: cs-framework-override/config/framework.config.php:2422
 msgid "Tag archive as page"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2360
+#: cs-framework-override/config/framework.config.php:2429
 msgid "Page ID for tag archive"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2380
+#: cs-framework-override/config/framework.config.php:2449
 msgid "Author archive as page"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2387
+#: cs-framework-override/config/framework.config.php:2456
 msgid "Page ID for author archive"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2407
+#: cs-framework-override/config/framework.config.php:2476
 msgid "Daily archive as page"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2414
+#: cs-framework-override/config/framework.config.php:2483
 msgid "Page ID for daily archive"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2434
+#: cs-framework-override/config/framework.config.php:2503
 msgid "Monthly archive as page"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2441
+#: cs-framework-override/config/framework.config.php:2510
 msgid "Page ID for monthly archive"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2461
+#: cs-framework-override/config/framework.config.php:2530
 msgid "Yearly archive as page"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2468
+#: cs-framework-override/config/framework.config.php:2537
 msgid "Page ID for yearly archive"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2488
+#: cs-framework-override/config/framework.config.php:2557
 msgid "Every othen archive as page"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2495
+#: cs-framework-override/config/framework.config.php:2564
 msgid "Page ID for every other archive"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2526
+#: cs-framework-override/config/framework.config.php:2595
 msgid "Media"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2533
+#: cs-framework-override/config/framework.config.php:2602
 msgid "Remove emojicons"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2540
+#: cs-framework-override/config/framework.config.php:2609
 msgid "Disable Comments on Media Attachments"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2548
-#: cs-framework-override/config/framework.config.php:2549
+#: cs-framework-override/config/framework.config.php:2617
+#: cs-framework-override/config/framework.config.php:2618
 msgid "Add new thumbnail size"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2550
+#: cs-framework-override/config/framework.config.php:2619
 #, php-format
 msgid ""
 "After creating new thumbnail or modify an old one, you have to regenerate "
 "the thumbnail for old images and refresh page.%1$sYou can use a plugin like"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2556
+#: cs-framework-override/config/framework.config.php:2625
 msgid "Size name"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2562
+#: cs-framework-override/config/framework.config.php:2631
 msgid "Dimensions"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2568
+#: cs-framework-override/config/framework.config.php:2637
 msgid "Crop"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2584
-#: cs-framework-override/config/framework.config.php:2591
+#: cs-framework-override/config/framework.config.php:2653
+#: cs-framework-override/config/framework.config.php:2660
 msgid "Sidebars"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2593
+#: cs-framework-override/config/framework.config.php:2662
 msgid "Add new sidebar"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2594
+#: cs-framework-override/config/framework.config.php:2663
 msgid "Adding new sidebar"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2600
+#: cs-framework-override/config/framework.config.php:2669
 msgid "Sidebar name"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2606
+#: cs-framework-override/config/framework.config.php:2675
 msgid "Description"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2620
+#: cs-framework-override/config/framework.config.php:2689
 msgid "Extensions"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2627
+#: cs-framework-override/config/framework.config.php:2696
 msgid "Display breadcrumbs on pages"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2635
+#: cs-framework-override/config/framework.config.php:2704
 msgid "Sticky post by category"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2637
+#: cs-framework-override/config/framework.config.php:2706
 msgid "Display options on posts to mark it as sticky by category."
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2660
+#: cs-framework-override/config/framework.config.php:2729
 msgid "Display shortcode list"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2668
+#: cs-framework-override/config/framework.config.php:2737
 msgid "Available shortcodes"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2670
+#: cs-framework-override/config/framework.config.php:2739
 msgid ""
 "All of the available shortcodes that you can use on your WordPress blog."
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2682
+#: cs-framework-override/config/framework.config.php:2751
 #: cs-framework-override/config/metabox.config.php:171
 #: cs-framework-override/config/metabox.config.php:186
 msgid "SEO"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2689
+#: cs-framework-override/config/framework.config.php:2758
 msgid "We recommend to use "
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2695
+#: cs-framework-override/config/framework.config.php:2764
 msgid "Enable GZip compression"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2703
+#: cs-framework-override/config/framework.config.php:2772
 msgid "No index archive and search pages"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2711
+#: cs-framework-override/config/framework.config.php:2780
 msgid "Minify HTML"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2719
+#: cs-framework-override/config/framework.config.php:2788
 msgid "Mark external links"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2727
+#: cs-framework-override/config/framework.config.php:2796
 msgid "Use CDNs"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2728
+#: cs-framework-override/config/framework.config.php:2797
 msgid ""
 "Maybe faster but not GDPR compliant. Save options take longer! Be patient."
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2750
+#: cs-framework-override/config/framework.config.php:2819
 msgid "Add your Google Analytics code here"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2762
+#: cs-framework-override/config/framework.config.php:2831
 msgid "Security"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2777
+#: cs-framework-override/config/framework.config.php:2846
 msgid ""
 "You can turn on/off build in security features here. We recommend to turn "
 "off and use "
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2784
+#: cs-framework-override/config/framework.config.php:2853
 msgid "Enable security featuers."
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2786
+#: cs-framework-override/config/framework.config.php:2855
 msgid "Check out Offensive Security's Exploit Database Archive. "
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2786
-#: cs-framework-override/config/framework.config.php:2810
-#: cs-framework-override/config/framework.config.php:2837
-#: cs-framework-override/config/framework.config.php:2846
 #: cs-framework-override/config/framework.config.php:2855
-#: cs-framework-override/config/framework.config.php:2864
-#: cs-framework-override/config/framework.config.php:2883
-#: cs-framework-override/config/framework.config.php:2892
-#: cs-framework-override/config/framework.config.php:2901
+#: cs-framework-override/config/framework.config.php:2879
+#: cs-framework-override/config/framework.config.php:2906
+#: cs-framework-override/config/framework.config.php:2915
+#: cs-framework-override/config/framework.config.php:2924
+#: cs-framework-override/config/framework.config.php:2933
+#: cs-framework-override/config/framework.config.php:2952
+#: cs-framework-override/config/framework.config.php:2961
+#: cs-framework-override/config/framework.config.php:2970
 msgid "More..."
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2792
+#: cs-framework-override/config/framework.config.php:2861
 msgid "Enable quick security check"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2801
+#: cs-framework-override/config/framework.config.php:2870
 msgid "Quick security check"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2808
+#: cs-framework-override/config/framework.config.php:2877
 msgid "Limit login attempts"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2810
+#: cs-framework-override/config/framework.config.php:2879
 msgid "Limit login attempts for protect site from brute force attacks."
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2817
+#: cs-framework-override/config/framework.config.php:2886
 msgid "Lockout threshold"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2819
+#: cs-framework-override/config/framework.config.php:2888
 msgid "After a number of failed sign-in attempts, user ip will be blocked."
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2826
+#: cs-framework-override/config/framework.config.php:2895
 msgid "Lockout duration"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2828
+#: cs-framework-override/config/framework.config.php:2897
 msgid "Number of seconds that account remains locked out."
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2835
+#: cs-framework-override/config/framework.config.php:2904
 msgid "Do not display login error details"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2837
+#: cs-framework-override/config/framework.config.php:2906
 msgid "Login error messages can be used to guess a username and/or password"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2844
+#: cs-framework-override/config/framework.config.php:2913
 msgid "Disable the plugin and theme file editors"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2846
+#: cs-framework-override/config/framework.config.php:2915
 msgid "Protect the site from tinkering"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2853
+#: cs-framework-override/config/framework.config.php:2922
 msgid "Stop user enumeration"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2855
+#: cs-framework-override/config/framework.config.php:2924
 msgid "User Enumeration is a hacking method to get your username"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2862
+#: cs-framework-override/config/framework.config.php:2931
 msgid "Disable xmlrpc"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2864
+#: cs-framework-override/config/framework.config.php:2933
 msgid "Prevent XML-RPC brute force, guessing authentication and DDoS attacks."
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2872
+#: cs-framework-override/config/framework.config.php:2941
 msgid "Disable JSON Rest API"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2874
+#: cs-framework-override/config/framework.config.php:2943
 msgid ""
 "For WordPress 4.7+ only. Return 405 error code with <code>\"REST-API "
 "services are disabled on this site.\"</code>."
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2881
+#: cs-framework-override/config/framework.config.php:2950
 msgid "Limit JSON Rest API for authenticated users only"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2883
+#: cs-framework-override/config/framework.config.php:2952
 msgid ""
 "For WordPress versions 4.4 - 4.6, makes use of the rest_enabled filter "
 "provided by the API to disable the API functionality. For WordPress 4.7+, "
@@ -1376,123 +1393,123 @@ msgid ""
 "the website."
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2890
+#: cs-framework-override/config/framework.config.php:2959
 msgid "Prevent malicious URL requests"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2892
+#: cs-framework-override/config/framework.config.php:2961
 msgid "Prevent attackers to use malicious queries to find and attack."
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2899
+#: cs-framework-override/config/framework.config.php:2968
 msgid "Check comment referer"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2901
+#: cs-framework-override/config/framework.config.php:2970
 msgid "Prevent spam comments by checking the page referer."
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2908
+#: cs-framework-override/config/framework.config.php:2977
 msgid "Email alert for failed login attempts."
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2916
+#: cs-framework-override/config/framework.config.php:2985
 msgid ""
 "Make sure email sending service has been set properly and working on your "
 "computer."
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2923
+#: cs-framework-override/config/framework.config.php:2992
 msgid "Email"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2925
+#: cs-framework-override/config/framework.config.php:2994
 msgid "If empty, admin email will be used."
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2936
+#: cs-framework-override/config/framework.config.php:3005
 #: template-parts/maintenance.php:6
 msgid "Maintenance"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2943
+#: cs-framework-override/config/framework.config.php:3012
 msgid "Activate maintenance mode"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2957
+#: cs-framework-override/config/framework.config.php:3026
 msgid "Background image and/or color"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2971
+#: cs-framework-override/config/framework.config.php:3040
 msgid "Font color"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2986
+#: cs-framework-override/config/framework.config.php:3055
 msgid "WooCommerce"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:2993
+#: cs-framework-override/config/framework.config.php:3062
 msgid "Show cart in menu"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:3000
+#: cs-framework-override/config/framework.config.php:3069
 msgid "Add categories to products in shop"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:3007
+#: cs-framework-override/config/framework.config.php:3076
 msgid "Remove add to cart button from grid"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:3014
+#: cs-framework-override/config/framework.config.php:3083
 msgid "Remove product image"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:3021
+#: cs-framework-override/config/framework.config.php:3090
 msgid "Remove ratings"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:3028
+#: cs-framework-override/config/framework.config.php:3097
 msgid "Product per row in shop"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:3042
+#: cs-framework-override/config/framework.config.php:3111
 msgid "Product per page in shop"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:3056
+#: cs-framework-override/config/framework.config.php:3125
 msgid "Releated columns"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:3070
+#: cs-framework-override/config/framework.config.php:3139
 msgid "Related products per page"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:3084
+#: cs-framework-override/config/framework.config.php:3153
 msgid "Display new badge for:"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:3093
+#: cs-framework-override/config/framework.config.php:3162
 msgid "Display the new badge for the amount of days. Disable: 0"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:3100
+#: cs-framework-override/config/framework.config.php:3169
 msgid "Shop sidebar"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:3112
+#: cs-framework-override/config/framework.config.php:3181
 msgid "Product sidebar"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:3123
+#: cs-framework-override/config/framework.config.php:3192
 msgid "Shop title"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:3137
-#: cs-framework-override/config/framework.config.php:3148
+#: cs-framework-override/config/framework.config.php:3206
+#: cs-framework-override/config/framework.config.php:3217
 msgid "Backup & Restore"
 msgstr ""
 
-#: cs-framework-override/config/framework.config.php:3144
+#: cs-framework-override/config/framework.config.php:3213
 msgid "You can save your current options. Download a Backup and Import."
 msgstr ""
 
@@ -1741,8 +1758,7 @@ msgstr ""
 msgid "Search Section"
 msgstr ""
 
-#: include/cpt-sections.php:26 include/register-custom-post-type-demos.php:18
-#: include/register-custom-post-type-demos.php:100
+#: include/cpt-sections.php:26
 msgid "Not Found"
 msgstr ""
 
@@ -1788,98 +1804,6 @@ msgstr ""
 
 #: include/extras.php:345 include/extras.php:355
 msgid "You might also like:"
-msgstr ""
-
-#: include/register-custom-post-type-demos.php:8
-#: include/register-custom-post-type-demos.php:9
-#: include/register-custom-post-type-demos.php:10
-msgid "News"
-msgstr ""
-
-#: include/register-custom-post-type-demos.php:11
-msgid "All News"
-msgstr ""
-
-#: include/register-custom-post-type-demos.php:12
-msgid "Add News"
-msgstr ""
-
-#: include/register-custom-post-type-demos.php:13
-msgid "Add New News"
-msgstr ""
-
-#: include/register-custom-post-type-demos.php:14
-msgid "Edit News"
-msgstr ""
-
-#: include/register-custom-post-type-demos.php:15
-msgid "New News"
-msgstr ""
-
-#: include/register-custom-post-type-demos.php:16
-msgid "View News"
-msgstr ""
-
-#: include/register-custom-post-type-demos.php:17
-msgid "Search News"
-msgstr ""
-
-#: include/register-custom-post-type-demos.php:19
-#: include/register-custom-post-type-demos.php:101
-msgid "Not found in Trash"
-msgstr ""
-
-#: include/register-custom-post-type-demos.php:61
-msgid "News Category"
-msgstr ""
-
-#: include/register-custom-post-type-demos.php:74
-msgid "News Tag"
-msgstr ""
-
-#: include/register-custom-post-type-demos.php:90
-#: include/register-custom-post-type-demos.php:92
-msgid "Demos"
-msgstr ""
-
-#: include/register-custom-post-type-demos.php:91
-msgid "Demo"
-msgstr ""
-
-#: include/register-custom-post-type-demos.php:93
-msgid "All Demos"
-msgstr ""
-
-#: include/register-custom-post-type-demos.php:94
-msgid "Add Demo"
-msgstr ""
-
-#: include/register-custom-post-type-demos.php:95
-msgid "Add New Demo"
-msgstr ""
-
-#: include/register-custom-post-type-demos.php:96
-msgid "Edit Demo"
-msgstr ""
-
-#: include/register-custom-post-type-demos.php:97
-msgid "New Demo"
-msgstr ""
-
-#: include/register-custom-post-type-demos.php:98
-msgid "View Demo"
-msgstr ""
-
-#: include/register-custom-post-type-demos.php:99
-msgid "Search Demo"
-msgstr ""
-
-#: include/register-custom-post-type-demos.php:141
-msgid "Demo Category"
-msgstr ""
-
-#: include/register-custom-post-type-demos.php:154
-msgid "Demo Tag"
 msgstr ""
 
 #: include/seo.php:53
