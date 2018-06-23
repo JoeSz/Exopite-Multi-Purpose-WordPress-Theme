@@ -44,6 +44,7 @@ function css_generate_background( $setting, $options ) {
 
 // Generate Google font families to include
 function add_google_font( $family, $weight, $google_fonts ) {
+    if ( ! is_array( $google_fonts ) ) $google_fonts = array();
     if( ! array_key_exists( $family, $google_fonts ) || ! in_array( $weight, $google_fonts[$family] ) ) {
         $google_fonts[$family][] = ( $weight == 'regular' ) ? '400' : $weight;
     }
