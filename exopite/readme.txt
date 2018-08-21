@@ -2,9 +2,9 @@
 
 - Author: Joe Szalai
 - Version: 20180622
-- Theme URL: http://joe.szalai.org/exopite/
+- Theme URL: https://www.joeszalai.org/exopite/
 - Theme GitHub URL: https://github.com/JoeSz/Exopite-Multi-Purpose-WordPress-Theme
-- Author URL: http://joe.szalai.org/
+- Author URL: https://www.joeszalai.org/
 - License: GNU General Public License v3 or later
 - License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -199,6 +199,9 @@ Req:
 == Frequently Asked Questions ==
 
 == Changelog ==
+
+= 20180821 - Aug 21 2018
+* UPDATED: Site url to the new one
 
 = 20180622 - Jun 22 2018
 * ADDED: Option for footer and copyright font family, size and color

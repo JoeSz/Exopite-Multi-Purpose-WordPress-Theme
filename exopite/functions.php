@@ -8,7 +8,8 @@
  */
 // Exit if accessed directly
 defined('ABSPATH') or die( 'You cannot access this page directly.' );
-/*
+
+/**
  * ToDo:
  * - check jquery-ui, bootstrap411, fontawesome470 before enqueue
  * - create a checker function/class to see which as been enqueued (also combined)

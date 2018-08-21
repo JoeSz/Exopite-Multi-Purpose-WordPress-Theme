@@ -25,7 +25,7 @@ $exopite_settings           = array(
   'menu_capability' => 'manage_options',
   'ajax_save'       => true,
   'show_reset_all'  => true,
-  'framework_title' => 'Exopite One - Options <small style="color: #999;">by <a target="_blank" href="//joe.szalai.org">joe.szalai.org</a> - Version ' . EXOPITE_VERSION . '</small>',
+  'framework_title' => 'Exopite One - Options <small style="color: #999;">by <a target="_blank" href="//www.joeszalai.org">www.joeszalai.org</a> - Version ' . EXOPITE_VERSION . '</small>',
 );
 
 // ===============================================================================================
@@ -49,7 +49,7 @@ $exopite_options[]      = array(
     array(
       'type'    => 'notice',
       'class'   => 'danger',
-      'content' => 'NO WARRANTY OF ANY KIND! USE THIS SOFTWARES AND INFORMATIONS AT YOUR OWN RISK! <a href="//joe.szalai.org/disclaimer/" target="_blank">READ DISCLAMER</a>, <a href="//www.gnu.org/licenses/gpl-3.0.html" target="_blank">License: GNU General Public License v3</a>',
+      'content' => 'NO WARRANTY OF ANY KIND! USE THIS SOFTWARES AND INFORMATIONS AT YOUR OWN RISK! <a href="//www.joeszalai.org/disclaimer/" target="_blank">READ DISCLAMER</a>, <a href="//www.gnu.org/licenses/gpl-3.0.html" target="_blank">License: GNU General Public License v3</a>',
     ),
 
 
@@ -2837,7 +2837,7 @@ $exopite_options[]      = array(
     array(
       'type'    => 'notice',
       'class'   => 'danger',
-      'content' => 'NO WARRANTY OF ANY KIND! USE THIS SOFTWARES AND INFORMATIONS AT YOUR OWN RISK! <a href="http://joe.szalai.org/disclamer_pre.txt" target="_blank">READ DISCLAMER</a>, <a href="http://www.gnu.org/licenses/gpl-2.0.html" target="_blank">License: GNU General Public License v2</a>',
+      'content' => 'NO WARRANTY OF ANY KIND! USE THIS SOFTWARES AND INFORMATIONS AT YOUR OWN RISK! <a href="https://www.joeszalai.org/disclamer_pre.txt" target="_blank">READ DISCLAMER</a>, <a href="http://www.gnu.org/licenses/gpl-2.0.html" target="_blank">License: GNU General Public License v2</a>',
     ),
 
     array(

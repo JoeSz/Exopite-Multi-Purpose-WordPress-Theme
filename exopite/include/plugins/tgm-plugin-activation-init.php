@@ -79,7 +79,7 @@ function exopite_register_required_plugins() {
             'name'              => 'Exopite Core',
             'slug'              => 'exopite-core',
             'source'            => get_template_directory() . '/include/plugins/exopite-core.zip', // The plugin source.
-            //'source'            => 'https://update.szalai.org/packages/exopite-core.zip', // The plugin source.
+            //'source'            => 'https://update.joeszalai.org/packages/exopite-core.zip', // The plugin source.
             'required'          => true,
             'force_activation'  => true,
         ),
@@ -105,7 +105,7 @@ function exopite_register_required_plugins() {
         array(
             'name'              => 'Exopite SEO Core',
             'slug'              => 'exopite-seo-core',
-            'source'            => 'https://update.szalai.org/packages/exopite-seo-core.zip', // The plugin source.
+            'source'            => 'https://update.joeszalai.org/packages/exopite-seo-core.zip', // The plugin source.
             'required'          => false,
         ),
 
@@ -118,7 +118,7 @@ function exopite_register_required_plugins() {
                 'name'              => 'Woocommerce Ajax add to cart for all products',
                 'slug'              => 'woocommerce-ajax-add-to-cart-for-all-products',
                 //'source'            => TEMPLATEPATH . 'include/plugins/woocommerce-ajax-add-to-cart-for-all-products.zip', // The plugin source.
-                'source'            => 'https://update.szalai.org/packages/woocommerce-ajax-add-to-cart-for-all-products.zip', // The plugin source.
+                'source'            => 'https://update.joeszalai.org/packages/woocommerce-ajax-add-to-cart-for-all-products.zip', // The plugin source.
                 'required'          => false,
             ),
 

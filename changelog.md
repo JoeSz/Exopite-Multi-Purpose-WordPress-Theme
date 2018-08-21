@@ -1,5 +1,8 @@
 # Changelog
 
+= 20180821 - Aug 21 2018
+* **UPDATED**: Site url to the new one
+
 = 20180622 - Jun 22 2018
 * **ADDED**: Option for footer and copyright font family, size and color
 * **ENHANCEMENT**: Reorganized menu for better user expirience

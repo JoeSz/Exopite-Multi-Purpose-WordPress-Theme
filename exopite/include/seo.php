@@ -298,7 +298,7 @@ if ( ! defined('WPSEO_VERSION') ) {
 
             $user_meta = get_user_meta( get_the_author_meta( 'ID' , $post->post_author ) );
 
-            ?><!-- Exopite SEO - This site is optimized with Exopite Theme - https://joe.szalai.org/exopite/ -->
+            ?><!-- Exopite SEO - This site is optimized with Exopite Theme - https://www.joeszalai.org/exopite/ -->
 <meta name="description" content="<?php echo esc_html( $exopite_meta_description ); ?>" />
 <?php if ( ! empty( $exopite_meta_keywords ) ) : ?>
 <meta name="keywords" content="<?php echo esc_html( $exopite_meta_keywords ); ?>">
@@ -426,4 +426,3 @@ if ( ! function_exists( 'exopite_set_image_meta_upon_image_upload' ) ) {
     }
 
 }
-

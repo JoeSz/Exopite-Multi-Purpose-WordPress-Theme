@@ -14,7 +14,7 @@ if ( is_admin() && ! class_exists( 'ThemeUpdateChecker' ) ) {
 
     $MyThemeUpdateChecker = new ThemeUpdateChecker (
         'exopite', //Theme slug. Usually the same as the name of its directory.
-        'https://update.szalai.org/?action=get_metadata&slug=exopite' //Metadata URL.
+        'https://update.joeszalai.org/?action=get_metadata&slug=exopite' //Metadata URL.
     );
 
 }

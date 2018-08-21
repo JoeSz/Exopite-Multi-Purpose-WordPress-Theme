@@ -150,7 +150,7 @@ if ( ! function_exists( 'exopite_replace_footer_admin' ) ) {
         $timer = ob_get_contents();
         ob_end_clean();
 
-        echo '<p class="alignleft">Fueled by <a href="http://www.wordpress.org" target="_blank">WordPress</a> | Designed by <a href="http://joe.szalai.org" target="_blank">Joe Szalai</a> | WordPress Tutorials: <a href="http://www.wpbeginner.com" target="_blank">WPBeginner</a>';
+        echo '<p class="alignleft">Fueled by <a href="http://www.wordpress.org" target="_blank">WordPress</a> | Designed by <a href="https://www.joeszalai.org" target="_blank">Joe Szalai</a> | WordPress Tutorials: <a href="http://www.wpbeginner.com" target="_blank">WPBeginner</a>';
         echo '&nbsp;| <span class="admin-stats">'. sprintf(  '%d queries in %s seconds, using %.2f kB memory',
             get_num_queries(),
             $timer,

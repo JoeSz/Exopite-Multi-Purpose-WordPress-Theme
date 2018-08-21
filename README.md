@@ -2,24 +2,24 @@
 
 - Author: Joe Szalai
 - Version: 20180622
-- Theme URL: https://joe.szalai.org/exopite/
-- Demo URL: https://joe.szalai.org/exopite/
+- Theme URL: https://www.joeszalai.org/exopite/
+- Demo URL: https://www.joeszalai.org/exopite/
 - Theme GitHub URL: https://github.com/JoeSz/Exopite-Multi-Purpose-WordPress-Theme
-- Author URL: https://joe.szalai.org/
+- Author URL: https://www.joeszalai.org/
 - License: GNU General Public License v3 or later
 - License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
 > **Note:** <br>
 > This theme is a work in progress, active develpoment. I tested many times, but may containts some error. Please send me an email if you find any issue (and maybe the solution as well ;) )
 > I will fix any issues as soon as I can. But because I'm working on this one alone, may take some time.
-> [READ DISCLAMER.TXT!](https://joe.szalai.org/disclaimer/)
+> [READ DISCLAMER.TXT!](https://www.joeszalai.org/disclaimer/)
 
 ## Description
 
 Exopite is a advanced multi-purpose WordPress theme with clean and elegant design to create an awesome user-experience. Full Responsive and SEO friendly. It can be to used for any type of website on any type of device. No coding required, easy to use. Can be used with any (recommended: SiteOrigin) page builder plugin. It has been designed to suit beginners as well as developers. Premium-grade theme for free!
 
 <p align="center">
-    <a href="https://joe.szalai.org/exopite/" rel="Theme URL and Live Demo"><img src="https://joe.szalai.org/wp-content/uploads/2017/07/live_demo.png" alt="Theme URL and Live Demo"></a>
+    <a href="https://www.joeszalai.org/exopite/" rel="Theme URL and Live Demo"><img src="https://www.joeszalai.org/wp-content/uploads/2017/07/live_demo.png" alt="Theme URL and Live Demo"></a>
 </p>
 
 ## Features
