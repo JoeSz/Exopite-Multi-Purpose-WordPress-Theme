@@ -202,6 +202,7 @@ Req:
 
 = 20180822 - Aug 22 2018
 * FIXED: Try include parent php moduless from child theme
+* FIXED: Footer and copyright ignore font settings
 
 = 20180821 - Aug 21 2018
 * UPDATED: Site url to the new one
