@@ -93,8 +93,8 @@ function download_google_fonts( $link ) {
 	// Check if there is a url in the text
 	if( preg_match( $regex_url, $link, $url ) ) {
 
-        $css_dir = get_stylesheet_directory() . '/css';
-        $font_dir = get_stylesheet_directory() . "/fonts/google_fonts";
+        $css_dir = get_template_directory() . '/css';
+        $font_dir = get_template_directory() . "/fonts/google_fonts";
 		$css_file = $css_dir . '/google-fonts.css';
 
         $google_css = $url[0];
@@ -158,7 +158,7 @@ function download_google_fonts( $link ) {
                 }
 
                 // replace string
-				$css_file_contents = str_replace( $font, get_stylesheet_directory_uri() . "/fonts/google_fonts/{$font_file}", $css_file_contents );
+				$css_file_contents = str_replace( $font, get_template_directory_uri() . "/fonts/google_fonts/{$font_file}", $css_file_contents );
 			}
 			$fh = fopen ( $css_file, 'w+' );
 			fwrite( $fh, $css_file_contents );

@@ -45,7 +45,7 @@ if ( isset( $exopite_settings['google_fonts'] ) && ! empty( $exopite_settings['g
 
     } else {
         ?>
-        <link rel="stylesheet" type="text/css" href="<?php echo get_stylesheet_directory_uri() . '/css/google-fonts.css'; ?>">
+        <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri() . '/css/google-fonts.css'; ?>">
         <?php
     }
 }
