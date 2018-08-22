@@ -80,6 +80,10 @@
     border: 1px solid #a00 !important;
     border-radius: 1px !important;
 }
+.so-row-toolbar {
+    position: absolute;
+    right: 16px;
+}
 /* Codestar Framework */
 .codestar-security-field .label {
     min-width: 112px;
