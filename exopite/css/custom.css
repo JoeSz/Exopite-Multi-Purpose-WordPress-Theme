@@ -1508,7 +1508,7 @@ ul.simple-list.list-small > li li {
     margin-bottom: 3.2%;
     font-weight: 900;
     width: 100%;
-    margin-bottom: 6%;
+    margin-bottom: 5.6%;
     -moz-transform: rotate(-6deg);
     -webkit-transform: rotate(-6deg);
     transform: rotate(-6deg);
@@ -1553,13 +1553,13 @@ ul.simple-list.list-small > li li {
     .divider-style-diagonal-shadow .branding {
         font-size: 100px;
         line-height: 100px;
-        margin-bottom: 6%;
+        margin-bottom: 5.6%;
         -moz-transform: rotate(-6deg);
         -webkit-transform: rotate(-6deg);
         transform: rotate(-6deg);
     }
     .sub-branding__content {
-        top: -1.3vw;
+        top: -1.4vw;
     }
 }
 @media only screen and (min-width: 600px) {
@@ -1570,7 +1570,7 @@ ul.simple-list.list-small > li li {
         transform: rotate(-4deg);
     }
     .sub-branding__content {
-        top: -1.4vw;
+        top: -1.3vw;
     }
 }
 @media only screen and (min-width: 680px) {
