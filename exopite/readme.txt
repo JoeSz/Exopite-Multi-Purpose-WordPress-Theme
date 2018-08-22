@@ -1,7 +1,7 @@
 === Exopite - High Performance Multi-purpose WordPress Theme ===
 
 - Author: Joe Szalai
-- Version: 20180622
+- Version: 20180822
 - Theme URL: https://www.joeszalai.org/exopite/
 - Theme GitHub URL: https://github.com/JoeSz/Exopite-Multi-Purpose-WordPress-Theme
 - Author URL: https://www.joeszalai.org/
@@ -199,6 +199,9 @@ Req:
 == Frequently Asked Questions ==
 
 == Changelog ==
+
+= 20180822 - Aug 22 2018
+* FIXED: Try include parent php moduless from child theme
 
 = 20180821 - Aug 21 2018
 * UPDATED: Site url to the new one
