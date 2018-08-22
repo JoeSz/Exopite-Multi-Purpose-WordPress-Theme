@@ -1490,3 +1490,78 @@ ul.simple-list.list-small > li li {
 #footer-menu li:not(:last-child)::after {
     padding-right: 4px;
 }
+.home .hero-header .divider-style-diagonal-shadow {
+    background: transparent;
+    overflow: visible;
+}
+.home .hero-header .divider-style-diagonal-shadow::after {
+    height: 70%;
+}
+.home .site-branding {
+    width: 100%;
+}
+.divider-style-diagonal-shadow div {
+    text-align: center;
+    color: #fff;
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 3.2%;
+    font-weight: 900;
+    width: 100%;
+    margin-bottom: 6%;
+    -moz-transform: rotate(-6deg);
+    -webkit-transform: rotate(-6deg);
+    transform: rotate(-6deg);
+    font-size: 70px;
+    line-height: 70px;
+}
+@media only screen and (min-width: 500px) {
+    .divider-style-diagonal-shadow div {
+        font-size: 100px;
+        line-height: 100px;
+        margin-bottom: 6%;
+        -moz-transform: rotate(-6deg);
+        -webkit-transform: rotate(-6deg);
+        transform: rotate(-6deg);
+    }
+}
+@media only screen and (min-width: 600px) {
+    .divider-style-diagonal-shadow div {
+        margin-bottom: 3.6%;
+        -moz-transform: rotate(-4deg);
+        -webkit-transform: rotate(-4deg);
+        transform: rotate(-4deg);
+    }
+}
+@media only screen and (min-width: 680px) {
+    .divider-style-diagonal-shadow div {
+        margin-bottom: 3.9%;
+    }
+}
+@media only screen and (min-width: 900px) {
+    .divider-style-diagonal-shadow div {
+        margin-bottom: 2.8%;
+        -moz-transform: rotate(-3deg);
+        -webkit-transform: rotate(-3deg);
+        transform: rotate(-3deg);
+    }
+}
+@media only screen and (min-width: 1060px) {
+    .divider-style-diagonal-shadow div {
+        margin-bottom: 2.9%;
+    }
+}
+@media only screen and (min-width: 1300px) {
+    .divider-style-diagonal-shadow div {
+        margin-bottom: 3.0%;
+    }
+}
+@media only screen and (min-width: 1500px) {
+    .divider-style-diagonal-shadow div {
+        margin-bottom: 3.1%;
+    }
+}
+.home .hero-header-skip-to-content {
+    bottom: 50px;
+    left: 50px;
+}
