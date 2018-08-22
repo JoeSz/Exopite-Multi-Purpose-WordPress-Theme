@@ -94,6 +94,8 @@ if ( $exopite_hero_header_site_branding_type == 'widget' ) {
     $exopite_hero_header_site_branding = '<div class="site-branding-text">' . $exopite_meta_data['exopite-hero-header-site-branding-text'] . '</div>';
 
 }
+
+exopite_hooks_before_hero_header();
 ?>
 <!-- Hero header -->
 <div class="hero-header-wrapper"<?php if ( $exopite_override_hero_header_height ) echo ' style="height:' . $exopite_meta_data['exopite-hero-header-height'] . 'vh;min-height:' . $exopite_meta_data['exopite-hero-header-min-height'] . 'px;"'; ?>>
@@ -163,3 +165,4 @@ endif;
     </div>
 </div>
 <!-- End hero-header -->
+<?php exopite_hooks_after_hero_header();

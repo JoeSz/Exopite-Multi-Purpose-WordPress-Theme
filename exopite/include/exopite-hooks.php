@@ -2,10 +2,12 @@
 // Exit if accessed directly
 defined('ABSPATH') or die( 'You cannot access this page directly.' );
 
-/*
+/**
  * File to create Exopite hooks
  *
  * Hooks:
+ *  - exopite_hooks_before_hero_header
+ *  - exopite_hooks_after_hero_header
  *  - exopite_hooks_menu_top
  *  - exopite_hooks_before_menu
  *  - exopite_hooks_after_menu
@@ -30,6 +32,14 @@ defined('ABSPATH') or die( 'You cannot access this page directly.' );
  *      integer, set post number to run exopite_hooks_posts_before_nth_excerpt_item hook
  *      before the excerpt, content or nothing
  */
+
+function exopite_hooks_before_hero_header() {
+    do_action( 'exopite_hooks_before_hero_header' );
+}
+
+function exopite_hooks_after_hero_header() {
+    do_action( 'exopite_hooks_after_hero_header' );
+}
 
 function exopite_hooks_menu_top() {
     do_action( 'exopite_hooks_menu_top' );
