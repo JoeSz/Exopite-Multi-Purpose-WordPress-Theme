@@ -8,10 +8,6 @@
 #footer-menu li:not(:last-child)::after {
     content: '|';
     padding-left: 4px;
-    color: #555;
-}
-#footer-menu li a {
-    color: #888; /* SETTINGS */
 }
 .site-footer {
     position: relative;

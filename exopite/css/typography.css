@@ -55,3 +55,20 @@ html.wf-active body  {
 .wf-active h1 {
     font-family: "[#exopite-font-content.family]";
 }
+footer {
+/* .footer-background { */
+    color: [#exopite-font-footer.color];
+    font-family: [#exopite-font-footer.family];
+    font-size: [#exopite-font-footer.size]px;
+    font-weight: [#exopite-font-footer.weight];
+    line-height: [#exopite-font-footer.height]px;
+    font-style: [#exopite-font-footer.style];
+}
+.copyright-background {
+    color: [#exopite-font-copyright.color];
+    font-family: [#exopite-font-copyright.family];
+    font-size: [#exopite-font-copyright.size]px;
+    font-weight: [#exopite-font-copyright.weight];
+    line-height: [#exopite-font-copyright.height]px;
+    font-style: [#exopite-font-copyright.style];
+}
