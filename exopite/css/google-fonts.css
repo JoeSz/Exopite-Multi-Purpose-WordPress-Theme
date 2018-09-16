@@ -2,29 +2,29 @@
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 300;
-  src: local('Roboto Light'), local('Roboto-Light'), url(http://joe.szalai.dev/wp-content/themes/exopite/fonts/google_fonts/KFOlCnqEu92Fr1MmSU5fBBc-.woff) format('woff');
+  src: local('Roboto Light'), local('Roboto-Light'), url(/wp-content/themes/exopite/fonts/google_fonts/KFOlCnqEu92Fr1MmSU5fBBc-.woff) format('woff');
 }
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 500;
-  src: local('Roboto Medium'), local('Roboto-Medium'), url(http://joe.szalai.dev/wp-content/themes/exopite/fonts/google_fonts/KFOlCnqEu92Fr1MmEU9fBBc-.woff) format('woff');
+  src: local('Roboto Medium'), local('Roboto-Medium'), url(/wp-content/themes/exopite/fonts/google_fonts/KFOlCnqEu92Fr1MmEU9fBBc-.woff) format('woff');
 }
 @font-face {
   font-family: 'Shadows Into Light Two';
   font-style: normal;
   font-weight: 400;
-  src: local('Shadows Into Light Two'), local('ShadowsIntoLightTwo-Regular'), url(http://joe.szalai.dev/wp-content/themes/exopite/fonts/google_fonts/4iC86LVlZsRSjQhpWGedwyOoW-0A6_kpsyNmpAzHHw.woff) format('woff');
+  src: local('Shadows Into Light Two'), local('ShadowsIntoLightTwo-Regular'), url(/wp-content/themes/exopite/fonts/google_fonts/4iC86LVlZsRSjQhpWGedwyOoW-0A6_kpsyNmpAzHHw.woff) format('woff');
 }
 @font-face {
   font-family: 'Ubuntu';
   font-style: normal;
   font-weight: 400;
-  src: local('Ubuntu Regular'), local('Ubuntu-Regular'), url(http://joe.szalai.dev/wp-content/themes/exopite/fonts/google_fonts/4iCs6KVjbNBYlgoKfw7w.woff) format('woff');
+  src: local('Ubuntu Regular'), local('Ubuntu-Regular'), url(/wp-content/themes/exopite/fonts/google_fonts/4iCs6KVjbNBYlgoKfw7w.woff) format('woff');
 }
 @font-face {
   font-family: 'Ubuntu';
   font-style: normal;
   font-weight: 500;
-  src: local('Ubuntu Medium'), local('Ubuntu-Medium'), url(http://joe.szalai.dev/wp-content/themes/exopite/fonts/google_fonts/4iCv6KVjbNBYlgoCjC3jsGyL.woff) format('woff');
+  src: local('Ubuntu Medium'), local('Ubuntu-Medium'), url(/wp-content/themes/exopite/fonts/google_fonts/4iCv6KVjbNBYlgoCjC3jsGyL.woff) format('woff');
 }
