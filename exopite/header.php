@@ -10,12 +10,12 @@
 // Exit if accessed directly
 defined('ABSPATH') or die( 'You cannot access this page directly.' );
 
-/*
+/**
  * Settings from admin option codestar framework
  */
 $exopite_settings = get_option( 'exopite_options' );
 
-/*
+/**
  * Set defaults
  * It is no default values from option framework, until exopite-core plugin is installed and activated.
  */
@@ -47,7 +47,7 @@ $exopite_menu_full_width = ( isset( $exopite_settings['exopite-menu-full-width']
     $exopite_settings['exopite-menu-full-width'] :
     false;
 
-/*
+/**
  * Possibility to override menu with filter
  */
 $exopite_menu_alignment = apply_filters( 'exopite-menu-alignment', $exopite_menu_alignment );
@@ -62,7 +62,7 @@ $exopite_menu_full_width  = apply_filters( 'exopite-menu-full-width', $exopite_m
 
 $exopite_menu_search = ( isset( $exopite_settings['exopite-desktop-menu-search'] ) && $exopite_settings['exopite-desktop-menu-search'] == false ) ? false : true;
 $exopite_menu_search =  apply_filters( 'exopite-desktop-menu-search', $exopite_menu_search );
-/*
+/**
  * Individual page/post settings
  */
 $exopite_meta_data_type = 'exopite_custom_post_options';
@@ -83,12 +83,12 @@ ExopiteSettings::setValue( 'exopite-meta-enable-breadcrumbs', $exopite_display_b
 $exopite_meta_data_enable_hero_header = isset( $exopite_meta_data['exopite-enable-hero-header'] ) ? $exopite_meta_data['exopite-enable-hero-header'] : false;
 $exopite_display_hero_header = false;
 
-/*
+/**
  * Hero header
  * In settings control the front page,
  * in meta control other than front page.
  *
- * Dusplay hero header if:
+ * Display hero header if:
  * - hero header enabled in settings and this is the font apge
  * - hero header enabled in settings and page settings (meta) and not front page
  */
@@ -125,7 +125,7 @@ $exopite_html_class = ( isset( $exopite_settings['exopite-load-google-fonts-asyn
 
 // Theme Hook Alliance (include/plugins/tha-theme-hooks.php)
 tha_html_before();
-/*
+/**
  * Minifying HTML output
  * Start output buffering
  */
@@ -167,7 +167,7 @@ tha_head_bottom();
 <body <?php body_class( explode( ' ', apply_filters( 'exopite-body-classes', $exopite_body_classes ) ) ); ?><?php WP_Schema::get_attribute( 'body' ); ?>>
 <?php
 
-/**
+/***
  * Hook display:
  *  - Skip to content, 10 (include/template-functions.php)
  */
@@ -202,7 +202,7 @@ endif;
             remove_action( 'tha_content_before', 'display_preheader_sidebar', 10 );
         endif;
 
-        /*
+        /**
          * Theme Hook Alliance (include/plugins/tha-theme-hooks.php)
          *
          * Hook display:
@@ -218,7 +218,7 @@ endif;
 
         endif; // Hide menu
 
-        /*
+        /**
          * Theme Hook Alliance (include/plugins/tha-theme-hooks.php)
          *
          * Hook display:
@@ -244,14 +244,16 @@ endif;
 
         endif;
 
-        // Add boxed marker to side menu on layout boxed,
-        // to add color or image background to preheader, content and footer.
+        /**
+         * Add boxed marker to side menu on layout boxed,
+         * to add color or image background to preheader, content and footer.
+         */
         if ( $exopite_menu_alignment == 'left' && $exopite_settings['exopite-content-layout'] == 'boxed' ) : ?>
         <div id="boxed-content">
         <?php
         endif;
 
-        /*
+        /**
          * Theme Hook Alliance (include/plugins/tha-theme-hooks.php)
          *
          * Hook display:
