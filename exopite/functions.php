@@ -195,7 +195,15 @@ function exopite_setup() {
     add_filter( 'widget_text', 'shortcode_unautop' );
 	add_filter( 'widget_text', 'do_shortcode' );
 
-	// This theme uses wp_nav_menu() in one location.
+    /**
+     * Enable oembed in text widgets
+     *
+     * @link https://www.wpbeginner.com/wp-tutorials/how-to-enable-oembed-in-wordpress-text-widgets/
+     */
+    add_filter( 'widget_text', array( $wp_embed, 'run_shortcode' ), 8 );
+    add_filter( 'widget_text', array( $wp_embed, 'autoembed'), 8 );
+
+    // This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
 		'primary' => esc_attr__( 'Primary Menu', 'exopite' ),
 		'mobile' => esc_html__( 'Mobile Menu (optional)', 'exopite' ),
@@ -222,6 +230,18 @@ function exopite_setup() {
 		'gallery',
 		'caption',
 	) );
+
+    add_theme_support( 'post-formats', array(
+        // 'aside',
+        // 'gallery',
+        'link',
+        'image',
+        'quote',
+        // 'status',
+        'video',
+        'audio',
+        // 'chat',
+    ) );
 
 	/**
 	 * Security
@@ -427,6 +447,11 @@ require_once INC . '/author-functions.php';
  * Enqueue scripts and styles for admin area.
  */
 require_once INC . '/backend-functions.php';
+
+/**
+ * Handle post formats for this theme.
+ */
+require_once INC . '/post-formats.php';
 
 /**
  * Custom media functions for this theme.
