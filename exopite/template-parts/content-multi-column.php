@@ -19,7 +19,7 @@ if ( $post_password_required ) $article_classes .= ' has-post-thumbnail';
 // Add no-gap class if gap is disabled
 if ( $blog_no_gap && ! $blog_first_full_is_current ) $article_classes .= ' no-gap';
 
-/*
+/**
  * Add card class if column layout with multiple column selected and this is not the first post with a full width
  */
 if ( $blog_multi_column_layout_type == 'column' && $multi_row && ! $blog_first_full_is_current ) {
@@ -33,7 +33,7 @@ if ( $blog_multi_column_layout_type == 'column' && $multi_row && ! $blog_first_f
 	}
 }
 
-/*
+/**
  * Calculate Bootstrap columns for multi post per row,
  * if exopite-blog-first-full selected, then first article image on top and 100% size
  *
@@ -51,7 +51,7 @@ if ( ! $blog_first_full_is_current && $blog_multi_column_layout_type != 'column'
 
 }
 
-/*
+/**
  * Theme Hook Alliance (include/plugins/tha-theme-hooks.php)
  *
  * Beware: tha_entry_before hook will not show up with infinite scrolling!
@@ -66,7 +66,7 @@ tha_entry_before();
         // Theme Hook Alliance (include/plugins/tha-theme-hooks.php)
         tha_entry_top();
 
-		/*
+		/**
 		 * Display thumbnail here if multipe posts in one row or
 		 * if image on top, left or zigzag and even
 		 * and not 'image-none' selected
@@ -82,7 +82,7 @@ tha_entry_before();
                 $full_thumbnail = true;
             }
 
-			/*
+			/**
 			 * exopite_display_post_thumbnail located in include/media.php
 			 * If we have multiple posts in one row, then display image alwasy in top
 			 */
@@ -96,7 +96,7 @@ tha_entry_before();
 			<footer class="entry-footer">
 				<?php
 
-				/*
+				/**
 				 * Hook to display:
 				 * 	  - tags and categories, 10 (include/template-function.php)
 				 */
