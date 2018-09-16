@@ -669,15 +669,31 @@ $exopite_options[]   = array(
         ),
 
         array(
+            'id'        => 'exopite-logo-ratio',
+            'type'      => 'slider',
+            'title'     => esc_attr__( 'Logo - menu ratio', 'exopite' ),
+            'desc'      => esc_attr__( 'Logo - menu ratio in large screen.', 'exopite' ) . '<br>' . esc_attr__( 'Medium screen calculated from large screen.', 'exopite' ),
+            'validate'  => 'numeric',
+            'default'   => 3,
+            'options'   => array(
+                'step'    => 1,
+                'min'     => 1,
+                'max'     => 6,
+                'unit'    => ''
+            ),
+            'dependency'  => array( 'exopite-desktop-logo-position_center', '==', 'false' ),
+        ),
+
+        array(
             'id'        => 'exopite-logo-width',
             'type'      => 'slider',
-            'title'     => esc_attr__( 'Logo width', 'exopite' ),
+            'title'     => esc_attr__( 'Logo max-width', 'exopite' ),
             'validate'  => 'numeric',
             'default'   => 80,
             'options'   => array(
                 'step'    => 1,
                 'min'     => 20,
-                'max'     => 300,
+                'max'     => 510,
                 'unit'    => ''
             )
         ),
