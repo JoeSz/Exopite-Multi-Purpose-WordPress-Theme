@@ -374,6 +374,11 @@ if ( ! function_exists( 'on_save_options' ) ) {
         );
 
         //exopite-seo-use_cdns
+        if ( ! isset( $options['exopite-enable-xgallerify'] ) || $options['exopite-enable-xgallerify'] ) {
+            $js_files[] = 'jquery.xgallerify.js';
+        }
+
+        //exopite-seo-use_cdns
         if ( isset( $options['exopite-seo-use_cdns'] ) && ! $options['exopite-seo-use_cdns'] ) {
             $js_files[] = 'popper.1.14.3.min.js';
             $js_files[] = 'bootstrap.4.1.1.min.js';
