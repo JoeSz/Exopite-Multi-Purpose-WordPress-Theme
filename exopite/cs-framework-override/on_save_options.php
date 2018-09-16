@@ -374,17 +374,17 @@ if ( ! function_exists( 'on_save_options' ) ) {
         );
 
         //exopite-seo-use_cdns
+        $js_files_no_minification = array();
+
+        if ( isset( $options['exopite-seo-use_cdns'] ) && ! $options['exopite-seo-use_cdns'] ) {
+            $js_files_no_minification[] = 'popper.1.14.3.min.js';
+            $js_files_no_minification[] = 'bootstrap.4.1.3.min.js';
+        }
+
         if ( ! isset( $options['exopite-enable-xgallerify'] ) || $options['exopite-enable-xgallerify'] ) {
             $js_files[] = 'jquery.xgallerify.js';
+            // $js_files_no_minification[] = 'jquery.xgallerify.min.js';
         }
-
-        //exopite-seo-use_cdns
-        if ( isset( $options['exopite-seo-use_cdns'] ) && ! $options['exopite-seo-use_cdns'] ) {
-            $js_files[] = 'popper.1.14.3.min.js';
-            $js_files[] = 'bootstrap.4.1.3.min.js';
-        }
-
-        $js_files_no_minification = array();
 
         if ( $menu_top ) {
             $js_files[] = 'jquery.slimmenu.js';
