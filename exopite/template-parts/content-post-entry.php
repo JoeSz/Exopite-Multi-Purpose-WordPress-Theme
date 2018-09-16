@@ -29,7 +29,7 @@ if ( ! isset( $exopite_settings['exopite-blog-display-post-title'] ) ||
         <header class="entry-header">
             <?php
 
-            /*
+            /**
              * Display the title?
              */
             if ( ! isset( $exopite_settings['exopite-blog-display-post-title'] ) || $exopite_settings['exopite-blog-display-post-title'] ) {
@@ -121,7 +121,40 @@ if ( ! isset( $exopite_settings['exopite-blog-display-post-title'] ) ||
                         //echo "NO SEARCH<br>";
 
                     }
-                    echo get_the_excerpt();
+                    if ( get_post_format() == 'link' ) {
+
+                        $the_content = get_the_content();
+                        $dom = new DOMDocument();
+                        $dom->loadHTML( $the_content );
+                        $anchors = $dom->getElementsByTagName('a');
+
+                        $classes = ( ! empty( $anchors->item(0)->getAttribute('class') ) ) ? ' class="' . $anchors->item(0)->getAttribute('class') . '"' : '';
+                        $target = ( ! empty( $anchors->item(0)->getAttribute('target') ) ) ? ' target="' . $anchors->item(0)->getAttribute('target') . '"' : '';
+                        $title = ( ! empty( $anchors->item(0)->getAttribute('title') ) ) ? ' title="' . $anchors->item(0)->getAttribute('title') . '"' : '';
+
+                        echo '<div class="post-format-link-element">';
+                        echo '<a href="' . $anchors->item(0)->getAttribute('href') . '"' . $classes . $target . $title. '>' . $anchors->item(0)->nodeValue . '</a>';
+                        echo '</div>';
+
+                    } elseif ( get_post_format() == 'quote' ) {
+                        echo '<blockquote>';
+                        $the_content = wpautop( get_the_content(), true );
+                        // echo $x;
+                        $allowed = array(
+                           "p" => array(),
+                           "q" => array(),
+                           "cite" => array(),
+                           "img" => array(
+                                "src" => array(),
+                                "under_bar" => array()
+                            ),
+                        );
+                        echo wp_kses( $the_content, $allowed );
+                        echo '</blockquote>';
+                    } else {
+                        echo get_the_excerpt();
+                    }
+
 
                     break;
             }
