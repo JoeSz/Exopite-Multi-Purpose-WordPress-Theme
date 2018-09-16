@@ -2611,6 +2611,15 @@ $exopite_options[]   = array(
     ),
 
     array(
+      'id'          => 'exopite-enable-xgallerify',
+      'type'        => 'switcher',
+      'title'       => esc_attr__( 'Enable WordPress xGallerify', 'exopite' ),
+      'default'     => true,
+      'desc'        => esc_attr__( 'More info', 'exopite' ) . ': <a href="https://github.com/JohnnyTheTank/angular-xGallerify" target="_blank">xGallerify GitHub</a>.',
+      'after'       => ' <i class="cs-text-muted">' . esc_html__( 'You can override WordPress gallery olumn settings an make it responsive if you add to the gallery shortcode', 'exopite' ) . ':<br> <code>[gallery ... data-mode="bootstrapv4" ...]</code></i>',
+    ),
+
+    array(
       'id'              => 'exopite-thumbnail-sizes',
       'type'            => 'group',
       'title'           => 'Thumbnail sizes',
@@ -2695,7 +2704,7 @@ $exopite_options[]   = array(
       'type'    => 'switcher',
       'title'   => esc_attr__( 'Display breadcrumbs on pages', 'exopite' ),
       'default' => true,
-      'label'   => '<i style="font-size: 0.8em;"><strong>' . esc_attr__('Note:', 'exopite') . '</strong> ' . sprintf( esc_attr__('You can display the breadcrumbs everywhere via %1$s shortcode.', 'exopite'), '</i><code style="font-size: 0.8em;">[exopite-breadcrumbs]</code><i style="font-size: 0.8em;">' ) . '</i>',
+      'label'   => '<i><strong>' . esc_attr__('Note:', 'exopite') . '</strong> ' . sprintf( esc_attr__('You can display the breadcrumbs everywhere via %1$s shortcode.', 'exopite'), '</i><code>[exopite-breadcrumbs]</code><i>' ) . '</i>',
     ),
 
     array(
