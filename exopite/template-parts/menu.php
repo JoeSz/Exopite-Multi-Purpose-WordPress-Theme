@@ -53,15 +53,57 @@ $exopite_logo_menu_center = ( $exopite_desktop_logo_position == 'center' );
 $exopite_both = $exopite_left_side_logo_widget_area && $exopite_right_side_logo_widget_area && $exopite_logo_center;
 $exopite_left_or_right = $exopite_left_side_logo_widget_area || $exopite_right_side_logo_widget_area;
 
+/**
+ *  2  1
+ *  3  2
+ *  4  3
+ *  6  4
+ *  12 6
+ */
+
+$exopite_logo_ratio_lg = isset( $exopite_settings['exopite-logo-ratio'] ) ? intval( $exopite_settings['exopite-logo-ratio'] ) : 3;
+switch ( $exopite_logo_ratio_lg ) {
+
+    case 1:
+        $exopite_logo_ratio_md = 2;
+        break;
+    case 2:
+        $exopite_logo_ratio_md = 3;
+        break;
+    case 4:
+        $exopite_logo_ratio_md = 6;
+        break;
+    case 6:
+        $exopite_logo_ratio_md = 12;
+        break;
+    default:
+        $exopite_logo_ratio_md = 4;
+        break;
+
+}
+
 // Alignment classes
-$exopite_logo_alignment_classes = ( $exopite_logo_top || $exopite_menu_left ) ? '' : ' col-md-4 col-lg-3';
+$exopite_logo_alignment_classes = ( $exopite_logo_top || $exopite_menu_left || $exopite_settings['exopite-logo-ratio'] != 3 ) ? '' : ' col-md-4 col-lg-3';
 $exopite_logo_in_menu = ( $exopite_logo_top || $exopite_menu_left ) ? '' : ' logo-in-menu';
 $exopite_logo_alignment_classes .= ( ( $exopite_logo_top && $exopite_logo_center && ( $exopite_left_or_right ) ) ||
                              ( $exopite_logo_left && $exopite_right_side_logo_widget_area ) ||
                              ( $exopite_logo_right && $exopite_left_side_logo_widget_area ) ) ?
                              ' col-md-4' : '';
+if ( ( $exopite_settings['exopite-logo-ratio'] != 3 ) ) {
 
-$exopite_menu_alignment_classes = ( $exopite_logo_top || $exopite_menu_left || $exopite_logo_menu_center ) ? '' : ' col-md-8 col-lg-9';
+    $exopite_logo_alignment_classes .= ' col-md-' . $exopite_logo_ratio_md . ' col-lg-' . $exopite_logo_ratio_lg;
+    $exopite_menu_ratio_md = 12 - $exopite_logo_ratio_md;
+    $exopite_menu_ratio_lg = 12 - $exopite_logo_ratio_lg;
+    $exopite_menu_alignment_classes = ( $exopite_logo_top || $exopite_menu_left || $exopite_logo_menu_center ) ? '' : ' col-md-' . $exopite_menu_ratio_md . ' col-lg-' . $exopite_menu_ratio_lg;
+
+} else {
+
+    $exopite_menu_alignment_classes = ( $exopite_logo_top || $exopite_menu_left || $exopite_logo_menu_center ) ? '' : ' col-md-8 col-lg-9';
+
+}
+
+
+
 
 // Logos
 $exopite_desktop_logo = ( isset( $exopite_settings['exopite-desktop-logo'] ) ) ?
@@ -94,7 +136,7 @@ if ( ! function_exists( 'exopite_create_logo' ) ) {
     }
 }
 
-/*
+/**
  * MAIN MENU
  *
  * Assemble logo image, I put it in a variable, because I may have to display
@@ -102,7 +144,7 @@ if ( ! function_exists( 'exopite_create_logo' ) ) {
  */
 $exopite_logo = apply_filters( 'exopite-logo', '<div class="desktop-menu desktop-menu-logo col-12' . $exopite_logo_alignment_classes . ' ' . $exopite_desktop_logo_alignment . $exopite_logo_in_menu . '">' . exopite_create_logo() . '</div>' );
 
-/*
+/**
  * MOBILE MENU
  *
  * If there is no mobile logo set, use desktop version
@@ -123,7 +165,7 @@ if ( $exopite_mobile_menu_search ) {
     }
 }
 
-/**
+/***
  * Add search to menu
  */
 if ( $exopite_menu_search ) {
@@ -143,7 +185,7 @@ if ( $exopite_logo_center_pos ) add_filter( 'exopite_center_nav_menu_item', 'exo
 ?><header id="masthead" class="site-header menu-alignment-<?php echo $exopite_menu_alignment; ?>"<?php WP_Schema::get_attribute( 'site-header' ); ?>>
     <?php tha_header_top();
 
-    /*
+    /**
      * If desktop logo is on top, then display here.
      */
     if ( $exopite_logo_top_pos ) include( locate_template( 'template-parts/logo-top.php' ) );
@@ -163,7 +205,7 @@ if ( $exopite_logo_center_pos ) add_filter( 'exopite_center_nav_menu_item', 'exo
                    <div class="col-12">
             <?php endif;
 
-                /*
+                /**
                  * Blog: http://wordpress.stackexchange.com/questions/199308/get-meta-value-when-the-page-is-a-blog-archive
                  * Run shortcode on content
                  */
@@ -177,7 +219,7 @@ if ( $exopite_logo_center_pos ) add_filter( 'exopite_center_nav_menu_item', 'exo
 
         endif;
 
-        /*
+        /**
          * If desktop logo is on top but inside the menu, then display here.
          */
         if ( $exopite_logo_top_in_menu_pos ) include( locate_template( 'template-parts/logo-top.php' ) );
@@ -187,25 +229,25 @@ if ( $exopite_logo_center_pos ) add_filter( 'exopite_center_nav_menu_item', 'exo
             <div class="row flex">
                 <?php
 
-                /*
+                /**
                  * Hook display:
                  *  - top menu widgets, 10 (include/sidebars.php)
                  */
                 exopite_hooks_menu_top();
 
-                /*
+                /**
                  * If logo is on the left, then display here.
                  */
                 if ( $exopite_logo_left_pos ) echo $exopite_logo;
 
-                /*
+                /**
                  * Mobile menu buttons and search field.
                  */
                 ?>
                 <div class="flex col-12 <?php echo $exopite_menu_alignment_classes . ' ' . $exopite_desktop_menu_horizontal_alignment . ' ' . $exopite_desktop_menu_vertical_alignment; ?>">
                     <?php
 
-                    /*
+                    /**
                      * Display mobile menu only, if menu on the top.
                      */
                     // if ( $exopite_menu_alignment == 'top' ) :
@@ -221,7 +263,7 @@ if ( $exopite_logo_center_pos ) add_filter( 'exopite_center_nav_menu_item', 'exo
 
                     }
 
-                    /*
+                    /**
                      * Display primary menu and if mobile menu not exist, use this menu to mobile menu as well
                      */
                     if ( has_nav_menu( 'primary' ) ):
@@ -267,7 +309,7 @@ if ( $exopite_logo_center_pos ) add_filter( 'exopite_center_nav_menu_item', 'exo
                 </div>
                 <?php
 
-                /*
+                /**
                  * If desktop logo is on the right, then display here
                  */
                 if ( $exopite_logo_right_pos ) echo $exopite_logo;
