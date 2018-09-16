@@ -232,7 +232,7 @@ if ( ! function_exists( 'on_save_options' ) ) {
 
         //exopite-seo-use_cdns
         if ( isset( $options['exopite-seo-use_cdns'] ) && ! $options['exopite-seo-use_cdns'] ) {
-            array_unshift( $required_files, 'font-awesome.4.7.0.min.css', 'bootstrap.4.1.1.min.css' );
+            array_unshift( $required_files, 'font-awesome.4.7.0.min.css', 'bootstrap.4.1.3.min.css' );
         }
 
         // Download Google Fonts
@@ -381,7 +381,7 @@ if ( ! function_exists( 'on_save_options' ) ) {
         //exopite-seo-use_cdns
         if ( isset( $options['exopite-seo-use_cdns'] ) && ! $options['exopite-seo-use_cdns'] ) {
             $js_files[] = 'popper.1.14.3.min.js';
-            $js_files[] = 'bootstrap.4.1.1.min.js';
+            $js_files[] = 'bootstrap.4.1.3.min.js';
         }
 
         $js_files_no_minification = array();
