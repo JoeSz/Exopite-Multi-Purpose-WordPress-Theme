@@ -18,7 +18,7 @@ if ( $post_password_required ) $article_classes .= ' has-post-thumbnail';
 // Add first-full class if exopite-blog-first-full activated and this is the first.
 if ( $blog_first_full_is_current ) $article_classes .= ' first-full';
 
-/*
+/**
  * Add image-aside class if image on the left or right side and only one post per row,
  * if not exopite-blog-first-full selected and this is the first
  */
@@ -28,7 +28,11 @@ if ( ! ( $blog_layout == 'image-top' || $blog_layout == 'image-none' ) && ! $mul
     $article_classes .= ' image-top ';
 }
 
-/*
+if ( ( get_post_format() == 'video' || get_post_format() == 'audio' ) && ! empty( get_post_meta( get_the_id(), 'media_thumbnail', true ) ) ) {
+    $article_classes .= ' has-post-thumbnail ';
+}
+
+/**
  * Theme Hook Alliance (include/plugins/tha-theme-hooks.php)
  *
  * tha_entry_before hook will not show up with infinite scrolling
@@ -37,7 +41,7 @@ tha_entry_before(); ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class( $article_classes ); ?>>
 	<div class="article-container">
 		<?php tha_entry_top();
-        /*
+        /**
          * Display thumbnail here if multipe posts in one row or
          * if image on top, left or zigzag and even
          * and not 'image-none' selected
@@ -46,7 +50,7 @@ tha_entry_before(); ?>
 
             $blog_first_full_is_current ) {
 
-            /*
+            /**
              * exopite_display_post_thumbnail located in include/media.php
              * If we have multiple posts in one row, then display image always in top
              */
@@ -73,7 +77,7 @@ tha_entry_before(); ?>
         //CONTENT
         include(locate_template('template-parts/content-post-entry.php'));
 
-		/*
+		/**
 		 * Display thumbnail here if image on right or zigzag and odd
 		 */
 		if ( ! $blog_first_full_is_current ) {
@@ -93,7 +97,7 @@ tha_entry_before(); ?>
 			<footer class="entry-footer">
 				<?php
 
-				/*
+				/**
 				 * Hook to display:
 				 * 	  - tags and categories, 10 (include/template-function.php)
 				 */
@@ -108,7 +112,7 @@ tha_entry_before(); ?>
 
 		if ( ! $blog_first_full_is_current || ! is_sticky() ) :
 
-			/*
+			/**
 			 * Hook to display post divider, run after each post in blog,
 			 * priority and function: 10 (include/template-functions.php)
 			 */
