@@ -55,7 +55,7 @@ html.wf-active body  {
 .wf-active h1 {
     font-family: "[#exopite-font-content.family]";
 }
-footer {
+#colophon {
 /* .footer-background { */
     color: [#exopite-font-footer.color];
     font-family: [#exopite-font-footer.family];
