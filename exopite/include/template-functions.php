@@ -281,7 +281,7 @@ if ( ! function_exists( 'exopite_post_meta_date_badge' ) ) {
  * Display "skip to content" link
  */
 /*
-add_action( 'tha_body_top', 'exopite_display_skip_to_content', 10 );
+add_action( 'wp_body_top', 'exopite_display_skip_to_content', 10 );
 if ( ! function_exists( 'exopite_display_skip_to_content' ) ) {
 	function exopite_display_skip_to_content() { ?>
 		<a class="skip-link" href="#content" title="<?php esc_html_e( 'Skip to content', 'exopite' ); ?>"><i class="fa fa-chevron-down" aria-hidden="true"></i>
@@ -294,7 +294,7 @@ if ( ! function_exists( 'exopite_display_skip_to_content' ) ) {
 /**
  * Display "scroll to top" arrow
  */
-add_action( 'tha_body_top', 'exopite_display_scroll_to_top', 20 );
+add_action( 'wp_body_top', 'exopite_display_scroll_to_top', 20 );
 if ( ! function_exists( 'exopite_display_scroll_to_top' ) ) {
 	function exopite_display_scroll_to_top() {
 		?>

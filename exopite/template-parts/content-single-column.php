@@ -35,12 +35,12 @@ if ( ( get_post_format() == 'video' || get_post_format() == 'audio' ) && ! empty
 /**
  * Theme Hook Alliance (include/plugins/tha-theme-hooks.php)
  *
- * tha_entry_before hook will not show up with infinite scrolling
+ * wp_post_before hook will not show up with infinite scrolling
  */
-tha_entry_before(); ?>
+wp_post_before(); ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class( $article_classes ); ?>>
 	<div class="article-container">
-		<?php tha_entry_top();
+		<?php wp_post_top();
         /**
          * Display thumbnail here if multipe posts in one row or
          * if image on top, left or zigzag and even
@@ -108,7 +108,7 @@ tha_entry_before(); ?>
 		<?php
 
         // Theme Hook Alliance (include/plugins/tha-theme-hooks.php)
-        tha_entry_bottom();
+        wp_post_bottom();
 
 		if ( ! $blog_first_full_is_current || ! is_sticky() ) :
 
@@ -125,4 +125,4 @@ tha_entry_before(); ?>
 <?php
 
 // Theme Hook Alliance (include/plugins/tha-theme-hooks.php)
-tha_entry_after();
+wp_post_after();

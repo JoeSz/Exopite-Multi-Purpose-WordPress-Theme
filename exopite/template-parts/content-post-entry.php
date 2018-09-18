@@ -65,7 +65,7 @@ if ( ! isset( $exopite_settings['exopite-blog-display-post-title'] ) ||
          $exopite_settings['exopite-blog-post-content-lenght'] != 'none' ) :
 
         // Theme Hook Alliance (include/plugins/tha-theme-hooks.php)
-        tha_entry_content_before();
+        wp_post_content_before();
 
         ?>
         <div class="entry-content">
@@ -165,7 +165,7 @@ if ( ! isset( $exopite_settings['exopite-blog-display-post-title'] ) ||
     endif; // Display entry-content
 
     // Theme Hook Alliance (include/plugins/tha-theme-hooks.php)
-    tha_entry_content_after(); ?>
+    wp_post_content_after(); ?>
 
 </div><!-- .entry-content-container -->
 <?php

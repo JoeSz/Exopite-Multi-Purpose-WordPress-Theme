@@ -15,24 +15,24 @@ $sidebar_id = exopite_get_sidebar_id();
 if ( ! is_active_sidebar( $sidebar_id ) ) return;
 
 // Theme Hook Alliance (include/plugins/tha-theme-hooks.php)
-tha_sidebars_before();
+wp_sidebars_before();
 
 ?>
 <aside id="secondary" class="col-md-3 widget-area sidebar main-sidebar" aria-label="Primary Sidebar"<?php WP_Schema::get_attribute( 'sidebar' ); ?>>
 	<?php
 
     // Theme Hook Alliance (include/plugins/tha-theme-hooks.php)
-    tha_sidebar_top();
+    wp_sidebar_top();
 
     // Display selected sidebar
     apply_filters( 'exopite-sidebar', dynamic_sidebar( $sidebar_id ) );
 
     // Theme Hook Alliance (include/plugins/tha-theme-hooks.php)
-    tha_sidebar_bottom();
+    wp_sidebar_bottom();
 
     ?>
 </aside><!-- #secondary -->
 <?php
 
 // Theme Hook Alliance (include/plugins/tha-theme-hooks.php)
-tha_sidebars_after();
+wp_sidebars_after();

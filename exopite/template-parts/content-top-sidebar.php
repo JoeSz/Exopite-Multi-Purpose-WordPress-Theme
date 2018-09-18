@@ -14,7 +14,7 @@ if( is_active_sidebar( $exopite_meta_data['exopite-meta-before-content-sidebar-i
 
     if ( $exopite_meta_data['exopite-meta-before-content-sidebar-full-width'] ) {
 
-        add_action('tha_content_before', function() use ( $before_content_sidebar_id ) {
+        add_action('wp_content_before', function() use ( $before_content_sidebar_id ) {
             dynamic_sidebar( $before_content_sidebar_id );
         });
 

@@ -9,14 +9,14 @@
 defined('ABSPATH') or die( 'You cannot access this page directly.' );
 
 // Theme Hook Alliance (include/plugins/tha-theme-hooks.php)
-tha_entry_before();
+wp_entry_before();
 
 ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<?php
 
     // Theme Hook Alliance (include/plugins/tha-theme-hooks.php)
-    tha_entry_top();
+    wp_entry_top();
 
     ?>
 	<header class="entry-header">
@@ -38,7 +38,7 @@ tha_entry_before();
 	<?php
 
     // Theme Hook Alliance (include/plugins/tha-theme-hooks.php)
-    tha_entry_content_before();
+    wp_entry_content_before();
 
     ?>
 	<div class="entry-summary">
@@ -51,7 +51,7 @@ tha_entry_before();
 	<?php
 
     // Theme Hook Alliance (include/plugins/tha-theme-hooks.php)
-    tha_entry_content_after();
+    wp_entry_content_after();
 
     ?>
 	<footer class="entry-footer">
@@ -65,11 +65,11 @@ tha_entry_before();
 	<?php
 
     // Theme Hook Alliance (include/plugins/tha-theme-hooks.php)
-    tha_entry_bottom();
+    wp_entry_bottom();
 
     ?>
 </article><!-- #post-## -->
 <?php
 
 // Theme Hook Alliance (include/plugins/tha-theme-hooks.php)
-tha_entry_after();
+wp_entry_after();

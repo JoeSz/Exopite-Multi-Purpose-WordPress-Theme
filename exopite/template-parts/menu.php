@@ -183,7 +183,7 @@ if ( ! function_exists( 'exopite_child_add_top_search_menu' ) ) {
 if ( $exopite_logo_center_pos ) add_filter( 'exopite_center_nav_menu_item', 'exopite_create_logo' );
 
 ?><header id="masthead" class="site-header menu-alignment-<?php echo $exopite_menu_alignment; ?>"<?php WP_Schema::get_attribute( 'site-header' ); ?>>
-    <?php tha_header_top();
+    <?php wp_header_top();
 
     /**
      * If desktop logo is on top, then display here.
@@ -321,7 +321,7 @@ if ( $exopite_logo_center_pos ) add_filter( 'exopite_center_nav_menu_item', 'exo
     <?php
 
     // Theme Hook Alliance (include/plugins/tha-theme-hooks.php)
-    tha_header_bottom();
+    wp_header_bottom();
 
     ?>
 </header><!-- #masthead -->

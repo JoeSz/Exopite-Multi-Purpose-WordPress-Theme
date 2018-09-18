@@ -31,17 +31,17 @@ $show_footer = isset( $exopite_meta_data['exopite-meta-enable-footer'] ) ? esc_a
 		<?php
 
         // Theme Hook Alliance (include/plugins/tha-theme-hooks.php)
-        tha_content_after();
+        wp_content_after();
 
         // Hide footer
 		if ( apply_filters( 'exopite-enable-footer', $show_footer ) ) :
 
         // Theme Hook Alliance (include/plugins/tha-theme-hooks.php)
-		tha_footer_before();
+		wp_footer_before();
 
         ?>
 		<footer id="colophon" class="site-footer <?php if( $exopite_settings['exopite-sidebar-footer-enable-slide-up'] && $exopite_settings['exopite-content-layout'] == 'wide' ) echo ' fixed'; ?>"<?php WP_Schema::get_attribute( 'site-footer' ); ?>>
-			<?php tha_footer_top();
+			<?php wp_footer_top();
 
             /**
              * Use page for footer
@@ -62,14 +62,14 @@ $show_footer = isset( $exopite_meta_data['exopite-meta-enable-footer'] ) ? esc_a
             endif;
 
             // Theme Hook Alliance (include/plugins/tha-theme-hooks.php)
-			tha_footer_bottom();
+			wp_footer_bottom();
 
             ?>
 		</footer><!-- #colophon -->
 		<?php
 
         // Theme Hook Alliance (include/plugins/tha-theme-hooks.php)
-        tha_footer_after();
+        wp_footer_after();
 
 		endif; // Hide footer
 
@@ -88,7 +88,7 @@ $show_footer = isset( $exopite_meta_data['exopite-meta-enable-footer'] ) ? esc_a
 </div><!-- #page -->
 <?php
 
-tha_body_bottom();
+wp_body_bottom();
 
 /*
  * Minifying HTML output

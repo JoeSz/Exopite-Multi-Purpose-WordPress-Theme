@@ -19,15 +19,15 @@ get_header();
 					<?php
 
                     // Theme Hook Alliance (include/plugins/tha-theme-hooks.php)
-                    tha_content_top();
+                    wp_content_top();
 
                     ?>
 					<section class="error-404 not-found">
 						<?php
 
                         // Theme Hook Alliance (include/plugins/tha-theme-hooks.php)
-                        tha_entry_before();
-						tha_entry_top();
+                        wp_entry_before();
+						wp_entry_top();
 
                         ?>
 						<header class="page-header">
@@ -38,7 +38,7 @@ get_header();
 						<?php
 
                         // Theme Hook Alliance (include/plugins/tha-theme-hooks.php)
-                        tha_entry_content_before();
+                        wp_entry_content_before();
 
                         ?>
 						<div class="page-content">
@@ -93,16 +93,16 @@ get_header();
 						<?php
 
                         // Theme Hook Alliance (include/plugins/tha-theme-hooks.php)
-                        tha_entry_content_after();
-						tha_entry_bottom();
+                        wp_entry_content_after();
+						wp_entry_bottom();
 
                         ?>
 					</section><!-- .error-404 -->
 					<?php
 
                     // Theme Hook Alliance (include/plugins/tha-theme-hooks.php)
-                    tha_content_bottom();
-                    tha_entry_after();
+                    wp_content_bottom();
+                    wp_entry_after();
 
                     ?>
 				</main><!-- #main -->

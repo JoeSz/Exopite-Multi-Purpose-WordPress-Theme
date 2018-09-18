@@ -22,14 +22,14 @@ $show_title = isset( $exopite_meta_data['exopite-meta-enable-title'] ) ? esc_att
 $show_thumbnail = isset( $exopite_meta_data['exopite-meta-enable-thumbnail'] ) ? esc_attr( $exopite_meta_data['exopite-meta-enable-thumbnail'] ) : true;
 
 // Theme Hook Alliance (include/plugins/tha-theme-hooks.php)
-tha_entry_before();
+wp_post_before();
 
 ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<?php
 
     // Theme Hook Alliance (include/plugins/tha-theme-hooks.php)
-    tha_entry_top();
+    wp_post_top();
 
     ?>
 	<div class="entry-thumbnail">
@@ -62,7 +62,7 @@ tha_entry_before();
 	<?php
 
     // Theme Hook Alliance (include/plugins/tha-theme-hooks.php)
-    tha_entry_content_before();
+    wp_post_content_before();
 
     ?>
 	<div class="entry-content">
@@ -84,7 +84,7 @@ tha_entry_before();
 	<?php
 
     // Theme Hook Alliance (include/plugins/tha-theme-hooks.php)
-    tha_entry_content_after();
+    wp_post_content_after();
 
     ?>
 	<footer class="entry-footer">
@@ -112,11 +112,11 @@ tha_entry_before();
 	<?php
 
     // Theme Hook Alliance (include/plugins/tha-theme-hooks.php)
-    tha_entry_bottom();
+    wp_post_bottom();
 
     ?>
 </article><!-- #post-## -->
 <?php
 
 // Theme Hook Alliance (include/plugins/tha-theme-hooks.php)
-tha_entry_after();
+wp_post_after();

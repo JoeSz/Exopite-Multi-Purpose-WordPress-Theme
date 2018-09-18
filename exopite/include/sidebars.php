@@ -159,9 +159,9 @@ if ( isset( $exopite_settings['exopite-sidebar-preheader-count'] ) && $exopite_s
 
 if ( isset( $exopite_settings['exopite-menu-alignment'] ) ) {
     if ( $exopite_settings['exopite-menu-alignment'] == 'top' ) {
-        add_action( 'tha_header_before', 'display_preheader_sidebar', 10 );
+        add_action( 'wp_header_before', 'display_preheader_sidebar', 10 );
     } else {
-        add_action( 'tha_content_before', 'display_preheader_sidebar', 10 );
+        add_action( 'wp_content_before', 'display_preheader_sidebar', 10 );
     }
 }
 
@@ -276,7 +276,7 @@ if ( isset( $exopite_settings['exopite-menu-alignment'] ) && $exopite_settings['
     // Below menu widget areas
     exopite_register_sidebars( 1, $sidebar_settings_below_menu, 'active_below_menu_sidebars' );
 
-    add_action( 'tha_header_bottom', 'display_below_menu_sidebar', 10 );
+    add_action( 'wp_header_bottom', 'display_below_menu_sidebar', 10 );
     function display_below_menu_sidebar() {
         exopite_display_sidebars( 'active_below_menu_sidebars', 'below_menu' );
     }
@@ -308,7 +308,7 @@ if ( isset( $exopite_settings['exopite-sidebar-after-header-count'] ) && $exopit
     // Preheader widget areas
     exopite_register_sidebars( $exopite_settings['exopite-sidebar-after-header-count'], $sidebar_settings_after_header, 'active_after_header_sidebars' );
 
-    add_action( 'tha_header_after', 'display_after_header_sidebar', 10 );
+    add_action( 'wp_header_after', 'display_after_header_sidebar', 10 );
     function display_after_header_sidebar() {
         exopite_display_sidebars( 'active_after_header_sidebars', 'after_header' );
     }

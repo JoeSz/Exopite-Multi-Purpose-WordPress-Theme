@@ -124,7 +124,7 @@ if ( $exopite_display_hero_header && isset( $exopite_meta_data['exopite-hero-hea
 $exopite_html_class = ( isset( $exopite_settings['exopite-load-google-fonts-async'] ) && ! $exopite_settings['exopite-load-google-fonts-async'] ) ? 'class="wf-active" ' : '';
 
 // Theme Hook Alliance (include/plugins/tha-theme-hooks.php)
-tha_html_before();
+wp_doctype();
 /**
  * Minifying HTML output
  * Start output buffering
@@ -143,7 +143,7 @@ if ( isset( $exopite_settings['exopite-minify-html'] ) &&
 <?php
 
 // Theme Hook Alliance (include/plugins/tha-theme-hooks.php)
-tha_head_top();
+wp_head_top();
 
 ?>
 <meta charset="<?php bloginfo( 'charset' ); ?>">
@@ -160,7 +160,7 @@ if ( ( isset( $exopite_settings['exopite-load-google-fonts-async'] ) && $exopite
 }
 
 // Theme Hook Alliance (include/plugins/tha-theme-hooks.php)
-tha_head_bottom();
+wp_head_bottom();
 
 ?>
 </head>
@@ -171,7 +171,7 @@ tha_head_bottom();
  * Hook display:
  *  - Skip to content, 10 (include/template-functions.php)
  */
-tha_body_top();
+wp_body_top();
 
 if ( isset( $exopite_settings['exopite-menu-alignment'] ) && $exopite_settings['exopite-menu-alignment'] == 'overlay' ) {
     include( locate_template( 'template-parts/menu-overlay.php' ) );
@@ -198,8 +198,8 @@ endif;
 
         // Remove preheader hooks, if preheader isn't displayed
         if ( ! $exopite_display_preheader_sidebar ) :
-            remove_action( 'tha_header_before', 'display_preheader_sidebar', 10 );
-            remove_action( 'tha_content_before', 'display_preheader_sidebar', 10 );
+            remove_action( 'wp_header_before', 'display_preheader_sidebar', 10 );
+            remove_action( 'wp_content_before', 'display_preheader_sidebar', 10 );
         endif;
 
         /**
@@ -209,7 +209,7 @@ endif;
          *  - pre header widgets, 10 (include/sidebars.php)
          *    'exopite-preheader-content' filter, widget or page
          */
-        tha_header_before();
+        wp_header_before();
 
         // Show/Hide menu
         if ( apply_filters( 'exopite-enable-menu', $exopite_show_menu ) ) :
@@ -224,7 +224,7 @@ endif;
          * Hook display:
          *  - if header on top: after header widgets, 10 (include/sidebars.php)
          */
-        tha_header_after();
+        wp_header_after();
 
     endif;
     ?>
@@ -259,7 +259,7 @@ endif;
          * Hook display:
          *  - if header on left: after header widgets, 10 (include/sidebars.php)
          */
-        tha_content_before();
+        wp_content_before();
 
         ?>
         <div id="content" class="site-content content primary">

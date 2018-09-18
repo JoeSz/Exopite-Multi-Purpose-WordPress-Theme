@@ -24,14 +24,14 @@ $exopite_meta_display_post_nav = isset( $exopite_meta_data['exopite-meta-enable-
 $exopite_meta_display_releated_posts = isset( $exopite_meta_data['exopite-meta-enable-releated-posts'] ) ? esc_attr( $exopite_meta_data['exopite-meta-enable-releated-posts'] ) : true;
 
 // Theme Hook Alliance (include/plugins/tha-theme-hooks.php)
-tha_entry_before();
+wp_post_before();
 
 ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class( $extra_post_class ); ?>>
 	<?php
 
     // Theme Hook Alliance (include/plugins/tha-theme-hooks.php)
-    tha_entry_top();
+    wp_post_top();
 
     /**
      * Display featured image (post thumbnail)
@@ -114,7 +114,7 @@ tha_entry_before();
     <?php endif;
 
     // Theme Hook Alliance (include/plugins/tha-theme-hooks.php)
-    tha_entry_content_before();
+    wp_post_content_before();
 
     ?>
 	<div class="entry-content">
@@ -143,7 +143,7 @@ tha_entry_before();
 	<?php
 
     // Theme Hook Alliance (include/plugins/tha-theme-hooks.php)
-    tha_entry_content_after();
+    wp_post_content_after();
 
     ?>
 	<footer class="entry-footer">
@@ -179,11 +179,11 @@ tha_entry_before();
 	<?php
 
     // Theme Hook Alliance (include/plugins/tha-theme-hooks.php)
-    tha_entry_bottom();
+    wp_post_bottom();
 
     ?>
 </article><!-- #post-## -->
 <?php
 
 // Theme Hook Alliance (include/plugins/tha-theme-hooks.php)
-tha_entry_after();
+wp_post_after();

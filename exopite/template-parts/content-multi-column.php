@@ -54,9 +54,9 @@ if ( ! $blog_first_full_is_current && $blog_multi_column_layout_type != 'column'
 /**
  * Theme Hook Alliance (include/plugins/tha-theme-hooks.php)
  *
- * Beware: tha_entry_before hook will not show up with infinite scrolling!
+ * Beware: wp_post_before hook will not show up with infinite scrolling!
  */
-tha_entry_before();
+wp_post_before();
 
 ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class( $article_classes ); ?>>
@@ -64,7 +64,7 @@ tha_entry_before();
 		<?php
 
         // Theme Hook Alliance (include/plugins/tha-theme-hooks.php)
-        tha_entry_top();
+        wp_post_top();
 
 		/**
 		 * Display thumbnail here if multipe posts in one row or
@@ -107,7 +107,7 @@ tha_entry_before();
 		<?php
 
         // Theme Hook Alliance (include/plugins/tha-theme-hooks.php)
-        tha_entry_bottom();
+        wp_post_bottom();
 
         ?>
 	</div><!-- article-container -->
@@ -115,7 +115,7 @@ tha_entry_before();
 <?php
 
 // Theme Hook Alliance (include/plugins/tha-theme-hooks.php)
-tha_entry_after();
+wp_post_after();
 
 ?>
 

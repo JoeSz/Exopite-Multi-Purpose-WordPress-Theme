@@ -141,7 +141,7 @@ $exopite_settings = get_option( 'exopite_options' );
                 <?php
 
                 // Theme Hook Alliance (include/plugins/tha-theme-hooks.php)
-                tha_content_top();
+                wp_content_top();
 
                 if ( have_posts() ) :
 
@@ -163,7 +163,7 @@ $exopite_settings = get_option( 'exopite_options' );
                 endif;
 
                 // Theme Hook Alliance (include/plugins/tha-theme-hooks.php)
-                tha_content_bottom();
+                wp_content_bottom();
 
                 ?>
                 </main><!-- #main -->

@@ -71,7 +71,7 @@ get_header();
                  * GitHub: https://github.com/zamoose/themehookalliance
                  * File:   include/plugins/tha-theme-hooks.php
                  */
-                tha_content_top();
+                wp_content_top();
 
                 // Display blog page content before loop
                 if ( $show_content ) {
@@ -85,7 +85,7 @@ get_header();
                 echo the_loop();
 
                 // Theme Hook Alliance (include/plugins/tha-theme-hooks.php)
-    			tha_content_bottom();
+    			wp_content_bottom();
 
                 ?>
 				</main><!-- #main -->

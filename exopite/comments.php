@@ -30,7 +30,7 @@ if ( post_password_required() ) : ?>
 <?php
 
 // Theme Hook Alliance (include/plugins/tha-theme-hooks.php)
-tha_comments_before();
+wp_comments_before();
 
 ?>
 <div id="comments" class="comments-area">
@@ -124,5 +124,5 @@ tha_comments_before();
 <?php
 
 // Theme Hook Alliance (include/plugins/tha-theme-hooks.php)
-tha_comments_after();
+wp_comments_after();
 
