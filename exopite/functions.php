@@ -626,7 +626,7 @@ function this_screen() {
 
 }
 
-/*
+/**
  * Include Theme Hook Alliance hooks.
  *
  * Source: https://github.com/zamoose/themehookalliance/blob/master/tha-theme-hooks.php
@@ -638,8 +638,13 @@ function this_screen() {
  * common use cases. The Theme Hook Alliance is a community-driven effort to agree on a set
  * of third-party action hooks that THA themes pledge to implement in order to give that
  * desired consistency.
+ *
+ * UPDATE:
+ * Renamed and refactor to support original WordPress template hooks idea.
+ * @link https://core.trac.wordpress.org/ticket/21506
  */
-require_once PLUGINS . '/tha-theme-hooks.php';
+// require_once PLUGINS . '/tha-theme-hooks.php';
+require_once INC . '/general-template-hooks.php';
 
 /**
  * Exopite hooks
