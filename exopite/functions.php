@@ -640,7 +640,7 @@ function this_screen() {
  * desired consistency.
  *
  * UPDATE:
- * Renamed and refactor to support original WordPress template hooks idea.
+ * Renamed and refactor Theme Hook Alliance hooks to support original WordPress template hooks idea.
  * @link https://core.trac.wordpress.org/ticket/21506
  */
 // require_once PLUGINS . '/tha-theme-hooks.php';
