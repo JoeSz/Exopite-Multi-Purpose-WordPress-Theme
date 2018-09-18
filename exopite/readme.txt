@@ -1,7 +1,7 @@
 === Exopite - High Performance Multi-purpose WordPress Theme ===
 
 - Author: Joe Szalai
-- Version: 20180916
+- Version: 20180918
 - Theme URL: https://www.joeszalai.org/exopite/
 - Theme GitHub URL: https://github.com/JoeSz/Exopite-Multi-Purpose-WordPress-Theme
 - Author URL: https://www.joeszalai.org/
@@ -200,6 +200,11 @@ Req:
 == Frequently Asked Questions ==
 
 == Changelog ==
+
+= 20180918 - Sep 18 2018
+* ENHANCEMENT: Theme/template hook support not only for Theme Hook Alliance
+               but also for original WordPress template hooks
+* FIXED: Footer font color apply for other footer elements too
 
 = 20180916 - Sep 16 2018
 * ADDED: Support for audio, video, link, quote and image post format

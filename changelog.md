@@ -1,5 +1,10 @@
 # Changelog
 
+= 20180918 - Sep 18 2018
+* **ENHANCEMENT**: Theme/template hook support not only for Theme Hook Alliance
+                   but also for original WordPress template hooks
+* **FIXED**: Footer font color apply for other footer elements too
+
 = 20180916 - Sep 16 2018
 * **ADDED**: Support for audio, video, link, quote and image post format
 * **ADDED**: xGallerify for WordPress galleries
