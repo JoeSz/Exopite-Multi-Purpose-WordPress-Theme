@@ -50,7 +50,7 @@ $exopite_settings = get_option( 'exopite_options' );
 
                     // Theme Hook Alliance (include/plugins/tha-theme-hooks.php)
                     wp_content_top();
-                    wp_content_while_before();
+                    wp_loop_before();
 
                     while ( $archive_page_query->have_posts() ) : $archive_page_query->the_post();
 
@@ -59,7 +59,7 @@ $exopite_settings = get_option( 'exopite_options' );
                     endwhile; // End of the loop.
 
                     // Theme Hook Alliance (include/plugins/tha-theme-hooks.php)
-                    wp_content_while_after();
+                    wp_loop_after();
                     wp_content_bottom();
 
                     ?>

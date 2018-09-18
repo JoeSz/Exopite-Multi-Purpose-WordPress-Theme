@@ -644,7 +644,7 @@ function this_screen() {
  * @link https://core.trac.wordpress.org/ticket/21506
  */
 // require_once PLUGINS . '/tha-theme-hooks.php';
-require_once INC . '/general-template-hooks.php';
+require_once INC . '/standard-template-hooks.php';
 
 /**
  * Exopite hooks

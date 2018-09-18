@@ -270,7 +270,7 @@ if ( ! function_exists( 'the_loop' ) ) {
         if ( $wp_query->have_posts() ) :
 
             // Theme Hook Alliance (include/plugins/tha-theme-hooks.php)
-            wp_content_while_before();
+            wp_loop_before();
 
             while ( $wp_query->have_posts() ) : $wp_query->the_post();
 
@@ -334,7 +334,7 @@ if ( ! function_exists( 'the_loop' ) ) {
             endwhile;
 
             // Theme Hook Alliance (include/plugins/tha-theme-hooks.php)
-            wp_content_while_after();
+            wp_loop_after();
 
         else :
 

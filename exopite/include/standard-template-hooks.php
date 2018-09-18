@@ -20,25 +20,25 @@
  */
 
 /**
- * Define the version of THA/GENERAL_TEMPLATE_HOOKS support, in case that becomes useful down the road.
+ * Define the version of THA/STANDARD_TEMPLATE_HOOKS support, in case that becomes useful down the road.
  */
 define( 'THA_HOOKS_VERSION', '1.0-draft' );
-define( 'GENERAL_TEMPLATE_HOOKS_VERSION', '1.0' );
+define( 'STANDARD_TEMPLATE_HOOKS_VERSION', '1.0' );
 
 /**
  * Themes and Plugins can check for
  * - tha_hooks using current_theme_supports( 'tha_hooks', $hook )
- * - general_template_hooks using current_theme_supports( 'general_template_hooks', $hook )
+ * - standard_template_hooks using current_theme_supports( 'standard_template_hooks', $hook )
  * to determine whether a theme declares itself to support this specific hook type.
  *
  * Example:
  * <code>
  * 		// Declare support for all hook types
- * 		add_theme_support( 'general_template_hooks', array( 'all' ) );
+ * 		add_theme_support( 'standard_template_hooks', array( 'all' ) );
  * 		add_theme_support( 'tha_hooks', array( 'all' ) );
  *
  * 		// Declare support for certain hook types only
- * 		add_theme_support( 'general_template_hooks', array( 'header', 'content', 'footer' ) );
+ * 		add_theme_support( 'standard_template_hooks', array( 'header', 'content', 'footer' ) );
  * 		add_theme_support( 'tha_hooks', array( 'header', 'content', 'footer' ) );
  * </code>
  */
@@ -74,13 +74,13 @@ $hooks = array(
 
 	/**
 	 * If/when WordPress Core implements similar methodology, Themes and Plugins
-	 * will be able to check whether the version of THA/general_template_hooks supplied by the theme
+	 * will be able to check whether the version of THA/standard_template_hooks supplied by the theme
 	 * supports Core hooks.
 	 */
 	//'core',
 );
 
-add_theme_support( 'general_template_hooks', $hooks );
+add_theme_support( 'standard_template_hooks', $hooks );
 add_theme_support( 'tha_hooks', $hooks );
 
 /**
@@ -91,7 +91,7 @@ add_theme_support( 'tha_hooks', $hooks );
  *
  * Example:
  * <code>
- * 		if ( current_theme_supports( 'general_template_hooks', 'header' ) )
+ * 		if ( current_theme_supports( 'standard_template_hooks', 'header' ) )
  * 	  		add_action( 'head_top', 'prefix_header_top' );
  * </code>
  *
@@ -101,11 +101,11 @@ add_theme_support( 'tha_hooks', $hooks );
  *
  * @return bool
  */
-function general_template_hooks_current_theme_supports( $bool, $args, $registered ) {
+function standard_template_hooks_current_theme_supports( $bool, $args, $registered ) {
 	return in_array( $args[0], $registered[0] ) || in_array( 'all', $registered[0] );
 }
-add_filter( 'current_theme_supports_general_template_hooks', 'general_template_hooks_current_theme_supports', 10, 3 );
-add_filter( 'current_theme_supports-tha_hooks', 'general_template_hooks_current_theme_supports', 10, 3 );
+add_filter( 'current_theme_supports_standard_template_hooks', 'standard_template_hooks_current_theme_supports', 10, 3 );
+add_filter( 'current_theme_supports-tha_hooks', 'standard_template_hooks_current_theme_supports', 10, 3 );
 
 /**
  * Fire the wp_doctype hook
@@ -118,7 +118,7 @@ add_filter( 'current_theme_supports-tha_hooks', 'general_template_hooks_current_
  * HTML <html> hook
  * Special case, useful for <DOCTYPE>, etc.
  * $tha_supports[] = 'html';
- * $general_template_hooks_supports[] = 'html;
+ * $standard_template_hooks_supports[] = 'html;
  */
 function wp_doctype() {
 	do_action( 'doctype' );
@@ -141,7 +141,7 @@ function wp_doctype() {
  *
  * HTML <body> hooks
  * $tha_supports[] = 'body';
- * $general_template_hooks_supports[] = 'body';
+ * $standard_template_hooks_supports[] = 'body';
  */
 function wp_body_top() {
 	do_action( 'body_top' );
@@ -179,7 +179,7 @@ function wp_body_bottom() {
  *
  * HTML <head> hooks
  * $tha_supports[] = 'head';
- * $general_template_hooks_supports[] = 'head';
+ * $standard_template_hooks_supports[] = 'head';
  */
 function wp_head_top() {
 	do_action( 'head_top' );
@@ -217,7 +217,7 @@ function wp_head_bottom() {
  *
  * Semantic <header> hooks
  * $tha_supports[] = 'header';
- * $general_template_hooks_supports[] = 'header';
+ * $standard_template_hooks_supports[] = 'header';
  */
 function wp_header_before() {
 	do_action( 'header_before' );
@@ -285,7 +285,7 @@ function wp_header_after() {
  *
  * Semantic <content> hooks
  * $tha_supports[] = 'content';
- * $general_template_hooks_supports[] = 'content';
+ * $standard_template_hooks_supports[] = 'content';
  */
 function wp_content_before() {
 	do_action( 'content_before' );
@@ -340,31 +340,31 @@ function wp_content_after() {
 }
 
 /**
- * Fire the wp_content_while_before hook
+ * Fire the wp_loop_before hook
  *
  * Intended to be immediately before opening HTML loop while tag
  *
  * @since 3.6.0
- * @uses do_action() Calls 'wp_content_while_before' hook.
+ * @uses do_action() Calls 'wp_loop_before' hook.
  */
-function wp_content_while_before() {
-	do_action( 'content_while_before' );
-	do_action( 'wp_content_while_before' );
+function wp_loop_before() {
+	do_action( 'loop_before' );
+	do_action( 'wp_loop_before' );
 	do_action( get_template() . '_content_while_before' );
 	do_action( 'tha_content_while_before' );
 }
 
 /**
- * Fire the wp_content_while_after hook
+ * Fire the wp_loop_after hook
  *
  * Intended to be immediately after closing HTML loop while tag
  *
  * @since 3.6.0
- * @uses do_action() Calls 'wp_content_while_after' hook.
+ * @uses do_action() Calls 'wp_loop_after' hook.
  */
-function wp_content_while_after() {
-	do_action( 'content_while_after' );
-	do_action( 'wp_content_while_after' );
+function wp_loop_after() {
+	do_action( 'loop_after' );
+	do_action( 'wp_loop_after' );
 	do_action( get_template() . '_content_while_after' );
 	do_action( 'tha_content_while_after' );
 }
@@ -383,7 +383,7 @@ function wp_content_while_after() {
  *
  * Semantic <entry> hooks
  * $tha_supports[] = 'entry';
- * $general_template_hooks_supports[] = 'post';
+ * $standard_template_hooks_supports[] = 'post';
  */
 function wp_post_before() {
 	do_action( 'post_before' );
@@ -481,7 +481,7 @@ function wp_post_content_after() {
  *
  * Comments block hooks
  * $tha_supports[] = 'comments';
- * $general_template_hooks_supports[] = 'comments';
+ * $standard_template_hooks_supports[] = 'comments';
  */
 function wp_comments_before() {
 	do_action( 'comments_before' );
@@ -522,7 +522,7 @@ function wp_comments_after() {
  *
  * Semantic <sidebar> hooks
  * $tha_supports[] = 'sidebar';
- * $general_template_hooks_supports[] = 'sidebar';
+ * $standard_template_hooks_supports[] = 'sidebar';
  */
 function wp_sidebars_before() {
 	do_action( 'sidebars_before' );
@@ -599,7 +599,7 @@ function wp_sidebars_after() {
  *
  * Semantic <footer> hooks
  * $tha_supports[] = 'footer';
- * $general_template_hooks_supports[] = 'footer';
+ * $standard_template_hooks_supports[] = 'footer';
  */
 function wp_footer_before() {
 	do_action( 'footer_before' );

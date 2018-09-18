@@ -64,7 +64,7 @@ get_header();
 
                 // Theme Hook Alliance (include/plugins/tha-theme-hooks.php)
                 wp_content_top();
-				wp_content_while_before();
+				wp_loop_before();
 
 				while ( have_posts() ) : the_post();
 
@@ -93,7 +93,7 @@ get_header();
 				endwhile; // End of the loop.
 
                 // Theme Hook Alliance (include/plugins/tha-theme-hooks.php)
-                wp_content_while_after();
+                wp_loop_after();
 				wp_content_bottom();
 
                 ?>
