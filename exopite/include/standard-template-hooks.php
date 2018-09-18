@@ -85,6 +85,7 @@
  * Standard Template Hooks stub list.
  * (based on the original WordPress Standard Template Hooks idea)
  * @link https://core.trac.wordpress.org/ticket/21506
+ * @link https://core.trac.wordpress.org/attachment/ticket/21506/general-template.php.template-hooks.patch
  *
  * Theme Hook Alliance hook stub list.
  * @link https://github.com/zamoose/themehookalliance
@@ -336,8 +337,10 @@ function wp_head_bottom() {
  * ${WP_THEME_HOOK_SLUG . '_theme_hooks_supports'}[] = 'header';
  */
 function wp_header_before() {
-	// Original WordPress Hook idea
+	// @link https://core.trac.wordpress.org/ticket/21506#comment:62
 	do_action( 'header_before' );
+
+	// Original WordPress Hook idea
 	do_action( 'wp_header_before' );
 
 	// Personalized Hook
