@@ -75,7 +75,12 @@ if ( ! function_exists( 'exopite_breadcrumbs' ) ) {
                         $category_id = $categories[0]->cat_ID;
                     }
 
-                    $category_parents = explode( ';', rtrim( get_category_parents( $category_id, true, ';' ),';' ) );
+                    $category_parents = get_category_parents( $category_id, true, ';' );
+                    if ( is_string( $category_parents ) ) {
+                        $category_parents = explode( ';', rtrim( $category_parents,';' ) );
+                    } else {
+                        $category_parents = array();                    }
+
 
                     $i = 0;
                     $len = count( $category_parents );
