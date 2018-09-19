@@ -111,6 +111,12 @@ define( 'INC', TEMPLATEPATH . '/include' );
 define( 'PLUGINS', INC . '/plugins' );
 
 /**
+ * Exopite Theme releated functions.
+ */
+require_once INC . '/exopite-theme-function-class.php';
+Exopite_Theme_Functions::init();
+
+/**
  * Handle custom fonts
  */
 require_once INC . '/generate_custom_fonts_css.php';

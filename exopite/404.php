@@ -14,7 +14,7 @@ get_header();
 ?>
 	<div class="container">
 		<div class="row">
-			<div id="primary" class="col-md-12 content-area">
+			<div id="primary" class="<?php echo Exopite_Theme_Functions::get_body_classes( get_the_ID(), 'content-area' ) ?>">
 				<main id="main" class="site-main"<?php WP_Schema::get_attribute( 'site-main' ); ?>>
 					<?php
 
@@ -26,8 +26,8 @@ get_header();
 						<?php
 
                         // Theme Hook Alliance (include/plugins/tha-theme-hooks.php)
-                        wp_entry_before();
-						wp_entry_top();
+                        wp_post_before();
+						wp_post_top();
 
                         ?>
 						<header class="page-header">
@@ -38,7 +38,7 @@ get_header();
 						<?php
 
                         // Theme Hook Alliance (include/plugins/tha-theme-hooks.php)
-                        wp_entry_content_before();
+                        wp_post_content_before();
 
                         ?>
 						<div class="page-content">
@@ -93,8 +93,8 @@ get_header();
 						<?php
 
                         // Theme Hook Alliance (include/plugins/tha-theme-hooks.php)
-                        wp_entry_content_after();
-						wp_entry_bottom();
+                        wp_post_content_after();
+						wp_post_bottom();
 
                         ?>
 					</section><!-- .error-404 -->
@@ -102,7 +102,7 @@ get_header();
 
                     // Theme Hook Alliance (include/plugins/tha-theme-hooks.php)
                     wp_content_bottom();
-                    wp_entry_after();
+                    wp_post_after();
 
                     ?>
 				</main><!-- #main -->

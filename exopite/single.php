@@ -58,7 +58,8 @@ get_header();
             if ( $sidebar == 'left' ) get_sidebar();
 
             ?>
-			<div id="primary" class="<?php if ( $sidebar != 'none' ) : ?>col-md-9<?php else : ?>col-md-12<?php endif; ?> content-area">
+			<div id="primary" class="<?php echo Exopite_Theme_Functions::get_content_classes( get_the_ID(), 'content-area' ) ?>">
+
 				<main id="main" class="site-main"<?php WP_Schema::get_attribute( 'site-main' ); ?>>
 				<?php
 

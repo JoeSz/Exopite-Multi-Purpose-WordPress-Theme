@@ -18,7 +18,7 @@ if ( ! is_active_sidebar( $sidebar_id ) ) return;
 wp_sidebars_before();
 
 ?>
-<aside id="secondary" class="col-md-3 widget-area sidebar main-sidebar" aria-label="Primary Sidebar"<?php WP_Schema::get_attribute( 'sidebar' ); ?>>
+<aside id="secondary" class="col-md-<?php echo Exopite_Theme_Functions::get_sidebar_content_ratio()['sidebar']; ?> widget-area sidebar main-sidebar" aria-label="Primary Sidebar"<?php WP_Schema::get_attribute( 'sidebar' ); ?>>
 	<?php
 
     // Theme Hook Alliance (include/plugins/tha-theme-hooks.php)

@@ -12,7 +12,7 @@ defined('ABSPATH') or die( __( 'You cannot access this page directly.', 'exopite
 $sidebar_id = exopite_get_sidebar_id();
 $active_sidebar = is_active_sidebar( $sidebar_id );
 
-$content_class = ( $active_sidebar && ( $exopite_settings['exopite-blog-list-layout'] == 'blog-list-left-sidebar' || $exopite_settings['exopite-blog-list-layout'] == 'blog-list-right-sidebar' ) ) ? 'col-md-9' : 'col-md-12';
+$content_class = ( $active_sidebar && ( $exopite_settings['exopite-blog-list-layout'] == 'blog-list-left-sidebar' || $exopite_settings['exopite-blog-list-layout'] == 'blog-list-right-sidebar' ) ) ? 'col-md-' . Exopite_Theme_Functions::get_sidebar_content_ratio()['content'] : 'col-md-12';
 
 $exopite_settings = get_option( 'exopite_options' );
 ?>

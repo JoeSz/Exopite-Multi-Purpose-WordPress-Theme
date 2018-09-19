@@ -26,7 +26,7 @@ $exopite_blog_list_layout = ( isset( $exopite_settings['exopite-blog-list-layout
 // Calculate width (sidebar or no sidebar) to match content width
 $sidebar_id = exopite_get_sidebar_id();
 $active_sidebar = is_active_sidebar( $sidebar_id );
-$content_class = ( $active_sidebar && ( $exopite_blog_list_layout == 'blog-list-left-sidebar' || $exopite_blog_list_layout == 'blog-list-right-sidebar' ) ) ? 'col-md-9' : 'col-md-12';
+$content_class = ( $active_sidebar && ( $exopite_blog_list_layout == 'blog-list-left-sidebar' || $exopite_blog_list_layout == 'blog-list-right-sidebar' ) ) ? 'col-md-' . Exopite_Theme_Functions::get_sidebar_content_ratio()['content'] : 'col-md-12';
 
 // Theme Hook Alliance (include/plugins/tha-theme-hooks.php)
 get_header();
