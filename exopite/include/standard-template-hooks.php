@@ -1,8 +1,16 @@
 <?php
 /**
- * WHY TO USE?
+ * WHY YOU SHOULD USE STANDARD HOOKS
  *
- * I have combined the THA and WP Theme Standardization Panel hooks with the original WordPress Standard Template Hooks.
+ *  - It makes it easier for plugin authors to insert features a wide variety of themes.
+ *  - Users will not need to dig through your code and insert function calls.
+ *  - Makes tutorials universal
+ *  - Without this solution, more themes will develop their own theme options,
+ *    when a common group plugins would work better.
+ * @link https://codex.wordpress.org/User_talk:Dcole07
+ *
+ * I have combined the THA, Standard Hooks for Themes and WP Theme Standardization Panel hooks
+ * with the original WordPress Standard Template Hooks.
  * "There shouldn't be multiple standards since that would be against its general purpose."
  * I agree, but the main goal here, theme developer start to use some kind of standardized hooks.
  *
@@ -17,6 +25,29 @@
  * where it needs to be inserted, without using filters (which should actually only be used for modifying existing
  * content) or (even worse) output buffers.
  * @link https://github.com/felixarntz/wp-theme-standardization-panel/blob/master/wp_tsp.php
+ *
+ * Other sources:
+ * @link https://literalbarrage.org/blog/2012/06/29/wordpress-theme-hook-alliance/
+ * @link https://wptavern.com/standardizing-theme-hook-names
+ * @link https://www.julienklepatch.com/theme-hooks/
+ */
+
+/**
+ * WHICH
+ *
+ * Standard Template Hooks stub list.
+ * (based on the original WordPress Standard Template Hooks idea)
+ * @link https://core.trac.wordpress.org/ticket/21506
+ * @link https://core.trac.wordpress.org/attachment/ticket/21506/general-template.php.template-hooks.patch
+ *
+ * Theme Hook Alliance hook stub list.
+ * @link https://github.com/zamoose/themehookalliance
+ *
+ * WP Theme Standardization Panel hook stub list.
+ * @link https://github.com/felixarntz/wp-theme-standardization-panel/
+ *
+ * Standard Hooks for Themes
+ * @link https://codex.wordpress.org/User_talk:Dcole07
  */
 
 /**
@@ -82,17 +113,6 @@
  */
 
 /**
- * Standard Template Hooks stub list.
- * (based on the original WordPress Standard Template Hooks idea)
- * @link https://core.trac.wordpress.org/ticket/21506
- * @link https://core.trac.wordpress.org/attachment/ticket/21506/general-template.php.template-hooks.patch
- *
- * Theme Hook Alliance hook stub list.
- * @link https://github.com/zamoose/themehookalliance
- *
- * WP Theme Standardization Panel hook stub list.
- * @link https://github.com/felixarntz/wp-theme-standardization-panel/
- *
  * @package  standardtemplatehooks
  * @version  1.0
  * @since    1.0
@@ -237,11 +257,24 @@ add_filter( 'current_theme_supports-tha_hooks', 'standard_template_hooks_current
  * $standard_template_hooks_supports[] = 'html;
  */
 function wp_doctype() {
+	// Original WordPress standard theme hooks without prefix
+	// @link https://core.trac.wordpress.org/ticket/21506#comment:62
 	do_action( 'doctype' );
+
+	// Original WordPress Hook idea
 	do_action( 'wp_doctype' );
+
+	// Standard Hooks for Themes
+	// https://codex.wordpress.org/User_talk:Dcole07
+	do_action( 'theme_doctype' );
+
+	// WP Theme Standardization Panel Hook
 	do_action( WP_THEME_HOOK_SLUG . '_doctype' );
+
+	// Theme Hook Alliance
 	do_action( 'tha_html_before' );
 }
+
 
 /**
  * Body releated hooks
@@ -262,6 +295,7 @@ function wp_doctype() {
 function wp_body_top() {
 	do_action( 'body_top' );
 	do_action( 'wp_body_top' );
+	do_action( 'theme_body_top' );
 	do_action( WP_THEME_HOOK_SLUG . '_body_top' );
 	do_action( 'tha_body_top' );
 }
@@ -277,6 +311,7 @@ function wp_body_top() {
 function wp_body_bottom() {
 	do_action( 'body_bottom' );
 	do_action( 'wp_body_bottom' );
+	do_action( 'theme_body_bottom' );
 	do_action( WP_THEME_HOOK_SLUG . '_body_bottom' );
 	do_action( 'tha_body_bottom' );
 }
@@ -300,6 +335,8 @@ function wp_body_bottom() {
 function wp_head_top() {
 	do_action( 'head_top' );
 	do_action( 'wp_head_top' );
+	do_action( 'theme_head' );
+	do_action( 'theme_head_top' );
 	do_action( WP_THEME_HOOK_SLUG . '_head_top' );
 	do_action( 'tha_head_top' );
 }
@@ -315,6 +352,7 @@ function wp_head_top() {
 function wp_head_bottom() {
 	do_action( 'head_bottom' );
 	do_action( 'wp_head_bottom' );
+	do_action( 'theme_head_bottom' );
 	do_action( WP_THEME_HOOK_SLUG . '_head_bottom' );
 	do_action( 'tha_head_bottom' );
 }
@@ -343,8 +381,9 @@ function wp_header_before() {
 	// Original WordPress Hook idea
 	do_action( 'wp_header_before' );
 
-	// Personalized Hook
-	do_action( WP_THEME_HOOK_SLUG . '_header_before' );
+	// Standard Hooks for Themes
+	// https://codex.wordpress.org/User_talk:Dcole07
+	do_action( 'theme_before_header' );
 
 	// WP Theme Standardization Panel Hook
 	do_action( WP_THEME_HOOK_SLUG . '_before_header' );
@@ -364,6 +403,7 @@ function wp_header_before() {
 function wp_header_top() {
 	do_action( 'header_top' );
 	do_action( 'wp_header_top' );
+	do_action( 'theme_header_top' );
 	do_action( WP_THEME_HOOK_SLUG . '_header_top' );
 	do_action( 'tha_header_top' );
 }
@@ -379,6 +419,7 @@ function wp_header_top() {
 function wp_header_bottom() {
 	do_action( 'header_bottom' );
 	do_action( 'wp_header_bottom' );
+	do_action( 'theme_header_bottom' );
 	do_action( WP_THEME_HOOK_SLUG . '_header_bottom' );
 	do_action( 'tha_header_bottom' );
 }
@@ -394,6 +435,7 @@ function wp_header_bottom() {
 function wp_header_after() {
 	do_action( 'header_after' );
 	do_action( 'wp_header_after' );
+	do_action( 'theme_after_header' );
 	do_action( WP_THEME_HOOK_SLUG . '_header_after' );
 	do_action( WP_THEME_HOOK_SLUG . '_after_header' );
 	do_action( 'tha_header_after' );
@@ -419,6 +461,7 @@ function wp_header_after() {
 function wp_content_before() {
 	do_action( 'content_before' );
 	do_action( 'wp_content_before' );
+	do_action( 'theme_before_content' );
 	do_action( WP_THEME_HOOK_SLUG . '_content_before' );
 	do_action( WP_THEME_HOOK_SLUG . '_before_main' );
 	do_action( 'tha_content_before' );
@@ -435,6 +478,8 @@ function wp_content_before() {
 function wp_content_top() {
 	do_action( 'content_top' );
 	do_action( 'wp_content_top' );
+	do_action( 'theme_content' );
+	do_action( 'theme_content_top' );
 	do_action( WP_THEME_HOOK_SLUG . '_content_top' );
 	do_action( 'tha_content_top' );
 }
@@ -450,6 +495,7 @@ function wp_content_top() {
 function wp_content_bottom() {
 	do_action( 'content_bottom' );
 	do_action( 'wp_content_bottom' );
+	do_action( 'theme_content_bottom' );
 	do_action( WP_THEME_HOOK_SLUG . '_content_bottom' );
 	do_action( 'tha_content_bottom' );
 }
@@ -465,6 +511,7 @@ function wp_content_bottom() {
 function wp_content_after() {
 	do_action( 'content_after' );
 	do_action( 'wp_content_after' );
+	do_action( 'theme_after_content' );
 	do_action( WP_THEME_HOOK_SLUG . '_content_after' );
 	do_action( WP_THEME_HOOK_SLUG . '_after_main' );
 	do_action( 'tha_content_after' );
@@ -483,6 +530,7 @@ function wp_content_after() {
 function wp_loop_before() {
 	do_action( 'loop_before' );
 	do_action( 'wp_loop_before' );
+	do_action( 'theme_before_loop' );
 	do_action( WP_THEME_HOOK_SLUG . '_loop_before' );
 	do_action( WP_THEME_HOOK_SLUG . '_before_loop' );
 	do_action( 'tha_content_while_before' );
@@ -499,6 +547,7 @@ function wp_loop_before() {
 function wp_loop_after() {
 	do_action( 'loop_after' );
 	do_action( 'wp_loop_after' );
+	do_action( 'theme_after_loop' );
 	do_action( WP_THEME_HOOK_SLUG . '_loop_after' );
 	do_action( WP_THEME_HOOK_SLUG . '_after_loop' );
 	do_action( 'tha_content_while_after' );
@@ -524,6 +573,7 @@ function wp_loop_after() {
 function wp_post_before() {
 	do_action( 'post_before' );
 	do_action( 'wp_post_before' );
+	do_action( 'theme_before_entry' );
 	do_action( WP_THEME_HOOK_SLUG . '_post_before' );
 	do_action( WP_THEME_HOOK_SLUG . '_before_article' );
 	do_action( 'tha_entry_before' );
@@ -542,6 +592,7 @@ function wp_post_before() {
 function wp_post_top() {
 	do_action( 'post_top' );
 	do_action( 'wp_post_top' );
+	do_action( 'theme_post_top' );
 	do_action( WP_THEME_HOOK_SLUG . '_post_top' );
 	do_action( WP_THEME_HOOK_SLUG . '_before_article_header' );
 	do_action( 'tha_entry_top' );
@@ -558,6 +609,7 @@ function wp_post_top() {
 function wp_post_header_after() {
 	do_action( 'post_header_after' );
 	do_action( 'wp_post_header_after' );
+	do_action( 'theme_after_post_header' );
 	do_action( WP_THEME_HOOK_SLUG . '_post_header_after' );
 	do_action( WP_THEME_HOOK_SLUG . '_after_article_header' );
 }
@@ -575,6 +627,7 @@ function wp_post_header_after() {
 function wp_post_content_before() {
 	do_action( 'post_content_before' );
 	do_action( 'wp_post_content_before' );
+	do_action( 'theme_before_post_content' );
 	do_action( WP_THEME_HOOK_SLUG . '_post_content_before' );
 	do_action( WP_THEME_HOOK_SLUG . '_before_article_content' );
 	do_action( 'tha_entry_content_before' );
@@ -591,6 +644,7 @@ function wp_post_content_before() {
 function wp_post_content_after() {
 	do_action( 'post_content_after' );
 	do_action( 'wp_post_content_after' );
+	do_action( 'theme_after_post_content' );
 	do_action( WP_THEME_HOOK_SLUG . '_post_content_after' );
 	do_action( WP_THEME_HOOK_SLUG . '_after_article_content' );
 	do_action( 'tha_entry_content_after' );
@@ -609,6 +663,7 @@ function wp_post_content_after() {
 function wp_post_footer_before() {
 	do_action( 'post_footer_before' );
 	do_action( 'wp_post_footer_before' );
+	do_action( 'theme_before_post_footer' );
 	do_action( WP_THEME_HOOK_SLUG . '_post_footer_before' );
 	do_action( WP_THEME_HOOK_SLUG . '_before_article_footer' );
 }
@@ -624,6 +679,7 @@ function wp_post_footer_before() {
 function wp_post_bottom() {
 	do_action( 'post_bottom' );
 	do_action( 'wp_post_bottom' );
+	do_action( 'theme_post_bottom' );
 	do_action( WP_THEME_HOOK_SLUG . '_post_bottom' );
 	do_action( WP_THEME_HOOK_SLUG . '_after_article_footer' );
 	do_action( 'tha_entry_bottom' );
@@ -640,6 +696,7 @@ function wp_post_bottom() {
 function wp_post_after() {
 	do_action( 'post_after' );
 	do_action( 'wp_post_after' );
+	do_action( 'theme_after_post' );
 	do_action( WP_THEME_HOOK_SLUG . '_post_after' );
 	do_action( WP_THEME_HOOK_SLUG . '_after_article' );
 	do_action( 'tha_entry_after' );
@@ -665,6 +722,7 @@ function wp_post_after() {
 function wp_comments_before() {
 	do_action( 'comments_before' );
 	do_action( 'wp_comments_before' );
+	do_action( 'theme_before_comments' );
 	do_action( WP_THEME_HOOK_SLUG . '_comments_before' );
 	do_action( WP_THEME_HOOK_SLUG . '_before_comments_section' );
 	do_action( 'tha_comments_before' );
@@ -681,6 +739,7 @@ function wp_comments_before() {
 function wp_comments_after() {
 	do_action( 'comments_after' );
 	do_action( 'wp_comments_after' );
+	do_action( 'theme_after_comments' );
 	do_action( WP_THEME_HOOK_SLUG . '_comments_after' );
 	do_action( WP_THEME_HOOK_SLUG . '_after_comments_section' );
 	do_action( 'tha_comments_after' );
@@ -709,6 +768,7 @@ function wp_comments_after() {
 function wp_sidebars_before() {
 	do_action( 'sidebars_before' );
 	do_action( 'wp_sidebars_before' );
+	do_action( 'theme_before_sidebars' );
 	do_action( WP_THEME_HOOK_SLUG . '_sidebars_before' );
     do_action( WP_THEME_HOOK_SLUG . '_before_sidebar' );
 	do_action( 'tha_sidebars_before' );
@@ -728,6 +788,7 @@ function wp_sidebars_before() {
 function wp_sidebar_top() {
 	do_action( 'sidebar_top' );
 	do_action( 'wp_sidebar_top' );
+	do_action( 'theme_sidebar_top' );
 	do_action( WP_THEME_HOOK_SLUG . '_sidebar_top' );
 	do_action( 'tha_sidebar_top' );
 }
@@ -746,6 +807,7 @@ function wp_sidebar_top() {
 function wp_sidebar_bottom() {
 	do_action( 'sidebar_bottom' );
 	do_action( 'wp_sidebar_bottom' );
+	do_action( 'theme_sidebar_bottom' );
 	do_action( WP_THEME_HOOK_SLUG . '_sidebar_bottom' );
 	do_action( 'tha_sidebar_bottom' );
 }
@@ -764,6 +826,7 @@ function wp_sidebar_bottom() {
 function wp_sidebars_after() {
 	do_action( 'sidebars_after' );
 	do_action( 'wp_sidebars_after' );
+	do_action( 'theme_after_sidebars' );
 	do_action( WP_THEME_HOOK_SLUG . '_sidebars_after' );
     do_action( WP_THEME_HOOK_SLUG . '_after_sidebar' );
 	do_action( 'tha_sidebars_after' );
@@ -789,6 +852,7 @@ function wp_sidebars_after() {
 function wp_footer_before() {
 	do_action( 'footer_before' );
 	do_action( 'wp_footer_before' );
+	do_action( 'theme_before_footer' );
 	do_action( WP_THEME_HOOK_SLUG . '_footer_before' );
 	do_action( WP_THEME_HOOK_SLUG . '_before_footer' );
 	do_action( 'tha_footer_before' );
@@ -805,6 +869,8 @@ function wp_footer_before() {
 function wp_footer_top() {
 	do_action( 'footer_top' );
 	do_action( 'wp_footer_top' );
+	do_action( 'theme_footer' );
+	do_action( 'theme_footer_top' );
 	do_action( WP_THEME_HOOK_SLUG . '_footer_top' );
 	do_action( 'tha_footer_top' );
 }
@@ -820,6 +886,7 @@ function wp_footer_top() {
 function wp_footer_bottom() {
 	do_action( 'footer_bottom' );
 	do_action( 'wp_footer_bottom' );
+	do_action( 'theme_footer_bottom' );
 	do_action( WP_THEME_HOOK_SLUG . '_footer_bottom' );
 	do_action( 'tha_footer_bottom' );
 }
@@ -835,6 +902,7 @@ function wp_footer_bottom() {
 function wp_footer_after() {
 	do_action( 'footer_after' );
 	do_action( 'wp_footer_after' );
+	do_action( 'theme_after_footer' );
 	do_action( WP_THEME_HOOK_SLUG . '_footer_after' );
 	do_action( WP_THEME_HOOK_SLUG . '_after_footer' );
 	do_action( 'tha_footer_after' );
