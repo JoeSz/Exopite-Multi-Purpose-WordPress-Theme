@@ -1,5 +1,8 @@
 # Changelog
 
+= 20180919 - Sep 19 2018
+* **ADDED**: Option to change content - sidebar ratio
+
 = 20180918 - Sep 18 2018
 * **ENHANCEMENT**: Theme/template hook support not only for Theme Hook Alliance
                    but also for original WordPress template hooks
