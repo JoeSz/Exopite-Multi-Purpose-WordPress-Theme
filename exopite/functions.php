@@ -188,20 +188,14 @@ function exopite_setup() {
 
 	/**
 	 * Enable shortcodes in text widgets
+     * Enable oembed in text widgets
 	 *
 	 * @link https://wordpress.org/support/topic/shortcode-in-text-widget-1
      * @link http://stackoverflow.com/questions/27277610/wordpress-shortcodes-in-footer-wont-work/27593600#27593600
+     * @link https://wordpress.stackexchange.com/questions/166533/how-do-i-embed-in-a-text-widget/166536#166536
 	 */
     add_filter( 'widget_text', 'shortcode_unautop' );
 	add_filter( 'widget_text', 'do_shortcode' );
-
-    /**
-     * Enable oembed in text widgets
-     *
-     * @link https://www.wpbeginner.com/wp-tutorials/how-to-enable-oembed-in-wordpress-text-widgets/
-     */
-    add_filter( 'widget_text', array( $wp_embed, 'run_shortcode' ), 8 );
-    add_filter( 'widget_text', array( $wp_embed, 'autoembed'), 8 );
 
     // This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(

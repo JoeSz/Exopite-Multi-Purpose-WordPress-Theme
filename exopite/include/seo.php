@@ -317,7 +317,7 @@ if ( ! defined('WPSEO_VERSION') ) {
 <meta property="og:image" content="<?php echo esc_url( $img_src ); ?>"/>
 <meta property="og:locale" content="<?php echo get_locale() ?>" />
 <meta property="og:updated_time" content="<?php echo get_the_modified_time( 'c' ); ?>" />
-<?php if( ! empty( esc_url( $user_meta['facebook'][0] ) ) ) : ?>
+<?php if( isset( $user_meta['facebook'][0] ) && ! empty( esc_url( $user_meta['facebook'][0] ) ) ) : ?>
 <meta property="article:author" content="<?php echo esc_url( $user_meta['facebook'][0] ); ?>" />
 <?php endif; ?>
 <meta property="article:section" content="<?php echo strip_tags( get_the_category_list(',') ); ?>" />
@@ -330,7 +330,7 @@ if ( ! defined('WPSEO_VERSION') ) {
 <meta name="twitter:image" content="<?php echo esc_url( $img_src ); ?>" />
 <meta name="twitter:site" content="<?php echo esc_html( get_bloginfo() ); ?>">
 <meta name="twitter:url" content="<?php esc_url( the_permalink() ); ?>">
-<?php if( ! empty( esc_url( $user_meta['twitter'][0] ) ) ) : ?>
+<?php if( isset( $user_meta['twitter'][0] ) && ! empty( esc_url( $user_meta['twitter'][0] ) ) ) : ?>
 <meta name="twitter:creator" content="@<?php
     $twitter = explode('/', esc_url( $user_meta['twitter'][0] ) );
     $id = array_pop( $twitter ); // 123
