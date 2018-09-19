@@ -43,7 +43,7 @@ if ( ! class_exists( 'Exopite_Theme_Functions' ) ) {
 
 			$classes = array();
 
-			if ( isset( $exopite_meta_data['exopite-meta-sidebar-layout'] ) &&
+			if ( ! isset( $exopite_meta_data['exopite-meta-sidebar-layout'] ) ||
 				 $exopite_meta_data['exopite-meta-sidebar-layout'] != 'exopite-meta-sidebar-none'
 			   ) {
 
