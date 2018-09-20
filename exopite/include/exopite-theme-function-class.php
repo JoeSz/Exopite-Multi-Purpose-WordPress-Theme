@@ -13,7 +13,9 @@ if ( ! class_exists( 'Exopite_Theme_Functions' ) ) {
 
 		public static function get_sidebar_content_ratio() {
 
-			$exopite_sidebar_ratio = intval( self::$options['exopite-sidebar-ratio'] );
+			if ( isset( self::$options['exopite-sidebar-ratio'] ) ) {
+				$exopite_sidebar_ratio = intval( self::$options['exopite-sidebar-ratio'] );
+			}
 
 			if ( ! isset( $exopite_sidebar_ratio ) ||
 				! is_numeric( $exopite_sidebar_ratio ) ||
@@ -43,7 +45,7 @@ if ( ! class_exists( 'Exopite_Theme_Functions' ) ) {
 
 			$classes = array();
 
-			if ( ! isset( $exopite_meta_data['exopite-meta-sidebar-layout'] ) ||
+			if ( isset( $exopite_meta_data['exopite-meta-sidebar-layout'] ) &&
 				 $exopite_meta_data['exopite-meta-sidebar-layout'] != 'exopite-meta-sidebar-none'
 			   ) {
 
