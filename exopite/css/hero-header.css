@@ -99,10 +99,10 @@
     position: absolute;
 }
 .site-branding.top {
-    top: 0;
+    align-self:flex-start
 }
 .site-branding.bottom {
-    bottom: 0;
+    align-self:flex-end
 }
 .site-branding.left {
     left: 0;
@@ -131,4 +131,3 @@
     margin: 0 auto;
     position: relative;*/
 }
-
