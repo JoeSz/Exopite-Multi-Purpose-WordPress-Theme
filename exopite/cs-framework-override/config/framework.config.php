@@ -195,56 +195,6 @@ $exopite_options[]      = array(
 	), // end: fields
 );
 
-// ----------------------------------------
-// CSS                                    -
-// ----------------------------------------
-$exopite_options[]      = array(
-	'name'        => 'css_section',
-	'title'       => esc_attr__( 'CSS', 'exopite' ),
-	'icon'        => 'fa fa-code',
-
-	// begin: fields
-	'fields'      => array(
-
-		array(
-			'id'     => 'exopite-css',
-			'type'   => 'aceeditor',
-			'attributes'  => array(
-				'data-theme'    => 'chrome',
-				'data-mode'     => 'css',
-			),
-			'before' => '<div class="cs-title"><h4>' . esc_attr__( 'Add your CSS here', 'exopite' ) . ' <i class="cs-text-muted"> - ' . esc_html__( 'without the &lt;style&gt; tag', 'exopite' ) . '</i></h4></div>',
-			'after' => 'ACE JavaScript Editor <i class="fa fa-arrow-right" aria-hidden="true"></i> <a href="https://github.com/ajaxorg/ace/wiki/Default-Keyboard-Shortcuts" target="_blank">Info</a>',
-		),
-
-	), // end: fields
-);
-
-// ----------------------------------------
-// JavaScript                             -
-// ----------------------------------------
-$exopite_options[]      = array(
-	'name'        => 'js_section',
-	'title'       => esc_attr__( 'JavaScript', 'exopite' ),
-	'icon'        => 'fa fa-code',
-
-	// begin: fields
-	'fields'      => array(
-
-		array(
-			'id'     => 'exopite-js',
-			'type'   => 'aceeditor',
-			'attributes'  => array(
-				'data-theme'    => 'chrome',
-				'data-mode'     => 'javascript',
-			),
-			'before' => '<div class="cs-title"><h4>' . esc_attr__( 'Add your JavaScript here', 'exopite' ) . ' <i class="cs-text-muted"> - ' . esc_html__( 'without the &lt;srcipt&gt; tag', 'exopite' ) . '</i></h4></div>',
-			'after' => 'ACE JavaScript Editor <i class="fa fa-arrow-right" aria-hidden="true"></i> <a href="https://github.com/ajaxorg/ace/wiki/Default-Keyboard-Shortcuts" target="_blank">Info</a>',
-		),
-
-	), // end: fields
-);
-
 // ------------------------------
 // header accordion sections    -
 // ------------------------------
@@ -2394,7 +2344,7 @@ $exopite_options[]   = array(
 		// sub section Custom pages
 		array(
 			'name'     => 'blog_list_sub_section_custom_pages',
-			'title'    => esc_attr__( 'Custom pages', 'exopite' ),
+			'title'    => esc_attr__( 'Archive pages override', 'exopite' ),
 			'icon'     => 'fa fa-minus',
 			'fields'   => array(
 
@@ -2570,7 +2520,7 @@ $exopite_options[]   = array(
 				array(
 					'id'          => 'exopite-archive-page-other',
 					'type'        => 'switcher',
-					'title'       => esc_attr__( 'Every othen archive as page', 'exopite' ),
+					'title'       => esc_attr__( 'Every other archive as page', 'exopite' ),
 					'default'     => false,
 				),
 
@@ -2856,7 +2806,7 @@ $exopite_options[]   = array(
 				'data-theme'    => 'chrome',
 				'data-mode'     => 'javascript',
 			),
-			'before' => '<div class="cs-title"><h4 style="padding-bottom: 20px;">' . esc_attr__( 'Add your Google Analytics code here', 'exopite' ) . '</h4></div>',
+			'before' => '<div class="cs-title-before"><h4 style="padding-bottom:5px;margin-bottom:0;">' . esc_attr__( 'Add your Google Analytics code here', 'exopite' ) . '</h4></div>',
 			'after' => '<b><i class="cs-text-muted">' . esc_html__( 'without the &lt;srcipt&gt; tag', 'exopite' ) . '</i></b>',
 		),
 
@@ -3237,6 +3187,65 @@ if ( ExopiteSettings::getValue( 'woocommerce-activated' ) ) {
 );
 }
 
+$exopite_options[]   = array(
+	'name'     => 'scripts_section',
+	'title'    => esc_attr__( 'Code', 'exopite' ),
+	'icon'     => 'fa fa-code',
+	'sections' => array(
+
+		// ----------------------------------------
+		// CSS                                    -
+		// ----------------------------------------
+		array(
+			'name'        => 'css_sub_section',
+			'title'       => esc_attr__( 'CSS', 'exopite' ),
+			'icon'        => 'fa fa-minus',
+
+			// begin: fields
+			'fields'      => array(
+
+				array(
+					'id'     => 'exopite-css',
+					'type'   => 'aceeditor',
+					'attributes'  => array(
+						'data-theme'    => 'chrome',
+						'data-mode'     => 'css',
+					),
+					'before' => '<div class="cs-title-custom"><h4>' . esc_attr__( 'Add your CSS here', 'exopite' ) . ' <i class="cs-text-muted"> - ' . esc_html__( 'without the &lt;style&gt; tag', 'exopite' ) . '</i></h4></div>',
+					'after' => 'ACE JavaScript Editor <i class="fa fa-arrow-right" aria-hidden="true"></i> <a href="https://github.com/ajaxorg/ace/wiki/Default-Keyboard-Shortcuts" target="_blank">Info</a>',
+				),
+
+			), // end: fields
+		),
+
+		// ----------------------------------------
+		// JavaScript                             -
+		// ----------------------------------------
+		array(
+			'name'        => 'js_section',
+			'title'       => esc_attr__( 'JavaScript', 'exopite' ),
+			'icon'        => 'fa fa-minus',
+
+			// begin: fields
+			'fields'      => array(
+
+				array(
+					'id'     => 'exopite-js',
+					'type'   => 'aceeditor',
+					'attributes'  => array(
+						'data-theme'    => 'chrome',
+						'data-mode'     => 'javascript',
+					),
+					'before' => '<div class="cs-title-custom"><h4>' . esc_attr__( 'Add your JavaScript here', 'exopite' ) . ' <i class="cs-text-muted"> - ' . esc_html__( 'without the &lt;srcipt&gt; tag', 'exopite' ) . '</i></h4></div>',
+					'after' => 'ACE JavaScript Editor <i class="fa fa-arrow-right" aria-hidden="true"></i> <a href="https://github.com/ajaxorg/ace/wiki/Default-Keyboard-Shortcuts" target="_blank">Info</a>',
+				),
+
+			), // end: fields
+		),
+
+
+	),
+);
 
 // ------------------------------
 // backup                       -
