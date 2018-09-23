@@ -1,0 +1,401 @@
+/************/
+/* dividers */
+/************/
+.trianglePath1 {
+    fill: #fff;
+    stroke: #fff;
+}
+.trianglePath2 {
+    fill: #e1e1e1;
+    stroke: #e1e1e1;
+}
+/*------------------------------------------------*/
+/*------[Triangles Diagonal Lines - Quiroz.co]-------*/
+/*------------------------------------------------*/
+/* https://quiroz.co/how-to-create-a-triangle-between-sections-in-divi/ */
+.divider-style-triangles {
+    position: relative;
+    overflow: hidden;
+}
+.divider-style-triangles::before,
+.triangles::after {
+    position: absolute; content: '';
+    pointer-events: none;
+    left: 50%;
+    width: 100px;
+    height: 100px;
+    -webkit-transform: translateX(-50%) rotate(45deg);
+    transform: translateX(-50%) rotate(45deg);}
+
+/* Top arrow pointing down. Currently set as black. This can be removed if you don't want a top arrow */
+.divider-style-triangles::before {
+    top: -50px;
+    background: #fff;
+}
+
+/* Bottom arrow pointing down. Currently set to inherit the background of the section. This can be removed if you don't want a bottom arrow */
+.divider-style-triangles::after {
+/*    bottom: -50px;
+    z-index: 10;
+    background: inherit;*/
+}
+/*------------------------------------------------*/
+/*------[Shadow Diagonal Lines - Quiroz.co]-------*/
+/*------------------------------------------------*/
+.divider-style-diagonal-shadow-reverse,
+.divider-style-diagonal-shadow {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    padding-top: 6em;
+    background: #2072a7;
+}
+.divider-style-diagonal-shadow-reverse::before,
+.divider-style-diagonal-shadow-reverse::after,
+.divider-style-diagonal-shadow::before,
+.divider-style-diagonal-shadow::after {
+    position: absolute;
+    content: '';
+    pointer-events: none;
+    top: 100%;
+    left: -25%;
+    z-index: -1;
+    width: 150%;
+    height: 25%;
+    background: #fff;
+    -webkit-transform: rotate(-2deg);
+    transform: rotate(-2deg);
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+}
+.divider-style-diagonal-shadow-reverse::before,
+.divider-style-diagonal-shadow-reverse::after {
+    top: 0;
+    height: 100%;
+}
+.divider-style-diagonal-shadow.bottom-gray::after {
+    background: #f3f4f5;
+}
+.divider-style-diagonal-shadow-reverse::before,
+.divider-style-diagonal-shadow::before {
+    height: 50%;
+    background: #535353;
+    -webkit-transform-origin: 3% 0;
+    transform-origin: 3% 0;
+}
+.divider-style-diagonal-shadow::before {
+    -webkit-transform: rotate(-6deg);
+    transform: rotate(-6deg);
+}
+.divider-style-diagonal-shadow-reverse::after {
+    -webkit-transform: rotate(6deg);
+    transform: rotate(6deg);
+}
+@media screen and (min-width: 600px) {
+    .divider-style-diagonal-shadow::before {
+        -webkit-transform: rotate(-4deg);
+        transform: rotate(-4deg);
+    }
+    .divider-style-diagonal-shadow-reverse::after {
+        -webkit-transform: rotate(4deg);
+        transform: rotate(4deg);
+    }
+}
+@media screen and (min-width: 900px) {
+    .divider-style-diagonal-shadow::before {
+        -webkit-transform: rotate(-3deg);
+        transform: rotate(-3deg);
+    }
+    .divider-style-diagonal-shadow-reverse::after {
+        -webkit-transform: rotate(3deg);
+        transform: rotate(3deg);
+    }
+}
+.divider-style-diagonal-shadow-reverse::before {
+    -webkit-transform: rotate(2deg);
+    transform: rotate(2deg);
+    -webkit-transform-origin: 2% 0;
+    transform-origin: 2% 0;
+}
+/*------------------------------------------------*/
+/*------[Big Invisible Triangle - Quiroz.co]------*/
+/* https://quiroz.co/how-to-create-transparent-triangles-between-sections-in-divi/ */
+/* http://montereydev.com/demos/menucta-and-logoswap/section-separators/ */
+/*------------------------------------------------*/
+.divider-style-big-triangle {
+    position: relative;
+    overflow: hidden;
+}
+.divider-style-big-triangle:after,
+.divider-style-big-triangle:before {
+    content:'';
+    position:absolute;
+    bottom:0;
+    width:50%;
+    z-index:100;
+    border-bottom:50px solid #fff;
+    -moz-transform:rotate(0.000001deg);
+    -webkit-transform:rotate(0.000001deg);
+    -o-transform:rotate(0.000001deg);
+    -ms-transform:rotate(0.000001deg);
+    transform:rotate(0.000001deg);
+}
+
+.divider-style-big-triangle:before{
+    right:50%;
+    border-right:1000px solid transparent;
+    border-left:1000px solid;
+}
+
+.divider-style-big-triangle:after{
+    left:50%;
+    border-left:1000px solid transparent;
+    border-right:1000px solid;
+}
+/*------------------------------------------------*/
+/*----[Left Diagonal Lines - By Geno Quiroz]------*/
+/*-----------------[Quiroz.Co]--------------------*/
+/*------------------------------------------------*/
+.divider-style-left-diagonal {
+    z-index: 1;
+    padding-top: 0px;
+    position: relative;
+    overflow: hidden;
+}
+.divider-style-left-diagonal::before,
+.divider-style-left-diagonal::after {
+    position: absolute;
+    content: '';
+    -webkit-transform: rotate(3deg);
+    transform: rotate(3deg);
+    -webkit-transform-origin: -3% 0;
+    transform-origin: -3% 0;
+    background-color: inherit;
+    height: 25%;
+    z-index: -1;
+    width: 150%;
+    pointer-events: none;
+}
+.divider-style-left-diagonal::before {
+    top: -30%;
+    left: -30%;
+}
+.divider-style-left-diagonal::after {
+    bottom: 5%;
+    left: -30%;
+}
+/* Divider simple diagonal */
+.divider-style-simple-triangle {
+    position: relative;
+    overflow: hidden;
+}
+.divider-style-simple-triangle::after {
+    position: absolute;
+    content: '';
+    width: 0;
+    height: 0;
+    left: 0;
+    bottom: 0;
+    border-style: solid;
+    border-width: 0 0 5vw 100vw;
+    border-color: transparent transparent #fff transparent;
+}
+/* Divider simple diagonal */
+.divider-style-simple-triangle-with-border {
+    position: relative;
+    overflow: hidden;
+}
+.divider-style-simple-triangle-with-border::before,
+.divider-style-simple-triangle-with-border::after {
+    position: absolute;
+    content: '';
+    left: -25%;
+    z-index: 1;
+    width: 150%;
+    height: 25%;
+}
+.divider-style-simple-triangle-with-border.top-left::before,
+.divider-style-simple-triangle-with-border.bottom-right::after {
+    -webkit-transform: rotate(-3deg);
+    transform: rotate(-3deg);
+    -webkit-transform-origin: 3% 0;
+    transform-origin: 3% 0;
+}
+.divider-style-simple-triangle-with-border.top-right::before,
+.divider-style-simple-triangle-with-border.bottom-left::after {
+    -webkit-transform: rotate(3deg);
+    transform: rotate(3deg);
+    -webkit-transform-origin: 3% 0;
+    transform-origin: 3% 0;
+}
+.divider-style-simple-triangle-with-border.top-left::before {
+    /* top left */
+    top: 0;
+    background-color: inherit;
+    border-bottom: 2px solid #5e5e5e;
+}
+.divider-style-simple-triangle-with-border.bottom-right::after {
+    /* bottom right */
+    bottom: -25%;
+    background-color: inherit;
+    border-top: 2px solid #5e5e5e;
+}
+.divider-style-simple-triangle-with-border.top-right::before {
+    /* top right */
+    top: -25%;
+    background-color: inherit;
+    border-bottom: 2px solid #5e5e5e;
+}
+.divider-style-simple-triangle-with-border.bottom-left::after {
+    /* bottom left */
+    bottom: -3%;
+    background-color: inherit;
+    border-top: 2px solid #5e5e5e;
+}
+.divider-style-simple-triangle-with-border.bg-light-gray-top::before {
+    background-color: #ededed;
+}
+.divider-style-simple-triangle-with-border.bg-light-gray-bottom::after {
+    background-color: #ededed;
+}
+.divider-style-simple-triangle-with-border.bg-white-top::before {
+    background-color: #fff;
+}
+.divider-style-simple-triangle-with-border.bg-white-bottom::after {
+    background-color: #fff;
+}
+/*------------------------------------------------*/
+/*----[Zig-Zag Diagonal Lines - By Joe Szalai]------*/
+/*-----------------[Quiroz.Co]--------------------*/
+/*------------------------------------------------*/
+.divider-style-zig-zag-diagonal {
+    z-index: 1;
+    padding-top: 0px;
+    position: relative;
+    overflow: hidden;
+}
+.divider-style-zig-zag-diagonal::before,
+.divider-style-zig-zag-diagonal::after {
+    position: absolute;
+    content: '';
+    -webkit-transform-origin: -3% 0;
+    transform-origin: -3% 0;
+    background-color: inherit;
+    height: 25%;
+    z-index: -1;
+    width: 150%;
+    pointer-events: none;
+}
+.divider-style-zig-zag-diagonal::before {
+    -webkit-transform: rotate(2deg);
+    transform: rotate(2deg);
+    top: -25%;
+    left: -25%;
+}
+.divider-style-zig-zag-diagonal::after {
+    -webkit-transform: rotate(-2deg);
+    transform: rotate(-2deg);
+    bottom: -25%;
+    left: -25%;
+    background-color:#ededed;
+    border-top: 3px solid #5e5e5e;
+}
+/*****************/
+/* https://tympanus.net/Development/SectionSeparators/ */
+/*****************/
+.divider-style-v-slit {
+    position: relative;
+    overflow: hidden;
+}
+.divider-style-v-slit::before {
+    left: -20px;
+    -webkit-transform: skewX(10deg);
+    transform: skewX(10deg);
+    box-shadow: -10px -20px #5e5e5ecc;
+}
+.divider-style-v-slit::after {
+    right: -20px;
+    -webkit-transform: skewX(-10deg);
+    transform: skewX(-10deg);
+    box-shadow: 10px -20px #5e5e5ecc;
+}
+.divider-style-v-slit::before,
+.divider-style-v-slit::after {
+    content: '';
+    position: absolute;
+    width: 50.5%;
+    width: -webkit-calc(50% + 10px);
+    width: -moz-calc(50% + 10px);
+    width: calc(50% + 10px);
+    background-color: inherit;
+    height: 120px;
+    bottom: 0;
+}
+/*ss-style-doubleline*/
+.divider-style-doubleline {
+    position: relative;
+    overflow: hidden;
+}
+.divider-style-doubleline::before {
+    position: absolute;
+    content: '';
+    pointer-events: none;
+    bottom: 30px;
+    width: 140px;
+    height: 2px;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    background: #5379ba;
+    box-shadow: 0 30px 0 #5379ba;
+}
+/*@media only screen and ( min-width: 1901px ) and ( max-width: 2500px ) {.left-diagonal::after {top: -150px; height: 85%;}}
+@media only screen and ( min-width: 1501px ) and ( max-width: 1900px ) {.left-diagonal::after {top: -131px; height: 68%;}}
+@media only screen and ( min-width: 1001px ) and ( max-width: 1500px ) {.left-diagonal::after {top: -228px;}}
+@media only screen and ( max-width: 1000px ) {.left-diagonal::after {top: -90px;}}*/
+/*------------------------------------------------*/
+/*----[Left Diagonal Lines - By Geno Quiroz]------*/
+/*-----------------[Quiroz.Co]--------------------*/
+/*------------------------------------------------*/
+/*.left-diagonal-over {
+    z-index: 1;
+    padding-top: 0px;
+    position: relative;
+    overflow-x: hidden;
+}
+.left-diagonal-over::after {
+    position: absolute;
+    content: '';
+    pointer-events: none;
+    top: -220px;
+    left: -25%;
+    z-index: -1;
+    width: 150%;
+    height: 50%;
+    background: inherit;
+    -webkit-transform: rotate(3deg);
+    transform: rotate(3deg);
+    -webkit-transform-origin: -3% 0;
+    transform-origin: -3% 0;
+}
+@media only screen and ( min-width: 1901px ) and ( max-width: 2500px ) {.left-diagonal-over::after {top: -150px; height: 85%;}}
+@media only screen and ( min-width: 1501px ) and ( max-width: 1900px ) {.left-diagonal-over::after {top: -131px; height: 68%;}}
+@media only screen and ( min-width: 1001px ) and ( max-width: 1500px ) {.left-diagonal-over::after {top: -228px;}}
+@media only screen and ( max-width: 1000px ) {.left-diagonal-over::after {top: -90px;}}*/
+/*https://tympanus.net/Development/SectionSeparators/?hc_location=ufi
+*/
+.gray-bg {
+    background: #ededed;
+}
+.gray-line-top {
+    border-top: 2px solid #e1e1e1;
+}
+.gray-line-bottom {
+    border-bottom: 2px solid #e1e1e1;
+}
+.dark-gray-line-top {
+    border-top: 8px solid #535353;
+}
+.dark-gray-line-bottom {
+    border-bottom: 8px solid #535353;
+}

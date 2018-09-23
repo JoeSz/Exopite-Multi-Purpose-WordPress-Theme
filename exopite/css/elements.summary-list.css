@@ -1,0 +1,35 @@
+.summary-list {
+    position: relative;
+    background: #f9fafb;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    padding: 10px;
+    font-size: .875rem;
+}
+.summary-list ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    padding-left: 10px;
+}
+.summary-list ul li i.fa-arrow-right {
+    position: relative;
+    top: -2px;
+    font-size: 10px;
+    font-size: .625rem;
+    color: #ffaa00;
+    margin-right: 10px;
+}
+.summary-list ul li {
+    line-height: 19px;
+    margin-bottom: 5px;
+}
+.summary-title {
+    font-size: 15px;
+    font-weight: 300;
+    text-transform: uppercase;
+    color: #333;
+    display: block;
+    padding-bottom: 3px;
+    padding-left: 7px;
+}

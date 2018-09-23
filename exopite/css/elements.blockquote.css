@@ -1,0 +1,82 @@
+blockquote,
+q {
+    font-family: 'Shadows Into Light Two';
+    font-style: italic;
+    font-size: 1.1em;
+    position: relative;
+}
+blockquote {
+    background: #f6f6f6;
+    margin: 1.2rem 3rem 0.5rem 3rem;
+    padding: 16px 16px 16px 60px;
+    border-radius: 5px;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.14);
+}
+blockquote p {
+	margin-bottom: 0;
+}
+cite,
+blockquote footer {
+    color: #999999;
+	font-style: italic;
+	display: block;
+	text-align: right;
+	padding-top: 5px;
+}
+blockquote:before {
+    font-family: "Times New Roman",Georgia,Serif;
+    letter-spacing: -0.9rem;
+    position: absolute;
+    display: block;
+    content: "\2018""\2018";
+    font-size: 159px;
+    top: 42px;
+    left: -22px;
+    line-height: 0;
+}
+blockquote.exopite-quote__full::before {
+    letter-spacing: -1.8rem;
+    font-size: 300px;
+    top: 81px;
+    left: -43px;
+    color: rgba(255,170,0,1);
+}
+blockquote.exopite-quote__full {
+    background: #f9fafb;
+    padding: 16px 16px 16px 100px;
+    border-radius: 0;
+	box-shadow: none;
+	margin: 2.5rem 0 0.5rem 0;
+}
+blockquote.exopite-quote__big::before {
+    display: none;
+}
+blockquote.exopite-quote__big::after {
+	font-family: "Times New Roman",Georgia,Serif;
+	position: absolute;
+	display: block;
+	content: "\2018""\2018";
+    letter-spacing: -5.4rem;
+    font-size: 50rem;
+    top: 14rem;
+    left: -9rem;
+    line-height: 0;
+    color: rgb(240, 240, 240);
+    color: rgba(244,244,244,1);
+    color: rgba(255,170,0,.2);
+    z-index: -1;
+}
+blockquote.exopite-quote__big cite {
+    padding-top: 0;
+}
+blockquote.exopite-quote__big {
+    /*background: rgba( 249,250,251, 1);*/
+    background: rgba( 244,245,246,.7);
+    /*padding: 16px 16px 16px 160px;*/
+    padding: 16px 16px 16px 16px;
+    border-radius: 0;
+    box-shadow: none;
+}
+blockquote.exopite-quote__big {
+    margin: 4rem 0;
+}

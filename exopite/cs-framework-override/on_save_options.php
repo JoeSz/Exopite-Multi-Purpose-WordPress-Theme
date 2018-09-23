@@ -228,6 +228,12 @@ if ( ! function_exists( 'on_save_options' ) ) {
             'blog.css',
             'blog.sticky.css',
             'comments.css',
+            'elements.highlight-blocks.css',
+            'elements.summary-list.css',
+            'elements.blockquote.css',
+            'elements.separators.css',
+            'elements.siteorigin.css',
+            'elements.lists.css',
         );
 
         //exopite-seo-use_cdns
