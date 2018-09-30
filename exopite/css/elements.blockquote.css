@@ -80,3 +80,44 @@ blockquote.exopite-quote__big {
 blockquote.exopite-quote__big {
     margin: 4rem 0;
 }
+blockquote.exopite-quote__gradient {
+    padding: 16px 16px 16px 100px;
+    border-radius: 0;
+    box-shadow: none;
+    letter-spacing: 2px;
+    margin: 0;
+    line-height: 1.3;
+    font-size: 2.5rem;
+    text-align: center;
+    background: #fff;
+    color: #000;
+    margin: 10px 0;
+    padding: 0 30px;
+    text-shadow: .15em .15em .35em #888;
+}
+blockquote.exopite-quote__gradient cite {
+    font-size: .5em;
+    opacity: .7;
+    font-weight: normal;
+    letter-spacing: 0;
+    text-shadow: none;
+    text-align: center !important;
+    margin-top: 10px;
+}
+blockquote.exopite-quote__gradient::before {
+    content: none;
+}
+blockquote.exopite-quote__gradient::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: .5em;
+    right: 0;
+    background: radial-gradient(circle at 70% 3%, #aa048b, #bb9801);
+    mix-blend-mode: screen;
+}
+blockquote.exopite-quote__gradient cite::before {
+    content: '\2013';
+    padding-right: 7px;
+}
