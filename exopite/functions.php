@@ -483,11 +483,6 @@ require_once INC . '/extras.php';
 require_once INC . '/seo.php';
 
 /**
- * Search functions.
- */
-require_once INC . '/search-functions.php';
-
-/**
  * Sections custom post type.
  */
 require_once INC . '/cpt-sections.php';
