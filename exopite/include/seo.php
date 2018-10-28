@@ -139,7 +139,18 @@ if ( ! function_exists( 'exopite_breadcrumbs' ) ) {
 
                     $obj = get_post_type_object( get_post_type() );
                     $cpt_archive = get_post_type_archive_link( $obj->name );
-                    $breadcrumb .= ( empty( $cpt_archive ) ) ? $obj->labels->singular_name : '<a href="' . $obj->slug . '">' . $obj->labels->singular_name . '</a>';
+                    $slug = '';
+
+                    if ( isset( $obj->slug ) ) {
+                        $slug = $obj->slug;
+                    } elseif ( isset( $obj->rewrite['slug'] ) ) {
+                        $slug = $obj->rewrite['slug'];
+                    }
+
+                    $obj_link_start = ( ! empty( $slug ) ) ? '<a href="/' . $slug . '/">' : '';
+                    $obj_link_end = ( ! empty( $slug ) ) ? '</a>' : '';
+
+                    $breadcrumb .= ( empty( $cpt_archive ) ) ? $obj->labels->singular_name : $obj_link_start . $obj->labels->singular_name . $obj_link_end;
                     $breadcrumb .= $divider;
                     $breadcrumb .= get_the_title();
 
