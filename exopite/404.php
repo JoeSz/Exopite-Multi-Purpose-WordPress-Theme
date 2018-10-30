@@ -14,7 +14,7 @@ get_header();
 ?>
 	<div class="container">
 		<div class="row">
-			<div id="primary" class="<?php echo Exopite_Theme_Functions::get_body_classes( get_the_ID(), 'content-area' ) ?>">
+			<div id="primary" class="<?php echo Exopite_Theme_Functions::get_content_classes( get_the_ID(), 'content-area' ); ?>">
 				<main id="main" class="site-main"<?php WP_Schema::get_attribute( 'site-main' ); ?>>
 					<?php
 

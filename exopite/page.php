@@ -63,7 +63,7 @@ get_header();
             if ( $sidebar == 'left' ) get_sidebar();
 
             ?>
-			<div id="primary" class="<?php echo Exopite_Theme_Functions::get_content_classes( get_the_ID(), 'content-area' ) ?>">
+			<div id="primary" class="<?php echo Exopite_Theme_Functions::get_content_classes( get_the_ID(), 'content-area' ); ?>">
 				<main id="main" class="site-main" tabindex="-1"<?php WP_Schema::get_attribute( 'site-main' ); ?>>
 					<?php
 
