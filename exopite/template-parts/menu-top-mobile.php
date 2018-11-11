@@ -18,7 +18,7 @@ defined('ABSPATH') or die( 'You cannot access this page directly.' );
      * Display this column only, if mobile search is on and menu is on the right side
      */
     if ( $exopite_mobile_menu_search && $exopite_mobile_menu_position === 'right' ) : ?>
-    <div class="col-3 mobile-menu-left">
+    <div class="col-3 mobile-menu-flex mobile-menu-left">
         <?php
 
         do_action( 'expote-extend-mobile-menu', '' );
@@ -31,7 +31,7 @@ defined('ABSPATH') or die( 'You cannot access this page directly.' );
      * If menu on the left side
      */
     elseif ( $exopite_mobile_menu_position === 'left' ) : ?>
-    <div class="col-3 mobile-menu-left">
+    <div class="col-3 mobile-menu-flex mobile-menu-left">
         <?php echo $exopite_mobile_hamburger_icon; ?>
     </div>
     <?php endif;
@@ -53,7 +53,7 @@ defined('ABSPATH') or die( 'You cannot access this page directly.' );
      * Display this column only, if mobile search is on and menu is on the left side
      */
     if ( $exopite_mobile_menu_search && $exopite_mobile_menu_position === 'left' ) : ?>
-    <div class="col-3 mobile-menu-right">
+    <div class="col-3 mobile-menu-flex mobile-menu-right">
         <?php
 
         do_action( 'expote-extend-mobile-menu', '' );
@@ -66,7 +66,7 @@ defined('ABSPATH') or die( 'You cannot access this page directly.' );
      * If menu on the right side
      */
     elseif ( $exopite_mobile_menu_position === 'right' ) : ?>
-    <div class="col-3 mobile-menu-right">
+    <div class="col-3 mobile-menu-flex mobile-menu-right">
         <?php echo $exopite_mobile_hamburger_icon; ?>
     </div>
     <?php
