@@ -273,3 +273,7 @@
 #prev a:hover img {
     opacity: 1;
 }
+.mobile-menu-flex {
+    display: flex;
+    align-items: flex-end;
+}
