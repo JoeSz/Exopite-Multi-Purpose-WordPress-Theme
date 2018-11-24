@@ -47,4 +47,8 @@ if ( WPToolsSettings::getValue( 'security-enabled' ) ) {
         include_once SECURITY_BASEDIR . 'security-send-email-on-failed-login.php';
     }
 
+    if ( WPToolsSettings::getValue( 'security-disable-password-reset' ) && is_file( SECURITY_BASEDIR . 'disable-password-reset.php' ) ) {
+        include_once SECURITY_BASEDIR . 'disable-password-reset.php';
+    }
+
 }

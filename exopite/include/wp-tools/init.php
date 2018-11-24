@@ -65,6 +65,7 @@ function load_settings() {
     WPToolsSettings::setDefault( 'security-send-email-on-failed-login', true );
     WPToolsSettings::setDefault( 'security-email', '' );
     WPToolsSettings::setDefault( 'security-email-on-failed-login', '' );
+    WPToolsSettings::setDefault( 'security-disable-password-reset', false );
 
 }
 
