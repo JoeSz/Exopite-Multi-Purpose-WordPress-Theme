@@ -83,6 +83,7 @@ if ( ! function_exists( 'exopite_display_sidebars' ) ) {
 
         $active_sidebars = ExopiteSettings::getValue( $active_sidebars_variable_name );
 
+        if ( ! is_array( $active_sidebars ) ) return;
         $active_sidebars_count = count( $active_sidebars );
         if ( $active_sidebars_count === 0 ) return;
 
