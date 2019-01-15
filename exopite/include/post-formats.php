@@ -100,7 +100,9 @@ if ( ! function_exists( 'exopite_override_features_media_callback' ) ) {
  * @param int $post_id Post ID
  */
 function wpdocs_save_meta_box( $post_id ) {
-    // Save logic goes here. Don't forget to include nonce checks!
-    update_post_meta( $post_id, 'media_thumbnail', esc_url( $_POST['media_URL'] ) );
+	if ( isset( $_POST['media_URL'] ) ) {
+		// Save logic goes here. Don't forget to include nonce checks!
+		update_post_meta( $post_id, 'media_thumbnail', esc_url( $_POST['media_URL'] ) );
+	}
 }
 add_action( 'save_post', 'wpdocs_save_meta_box' );
