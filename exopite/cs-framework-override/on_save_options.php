@@ -159,6 +159,10 @@ function download_google_fonts( $link ) {
 
                 // replace string
 				$css_file_contents = str_replace( $font, get_template_directory_uri() . "/fonts/google_fonts/{$font_file}", $css_file_contents );
+                if ( strpos( $css_file_contents, 'font-display: swap;' ) === false ) {
+                    $css_file_contents = str_replace( '@font-face {','@font-face {' . PHP_EOL . '  font-display: swap;', $css_file_contents );
+                }
+
 			}
 			$fh = fopen ( $css_file, 'w+' );
 			fwrite( $fh, $css_file_contents );
