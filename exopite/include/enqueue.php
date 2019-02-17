@@ -65,7 +65,7 @@ if ( ! function_exists( 'load_exopite_styles' ) ) {
              *
              * Get Bootstrap 4
              */
-            wp_enqueue_style( 'bootstrap-413', 'http' . ($_SERVER['SERVER_PORT'] == 443 ? 's' : '' ) . '://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css', false, '4.1.3' );
+            wp_enqueue_style( 'bootstrap-431', 'http' . ($_SERVER['SERVER_PORT'] == 443 ? 's' : '' ) . '://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css', false, '4.3.1' );
 
             /* Get font awsome */
             wp_enqueue_style( 'font-awesome-470', 'http' . ($_SERVER['SERVER_PORT'] == 443 ? 's': '' ) . '://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css', false, '470' );
@@ -112,16 +112,10 @@ if ( ! function_exists( 'load_exopite_scripts' ) ) {
              *
              * Get Bootstrap 4
              */
-            wp_enqueue_script( 'jquery-popper-1143', 'http' . ($_SERVER['SERVER_PORT'] == 443 ? 's' : '' ) . '://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js', array( 'jquery' ), '1.14.3', true );
+            wp_enqueue_script( 'jquery-popper-1147', 'http' . ($_SERVER['SERVER_PORT'] == 443 ? 's' : '' ) . ':////cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js', array( 'jquery' ), '1.14.7', true );
 
-            wp_enqueue_script( 'bootstrap-413-js', 'http' . ($_SERVER['SERVER_PORT'] == 443 ? 's' : '' ) . "://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js", array( 'jquery', 'jquery-popper-1143' ), '4.1.3', true );
+            wp_enqueue_script( 'bootstrap-431-js', 'http' . ($_SERVER['SERVER_PORT'] == 443 ? 's' : '' ) . "://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js", array( 'jquery', 'jquery-popper-1147' ), '4.3.1', true );
 
-        }
-
-        // DEBUG
-        if ( is_page( 'contact' ) ) {
-            wp_register_script( 'google-maps', "//maps.googleapis.com/maps/api/js?key=AIzaSyCFiBMGSJ3xk73uYEpi5FfXhe13TQbsx34", array(), false, true );
-            wp_enqueue_script( 'google-maps' );
         }
 
 		/**
