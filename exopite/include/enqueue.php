@@ -112,7 +112,7 @@ if ( ! function_exists( 'load_exopite_scripts' ) ) {
              *
              * Get Bootstrap 4
              */
-            wp_enqueue_script( 'jquery-popper-1147', 'http' . ($_SERVER['SERVER_PORT'] == 443 ? 's' : '' ) . ':////cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js', array( 'jquery' ), '1.14.7', true );
+            wp_enqueue_script( 'jquery-popper-1147', 'http' . ($_SERVER['SERVER_PORT'] == 443 ? 's' : '' ) . '://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js', array( 'jquery' ), '1.14.7', true );
 
             wp_enqueue_script( 'bootstrap-431-js', 'http' . ($_SERVER['SERVER_PORT'] == 443 ? 's' : '' ) . "://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js", array( 'jquery', 'jquery-popper-1147' ), '4.3.1', true );
 
