@@ -86,7 +86,7 @@ function css_generate_font( $setting, $options ) {
  * -- or --
  * download_google_fonts( $link ) where $list is like http://fonts.googleapis.com/css?family=Shadows+Into+Light+Two|Ubuntu:400,500|Roboto:400,500
  */
-function download_google_fonts( $link ) {
+function download_google_fonts( $link, $options ) {
 
     $regex_url = "/(http|https|ftp|ftps)\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(\/\S*)?/";
 
@@ -141,6 +141,8 @@ function download_google_fonts( $link ) {
                 if( ! in_array( basename($file), $font_files, true ) ) unlink($file);
             }
 
+            $options['google-font-files'] = array();
+
             foreach ( $font_files as $font => $font_file ) {
 
                 // Do not download if exist
@@ -157,6 +159,8 @@ function download_google_fonts( $link ) {
                     fclose( $fp );
                 }
 
+                $options['google-font-files'][] = get_template_directory_uri() . "/fonts/google_fonts/{$font_file}";
+
                 // replace string
 				$css_file_contents = str_replace( $font, get_template_directory_uri() . "/fonts/google_fonts/{$font_file}", $css_file_contents );
                 if ( strpos( $css_file_contents, 'font-display: swap;' ) === false ) {
@@ -170,6 +174,8 @@ function download_google_fonts( $link ) {
 
         }
 	}
+
+    return $options;
 }
 
 if ( ! function_exists( 'on_save_options' ) ) {
@@ -242,13 +248,13 @@ if ( ! function_exists( 'on_save_options' ) ) {
 
         //exopite-seo-use_cdns
         if ( isset( $options['exopite-seo-use_cdns'] ) && ! $options['exopite-seo-use_cdns'] ) {
-            array_unshift( $required_files, 'font-awesome.4.7.0.min.css', 'bootstrap.4.1.3.min.css' );
+            array_unshift( $required_files, 'font-awesome.4.7.0.css', 'bootstrap.4.3.1.min.css' );
         }
 
         // Download Google Fonts
         if ( isset( $options['exopite-download-google-fonts'] ) && $options['exopite-download-google-fonts'] ) {
             $google_fonts = get_google_fonts();
-            download_google_fonts( 'http' . ($_SERVER['SERVER_PORT'] == 443 ? 's' : '') . '://fonts.googleapis.com/css?family=' . $google_fonts['regular'] );
+            $options = download_google_fonts( 'http' . ($_SERVER['SERVER_PORT'] == 443 ? 's' : '') . '://fonts.googleapis.com/css?family=' . $google_fonts['regular'], $options );
             array_unshift( $required_files, 'google-fonts.css' );
         }
 
@@ -387,8 +393,8 @@ if ( ! function_exists( 'on_save_options' ) ) {
         $js_files_no_minification = array();
 
         if ( isset( $options['exopite-seo-use_cdns'] ) && ! $options['exopite-seo-use_cdns'] ) {
-            $js_files_no_minification[] = 'popper.1.14.3.min.js';
-            $js_files_no_minification[] = 'bootstrap.4.1.3.min.js';
+            $js_files_no_minification[] = 'popper.1.14.7.min.js';
+            $js_files_no_minification[] = 'bootstrap.4.3.1.min.js';
         }
 
         if ( ! isset( $options['exopite-enable-xgallerify'] ) || $options['exopite-enable-xgallerify'] ) {
