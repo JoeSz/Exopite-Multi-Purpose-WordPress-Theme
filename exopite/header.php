@@ -158,6 +158,10 @@ wp_head();
 if ( ( isset( $exopite_settings['exopite-load-google-fonts-async'] ) && $exopite_settings['exopite-load-google-fonts-async'] ) && ! ( isset( $exopite_settings['exopite-download-google-fonts'] ) && $exopite_settings['exopite-download-google-fonts'] ) ) {
     get_template_part( 'template-parts/font-async' );
 } elseif ( isset( $exopite_settings['google-font-files'] ) ) {
+    /**
+     * Add preload to local Google font files.
+     * If not local, we can not change the css which load the fonts.
+     */
     //google-font-files
     foreach ( $exopite_settings['google-font-files'] as $key => $google_font_file ) {
         ?>
@@ -165,6 +169,15 @@ if ( ( isset( $exopite_settings['exopite-load-google-fonts-async'] ) && $exopite
         <?php
     }
 }
+
+/**
+ * Preload FontAwesome if local.
+ */
+if ( isset( $exopite_settings['exopite-seo-use_cdns'] ) && ! $exopite_settings['exopite-seo-use_cdns'] ) :
+    ?>
+    <link rel="preload" href="<?php echo get_template_directory_uri(); ?>/fonts/fontawesome-webfont.woff2" as="font">
+    <?php
+endif;
 
 // Theme Hook Alliance (include/plugins/tha-theme-hooks.php)
 wp_head_bottom();
