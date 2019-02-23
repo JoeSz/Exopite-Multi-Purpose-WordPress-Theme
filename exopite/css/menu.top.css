@@ -59,6 +59,10 @@
         border-bottom: [#exopite-desktop-menu-link-border-effect.width.value]px solid transparent;
         [#exopite-desktop-menu-font-uppercase-css]
     }
+    .desktop-menu > li.current-menu-item > div,
+    .desktop-menu > li.current-page-ancestor > div,
+    .desktop-menu > li.current-menu-ancestor > div,
+    .desktop-menu > li:hover > div,
     .desktop-menu > li.current-menu-item > a,
     .desktop-menu > li.current-page-ancestor > a,
     .desktop-menu > li.current-menu-ancestor > a,
@@ -170,6 +174,7 @@
     .desktop-menu > li.menu-item-has-children > div,
     .desktop-menu > li.menu-item-has-children > a {
         padding-right: 25px;
+        line-height: [#menu-font.height]px;
     }
     .desktop-menu > li.menu-item-has-children > div:after,
     .desktop-menu > li.menu-item-has-children > a:after,
@@ -221,6 +226,10 @@
         border-bottom: none;
     }
     /* Fixed menu top */
+    #site-navigation.fixed-top:not(.scrolled) .desktop-menu > li.current-menu-item > div,
+    #site-navigation.fixed-top:not(.scrolled) .desktop-menu > li.current-page-ancestor > div,
+    #site-navigation.fixed-top:not(.scrolled) .desktop-menu > li.current-menu-ancestor > div,
+    #site-navigation.fixed-top:not(.scrolled) .desktop-menu > li:hover > div,
     #site-navigation.fixed-top:not(.scrolled) .desktop-menu > li.current-menu-item > a,
     #site-navigation.fixed-top:not(.scrolled) .desktop-menu > li.current-page-ancestor > a,
     #site-navigation.fixed-top:not(.scrolled) .desktop-menu > li.current-menu-ancestor > a,

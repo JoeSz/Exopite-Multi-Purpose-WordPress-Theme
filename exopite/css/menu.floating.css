@@ -10,6 +10,7 @@
     #site-navigation.floating-menu:hover {
         opacity: 1;
     }
+    .floating-menu #desktop-menu > li > div,
     .floating-menu #desktop-menu > li > a {
         background: [#exopite-floating-menu-color.background.value];
         color: [#exopite-floating-menu-color.link.value];
@@ -17,6 +18,7 @@
         padding-top: [#exopite-floating-menu-padding-top]px;
         padding-bottom: [#exopite-floating-menu-padding-bottom]px;
     }
+    .floating-menu #desktop-menu > li:hover > div,
     .floating-menu #desktop-menu > li:hover > a {
         background: [#exopite-floating-menu-color.background-active-hover.value];
         color: [#exopite-floating-menu-color.link-active-hover.value];
