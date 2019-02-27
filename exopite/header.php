@@ -165,7 +165,7 @@ if ( ( isset( $exopite_settings['exopite-load-google-fonts-async'] ) && $exopite
     //google-font-files
     foreach ( $exopite_settings['google-font-files'] as $key => $google_font_file ) {
         ?>
-        <link rel="preload" href="<?php echo $google_font_file; ?>" as="font">
+        <link rel="preload" crossorigin="anonymous" href="<?php echo $google_font_file; ?>" as="font">
         <?php
     }
 }
@@ -175,7 +175,7 @@ if ( ( isset( $exopite_settings['exopite-load-google-fonts-async'] ) && $exopite
  */
 if ( isset( $exopite_settings['exopite-seo-use_cdns'] ) && ! $exopite_settings['exopite-seo-use_cdns'] ) :
     ?>
-    <link rel="preload" href="<?php echo get_template_directory_uri(); ?>/fonts/fontawesome-webfont.woff2?v=4.7.0" as="font">
+    <link rel="preload" crossorigin="anonymous" href="<?php echo get_template_directory_uri(); ?>/fonts/fontawesome-webfont.woff2?v=4.7.0" as="font">
     <?php
 endif;
 
