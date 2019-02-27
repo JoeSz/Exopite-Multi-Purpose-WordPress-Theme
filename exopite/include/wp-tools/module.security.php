@@ -22,9 +22,8 @@ if ( WPToolsSettings::getValue( 'security-enabled' ) ) {
         include_once SECURITY_BASEDIR . 'xmlprc.php';
     }
 
-    if ( WPToolsSettings::getValue( 'security-disable-rest-api' ) && is_file( SECURITY_BASEDIR . 'deactivate-rest-api.php' ) && is_file( SECURITY_BASEDIR . 'disable-json-api.php' ) ) {
+    if ( WPToolsSettings::getValue( 'security-disable-rest-api' ) && is_file( SECURITY_BASEDIR . 'deactivate-rest-api.php' ) ) {
         include_once SECURITY_BASEDIR . 'deactivate-rest-api.php';
-        //include_once SECURITY_BASEDIR . 'disable-json-api.php';
     }
 
     if ( WPToolsSettings::getValue( 'security-rest-api-only-authenticated' ) && is_file( SECURITY_BASEDIR . 'disable-json-api.php' ) ) {
