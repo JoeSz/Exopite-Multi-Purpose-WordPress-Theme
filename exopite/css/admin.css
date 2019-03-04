@@ -222,12 +222,15 @@ body.wp-admin select {
     border: 1px solid rgba(222,242,251,.7);
     line-height: 21px !important;
 }
+.block-editor-page #exopite_custom_post_options .hndle.ui-sortable-handle,
 .block-editor-page #exopite_custom_page_options .hndle.ui-sortable-handle {
     color: #fff;
 }
+.block-editor-page #exopite_custom_post_options .cs-metabox-framework,
 .block-editor-page #exopite_custom_page_options .cs-metabox-framework {
     margin: 0;
 }
+.block-editor-page #exopite_custom_post_options .inside,
 .block-editor-page #exopite_custom_page_options .inside {
     margin-top: -1px;
     padding: 0;
@@ -235,6 +238,7 @@ body.wp-admin select {
     border-bottom: 1px solid #eee;
     border-right: 1px solid #eee;
 }
+.block-editor-page #exopite_custom_post_options,
 .block-editor-page #exopite_custom_page_options {
     box-shadow: none;
 }
