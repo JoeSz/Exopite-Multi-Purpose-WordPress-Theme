@@ -1,5 +1,8 @@
 # Changelog
 
+= 20190524 - May 24 2019
+* **UPDATE**: Allowed mime types
+
 = 20180919 - Sep 19 2018
 * **ADDED**: Option to change content - sidebar ratio
 
