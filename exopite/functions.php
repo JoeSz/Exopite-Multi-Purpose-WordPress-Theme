@@ -342,15 +342,18 @@ function exopite_setup() {
 }
 endif;
 
-// add to your theme's functions.php file
-add_filter('upload_mimes', 'add_custom_upload_mimes');
-function add_custom_upload_mimes($existing_mimes) {
-    $existing_mimes['otf'] = 'application/x-font-otf';
-    $existing_mimes['woff'] = 'application/x-font-woff';
-    $existing_mimes['ttf'] = 'application/x-font-ttf';
-    $existing_mimes['svg'] = 'image/svg+xml';
-    $existing_mimes['eot'] = 'application/vnd.ms-fontobject';
-    return $existing_mimes;
+add_filter( 'wp_check_filetype_and_ext', 'add_custom_upload_mimes', 10, 4 );
+function add_custom_upload_mimes( $data, $file, $filename, $mimes ) {
+    $allowed_ext = array( 'svg', 'woff', 'woff2', 'ttf' );
+    $ext = array_pop( explode( '.', $filename ) );
+    if ( ! in_array( $ext, $allowed_ext ) ) {
+        return $data;
+    }
+    $wp_filetype = wp_check_filetype( $filename, $mimes );
+    $ext = $wp_filetype['ext'];
+    $type = $wp_filetype['type'];
+    $proper_filename = $data['proper_filename'];
+    return compact( 'ext', 'type', 'proper_filename' );
 }
 
 // Put post thumbnails into rss feed
