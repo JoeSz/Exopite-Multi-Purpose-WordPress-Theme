@@ -133,7 +133,7 @@
     bottom:0;
     width:50%;
     z-index:100;
-    border-bottom:50px solid #fff;
+    border-bottom:5vh solid #fff;
     -moz-transform:rotate(0.000001deg);
     -webkit-transform:rotate(0.000001deg);
     -o-transform:rotate(0.000001deg);
@@ -143,14 +143,14 @@
 
 .divider-style-big-triangle:before{
     right:50%;
-    border-right:1000px solid transparent;
-    border-left:1000px solid;
+    border-right: 50vw solid transparent;
+    border-left: 50vw solid;
 }
 
 .divider-style-big-triangle:after{
     left:50%;
-    border-left:1000px solid transparent;
-    border-right:1000px solid;
+    border-left: 50vw solid transparent;
+    border-right: 50vw solid;
 }
 /*------------------------------------------------*/
 /*----[Left Diagonal Lines - By Geno Quiroz]------*/
@@ -209,10 +209,10 @@
 .divider-style-simple-triangle-with-border::after {
     position: absolute;
     content: '';
-    left: -25%;
+    left: -25vw;
     z-index: 1;
-    width: 150%;
-    height: 25%;
+    width: 150vw;
+    height: 25vh;
 }
 .divider-style-simple-triangle-with-border.top-left::before,
 .divider-style-simple-triangle-with-border.bottom-right::after {
@@ -236,13 +236,13 @@
 }
 .divider-style-simple-triangle-with-border.bottom-right::after {
     /* bottom right */
-    bottom: -25%;
+    bottom: -25vh;
     background-color: inherit;
     border-top: 2px solid #5e5e5e;
 }
 .divider-style-simple-triangle-with-border.top-right::before {
     /* top right */
-    top: -25%;
+    top: -25vh;
     background-color: inherit;
     border-bottom: 2px solid #5e5e5e;
 }
