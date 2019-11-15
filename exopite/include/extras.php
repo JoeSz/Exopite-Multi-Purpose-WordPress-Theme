@@ -318,7 +318,7 @@ if ( ! function_exists( 'exopite_post_nav' ) ) {
                         ?>
 					</div>
 				</div>
-			</nav>
+			</div>
 		<?php endif;
 	}
 }
