@@ -19,6 +19,8 @@
         padding-bottom: [#exopite-floating-menu-padding-bottom]px;
     }
     .floating-menu #desktop-menu > li:hover > div,
+    .floating-menu #desktop-menu > li.current-menu-parent > a,
+    .floating-menu #desktop-menu > li.current-menu-ancestor > a,
     .floating-menu #desktop-menu > li:hover > a {
         background: [#exopite-floating-menu-color.background-active-hover.value];
         color: [#exopite-floating-menu-color.link-active-hover.value];
