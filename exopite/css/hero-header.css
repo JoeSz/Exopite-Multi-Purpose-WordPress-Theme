@@ -55,9 +55,9 @@
     .hero-header video {
         height: 100%;
         height: 75vh;
-        min-height: 75vh;
-        height: [#exopite-hero-header-height]vh;
-        min-height: [#exopite-hero-header-min-height]px;
+        /* min-height: 75vh; */
+        height: [#exopite-hero-header-height]vh !important;
+        /* min-height: [#exopite-hero-header-min-height]px; */
         left: 0;
         -o-object-fit: cover;
         object-fit: cover;
@@ -116,7 +116,7 @@
     -moz-transform: translateX(-50%);
     transform: translateX(-50%);*/
     margin: 0 auto;
-    position: relative;
+    /* position: relative; */
 }
 .site-branding.middle {
     top: 50%;
