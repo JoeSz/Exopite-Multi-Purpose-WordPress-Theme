@@ -81,7 +81,7 @@ $exopite_meta_section_header = array(
     array(
       'id'      => 'exopite-meta-enable-preheader-sidebar',
       'type'    => 'switcher',
-      'title'   => esc_attr__( 'Enable Preheader Sidebar', 'exopite' ),
+      'title'   => esc_attr__( 'Enable Preheader', 'exopite' ),
       'default' => true,
       'dependency'  => array( 'exopite-meta-enable-header', '==', 'true' ),
     ),
