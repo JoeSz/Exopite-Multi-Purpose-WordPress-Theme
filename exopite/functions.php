@@ -155,6 +155,27 @@ function exopite_cs_framework_save_options( $options ) {
 
 }
 
+add_action('after_switch_theme', 'exopite_on_activation');
+if ( ! function_exists( 'exopite_on_activation' ) ) :
+function exopite_on_activation () {
+    /*
+    * Add Custom Post Type Support After Activating the Page Builder Plugin
+    *
+    * @link https://siteorigin.com/thread/add-custom-post-type-support-after-activating-the-page-builder-plugin/
+    */
+    /*
+    * This will run IF pagebuilde already activated, need to check hooks and hook in siteorigin activation
+    */
+    if ( class_exists( 'SiteOrigin_Panels_Settings' ) ) {
+        $post_types = SiteOrigin_Panels_Settings::single()->get( 'post-types' );
+        if ( ! in_array( 'exopite-sections', $post_types ) ) {
+            $post_types[] = 'exopite-sections';
+            SiteOrigin_Panels_Settings::single()->set( 'post-types', $post_types );
+        }
+    }
+}
+endif;
+
 add_action( 'after_setup_theme', 'exopite_setup' );
 if ( ! function_exists( 'exopite_setup' ) ) :
 /**
@@ -284,20 +305,6 @@ function exopite_setup() {
 
     // Remove oEmbed discovery links.
     remove_action( 'wp_head', 'wp_oembed_add_discovery_links' );
-
-    /*
-     * Add Custom Post Type Support After Activating the Page Builder Plugin
-     *
-     * @link https://siteorigin.com/thread/add-custom-post-type-support-after-activating-the-page-builder-plugin/
-     */
-    /*
-     * This will run IF pagebuilde already activated, need to check hooks and hook in siteorigin activation
-     */
-    if ( class_exists( 'SiteOrigin_Panels_Settings' ) ) {
-        $post_types = SiteOrigin_Panels_Settings::single()->get( 'post-types' );
-        $post_types[] = 'exopite-sections';
-        SiteOrigin_Panels_Settings::single()->set( 'post-types', $post_types );
-    }
 
 	/**
 	 * Allow HTML in author bio section
