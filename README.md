@@ -1,7 +1,7 @@
 # Exopite - High Performance Multi-purpose WordPress Theme
 
 - Author: Joe Szalai
-- Version: 20190524
+- Version: 20200428
 - Theme URL: https://www.joeszalai.org/exopite/
 - Demo URL: https://www.joeszalai.org/exopite/
 - Theme GitHub URL: https://github.com/JoeSz/Exopite-Multi-Purpose-WordPress-Theme
@@ -197,9 +197,9 @@ Based on the activated elements ad activated plugins. (This may take a few secon
 
 ## Requirements:
 - WordPress at least: 4.5.3
-- Tested up to: 4.5.3 - 4.8.0
+- Tested up to: 4.5.3 - 5.4
 - Stable tag: 20170613
-- PHP: 5.3+/7
+- PHP: 7
 - Modern browser (IE10+, Edge, FF28+, Chrome 39+, safari 9+, Opera 17+) <br>
 Exopite theme uses flex, may not working 100% on IE9 or before.
 

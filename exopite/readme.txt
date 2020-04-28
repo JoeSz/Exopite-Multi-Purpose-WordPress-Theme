@@ -1,7 +1,7 @@
 === Exopite - High Performance Multi-purpose WordPress Theme ===
 
 - Author: Joe Szalai
-- Version: 20190524
+- Version: 20200428
 - Theme URL: https://www.joeszalai.org/exopite/
 - Theme GitHub URL: https://github.com/JoeSz/Exopite-Multi-Purpose-WordPress-Theme
 - Author URL: https://www.joeszalai.org/
@@ -163,7 +163,7 @@ COMPATIBILITY:
 
 Req:
 - WP 4.5
-- PHP 5.3+/7
+- PHP 7
 - modern browser (IE10+, Edge, FF28+, Chrome 39+, safari 9+, Opera 17+)
   Exopite theme uses flex, may not working 100% on IE9 or before.
 
@@ -200,6 +200,9 @@ Req:
 == Frequently Asked Questions ==
 
 == Changelog ==
+
+= 20200428 - Apr 28 2020
+* FIXED: exopite-sections added infinite times
 
 = 20190524 - May 24 2019
 * UPDATED: Allowed mime types

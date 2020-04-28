@@ -1,5 +1,8 @@
 # Changelog
 
+= 20200428 - Apr 28 2020
+* **FIXED**: exopite-sections added infinite times
+
 = 20190524 - May 24 2019
 * **UPDATE**: Allowed mime types
 
