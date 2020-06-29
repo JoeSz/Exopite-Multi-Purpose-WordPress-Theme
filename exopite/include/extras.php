@@ -127,7 +127,7 @@ if ( ! function_exists( 'exopite_body_classes' ) ) {
          *
          * @link https://www.smashingmagazine.com/2009/08/10-useful-wordpress-hook-hacks/
          */
-        if ( ! is_admin() ) {
+        if ( ! is_admin() && isset( $_SERVER['HTTP_USER_AGENT'] ) ) {
             if( $is_lynx ) $classes[] = 'lynx';
             elseif( $is_gecko ) $classes[] = 'gecko';
             elseif( $is_opera ) $classes[] = 'opera';
