@@ -110,7 +110,7 @@ $exopite_desktop_logo = ( isset( $exopite_settings['exopite-desktop-logo'] ) ) ?
     wp_get_attachment_image_src( $exopite_settings['exopite-desktop-logo'], 'full' )[0] :
     '';
 
-$exopite_mobile_logo = ( isset( $exopite_settings['exopite-mobile-menu-logo'] ) ) ?
+$exopite_mobile_logo = ( isset( $exopite_settings['exopite-mobile-menu-logo'] ) && is_array( $exopite_settings['exopite-mobile-menu-logo'] ) ) ?
     wp_get_attachment_image_src( $exopite_settings['exopite-mobile-menu-logo'], 'full' )[0] :
     '';
 
