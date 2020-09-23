@@ -8,6 +8,7 @@ defined('ABSPATH') or die( 'You cannot access this page directly.' );
 /**
  * Register meta box(es).
  */
+add_action( 'add_meta_boxes', 'wpdocs_register_meta_boxes' );
 function wpdocs_register_meta_boxes() {
 	$post_format = get_post_format();
 	switch ( $post_format ) {
@@ -20,7 +21,6 @@ function wpdocs_register_meta_boxes() {
 			break;
 	}
 }
-add_action( 'add_meta_boxes', 'wpdocs_register_meta_boxes' );
 
 /**
  * Meta box display callback.
@@ -99,10 +99,15 @@ if ( ! function_exists( 'exopite_override_features_media_callback' ) ) {
  *
  * @param int $post_id Post ID
  */
+add_action( 'save_post', 'wpdocs_save_meta_box' );
 function wpdocs_save_meta_box( $post_id ) {
+
+	if ( ! is_user_logged_in() ) {
+		return;
+	}
+
 	if ( isset( $_POST['media_URL'] ) ) {
-		// Save logic goes here. Don't forget to include nonce checks!
 		update_post_meta( $post_id, 'media_thumbnail', esc_url( $_POST['media_URL'] ) );
 	}
+
 }
-add_action( 'save_post', 'wpdocs_save_meta_box' );
