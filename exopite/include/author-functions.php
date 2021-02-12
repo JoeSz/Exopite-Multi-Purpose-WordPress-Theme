@@ -104,7 +104,7 @@ if ( ! function_exists( 'exopite_save_extra_profile_fields' ) ) {
         if ( ! current_user_can( 'edit_user', $user_id ) )
             return false;
 
-        update_usermeta( $user_id, 'skills', esc_attr( $_POST['skills'] ) );
+            update_user_meta( $user_id, 'skills', esc_attr( $_POST['skills'] ) );
 
         /*
          * update_usermeta() and update_user_meta() behave differently
