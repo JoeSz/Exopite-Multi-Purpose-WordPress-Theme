@@ -160,6 +160,11 @@ if ( isset( $exopite_settings['exopite-sidebar-preheader-count'] ) && $exopite_s
 
 if ( isset( $exopite_settings['exopite-menu-alignment'] ) ) {
     if ( $exopite_settings['exopite-menu-alignment'] == 'top' ) {
+        /**
+         * ToDos:
+         * - Add option to include preheader to navigation
+         */
+        // add_action( 'exopite_hooks_navigation_top', 'display_preheader_sidebar', 10 );
         add_action( 'wp_header_before', 'display_preheader_sidebar', 10 );
     } else {
         add_action( 'wp_content_before', 'display_preheader_sidebar', 10 );

@@ -218,6 +218,7 @@ endif;
 
         // Remove preheader hooks, if preheader isn't displayed
         if ( ! $exopite_display_preheader_sidebar ) :
+            remove_action( 'exopite_hooks_navigation_top', 'display_preheader_sidebar', 10 );
             remove_action( 'wp_header_before', 'display_preheader_sidebar', 10 );
             remove_action( 'wp_content_before', 'display_preheader_sidebar', 10 );
         endif;
