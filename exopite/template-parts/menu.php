@@ -194,6 +194,8 @@ if ( $exopite_logo_center_pos ) add_filter( 'exopite_center_nav_menu_item', 'exo
     <nav id="site-navigation" class="row-menu main-navigation normal-menu<?php if ( $exopite_enable_fixed_header && ! $exopite_menu_left ) echo ' fixed-top'; ?>"<?php WP_Schema::get_attribute( 'main-navigation' ); ?>>
         <?php
 
+        exopite_hooks_navigation_top();
+
         // Display contant above menu from page meta
         if ( isset( $exopite_meta_data['exopite-meta-above-menu-content'] ) &&
              ! empty( $exopite_meta_data['exopite-meta-above-menu-content'] ) ) :
@@ -317,6 +319,11 @@ if ( $exopite_logo_center_pos ) add_filter( 'exopite_center_nav_menu_item', 'exo
                 ?>
             </div>
         </div>
+        <?php
+
+        exopite_hooks_navigation_bottom();
+
+        ?>
     </nav><!-- #site-navigation -->
     <?php
 

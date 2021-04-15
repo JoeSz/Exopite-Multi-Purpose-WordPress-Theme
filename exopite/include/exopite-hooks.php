@@ -33,6 +33,14 @@ defined('ABSPATH') or die( 'You cannot access this page directly.' );
  *      before the excerpt, content or nothing
  */
 
+function exopite_hooks_navigation_top() {
+    do_action( 'exopite_hooks_navigation_top' );
+}
+
+function exopite_hooks_navigation_bottom() {
+    do_action( 'exopite_hooks_navigation_bottom' );
+}
+
 function exopite_hooks_before_hero_header() {
     do_action( 'exopite_hooks_before_hero_header' );
 }
